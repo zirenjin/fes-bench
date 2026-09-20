@@ -1664,5 +1664,6 @@
       0.0
     ]
   },
-  "truth_level": "PBE-D3(BJ) direct upsampling"
+  "truth_level": "PBE-D3(BJ) direct upsampling",
+  "pes_finetunable": true
 }

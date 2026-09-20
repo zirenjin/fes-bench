@@ -706,5 +706,6 @@
       0.0001
     ]
   },
-  "truth_level": "PBE thermodynamic integration"
+  "truth_level": "PBE thermodynamic integration",
+  "pes_finetunable": false
 }
