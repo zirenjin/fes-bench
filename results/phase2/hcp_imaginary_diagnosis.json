@@ -1,0 +1,15 @@
+{
+  "system": "hf",
+  "phase": "hcp",
+  "volume_scale": 1.0,
+  "mesh": [12, 12, 12],
+  "supercell_matrix": [2, 2, 2],
+  "gamma_radius_fraction": 0.05,
+  "negative_threshold_THz": -0.05,
+  "asr_applied": false,
+  "fc_symmetry_applied": false,
+  "heads": [
+    {"head": "Domains_SSE_PBE", "minimum_frequency_THz": -2.495846251906003, "negative_mode_count": 162, "n_modes": 6, "n_qpoints": 133, "negative_qpoint_count": 101, "negative_modes_within_gamma_radius": 0, "gamma_acoustic_negative_count": 0, "negative_modes_are_gamma_local": false},
+    {"head": "Domains_Alloy", "minimum_frequency_THz": 0.0007779125852514744, "negative_mode_count": 0, "n_modes": 6, "n_qpoints": 133, "negative_qpoint_count": 0, "negative_modes_within_gamma_radius": 0, "gamma_acoustic_negative_count": 0, "negative_modes_are_gamma_local": true}
+  ]
+}

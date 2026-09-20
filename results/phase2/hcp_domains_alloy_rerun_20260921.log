@@ -1,0 +1,23 @@
+Host: thu-GenSi (dedicated `/GenSIvePFS/users/zirenj/fes-bench` run directory)
+
+Single-point sanity on `data/hf/hcp/structure.extxyz` with
+`DPA-3.1-3M.pt`:
+
+| head | energy (eV/atom) | max |F| (eV/Å) | RMS |F| (eV/Å) |
+|---|---:|---:|---:|
+| Domains_SSE_PBE | 2.403171181678772 | 2.1104532033078272e-07 | 1.5935868120874134e-07 |
+| Domains_Alloy | -7.190026760101318 | 7.359754233826621e-08 | 4.902626595676234e-08 |
+
+Fresh QH rerun (isolated directory
+`runs/phase2_hcp_qh_rerun_20260921`, hcp only) completed with
+`Domains_Alloy`: 1,252 temperatures, volume scales `[0.98, 1.0, 1.02]`,
+2×2×2 supercell, and 12×12×12 mesh.  The minimum frequencies by volume were
+`0.23008441264082793`, `0.23686243167366697`, and `0.24169752650126974 THz`.
+
+The hcp `F_QH-reference` residual over the 1,252 shared temperatures ranged
+from `-7.1854488667211305` to `-7.085338811618214 eV/atom`; maximum absolute
+first difference was `2.082430503476118e-4 eV/atom` per grid step, maximum
+absolute second difference `1.0023967746963791e-4`, with 73 tiny downward
+steps.  This reproduces a smooth temperature deviation and supports the hcp
+gate; it does not claim removal of the documented near-constant model/reference
+offset.

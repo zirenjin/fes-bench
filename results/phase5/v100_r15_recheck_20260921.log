@@ -1,0 +1,17 @@
+Host: bohrium-v100
+Directory: /share/jzr/fes-bench/runs/phase5_tests_20260919_r15/fes-bench
+
+Command: PYTHONPATH=$PWD python -m pytest -q
+..............                                                           [100%]
+14 passed in 8.91s
+
+Command: PYTHONPATH=$PWD python -m fes_bench.synthetic.e3_recovery --config configs/synthetic/e3_recovery.yaml
+results/phase5/e3_recovery.json
+
+Correct schema check:
+qh_residual_basis=continuous_tlog_polynomial
+repr_only_basis=mlp
+qh_residual_mae=0.0008106117014020414
+repr_mae=0.000988209663207757
+ratio=0.8202831155999553
+acceptance_MAE_within_factor_two=true

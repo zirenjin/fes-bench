@@ -1,0 +1,46 @@
+Host: bohrium-v100
+Directory: /share/jzr/fes-bench/runs/phase3_noise_20260921_r18/fes-bench
+
+After adding `delta_G_MAE_at_crossing_eV_per_atom` and using this local value
+for `Tc_err_from_dG_K`, focused evaluator tests returned:
+.....                                                                    [100%]
+5 passed in 1.44s
+The full suite after the change returned:
+..............                                                           [100%]
+14 passed in 4.71s
+
+The reference predictor was rerun after the change:
+- temp_extrap: G_MAE=0, pair curves=4
+- phase_lopo: G_MAE=0, pair curves=8
+- system_loso: G_MAE=0, pair curves=4
+
+Noise predictor: reference_noise:0.005; seeds=11,23,37,51,67.
+
+Metrics:
+- temp_extrap: G_MAE=0.002726271677603477 eV/atom; 4 pair curves;
+  false=0, missed=0; direct/slope Tc-error ratio range 0.97586975--1.82429145.
+- phase_lopo: G_MAE=0.0027356408589656604 eV/atom; 8 pair curves;
+  false=0, missed=0; direct/slope Tc-error ratio range 0.97586975--1.82429145.
+- system_loso: G_MAE=0.0027356408589656604 eV/atom; 4 pair curves;
+  false=0, missed=0; direct/slope Tc-error ratio range 0.97586975--1.82429145.
+
+Crossing-local slope conversion details (the reported `Tc_err_from_dG_K` is
+crossing-local ΔG MAE divided by the local reference slope):
+
+| pair | crossing slope (eV/atom/K) | direct Tc error (K) | converted error (K) | direct/converted |
+|---|---:|---:|---:|---:|
+| hf:bcc_minus_hcp | 4.999999999999449e-05 | -26.41309132920901 | 14.478547975251207 | 1.8242914534218502 |
+| sio2:cristobalite_beta_minus_quartz_beta | 7.551407561479095e-06 | 546.2945420994931 | 559.8027217758998 | 0.9758697499119801 |
+| sio2:quartz_beta_minus_tridymite_p63mmc | 7.448345272997869e-06 | 26.196232306038382 | 26.258228559211222 | 0.9976389780813645 |
+| sio2:cristobalite_beta_minus_tridymite_p63mmc | — | — | — | no reference crossing |
+
+Plots (using the existing dpti environment, Matplotlib 3.10.9):
+- results/reference_noise_0.005/plots/temp_extrap.{png,pdf}
+- results/reference_noise_0.005/plots/phase_lopo.{png,pdf}
+- results/reference_noise_0.005/plots/system_loso.{png,pdf}
+
+Interpretation: the linear-fixture unit test satisfies the requested 20%
+slope-conversion check. On the production-like quantized Hf/SiO2 tables, the
+Hf plateau and table quantization produce a 1.824 ratio in the worst pair;
+this is recorded as a domain-level limitation, not hidden by changing the
+metric or noise protocol. No false or missed crossings occurred.
