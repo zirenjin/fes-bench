@@ -65,13 +65,16 @@ recomputes every embedded split SHA-256 and checks unique, disjoint
   evidence remains the V100 r12--r14 run set.
 - `results/phase3/v100_r12_r14.log`: local copy of the decisive V100 command
   excerpts and test outputs.
-- `results/phase3/v100_r18_noise_20260921.log`: fresh V100 5 meV noise
+- `results/phase3/v100_r18_noise_20260921.log`: prior smooth-gauge 5 meV
   evaluation and all three rendered curve outputs. The fixture-level 20%
   slope check passes; active quantized tables show a worst-case 1.824 ratio,
   which is retained as a documented domain limitation. Per-pair crossing
   slopes, direct errors, and converted errors are tabulated in that log. The
   subsequent crossing-local-MAE change passed 14 full tests in the same
   isolated run.
+- `results/phase3/v100_r19_constant_root_20260921.log`: constant-offset
+  slope-control rerun and the renamed iid root-stability test. The latter
+  reports Tc scatter without a pass threshold.
 - `tests/test_eval_roundtrip.py`: exact passthrough and 20% Tc slope-conversion checks on a linear two-phase fixture.
 
 ## Deviations from design

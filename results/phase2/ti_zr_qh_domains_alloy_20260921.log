@@ -1,0 +1,28 @@
+Isolated Ti/Zr QH diagnostic run on thu-GenSi.
+
+Command (one process per system):
+  /root/miniconda3/envs/mat-agent/bin/python -m fes_bench.qh.run --config /tmp/{ti,zr}_qh_domains_alloy.json
+
+Remote output root:
+  /GenSIvePFS/users/zirenj/fes-bench/runs/phase2_tizr_qh_20260921/results
+
+Ti completed with 693 temperatures per phase.  Domains_Alloy minimum
+frequencies by volume were hcp [0.44850, 0.45482, 0.45653] THz and bcc
+[-4.23604, -4.34294, -4.45902] THz.  Therefore Ti hcp is
+qh_reliable=true and Ti bcc is qh_reliable=false.  The bcc imaginary modes
+are expected and were not suppressed.
+
+The run uses the existing diagnostic protocol (2x2x2 supercell, 12x12x12
+mesh, three volume scales).  It is explicitly not claimed as the final
+five-volume / >=10-A / >=15-per-A production protocol; that deviation is
+recorded in each phonon_report.json.
+
+Zr completed with 910 temperatures per phase.  Domains_Alloy minimum
+frequencies by volume were hcp [0.28008, 0.28511, 0.28652] THz and bcc
+[-1.95664, -2.15484, -2.35690] THz.  Therefore Zr hcp is
+qh_reliable=true and Zr bcc is qh_reliable=false.  The bcc imaginary modes
+are expected and were not suppressed.
+
+Both systems wrote `fqh.csv` and `qh_summary.json` under the isolated remote
+run root; the CSVs were copied into the canonical local phase directories and
+the per-phase reliability reports preserve the remote provenance.

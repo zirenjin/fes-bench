@@ -4,21 +4,24 @@
   "scope": "reproducible infrastructure; no production training",
   "phase1": {
     "status": "partial_with_explicit_holds",
-    "active_domain": ["hf", "sio2:quartz_beta", "sio2:cristobalite_beta", "sio2:tridymite_p63mmc"],
+    "active_domain": ["hf", "sio2:quartz_beta", "sio2:cristobalite_beta", "sio2:tridymite_p63mmc", "ti:hcp", "ti:bcc", "zr:hcp", "zr:bcc"],
     "evidence": [
       "results/phase1_delivery.md",
       "results/phase1_thu_audit_20260920.log",
       "data/sio2/reference_crossings.json",
-      "data/hf/reference_crossings.json"
+      "data/hf/reference_crossings.json",
+      "data/ti/representative_audit.md",
+      "data/zr/representative_audit.md",
+      "configs/representatives/ti_domains_alloy.yaml",
+      "configs/representatives/zr_domains_alloy.yaml"
     ],
     "holds": [
-      "Ti/Zr representative structures are unavailable",
       "CaSiO3 absolute per-phase G(T,P) source tables are unavailable",
       "sio2:tridymite_c2221 has no accepted DaRUS representative and no COD fallback"
     ]
   },
   "phase2": {
-    "status": "hcp_unlocked_bcc_held",
+    "status": "hcp_unlocked_bcc_held; Ti/Zr QH diagnostic running",
     "evidence": [
       "results/phase2_delivery.md",
       "results/phase2_materialization_20260921_v100_r17.log",
@@ -29,7 +32,18 @@
       "data/hf/bcc/fqh.csv",
       "data/hf/hcp/phonon_report.json",
       "data/hf/bcc/phonon_report.json",
-      "results/phase1/ti_zr_darus3582_structure_audit.md"
+      "results/phase1/ti_zr_darus3582_structure_audit.md",
+      "configs/qh/ti_qh_domains_alloy.yaml",
+      "configs/qh/zr_qh_domains_alloy.yaml",
+      "results/phase2/ti_zr_qh_domains_alloy_20260921.log",
+      "data/ti/hcp/fqh.csv",
+      "data/ti/bcc/fqh.csv",
+      "data/zr/hcp/fqh.csv",
+      "data/zr/bcc/fqh.csv",
+      "data/ti/hcp/phonon_report.json",
+      "data/ti/bcc/phonon_report.json",
+      "data/zr/hcp/phonon_report.json",
+      "data/zr/bcc/phonon_report.json"
     ],
     "v100_regression": "16 passed in 4.79s",
     "production_qh_allowed": "hcp_only",
@@ -41,13 +55,14 @@
       "results/phase3_delivery.md",
       "results/phase3/v100_r12_r14.log",
       "results/phase3/v100_r18_noise_20260921.log",
+      "results/phase3/v100_r19_constant_root_20260921.log",
       "results/phase3/split_integrity.json",
       "splits/temp_extrap.json",
       "splits/phase_lopo.json",
       "splits/system_loso.json"
     ],
     "reference_passthrough": "exact zero error for all three splits",
-    "noise_regression": "5 meV run; no false or missed crossings",
+    "noise_regression": "constant-offset slope control exact; iid root-stability run reports Tc scatter without a threshold",
     "limitation": "quantized Hf/SiO2 tables produce worst direct/slope Tc ratio 1.824; linear fixture satisfies 20% check"
   },
   "phase4": {
@@ -90,5 +105,5 @@
     "holds": 3,
     "v100_regression": "1 focused pass; 15 full passes"
   },
-  "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e"
+  "git_commit": "134d1485bdcd7a1ee44af2c5ed29713b4be7c78d"
 }

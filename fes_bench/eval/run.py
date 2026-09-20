@@ -17,7 +17,11 @@ from fes_bench.data.load import ReferencePoint, load
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--predictor", required=True, help="reference or reference_noise:<eV>")
+    parser.add_argument(
+        "--predictor",
+        required=True,
+        help="reference, constant_offset:<eV>, or reference_iid_noise:<eV>",
+    )
     parser.add_argument("--split", required=True, help="frozen split JSON")
     parser.add_argument("--data-root", required=True)
     parser.add_argument("--seeds", default="11,23,37,51,67")
@@ -64,7 +68,25 @@ def _predictor(spec: str, seed: int, key: str, reference: np.ndarray) -> np.ndar
         # physically smooth G(T) curve, so Tc displacement can be compared to
         # MAE divided by the local crossing slope.
         return reference + rng.normal(0.0, sigma)
-    raise ValueError("predictor must be reference or reference_noise:<eV>")
+    prefix = "constant_offset:"
+    if spec.startswith(prefix):
+        return reference + float(spec[len(prefix) :])
+    prefix = "reference_iid_noise:"
+    if spec.startswith(prefix):
+        sigma = float(spec[len(prefix) :])
+        digest = hashlib.sha256(f"iid:{seed}:{key}".encode()).digest()
+        rng = np.random.default_rng(int.from_bytes(digest[:8], "little"))
+        return reference + rng.normal(0.0, sigma, size=reference.shape)
+    raise ValueError(
+        "predictor must be reference, constant_offset:<eV>, "
+        "reference_noise:<eV>, or reference_iid_noise:<eV>"
+    )
+
+
+def _output_slug(spec: str) -> str:
+    if spec.startswith("reference_iid_noise:"):
+        return "root_stability_iid_" + spec.split(":", 1)[1]
+    return spec.replace(":", "_")
 
 
 def _table_cache(data_root: Path, rows: list[dict[str, object]]) -> dict[tuple[str, str], tuple[ReferencePoint, ...]]:
@@ -127,19 +149,20 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
     systems = sorted({system for system, _ in test_by_system_phase})
     for system in systems:
         phases = sorted(phase for item_system, phase in by_system_phase if item_system == system)
-        predictions: dict[str, tuple[np.ndarray, np.ndarray]] = {}
+        predictions: dict[str, tuple[np.ndarray, np.ndarray, np.ndarray]] = {}
         for phase in phases:
             indexes = sorted(by_system_phase[(system, phase)])
             reference = np.array([cache[(system, phase)][index].G_eV_per_atom for index in indexes])
             temperatures = np.array([cache[(system, phase)][index].T_K for index in indexes])
             if spec == "reference":
+                seed_predictions = np.stack([reference.copy() for _ in seeds])
                 mean, std = reference.copy(), np.zeros_like(reference)
             else:
                 seed_predictions = np.stack(
                     [_predictor(spec, seed, f"{system}:{phase}", reference) for seed in seeds]
                 )
                 mean, std = seed_predictions.mean(axis=0), seed_predictions.std(axis=0)
-            predictions[phase] = (temperatures, mean)
+            predictions[phase] = (temperatures, mean, seed_predictions)
             test_indexes = sorted(test_by_system_phase.get((system, phase), []))
             if test_indexes:
                 test_temperatures = np.array([cache[(system, phase)][index].T_K for index in test_indexes])
@@ -154,8 +177,8 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
             for right in phases[left_index + 1 :]:
                 if (system, left) not in test_by_system_phase and (system, right) not in test_by_system_phase:
                     continue
-                left_t, left_g = predictions[left]
-                right_t, right_g = predictions[right]
+                left_t, left_g, left_seed_g = predictions[left]
+                right_t, right_g, right_seed_g = predictions[right]
                 shared = sorted(set(left_t.tolist()) & set(right_t.tolist()))
                 if not shared:
                     continue
@@ -176,6 +199,22 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                     temperatures,
                     merge_within_K=3.0 if np.any(reference == 0) else 0.0,
                 )
+                seed_roots = []
+                for seed_index in range(len(seeds)):
+                    seed_observed = np.array(
+                        [
+                            dict(zip(left_t.tolist(), left_seed_g[seed_index].tolist()))[t]
+                            - dict(zip(right_t.tolist(), right_seed_g[seed_index].tolist()))[t]
+                            for t in shared
+                        ]
+                    )
+                    seed_roots.append(
+                        _root(
+                            seed_observed,
+                            temperatures,
+                            merge_within_K=3.0 if np.any(reference == 0) else 0.0,
+                        )
+                    )
                 delta_mae = float(np.mean(np.abs(observed - reference)))
                 slope_by_root: list[float] = []
                 crossing_mae: list[float] = []
@@ -213,6 +252,13 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                     "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
                     "reference_Tc_K": roots_reference,
                     "predicted_Tc_K": roots_predicted,
+                    "predicted_Tc_by_seed_K": seed_roots,
+                    "Tc_scatter_K": [
+                        float(np.nanstd([roots[kk] for roots in seed_roots if len(roots) > kk]))
+                        if any(len(roots) > kk for roots in seed_roots)
+                        else math.nan
+                        for kk in range(len(roots_reference))
+                    ],
                     "Tc_error_K": [pred - ref for pred, ref in zip(roots_predicted, roots_reference)],
                     "crossing_slope_eV_per_atom_per_K": slope_by_root,
                     "Tc_err_from_dG_K": [
@@ -257,8 +303,8 @@ def _summary_markdown(metrics: dict[str, object], title: str) -> str:
             [
                 f"## {fold_name}",
                 "",
-                "| Pair | support | ΔG MAE (eV/atom) | ΔG RMSE (eV/atom) | ΔG MAE@Tc (eV/atom) | sign accuracy | reference Tc (K) | predicted Tc (K) | Tc error (K) | Tc from ΔG (K) | false / missed |",
-                "|---|---|---:|---:|---|---:|---|---|---|---|---:|",
+                "| Pair | support | ΔG MAE (eV/atom) | ΔG RMSE (eV/atom) | ΔG MAE@Tc (eV/atom) | sign accuracy | reference Tc (K) | predicted Tc (K) | Tc error (K) | Tc from ΔG (K) | Tc scatter (K) | false / missed |",
+                "|---|---|---:|---:|---|---:|---|---|---|---|---|---:|",
             ]
         )
         for pair_name, pair in sorted(pairs.items()):
@@ -279,6 +325,7 @@ def _summary_markdown(metrics: dict[str, object], title: str) -> str:
                         crossing("predicted_Tc_K"),
                         crossing("Tc_error_K"),
                         crossing("Tc_err_from_dG_K"),
+                        crossing("Tc_scatter_K"),
                         f"{pair.get('false_crossings', 0)} / {pair.get('missed_crossings', 0)}",
                     )
                 )
@@ -294,7 +341,7 @@ def run(argv: list[str] | None = None) -> int:
     split = json.loads(split_path.read_text(encoding="utf-8"))
     seeds = [int(item) for item in args.seeds.split(",") if item]
     metrics = evaluate(args.predictor, split, data_root, seeds)
-    out = Path(args.output_root).resolve() / args.predictor.replace(":", "_") / split_path.stem
+    out = Path(args.output_root).resolve() / _output_slug(args.predictor) / split_path.stem
     out.mkdir(parents=True, exist_ok=True)
     (out / "metrics.json").write_text(json.dumps(metrics, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (out / "summary.md").write_text(

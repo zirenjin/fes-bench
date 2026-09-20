@@ -59,14 +59,26 @@ def test_reference_passthrough_is_exact(tmp_path: Path) -> None:
     assert pair["false_crossings"] == pair["missed_crossings"] == 0
 
 
-def test_smooth_noise_tc_matches_slope_conversion(tmp_path: Path) -> None:
+def test_constant_offset_tc_matches_slope_conversion(tmp_path: Path) -> None:
     split = _write_linear_system(tmp_path)
-    metrics = evaluate("reference_noise:0.005", split, tmp_path, [11])
+    metrics = evaluate("constant_offset:0.005", split, tmp_path, [11])
     pair = metrics["pairs"]["toy:alpha_minus_beta"]
 
     direct = abs(pair["Tc_error_K"][0])
     converted = pair["Tc_err_from_dG_K"][0]
-    assert direct == pytest.approx(converted, rel=0.20)
+    assert direct == pytest.approx(converted, abs=1.0e-12)
+    assert pair["Tc_scatter_K"] == [0.0]
+    assert pair["false_crossings"] == pair["missed_crossings"] == 0
+
+
+def test_root_stability_iid_noise_reports_scatter_without_gate(tmp_path: Path) -> None:
+    split = _write_linear_system(tmp_path)
+    metrics = evaluate("reference_iid_noise:0.005", split, tmp_path, [11, 23, 37])
+    pair = metrics["pairs"]["toy:alpha_minus_beta"]
+
+    assert len(pair["predicted_Tc_by_seed_K"]) == 3
+    assert len(pair["Tc_scatter_K"]) == 1
+    assert pair["Tc_scatter_K"][0] >= 0.0
     assert pair["false_crossings"] == pair["missed_crossings"] == 0
 
 

@@ -1,0 +1,26 @@
+{
+  "descriptor_source": "DPA-3.1-3M shared descriptor backbone (z); never a head-specific latent",
+  "fes_input_policy": "z is the shared trunk output; E and F_QH are evaluated through the system-selected head",
+  "systems": {
+    "hf": {
+      "energy_head": "Domains_Alloy",
+      "fqh_head": "Domains_Alloy",
+      "basis": "metallic-domain head; hcp imaginary-mode diagnosis passed, bcc remains explicitly held"
+    },
+    "sio2": {
+      "energy_head": "Domains_Alloy",
+      "fqh_head": "Domains_Alloy",
+      "basis": "same selected formal FES head; no claim that the generic SSE-PBE head is a SiO2 PES-relaxation head"
+    },
+    "ti": {
+      "energy_head": "Domains_Alloy",
+      "fqh_head": "Domains_Alloy",
+      "basis": "metallic-domain choice; Ti hcp/bcc representative sanity and QH results are recorded separately"
+    },
+    "zr": {
+      "energy_head": "Domains_Alloy",
+      "fqh_head": "Domains_Alloy",
+      "basis": "metallic-domain choice; Zr hcp/bcc representative sanity and QH results are recorded separately"
+    }
+  }
+}

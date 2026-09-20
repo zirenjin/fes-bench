@@ -1,0 +1,45 @@
+{
+  "functional": "PBE",
+  "dispersion": "none",
+  "supercell": "not separately reported in thermodynamic table",
+  "kpoints": "not separately reported in thermodynamic table",
+  "convergence": "not separately reported in thermodynamic table",
+  "size_error_eV_per_atom": 0.0,
+  "method": "thermodynamic integration",
+  "doi": "10.18419/DARUS-3582",
+  "notes": "Finite-size error is not separately reported; numeric zero is a schema placeholder. Pressure is normalized from 0.1 MPa to 0.0001 GPa.",
+  "interpolated": true,
+  "raw_table": "../../data/raw/ti/Ti_hcp.tab",
+  "unit_conversion": {
+    "energy_to_eV_per_atom": 0.001,
+    "pressure_to_GPa": 1.0
+  },
+  "representative": {
+    "status": "relaxed",
+    "source_database": "Materials Project",
+    "material_id": "mp-46",
+    "prototype": "hcp",
+    "space_group_before": "P6_3/mmc (194)",
+    "lattice_A": {"a": 2.935, "c": 4.659},
+    "source_structure": "structure.source.extxyz",
+    "calculator": "deepmd.calculator.DP",
+    "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+    "head": "Domains_Alloy",
+    "optimizer": "FIRE",
+    "cell_relaxed": true,
+    "fmax_eV_per_A": 0.01,
+    "max_steps": 1000,
+    "converged": true,
+    "energy_eV_per_atom": {"before": -6.431460529565811, "after": -6.432060956954956},
+    "volume_A3_per_atom": {"before": 17.378390734680007, "after": 17.55476253462795},
+    "space_group": {"before": "P6_3/mmc", "after": "P6_3/mmc"},
+    "max_displacement_A": 0.008734596485374608,
+    "relaxation_log": "representative_relaxation.log",
+    "selection_basis": "MP elemental Ti hcp entry; same MP source family as Ti bcc mp-73"
+  },
+  "grid_harmonization": {
+    "original_points": 1528,
+    "common_points": 693,
+    "method": "exact T/P intersection; no free-energy value interpolation"
+  }
+}

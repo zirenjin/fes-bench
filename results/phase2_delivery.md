@@ -1,7 +1,9 @@
 # Phase 2 delivery — Hf QH gate
 
 Status: the hcp gate is unlocked for `Domains_Alloy`; bcc remains held because
-its spectrum is unstable.  No QH was expanded to other systems.
+its spectrum is unstable.  An isolated Ti/Zr diagnostic was subsequently run
+without touching the Hf outputs: both hcp phases pass the frequency gate and
+both bcc phases remain explicitly held with imaginary modes.
 
 ## Files changed or added
 
@@ -20,6 +22,12 @@ its spectrum is unstable.  No QH was expanded to other systems.
   diagnosis and explicit head decision.
 - `results/phase2/hcp_domains_alloy_rerun_20260921.log`: single-point sanity
   plus the fresh isolated hcp QH rerun.
+- `configs/qh/{ti,zr}_qh_domains_alloy.yaml`: isolated Ti/Zr diagnostic
+  configurations.
+- `data/{ti,zr}/{hcp,bcc}/fqh.csv` and `phonon_report.json`: copied QH tables,
+  remote provenance, and explicit `qh_reliable` decisions.
+- `results/phase2/ti_zr_qh_domains_alloy_20260921.log`: completed thu-GenSi
+  Ti/Zr run and frequency-gate audit.
 
 ## Actual commands and key results
 
@@ -69,8 +77,9 @@ test MAE is 192.159 meV/atom.  It is not selected as the formal FES head.
   errors are about 0.1--0.4 eV/atom.
 - Harmonic stability gate: **hcp pass, bcc fail**; the selected hcp head has
   no mode below -0.05 THz, while bcc retains imaginary modes.
-- Expansion to SiO2, CaSiO3, Ti, and Zr: **not run**, as prescribed by the
-  failed gate rather than consuming additional QH compute.
+- Expansion to SiO2 and CaSiO3: **not run**, as prescribed by the failed gate.
+  Ti/Zr were run as the requested isolated diagnostic; hcp is reliable by the
+  frequency rule and bcc is held with the expected imaginary branches.
 
 ## Deviations from design
 

@@ -1,0 +1,20 @@
+Host-equivalent rerun: local frozen-data evaluator (the prior V100 evaluator
+suite remains in `v100_r18_noise_20260921.log`).
+
+Predictors rerun on `temp_extrap`, `phase_lopo`, and `system_loso`:
+
+1. `constant_offset:0.005` means `G_pred(T)=G_reference(T)+0.005 eV/atom`.
+   All three split kinds preserve every ΔG curve and crossing exactly:
+   `Tc_error=0`, `Tc_err_from_dG=0`, and no false/missed crossings.  The
+   20%-slope criterion is retained; this zero-error control is its expected
+   limiting case, not a relaxation of the criterion.
+2. `reference_iid_noise:0.005` is now named and reported as the **root
+   stability test**.  It adds independent 5 meV Gaussian noise per phase,
+   temperature, and seed.  It reports `predicted_Tc_by_seed_K` and
+   `Tc_scatter_K`, but has no pass/fail threshold.  The observed scatter for
+   the one-crossing pairs is approximately 81.78 K (Hf), 5.59 K (quartz /
+   cristobalite), and 5.27 K (quartz / tridymite); iid noise also creates many
+   false numerical roots, which is why this run is diagnostic only.
+
+The updated implementation is in `fes_bench/eval/run.py`; regression coverage
+is in `tests/test_eval_roundtrip.py`.

@@ -1,0 +1,14 @@
+{
+  "system": "zr",
+  "phase": "bcc",
+  "source_run": "/GenSIvePFS/users/zirenj/fes-bench/runs/phase2_tizr_qh_20260921/results/zr",
+  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "head": "Domains_Alloy",
+  "supercell_matrix": [2, 2, 2],
+  "mesh": [12, 12, 12],
+  "volume_scales": [0.98, 1.0, 1.02],
+  "minimum_frequency_THz_by_volume": {"0.98": -1.9566374355780562, "1.0": -2.15484455006001, "1.02": -2.3568962518096126},
+  "qh_reliable": false,
+  "reliability_rule": "minimum frequency >= -0.05 THz at every sampled volume",
+  "note": "Imaginary bcc modes are expected for this diagnostic and are not removed or tuned away."
+}

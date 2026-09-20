@@ -1,0 +1,45 @@
+{
+  "functional": "PBE",
+  "dispersion": "none",
+  "supercell": "not separately reported in thermodynamic table",
+  "kpoints": "not separately reported in thermodynamic table",
+  "convergence": "not separately reported in thermodynamic table",
+  "size_error_eV_per_atom": 0.0,
+  "method": "thermodynamic integration",
+  "doi": "10.18419/DARUS-3582",
+  "notes": "Finite-size error is not separately reported; numeric zero is a schema placeholder. Pressure is normalized from 0.1 MPa to 0.0001 GPa.",
+  "interpolated": true,
+  "raw_table": "../../data/raw/zr/Zr_hcp.tab",
+  "unit_conversion": {
+    "energy_to_eV_per_atom": 0.001,
+    "pressure_to_GPa": 1.0
+  },
+  "representative": {
+    "status": "relaxed",
+    "source_database": "Materials Project",
+    "material_id": "mp-131",
+    "prototype": "hcp",
+    "space_group_before": "P6_3/mmc (194)",
+    "lattice_A": {"a": 3.239, "c": 5.172},
+    "source_structure": "structure.source.extxyz",
+    "calculator": "deepmd.calculator.DP",
+    "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+    "head": "Domains_Alloy",
+    "optimizer": "FIRE",
+    "cell_relaxed": true,
+    "fmax_eV_per_A": 0.01,
+    "max_steps": 1000,
+    "converged": true,
+    "energy_eV_per_atom": {"before": -7.151518642902374, "after": -7.152492448687553},
+    "volume_A3_per_atom": {"before": 23.495302898256167, "after": 23.369038084796507},
+    "space_group": {"before": "P6_3/mmc", "after": "P6_3/mmc"},
+    "max_displacement_A": 0.020458049764399015,
+    "relaxation_log": "representative_relaxation.log",
+    "selection_basis": "MP elemental Zr hcp entry; same MP source family as Zr bcc mp-41"
+  },
+  "grid_harmonization": {
+    "original_points": 1520,
+    "common_points": 910,
+    "method": "exact T/P intersection; no free-energy value interpolation"
+  }
+}
