@@ -1,0 +1,20 @@
+Host: thu-GenSi
+Run root: /GenSIvePFS/users/zirenj/fes-bench/runs/phase2_sio2_quartz_head_20260922
+Checkpoint: /GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt
+
+Driver:
+  /root/miniconda3/envs/mat-agent/bin/python /tmp/diagnose_sio2_quartz_remote.py
+
+Protocol:
+  Domains_Alloy and Domains_SSE_PBE on the same quartz_beta structure;
+  2x2x2 supercell, 12x12x12 Gamma-centered mesh, 0.01 A displacement,
+  threshold -0.05 THz, Gamma neighborhood 5% of conservative BZ radius,
+  ASR=false, fc_symmetry=false.
+
+Terminal output:
+  Domains_Alloy: min=-1.926950 THz, negative=13577, qpoints=868/868.
+  Domains_SSE_PBE: min=-0.975320 THz, negative=235, qpoints=183/868.
+
+The Domains_Alloy negatives are all-zone (20 of 13577 fall in the Gamma
+neighborhood), so the authorized out-of-domain rule fires.  P0-2 was not
+entered; no policy, representative, or QH output was modified.

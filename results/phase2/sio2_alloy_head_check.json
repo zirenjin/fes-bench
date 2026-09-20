@@ -1,0 +1,13 @@
+{
+  "system": "sio2",
+  "phase": "quartz_beta",
+  "run": "/GenSIvePFS/users/zirenj/fes-bench/runs/phase2_sio2_quartz_head_20260922",
+  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "protocol": {"supercell_matrix": [2, 2, 2], "mesh": [12, 12, 12], "displacement_distance_A": 0.01, "asr": false, "fc_symmetry": false, "negative_threshold_THz": -0.05, "gamma_radius_fraction": 0.05},
+  "heads": {
+    "Domains_Alloy": {"single_point_energy_eV_per_atom": -2.665067318596962, "single_point_fmax_eV_per_A": 0.22928115259855986, "n_qpoints": 868, "n_modes": 729, "minimum_frequency_THz": -1.9269501943475675, "negative_mode_count": 13577, "negative_mode_fraction": 0.02145638555435449, "negative_qpoint_count": 868, "negative_qpoint_fraction": 1.0, "negative_modes_within_gamma": 20, "negative_mode_fraction_within_gamma": 0.0014730794726375489},
+    "Domains_SSE_PBE": {"single_point_energy_eV_per_atom": -4.080712621717296, "single_point_fmax_eV_per_A": 0.09972685837419704, "n_qpoints": 868, "n_modes": 729, "minimum_frequency_THz": -0.9753197666238832, "negative_mode_count": 235, "negative_mode_fraction": 0.0003713817931261181, "negative_qpoint_count": 183, "negative_qpoint_fraction": 0.2108294930875576, "negative_modes_within_gamma": 0, "negative_mode_fraction_within_gamma": 0.0}
+  },
+  "decision": "stop_p0_1_domains_alloy_out_of_domain",
+  "p0_2_entered": false
+}
