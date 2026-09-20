@@ -1,0 +1,39 @@
+{
+  "base_volume_A3_per_atom": 21.984144148687502,
+  "diagnostic_only": true,
+  "imaginary_mode_fraction": null,
+  "limitations": [
+    "Materialized from a three-volume diagnostic prototype; no Vinet fit is claimed.",
+    "Imaginary-mode fraction and force-constant cache were not produced by the source run.",
+    "This curve failed the Hf QH reliability/accuracy gate and is excluded from production predictors."
+  ],
+  "minimum_frequency_THz_by_volume": {
+    "0.98": -1.9892884723029756,
+    "1.0": -1.905659042946225,
+    "1.02": -1.9628836816799207
+  },
+  "n_temperatures": 1252,
+  "qh_reliable": false,
+  "reference_pressure_inherited": true,
+  "source": {
+    "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+    "head": "Domains_Alloy",
+    "mesh": [
+      12,
+      12,
+      12
+    ],
+    "prototype_csv": "../../results/phase2_domains_alloy/hf/bcc_fqh.csv",
+    "summary": "../../results/phase2_domains_alloy/hf/qh_summary.json",
+    "supercell_matrix": [
+      2,
+      2,
+      2
+    ],
+    "volume_scales": [
+      0.98,
+      1.0,
+      1.02
+    ]
+  }
+}
