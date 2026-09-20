@@ -1,0 +1,25 @@
+{
+  "system": "ti",
+  "pressure_GPa": 0.0001,
+  "grid": {
+    "n_points": 693,
+    "T_min_K": 835.0,
+    "T_max_K": 1527.0,
+    "step_K": 1.0
+  },
+  "pairs": {
+    "hcp_minus_bcc": {
+      "left": "hcp",
+      "right": "bcc",
+      "crossings": [
+        {
+          "T_K": 1012.0,
+          "slope_meV_per_atom_per_K": 0.09999999999998899,
+          "quantized_plateau": true
+        }
+      ],
+      "min_delta_eV_per_atom": -0.007599999999999996,
+      "max_delta_eV_per_atom": 0.013399999999999967
+    }
+  }
+}

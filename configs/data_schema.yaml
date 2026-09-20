@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "units": {
+    "temperature": "K",
+    "pressure": "GPa",
+    "free_energy": "eV/atom"
+  },
+  "reference_columns": ["T_K", "P_GPa", "G_eV_per_atom", "level", "source"]
+}

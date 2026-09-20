@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "url": "https://darus.uni-stuttgart.de/api/access/datafile/380770",
+      "doi": "10.18419/DARUS-4999",
+      "filename": "raw/sio2/direct_upsampling_data_rungs_1-3.zip",
+      "sha256": "d6767aa491589e6c76d9b929f6d228fc3315e2000fb933f17b554282003bcd79",
+      "downloaded_utc": "2026-09-18T23:00:50.864447+00:00",
+      "action": "downloaded"
+    }
+  ]
+}

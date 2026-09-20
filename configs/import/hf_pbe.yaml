@@ -1,0 +1,42 @@
+{
+  "data_root": "../../data",
+  "system": "hf",
+  "type_map": ["Hf"],
+  "pressures_GPa": [0.0001],
+  "truth_level": "PBE thermodynamic integration",
+  "shared_meta": {
+    "functional": "PBE",
+    "dispersion": "none",
+    "supercell": "not separately reported in thermodynamic table",
+    "kpoints": "not separately reported in thermodynamic table",
+    "convergence": "not separately reported in thermodynamic table",
+    "size_error_eV_per_atom": 0.0,
+    "method": "thermodynamic integration",
+    "doi": "10.18419/DARUS-3582",
+    "notes": "The source table does not separately report a finite-size error bound; numeric zero is a schema placeholder and not a convergence claim. Pressure is normalized from 0.1 MPa to 0.0001 GPa."
+  },
+  "phases": [
+    {
+      "name": "hcp",
+      "source": "../../data/raw/hf/table-thermodynamic-Hf-hcp-PBE.tab",
+      "delimiter": "\t",
+      "skip_rows": 1,
+      "temperature_column": "# T (K)",
+      "energy_column": "Gibbs_energy",
+      "energy_to_eV_per_atom": 0.001,
+      "pressure_gpa": 0.0001,
+      "provenance": "DaRUS-3582/table-thermodynamic-Hf-hcp-PBE.tab"
+    },
+    {
+      "name": "bcc",
+      "source": "../../data/raw/hf/table-thermodynamic-Hf-bcc-PBE.tab",
+      "delimiter": "\t",
+      "skip_rows": 1,
+      "temperature_column": "# T (K)",
+      "energy_column": "Gibbs_energy",
+      "energy_to_eV_per_atom": 0.001,
+      "pressure_gpa": 0.0001,
+      "provenance": "DaRUS-3582/table-thermodynamic-Hf-bcc-PBE.tab"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "data_root": "../../data", "system": "zr", "type_map": ["Zr"], "pressures_GPa": [0.0001],
+  "truth_level": "PBE thermodynamic integration",
+  "shared_meta": {"functional": "PBE", "dispersion": "none", "supercell": "not separately reported in thermodynamic table", "kpoints": "not separately reported in thermodynamic table", "convergence": "not separately reported in thermodynamic table", "size_error_eV_per_atom": 0.0, "method": "thermodynamic integration", "doi": "10.18419/DARUS-3582", "notes": "Finite-size error is not separately reported; numeric zero is a schema placeholder. Pressure is normalized from 0.1 MPa to 0.0001 GPa."},
+  "phases": [
+    {"name": "hcp", "source": "../../data/raw/zr/Zr_hcp.tab", "delimiter": "\t", "skip_rows": 1, "temperature_column": "# T (K)", "energy_column": "Gibbs_energy", "energy_to_eV_per_atom": 0.001, "pressure_gpa": 0.0001, "provenance": "DaRUS-3582/Zr_hcp.tab"},
+    {"name": "bcc", "source": "../../data/raw/zr/Zr_bcc.tab", "delimiter": "\t", "skip_rows": 1, "temperature_column": "# T (K)", "energy_column": "Gibbs_energy", "energy_to_eV_per_atom": 0.001, "pressure_gpa": 0.0001, "provenance": "DaRUS-3582/Zr_bcc.tab"}
+  ]
+}

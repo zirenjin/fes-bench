@@ -1,0 +1,11 @@
+{
+  "base": "model_base.yaml",
+  "predictor_kind": "repr_only",
+  "uses_fes_head": true,
+  "formula": "E_DPA + r_theta(z, T) + c_system",
+  "fitting_net": {
+    "temperature_basis": "mlp",
+    "numb_state_fparam": 2,
+    "physics_baseline_column": null
+  }
+}

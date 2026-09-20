@@ -1,0 +1,12 @@
+{
+  "artifact": "fes-bench Phase 0 scaffold",
+  "created_utc": "2026-09-18",
+  "phase": 0,
+  "schema_version": 1,
+  "contains_reference_data": false,
+  "paths": {
+    "schema_config": "configs/data_schema.yaml",
+    "loader": "fes_bench/data/load.py",
+    "audit_config": "configs/audit.yaml"
+  }
+}

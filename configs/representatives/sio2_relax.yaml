@@ -1,0 +1,9 @@
+{
+  "data_root": "../../data",
+  "system": "sio2",
+  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "head": "Domains_SSE_PBE",
+  "phases": ["quartz_beta", "cristobalite_beta", "tridymite_p63mmc"],
+  "fmax_eV_per_A": 0.01,
+  "max_steps": 1000
+}

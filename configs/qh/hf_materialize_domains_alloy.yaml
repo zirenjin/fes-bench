@@ -1,0 +1,10 @@
+{
+  "data_root": "../../data",
+  "source_root": "../../results/phase2_domains_alloy/hf",
+  "system": "hf",
+  "phases": ["hcp", "bcc"],
+  "qh_reliable": {"hcp": true, "bcc": false},
+  "diagnostic_only": true,
+  "source_pattern": "{phase}_fqh.csv",
+  "source_summary": "qh_summary.json"
+}

@@ -1,0 +1,10 @@
+{
+  "data_root": "../../data",
+  "system": "sio2",
+  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/pes_dpa31_fes_full_singlehead_a100/model.ckpt-5000.pt",
+  "head": null,
+  "phases": ["cristobalite_beta", "tridymite_p63mmc"],
+  "cell_relaxed": false,
+  "fmax_eV_per_A": 0.001,
+  "max_steps": 5000
+}

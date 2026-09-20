@@ -1,0 +1,17 @@
+{
+  "schema": "fes_bench.ablation_plan.v1",
+  "fitting_net": {
+    "type": "fes",
+    "temperature_basis": "continuous_tlog_polynomial",
+    "baseline_mode": "additive",
+    "freeze_baseline": true
+  },
+  "training": {
+    "seeds": [11, 23, 37, 51, 67],
+    "status": "plan_only_no_training"
+  },
+  "calibration": {
+    "scope": "one_constant_per_system",
+    "fit_rows": "frozen_train_only"
+  }
+}

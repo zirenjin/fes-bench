@@ -1,0 +1,16 @@
+{
+  "data_root": "../../data",
+  "system": "hf",
+  "phase": "hcp",
+  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "heads": ["Domains_SSE_PBE", "Domains_Alloy"],
+  "volume_scale": 1.0,
+  "supercell_matrix": [2, 2, 2],
+  "mesh": [12, 12, 12],
+  "displacement_distance_A": 0.01,
+  "negative_threshold_THz": -0.05,
+  "gamma_radius_fraction": 0.05,
+  "asr": false,
+  "fc_symmetry": false,
+  "output_markdown": "../../results/phase2/hcp_imaginary_diagnosis.md"
+}

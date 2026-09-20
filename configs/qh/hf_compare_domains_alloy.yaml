@@ -1,0 +1,7 @@
+{
+  "data_root": "../../data",
+  "result_root": "../../results/phase2_domains_alloy",
+  "system": "hf",
+  "phases": ["hcp", "bcc"],
+  "train_T_max_K": 1800
+}

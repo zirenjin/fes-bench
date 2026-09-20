@@ -1,0 +1,17 @@
+# Large generated benchmark data stay local; manifests and documentation are tracked.
+data/*/*
+!data/*/download.json
+!data/*/system.json
+!data/*/reference_crossings.json
+!data/*/representative_audit.md
+!data/phase0_manifest.json
+results/*
+!results/phase0/
+!results/phase0/**
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.venv/
+dist/
+build/
+*.egg-info/

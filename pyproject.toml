@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fes-bench"
+version = "0.0.1"
+description = "Reproducible infrastructure for polymorph free-energy benchmarks"
+requires-python = ">=3.10"
+authors = [{name = "fes-bench contributors"}]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+include = ["fes_bench*"]

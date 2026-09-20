@@ -1,0 +1,12 @@
+{
+  "data_root": "../../data",
+  "output_root": "../../results/phase2_domains_alloy",
+  "system": "hf",
+  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "head": "Domains_Alloy",
+  "phases": ["hcp", "bcc"],
+  "supercell_matrix": [2, 2, 2],
+  "mesh": [12, 12, 12],
+  "volume_scales": [0.98, 1.0, 1.02],
+  "displacement_distance_A": 0.01
+}

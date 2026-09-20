@@ -1,0 +1,9 @@
+{
+  "artifact": "fes-bench Phase 0 verification",
+  "phase": 0,
+  "status": "verified-with-local-test-environment-limit",
+  "commands": [
+    "python -m fes_bench.data.audit --config configs/audit.yaml",
+    "pytest"
+  ]
+}

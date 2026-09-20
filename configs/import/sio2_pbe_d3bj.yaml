@@ -1,0 +1,24 @@
+{
+  "data_root": "../../data",
+  "system": "sio2",
+  "type_map": ["O", "Si"],
+  "pressures_GPa": [0.0],
+  "truth_level": "PBE-D3(BJ) direct upsampling",
+  "shared_meta": {
+    "functional": "PBE",
+    "dispersion": "D3(BJ)",
+    "supercell": "not separately reported in thermodynamic table",
+    "kpoints": "not separately reported in thermodynamic table",
+    "convergence": "not separately reported in thermodynamic table",
+    "size_error_eV_per_atom": 0.0,
+    "method": "direct upsampling",
+    "doi": "10.18419/DARUS-4999",
+    "notes": "The source does not separately report a size-error bound; numeric zero is a schema placeholder and must not be interpreted as a convergence claim."
+  },
+  "phases": [
+    {"name": "quartz_beta", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv"},
+    {"name": "cristobalite_beta", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/cristobalite_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/cristobalite_beta_pbe_d3bj.csv"},
+    {"name": "tridymite_p63mmc", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_beta_pbe_d3bj.csv"},
+    {"name": "tridymite_c2221", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_ortho_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_ortho_pbe_d3bj.csv"}
+  ]
+}
