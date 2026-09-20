@@ -74527,10 +74527,10 @@
   "generation_parameters": {
     "crossing_buffer_K": 100.0
   },
-  "git_commit": "unavailable",
+  "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e",
   "name": "system_loso",
   "schema_version": 1,
-  "sha256": "d04efd8f77d4b81f5a09e713583ab31fa6fb8ba35d3f0eb7a34461a91a4846aa",
+  "sha256": "457272479142ad5cf78452205b10f290c03d51d90421afe52662106db910bacb",
   "systems": [
     "hf",
     "sio2"

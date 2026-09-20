@@ -111,7 +111,7 @@ evidence, and deviations:
   `pass_with_holds` means infrastructure checks pass while the declared source
   and physical holds remain active.
 
-The independent repository currently has no initial Git commit. Frozen split
-JSON files therefore record `git_commit: unavailable`, but carry embedded
-SHA-256 values that are revalidated by `fes_bench.splits.verify`; the passing
-audit is tracked at `results/phase3/split_integrity.json`.
+The independent repository is initialized. Frozen split JSON files record the
+real provenance commit `b5b0b2e679b2da66a593d713afc677f1adeab61e`, and carry
+embedded SHA-256 values that are revalidated by `fes_bench.splits.verify`; the
+passing audit is tracked at `results/phase3/split_integrity.json`.

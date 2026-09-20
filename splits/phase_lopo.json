@@ -186310,10 +186310,10 @@
   "generation_parameters": {
     "crossing_buffer_K": 100.0
   },
-  "git_commit": "unavailable",
+  "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e",
   "name": "phase_lopo",
   "schema_version": 1,
-  "sha256": "17358ace395d618f40280a6c8d159ecaafef0113a914d1f9728e1b5a11c3d58d",
+  "sha256": "efe063c17e02ec2de705feb78a5da50c38543deae288d663cb5649970e1412ae",
   "systems": [
     "hf",
     "sio2"
