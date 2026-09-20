@@ -1,0 +1,17 @@
+Local command:
+  python3 -m fes_bench.status.audit --config configs/status_audit.yaml
+Result:
+  results/completion_audit_20260921.json
+  status=pass_with_holds; checks=39; holds=3
+
+V100 isolated command:
+  cd /share/jzr/fes-bench/runs/phase3_noise_20260921_r18/fes-bench
+  PYTHONPATH=. python -m pytest -q tests/test_status_audit.py
+  .                                                                        [100%]
+  1 passed in 0.58s
+  PYTHONPATH=. python -m pytest -q
+  ...............                                                          [100%]
+  15 passed in 4.54s
+
+The three holds are the CaSiO3 absolute-source hold, the E1/E2 checkpoint
+availability hold, and the explicit SiO2 C2221 exclusion record.

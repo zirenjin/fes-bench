@@ -1,0 +1,13 @@
+Host: bohrium-v100
+Checkout: /share/jzr/deepmd-kit (feat/fes-head)
+
+Command:
+  cd /share/jzr/deepmd-kit
+  PYTHONPATH=$PWD pytest -q source/tests/pt/test_fes.py
+
+Result:
+  33 passed, 72 warnings in 11.77s
+
+Warnings were limited to the existing unknown `timeout` pytest option and
+TorchScript deprecation warnings. This is the full scoped FES test file, not
+a claim that every deepmd-kit test in the repository has run.
