@@ -42,7 +42,7 @@ def phase_free_energy(model, atoms, temperatures):
         "n_atoms": len(atoms),
         "n_displacements": len(displaced),
         "min_frequency_THz": float(np.asarray(phonon.get_mesh_dict()["frequencies"]).min()),
-        "static_energy_eV_per_atom": float(model.eval(atoms.positions.reshape(1, -1), atoms.cell.array.reshape(1, -1), np.zeros(len(atoms), dtype=np.int32))[0][0] / len(atoms)),
+        "static_energy_eV_per_atom": float(np.asarray(model.eval(atoms.positions.reshape(1, -1), atoms.cell.array.reshape(1, -1), np.zeros(len(atoms), dtype=np.int32))[0]).reshape(-1)[0] / len(atoms)),
         "F_vib_eV_per_atom": {str(t): lookup[float(t)] for t in temperatures},
     }
 

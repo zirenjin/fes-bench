@@ -1,0 +1,40 @@
+{
+  "system": "sio2",
+  "phase": "quartz_beta",
+  "protocol": "fixed-cell finite displacement; supercell=[1,1,1] (unit-cell force constants); mesh=[12,12,12]; displacement=0.01 A",
+  "training_data_used": "DFT PES energy/force/virial dataset only for the fine-tuned checkpoint provenance; no FES/TI data",
+  "items": [
+    {
+      "label": "frozen_pretrained",
+      "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+      "head": "Domains_Alloy",
+      "single_point_energy_eV_per_atom": 1.5701152571925279,
+      "single_point_fmax_eV_per_A": 0.12630269372311886,
+      "n_qpoints": 868,
+      "n_modes": 729,
+      "negative_threshold_THz": -0.05,
+      "minimum_frequency_THz": -7.720704214584241,
+      "negative_mode_count": 75851,
+      "negative_mode_fraction": 0.11987098038471992,
+      "negative_qpoint_count": 868,
+      "negative_qpoint_fraction": 1.0,
+      "n_displacements": 1458
+    },
+    {
+      "label": "pes_finetuned",
+      "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/pes_dpa31_fes_full_singlehead_a100/model.ckpt-5000.pt",
+      "head": null,
+      "single_point_energy_eV_per_atom": -8.032564193356821,
+      "single_point_fmax_eV_per_A": 0.000871205294970423,
+      "n_qpoints": 868,
+      "n_modes": 729,
+      "negative_threshold_THz": -0.05,
+      "minimum_frequency_THz": -1.9561583750708191,
+      "negative_mode_count": 1718,
+      "negative_mode_fraction": 0.002715037959960302,
+      "negative_qpoint_count": 867,
+      "negative_qpoint_fraction": 0.9988479262672811,
+      "n_displacements": 1458
+    }
+  ]
+}

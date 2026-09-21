@@ -44,7 +44,7 @@ def evaluate(label: str, checkpoint: str, structure: Path, supercell: list[int],
 
     atoms = read(structure)
     model = DeepPot(checkpoint, head=head)
-    atom_types = np.zeros(len(atoms), dtype=np.int32)
+    atom_types = np.asarray([0 if symbol == "Si" else 1 for symbol in atoms.get_chemical_symbols()], dtype=np.int32)
     base_energy, base_forces, _ = model.eval(
         atoms.positions.reshape(1, -1), atoms.cell.array.reshape(1, -1), atom_types
     )
@@ -53,7 +53,8 @@ def evaluate(label: str, checkpoint: str, structure: Path, supercell: list[int],
     displaced = phonon.supercells_with_displacements
     coords = np.asarray([cell.positions.reshape(-1) for cell in displaced], dtype=np.float64)
     cells = np.asarray([np.asarray(cell.cell).reshape(-1) for cell in displaced], dtype=np.float64)
-    supercell_types = np.zeros(len(displaced[0]), dtype=np.int32)
+    repeats = len(displaced[0]) // len(atom_types)
+    supercell_types = np.tile(atom_types, repeats)
     types = supercell_types
     force_parts = []
     for start in range(0, len(displaced), 16):
@@ -94,13 +95,13 @@ def main() -> int:
     args = parser.parse_args()
     structure = Path(args.structure)
     items = [
-        evaluate("frozen_pretrained", args.baseline_checkpoint, structure, [2, 2, 2], [12, 12, 12], args.baseline_head),
-        evaluate("pes_finetuned", args.finetuned_checkpoint, structure, [2, 2, 2], [12, 12, 12], None),
+        evaluate("frozen_pretrained", args.baseline_checkpoint, structure, [1, 1, 1], [12, 12, 12], args.baseline_head),
+        evaluate("pes_finetuned", args.finetuned_checkpoint, structure, [1, 1, 1], [12, 12, 12], None),
     ]
     payload = {
         "system": "sio2",
         "phase": "quartz_beta",
-        "protocol": "fixed-cell finite displacement; supercell=[2,2,2]; mesh=[12,12,12]; displacement=0.01 A",
+        "protocol": "fixed-cell finite displacement; supercell=[1,1,1] (unit-cell force constants); mesh=[12,12,12]; displacement=0.01 A",
         "training_data_used": "DFT PES energy/force/virial dataset only for the fine-tuned checkpoint provenance; no FES/TI data",
         "items": items,
     }
@@ -128,7 +129,7 @@ def main() -> int:
         "",
         "## Deviations from design",
         "",
-        "* This is the required sanity comparison, not the full production QH grid; the cell is fixed and the protocol is recorded above.",
+        "* This is the required sanity comparison, not the full production QH grid; the cell is fixed and the unit-cell force-constant protocol is recorded above.",
         "* The existing PES checkpoint has `pref_v=0`; no virial label is silently substituted.",
     ]
     output.with_suffix(".md").write_text("\n".join(lines) + "\n", encoding="utf-8")
