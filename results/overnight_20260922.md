@@ -36,4 +36,4 @@ Artifacts: `results/STATUS.md`, `results/phase5/sio2_second_truth_source_survey.
 
 ## Deviations from design
 
-No new training, no head-policy change, and no frozen-split modification. The remote QH runner uses the existing QH implementation; its final reliability/imaginary-mode status is not asserted until the process exits. The external MLP and full pytest suite remain environment holds with concrete missing library errors.
+No new training, no head-policy change, and no frozen-split modification. The QH comparison layout needed a three-phase grid fix; no metric or split changed. Phonopy's default zero cutoff filtered imaginary modes in the thermal sum, while the configured −0.05 THz cutoff was not forwarded explicitly; this is recorded in `results/phase2/sio2_qh_report.md`. The phase-ID MLP required the working mat-agent environment; LOPO/LOSO N/A rows are structural, not runtime failures. V100 sync remains blocked by network/billing state.

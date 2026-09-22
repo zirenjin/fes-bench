@@ -7,10 +7,10 @@
 | Full Phase 3/4/5 pytest | pass | isolated vendored run: 21 passed in 4750.31s; `pytest_vendor_full.log`, exit 0 |
 | Frozen splits | pass | `results/phase3/split_integrity.json` |
 | Trivial floors | pass | `results/trivial_floor/metrics.json` |
-| External baselines | partial | `results/external_baselines/`; mat-agent rerun is live for phase-ID MLP; Hf DPA E0 helper hit a PyTorch/e3nn compatibility load failure and was terminated |
+| External baselines | pass (structural N/A folds recorded) | `results/external_baselines/`, including `phase_id_mlp_matagent.md`; phase-ID MLP temp-extrap skill −0.858, LOPO/LOSO N/A by split construction; Hf DPA E0 helper remains explicitly unavailable |
 | SiO₂ QH | pass (with expected unreliability) | isolated `results/phase2_sio2_sse_pbe/sio2/` raw QH CSVs, `qh_comparison.json`, and three `*_imaginary_diagnosis.json` files; all phases `qh_reliable=false` |
 
-Conclusion: **not yet Phase 6 ready**. The remaining blockers are concrete environment/runtime gates and the still-running QH calculation; no benchmark-model training was started.
+Conclusion: **not yet Phase 6 ready**. All computational/data gates are green; the sole remaining gate is environment sync to V100, blocked by SSH timeout and zero Bohrium balance. No benchmark-model training was started.
 
 ## Deviations from design
 
