@@ -14,10 +14,12 @@ DPA checkpoint `DPA-3.1-3M.pt`, head `Domains_SSE_PBE`, a `[1,1,1]` supercell,
 | cristobalite_beta | `cristobalite_beta_fqh.csv` | 1.02 | −4.17545559 | −4.42817293 | −5.02251496 |
 | tridymite_p63mmc | `tridymite_p63mmc_fqh.csv` | 1.02 | −4.16820945 | −4.42062884 | −5.01436235 |
 
-The raw files and `qh_summary.json` are in the remote path above. The existing
-QH runner reports the minimum mesh frequency by volume but does not itself
-remove imaginary modes; the explicit mode-fraction/BZ diagnosis is being run
-serially after this production calculation.
+The raw files and `qh_summary.json` are in the remote path above. Phonopy's
+`run_thermal_properties` default (`cutoff_frequency=None`, interpreted as
+zero) excludes imaginary modes from the thermal free-energy sum, while the
+runner separately records the raw minimum mesh frequency. The explicit
+mode-fraction/BZ diagnosis below therefore reports reliability of the force
+constants rather than silently treating the curves as dynamically stable.
 
 ## Calibrated comparison to reference `G`
 
@@ -57,7 +59,8 @@ and `tridymite_p63mmc_imaginary_diagnosis.json`.
 
 The first comparison attempt exposed a plotting bug in the generic 2×2 layout
 for three phases; `fes_bench/qh/compare.py` was fixed to use a two-row,
-`n_phases`-column layout, without changing any metric or split. The QH runner's
-documented imaginary-mode cutoff is not applied inside `qh.run`; this is why an
-explicit diagnostic pass is required rather than silently calling the raw
-curves reliable.
+`n_phases`-column layout, without changing any metric or split. The config's
+`imaginary_frequency_cutoff_THz: -0.05` was not forwarded explicitly; the
+phonopy default zero cutoff was used, which removes all negative modes and is
+stricter than the configured threshold. This is recorded as a provenance
+deviation; it does not change the raw reliability diagnosis.
