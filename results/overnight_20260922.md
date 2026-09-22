@@ -16,7 +16,7 @@ Key result: Bartel skill is negative wherever a matched global-mean pair floor e
 
 Bartel coefficient audit: original and implementation values match for all four coefficients. The fixed-composition limitation (mass identical, volume-only phase discrimination) is in the docstring and report.
 
-## Line B — SiO₂ QH: complete
+## Line B — SiO₂ QH: raw calculation complete; gate pending
 
 Command launched in isolated `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`:
 
@@ -26,9 +26,11 @@ Command launched in isolated `/share/jzr/codex_fes_overnight_20260922_1790052610
 
 The raw QH process completed after roughly seven hours. It produced all three 1,649-point `fqh.csv` files and `qh_summary.json` under the isolated workspace; `qh.compare` produced `qh_comparison.json` and `fqh_vs_reference.{png,pdf}` with all-phase test MAE 21.8657 meV/atom. The serial same-protocol diagnoses also completed: all three phases have non-Γ-local negative modes and `qh_reliable=false` (details in `results/phase2/sio2_qh_report.md` and the remote JSON evidence).
 
-## Line C — environment: partial
+The gate audit records the source-level phonopy behavior and the actual shortest lattice-vector lengths for the `[1,1,1]` cells in `results/phase2/sio2_qh_gate_audit.md`; the QH gate remains pending.
 
-The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. The direct V100 SSH probe timed out again at `dcwq1547908.bohrium.tech:22` at 15:35 UTC, and thu-GenSi cannot resolve `bohrium-v100`. Authenticated Bohr resource discovery lists V100 SKUs, but reports a 0 CNY balance, so no paid replacement job was submitted; V100 synchronization remains blocked by network/billing state. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest was initially absent, so a vendored pytest installation was made only under the isolated remote workspace; the corrected full run passed all 21 tests in 4750.31 s (exit 0), recorded in `results/phase6_readiness/pytest_vendor_full.log`.
+## Line C — environment: thu-GenSi locked; V100 backup-only
+
+The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. The thu-GenSi environment is locked in `results/phase6_readiness/env_lock.md`, including conda export and pip freeze. The direct V100 SSH probe timed out again at `dcwq1547908.bohrium.tech:22`, and authenticated Bohr resource discovery reports a 0 CNY balance; V100 is therefore backup-only and not a readiness gate. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest was initially absent, so a vendored pytest installation was made only under the isolated remote workspace; the corrected full run passed all 21 tests in 4750.31 s (exit 0), recorded in `results/phase6_readiness/pytest_vendor_full.log`.
 
 ## Line D — complete for lightweight items
 

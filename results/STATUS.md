@@ -8,14 +8,14 @@
 | E4 | complete | `results/trivial_floor/metrics.json`, `skill_scores.md` | zero and pairwise constant floors; skills all negative for E1 |
 | E5 | complete (with structural N/A folds) | `results/external_baselines/metrics.json`, `skill_scores.md`, `phase_id_mlp_matagent.md` | Bartel/interp/global floors run; mat-agent phase-ID MLP gives temp-extrap skill −0.858; LOPO/LOSO N/A because held-out targets have no training rows |
 | E6 | complete (raw QH) | `results/phase2/sio2_qh_report.md`, remote `results/phase2_sio2_sse_pbe/sio2/qh_summary.json` | three-phase SSE-PBE QH CSVs and comparison are complete; all minimum frequencies are negative |
-| E7 | complete | `results/phase2/sio2_qh_report.md`, isolated `results/phase2_sio2_sse_pbe/*_imaginary_diagnosis.json` | all three phases have non-Γ-local negative modes and `qh_reliable=false` |
+| E7 | pending (technical gate) | `results/phase2/sio2_qh_report.md`, `results/phase2/sio2_qh_gate_audit.md`, isolated `results/phase2_sio2_sse_pbe/*_imaginary_diagnosis.json` | source-level imaginary-frequency handling and `[1,1,1]` cell geometry are recorded; all three phases have non-Γ-local negative modes and `qh_reliable=false` |
 | E8 | complete | `results/phase6_readiness/compile.log`, `pytest_vendor_full.log` | compile passed; vendored full suite 21/21 passed in 4750.31 s |
 | E9 | complete (preflight) | `results/phase5/sio2_second_truth_source_survey.md` | source/format surveyed, no download per instruction |
 | E10 | complete | `results/phase3/split_integrity.json` | frozen split hashes verified |
 | E11 | complete for active domain | `data/{sio2,hf}/`, `results/phase1_delivery.md` | CaSiO3 remains source hold |
-| E12 | partial | `results/phase6_readiness/readiness.md` | tests and QH are green; Phase 6 readiness still awaits V100 environment sync |
+| E12 | partial | `results/phase6_readiness/readiness.md`, `results/phase6_readiness/env_lock.md` | thu-GenSi environment is locked; SiO₂ QH gate remains pending; V100 is backup-only |
 | E13 | complete | `results/table2_delta_g_amplitude.md` | pair ΔG amplitude table generated |
-| E14 | partial | this report and `results/overnight_20260922.md` | QH and reliability diagnosis finished; V100 environment sync remains blocked |
+| E14 | partial | this report, `results/overnight_20260922.md`, `results/phase2/sio2_qh_gate_audit.md` | raw QH and reliability diagnosis finished; technical QH gate remains pending |
 
 ## Deviations from design
 
