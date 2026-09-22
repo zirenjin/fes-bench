@@ -24,11 +24,11 @@ Command launched in isolated `/share/jzr/codex_fes_overnight_20260922_1790052610
 /root/miniconda3/envs/mat-agent/bin/python -m fes_bench.qh.run --config configs/qh/sio2_qh_domains_sse_pbe.yaml
 ```
 
-The process was verified live (PID 1996888; A100 memory about 561 MiB at last poll) with log at `results/phase2_sio2_sse_pbe.log`. The config requests `Domains_SSE_PBE`, three SiO₂ phases, five volume scales, 0.01 Å displacements, and 16³ mesh. Final `fqh.csv`, imaginary-mode reliability report, comparison plot, and failure-mode entries are pending process completion.
+The process was verified live (PID 1996888; it has `/dev/nvidia4` and `/dev/nvidia-uvm` open; last poll 2026-09-22 06:20 UTC) with log at `results/phase2_sio2_sse_pbe.log`. The config requests `Domains_SSE_PBE`, three SiO₂ phases, five volume scales, 0.01 Å displacements, and 16³ mesh. Final `fqh.csv`, imaginary-mode reliability report, comparison plot, and failure-mode entries are pending process completion.
 
 ## Line C — environment: partial
 
-The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. The direct V100 SSH probe timed out at `dcwq1547908.bohrium.tech:22`, and thu-GenSi cannot resolve `bohrium-v100`, so V100 synchronization remains blocked by DNS/network state. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest is not installed in base, mat-agent, or `/usr/bin/python3`, so the requested full pytest suite cannot run without installing a dependency. No installation was attempted. See `results/phase6_readiness/`.
+The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. The direct V100 SSH probe timed out at `dcwq1547908.bohrium.tech:22`, and thu-GenSi cannot resolve `bohrium-v100`, so V100 synchronization remains blocked by DNS/network state. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest was initially absent, so a vendored pytest installation was made only under the isolated remote workspace; the corrected full run is live as PID 2148593 with log `results/phase6_readiness_pytest_vendor_full.log`. See `results/phase6_readiness/`.
 
 ## Line D — complete for lightweight items
 
