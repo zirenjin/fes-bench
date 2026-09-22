@@ -13,7 +13,7 @@
 | E9 | complete (preflight) | `results/phase5/sio2_second_truth_source_survey.md` | source/format surveyed, no download per instruction |
 | E10 | complete | `results/phase3/split_integrity.json` | frozen split hashes verified |
 | E11 | complete for active domain | `data/{sio2,hf}/`, `results/phase1_delivery.md` | CaSiO3 remains source hold |
-| E12 | partial | `results/phase6_readiness/readiness.md` | tests are green; Phase 6 readiness still awaits QH and V100 environment sync |
+| E12 | partial | `results/phase6_readiness/readiness.md` | tests and QH are green; Phase 6 readiness still awaits V100 environment sync |
 | E13 | complete | `results/table2_delta_g_amplitude.md` | pair ΔG amplitude table generated |
 | E14 | partial | this report and `results/overnight_20260922.md` | QH and reliability diagnosis finished; V100 environment sync remains blocked |
 

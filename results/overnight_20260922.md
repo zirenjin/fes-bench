@@ -1,6 +1,6 @@
 # Overnight batch status — 2026-09-22
 
-This is a line-by-line queue report. Lines A–D were started independently; the live QH line does not block the completed baseline and survey work.
+This is a line-by-line queue report. Lines A–D were started independently; their final states are recorded below.
 
 ## Line A — external baselines: complete (structural N/A folds recorded)
 
