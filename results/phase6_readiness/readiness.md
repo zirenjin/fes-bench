@@ -2,7 +2,7 @@
 
 | gate | result | evidence |
 |---|---|---|
-| Environment sync | partial | isolated thu-GenSi `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`; V100 probe timed out (`dcwq1547908.bohrium.tech:22`) and relay could not resolve `bohrium-v100` |
+| Environment sync | partial | isolated thu-GenSi `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`; V100 probe timed out (`dcwq1547908.bohrium.tech:22`, retried 2026-09-22 05:54 UTC) and relay could not resolve `bohrium-v100` |
 | Python syntax | pass | `compile.log`, `compile_exit:0` |
 | Full Phase 3/4/5 pytest | blocked | `pytest.log`: pytest is absent in all checked runtimes |
 | Frozen splits | pass | `results/phase3/split_integrity.json` |
