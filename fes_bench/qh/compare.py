@@ -88,18 +88,19 @@ def run(config_path: str | Path) -> int:
 
     sns.set_theme(font_scale=1.0, style="whitegrid", font="DejaVu Sans")
     palette = sns.color_palette("colorblind", len(phases))
-    figure = plt.figure(figsize=(10, 7), dpi=150)
-    grid = gridspec.GridSpec(2, 2)
+    n_phases = len(phases)
+    figure = plt.figure(figsize=(5.2 * n_phases, 7), dpi=150)
+    grid = gridspec.GridSpec(2, n_phases)
     grid.update(wspace=0.08, hspace=0.30, left=0.08, right=0.99, top=0.91, bottom=0.10)
-    axes = [plt.subplot(grid[row, column]) for row in range(2) for column in range(2)]
-    figure.suptitle("Hf QH baseline calibrated only below 1800 K", fontsize=14, color="dimgrey")
+    axes = [plt.subplot(grid[row, column]) for row in range(2) for column in range(n_phases)]
+    figure.suptitle(f"{config['system']} QH baseline calibrated only below {train_max:g} K", fontsize=14, color="dimgrey")
     for column, (phase, color) in enumerate(zip(phases, palette)):
         records = merged[phase]
         temperature = np.array([record["T_K"] for record in records])
         reference = np.array([record["reference"] for record in records])
         prediction = np.array([record["prediction"] for record in records])
         residual = np.array([record["residual_meV_per_atom"] for record in records])
-        curve_axis, residual_axis = axes[column], axes[column + 2]
+        curve_axis, residual_axis = axes[column], axes[n_phases + column]
         curve_axis.plot(temperature, reference, color="dimgrey", linewidth=2, label="reference G")
         curve_axis.plot(temperature, prediction, color=color, linewidth=2, linestyle="--", label="E + F_QH + c")
         curve_axis.axvline(train_max, color="lightgrey", linewidth=1.2, linestyle=":")
