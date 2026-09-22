@@ -2,7 +2,7 @@
 
 | gate | result | evidence |
 |---|---|---|
-| Environment sync | partial | isolated thu-GenSi `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`; V100 probe timed out (`dcwq1547908.bohrium.tech:22`, retried 2026-09-22 05:54 UTC) and relay could not resolve `bohrium-v100` |
+| Environment sync | partial | isolated thu-GenSi `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`; V100 probe timed out (`dcwq1547908.bohrium.tech:22`, retried 2026-09-22 07:06 UTC). Authenticated Bohr resource query lists V100 SKUs, but account balance is 0 CNY, so no paid replacement job was submitted. |
 | Python syntax | pass | `compile.log`, `compile_exit:0` |
 | Full Phase 3/4/5 pytest | pass | isolated vendored run: 21 passed in 4750.31s; `pytest_vendor_full.log`, exit 0 |
 | Frozen splits | pass | `results/phase3/split_integrity.json` |
