@@ -20,7 +20,10 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--predictor",
         required=True,
-        help="reference, constant_offset:<eV>, or reference_iid_noise:<eV>",
+        help=(
+            "reference, constant_offset:<eV>, reference_iid_noise:<eV>, or "
+            "precomputed:<curve-json>"
+        ),
     )
     parser.add_argument("--split", required=True, help="frozen split JSON")
     parser.add_argument("--data-root", required=True)
@@ -79,14 +82,59 @@ def _predictor(spec: str, seed: int, key: str, reference: np.ndarray) -> np.ndar
         return reference + rng.normal(0.0, sigma, size=reference.shape)
     raise ValueError(
         "predictor must be reference, constant_offset:<eV>, "
-        "reference_noise:<eV>, or reference_iid_noise:<eV>"
+        "reference_noise:<eV>, reference_iid_noise:<eV>, or precomputed:<curve-json>"
     )
 
 
 def _output_slug(spec: str) -> str:
     if spec.startswith("reference_iid_noise:"):
         return "root_stability_iid_" + spec.split(":", 1)[1]
-    return spec.replace(":", "_")
+    return spec.replace(":", "_").replace("/", "_")
+
+
+def _load_precomputed(spec: str) -> dict[str, dict[float, float]] | None:
+    """Load per-phase predictor curves for checkpoint reanalysis.
+
+    The JSON payload is deliberately minimal and model-agnostic::
+
+        {"predictions": {"sio2:quartz_beta": {"T_K": [...], "G_eV_per_atom": [...]}}}
+
+    This lets the unified evaluator own all split, root, slope, and crossing
+    bookkeeping while an external inference adapter supplies a frozen model's
+    values.  Temperatures are lookup keys rather than array positions so a
+    caller cannot accidentally apply a checkpoint curve to a mismatched grid.
+    """
+
+    prefix = "precomputed:"
+    if not spec.startswith(prefix):
+        return None
+    path = Path(spec[len(prefix) :]).expanduser()
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        raw_predictions = payload["predictions"]
+    except (OSError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        raise ValueError(f"invalid precomputed predictor {path}: {exc}") from exc
+    if not isinstance(raw_predictions, dict):
+        raise ValueError("precomputed predictor requires an object named predictions")
+    curves: dict[str, dict[float, float]] = {}
+    for key, raw_curve in raw_predictions.items():
+        if not isinstance(key, str) or not isinstance(raw_curve, dict):
+            raise ValueError("precomputed predictor entries must be keyed curve objects")
+        temperatures = raw_curve.get("T_K")
+        values = raw_curve.get("G_eV_per_atom")
+        if not isinstance(temperatures, list) or not isinstance(values, list) or len(temperatures) != len(values):
+            raise ValueError(f"precomputed curve {key!r} requires equally sized T_K/G_eV_per_atom lists")
+        curve: dict[float, float] = {}
+        for temperature, value in zip(temperatures, values):
+            try:
+                t, g = float(temperature), float(value)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"precomputed curve {key!r} has a non-numeric value") from exc
+            if not math.isfinite(t) or not math.isfinite(g) or t in curve:
+                raise ValueError(f"precomputed curve {key!r} has invalid or duplicate temperature {t!r}")
+            curve[t] = g
+        curves[key] = curve
+    return curves
 
 
 def _table_cache(data_root: Path, rows: list[dict[str, object]]) -> dict[tuple[str, str], tuple[ReferencePoint, ...]]:
@@ -125,6 +173,7 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
             "coverage_2sigma": weighted_coverage,
             "folds": folds,
         }
+    precomputed = _load_precomputed(spec)
     test = split.get("test")
     if not isinstance(test, list):
         raise ValueError("split must provide a test list")
@@ -154,7 +203,18 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
             indexes = sorted(by_system_phase[(system, phase)])
             reference = np.array([cache[(system, phase)][index].G_eV_per_atom for index in indexes])
             temperatures = np.array([cache[(system, phase)][index].T_K for index in indexes])
-            if spec == "reference":
+            if precomputed is not None:
+                curve_key = f"{system}:{phase}"
+                if curve_key not in precomputed:
+                    raise ValueError(f"precomputed predictor has no curve for {curve_key!r}")
+                curve = precomputed[curve_key]
+                missing = [float(t) for t in temperatures if float(t) not in curve]
+                if missing:
+                    raise ValueError(f"precomputed predictor {curve_key!r} misses temperatures {missing[:3]!r}")
+                mean = np.array([curve[float(t)] for t in temperatures])
+                seed_predictions = np.stack([mean.copy() for _ in seeds])
+                std = np.zeros_like(mean)
+            elif spec == "reference":
                 seed_predictions = np.stack([reference.copy() for _ in seeds])
                 mean, std = reference.copy(), np.zeros_like(reference)
             else:

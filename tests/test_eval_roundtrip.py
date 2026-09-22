@@ -92,3 +92,22 @@ def test_phase_lopo_uses_training_phase_as_explicit_pair_partner(tmp_path: Path)
     pair = metrics["pairs"]["toy:alpha_minus_beta"]
     assert pair["pair_support"] == "test_and_train_partner"
     assert pair["Tc_error_K"] == [0.0]
+
+
+def test_precomputed_checkpoint_curve_uses_temperature_keys(tmp_path: Path) -> None:
+    split = _write_linear_system(tmp_path)
+    curves = {"predictions": {}}
+    for phase in ("alpha", "beta"):
+        with (tmp_path / "toy" / phase / "reference_G.csv").open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        curves["predictions"][f"toy:{phase}"] = {
+            "T_K": [float(row["T_K"]) for row in rows],
+            "G_eV_per_atom": [float(row["G_eV_per_atom"]) for row in rows],
+        }
+    path = tmp_path / "curves.json"
+    path.write_text(json.dumps(curves), encoding="utf-8")
+
+    metrics = evaluate(f"precomputed:{path}", split, tmp_path, [11])
+    pair = metrics["pairs"]["toy:alpha_minus_beta"]
+    assert metrics["G_MAE_eV_per_atom"] == 0.0
+    assert pair["Tc_error_K"] == [0.0]

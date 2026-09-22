@@ -1,0 +1,116 @@
+{
+  "scope": "historic four-phase checkpoints evaluated only on the named canonical three-phase subset",
+  "checkpoint_type_map": [
+    "Si",
+    "O"
+  ],
+  "checkpoint_type_map_validation": {
+    "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/results/continuous_sio2/polynomial/seed11/model.pth",
+    "read_via": "DeepPot(...).get_type_map()",
+    "value_matches_legacy_input_type_map": true
+  },
+  "checkpoint_phase_order_source": "training_data.systems order in adjacent config.json; model type_map contains species, not phase IDs",
+  "entries": [
+    {
+      "checkpoint_phase_index": 0,
+      "legacy_phase": "quartz_beta",
+      "canonical_phase": "quartz_beta",
+      "n_atoms": 243,
+      "n_frames": 1649,
+      "temperature_range_K": [
+        851.0,
+        2499.0
+      ],
+      "type_map": [
+        "Si",
+        "O"
+      ],
+      "legacy_protocol_n_atoms": 243,
+      "reference_G_validation": {
+        "n_common_temperatures": 1649,
+        "max_abs_difference_eV_per_atom": 1.7763568394002505e-15,
+        "raw_reference_range_eV_per_atom": [
+          -8.991086022900548,
+          -8.114874893775683
+        ],
+        "canonical_reference_range_eV_per_atom": [
+          -8.991086022900548,
+          -8.114874893775683
+        ]
+      }
+    },
+    {
+      "checkpoint_phase_index": 1,
+      "legacy_phase": "cristobalite_beta",
+      "canonical_phase": "cristobalite_beta",
+      "n_atoms": 192,
+      "n_frames": 1649,
+      "temperature_range_K": [
+        851.0,
+        2499.0
+      ],
+      "type_map": [
+        "Si",
+        "O"
+      ],
+      "legacy_protocol_n_atoms": 192,
+      "reference_G_validation": {
+        "n_common_temperatures": 1649,
+        "max_abs_difference_eV_per_atom": 0.0,
+        "raw_reference_range_eV_per_atom": [
+          -8.99858036992654,
+          -8.109990580409601
+        ],
+        "canonical_reference_range_eV_per_atom": [
+          -8.99858036992654,
+          -8.109990580409601
+        ]
+      }
+    },
+    {
+      "checkpoint_phase_index": 2,
+      "legacy_phase": "tridymite_p63mmc",
+      "canonical_phase": "tridymite_p63mmc",
+      "n_atoms": 216,
+      "n_frames": 1649,
+      "temperature_range_K": [
+        851.0,
+        2499.0
+      ],
+      "type_map": [
+        "Si",
+        "O"
+      ],
+      "legacy_protocol_n_atoms": 216,
+      "reference_G_validation": {
+        "n_common_temperatures": 1649,
+        "max_abs_difference_eV_per_atom": 0.0,
+        "raw_reference_range_eV_per_atom": [
+          -8.998389570889426,
+          -8.109882061122478
+        ],
+        "canonical_reference_range_eV_per_atom": [
+          -8.998389570889426,
+          -8.109882061122478
+        ]
+      }
+    },
+    {
+      "checkpoint_phase_index": 3,
+      "legacy_phase": "tridymite_c2221",
+      "canonical_phase": null,
+      "n_atoms": 24,
+      "n_frames": 1649,
+      "temperature_range_K": [
+        851.0,
+        2499.0
+      ],
+      "type_map": [
+        "Si",
+        "O"
+      ],
+      "legacy_protocol_n_atoms": 24
+    }
+  ],
+  "excluded_from_reporting": "tridymite_c2221"
+}
