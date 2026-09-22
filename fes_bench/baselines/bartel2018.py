@@ -4,10 +4,14 @@ For a phase with 0-K energy ``E0`` (eV/atom), volume ``V`` (A^3/atom), and
 reduced atomic mass ``m`` (amu), the implemented correction is
 ``(-2.48e-4 ln(V) - 8.94e-5 m/V) T + 0.181 ln(T) - 0.882`` eV/atom.
 
-The coefficients, units, and fixed-composition polymorph limitation were
-checked against Eq. 4 of Bartel *et al.*, Nat. Commun. 9, 4168 (2018),
-https://doi.org/10.1038/s41467-018-06682-4 (open-access article and its
-linked supplementary material, checked 2026-09-19).
+Coefficient audit against Eq. 4 of Bartel *et al.*, Nat. Commun. 9, 4168
+(2018), https://doi.org/10.1038/s41467-018-06682-4 (article and linked SI,
+checked 2026-09-19): original ``-2.48×10⁻⁴`` multiplying ``ln(V)``, original
+``-8.94×10⁻⁵`` multiplying ``m/V``, original ``+0.181 ln(T)`` and ``-0.882``;
+the implementation uses respectively ``-2.48e-4``, ``-8.94e-5``, ``+0.181``
+and ``-0.882`` with no coefficient changes.  The original expression is
+reported in the paper's eV/atom convention; ``V`` is Å³/atom, ``m`` is the
+reduced mass in amu, and ``T`` is K.
 
 Within a fixed-composition polymorph family ``m`` is identical, leaving volume
 as the only structural discriminator.  This limitation is intentional and is
