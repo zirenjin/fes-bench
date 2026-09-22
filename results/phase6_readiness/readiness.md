@@ -4,7 +4,7 @@
 |---|---|---|
 | Environment sync | partial | isolated thu-GenSi `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`; V100 probe timed out (`dcwq1547908.bohrium.tech:22`, retried 2026-09-22 05:54 UTC) and relay could not resolve `bohrium-v100` |
 | Python syntax | pass | `compile.log`, `compile_exit:0` |
-| Full Phase 3/4/5 pytest | running | vendored pytest under isolated thu-GenSi workspace; PID 2148593, log `results/phase6_readiness_pytest_vendor_full.log` |
+| Full Phase 3/4/5 pytest | pass | isolated vendored run: 21 passed in 4750.31s; `pytest_vendor_full.log`, exit 0 |
 | Frozen splits | pass | `results/phase3/split_integrity.json` |
 | Trivial floors | pass | `results/trivial_floor/metrics.json` |
 | External baselines | partial | `results/external_baselines/`; mat-agent rerun is live for phase-ID MLP; Hf DPA E0 helper hit a PyTorch/e3nn compatibility load failure and was terminated |
@@ -14,4 +14,4 @@ Conclusion: **not yet Phase 6 ready**. The remaining blockers are concrete envir
 
 ## Deviations from design
 
-The first full pytest attempt was blocked by a missing package; a vendored pytest install was then made only inside the isolated remote workspace and the corrected full run is now active. No frozen split, metric definition, or head policy was changed.
+The first full pytest attempt was blocked by a missing package; a vendored pytest install was then made only inside the isolated remote workspace. The corrected full run passed all 21 tests. No frozen split, metric definition, or head policy was changed.

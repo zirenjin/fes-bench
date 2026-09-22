@@ -28,7 +28,7 @@ The process was verified live (PID 1996888; it has `/dev/nvidia4` and `/dev/nvid
 
 ## Line C — environment: partial
 
-The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. The direct V100 SSH probe timed out at `dcwq1547908.bohrium.tech:22`, and thu-GenSi cannot resolve `bohrium-v100`, so V100 synchronization remains blocked by DNS/network state. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest was initially absent, so a vendored pytest installation was made only under the isolated remote workspace; the corrected full run is live as PID 2148593 with log `results/phase6_readiness_pytest_vendor_full.log`. See `results/phase6_readiness/`.
+The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. The direct V100 SSH probe timed out at `dcwq1547908.bohrium.tech:22`, and thu-GenSi cannot resolve `bohrium-v100`, so V100 synchronization remains blocked by DNS/network state. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest was initially absent, so a vendored pytest installation was made only under the isolated remote workspace; the corrected full run passed all 21 tests in 4750.31 s (exit 0), recorded in `results/phase6_readiness/pytest_vendor_full.log`.
 
 ## Line D — complete for lightweight items
 
