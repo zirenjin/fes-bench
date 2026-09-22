@@ -2,7 +2,7 @@
 
 This is a line-by-line queue report. Lines A–D were started independently; the live QH line does not block the completed baseline and survey work.
 
-## Line A — external baselines: partial, core results complete
+## Line A — external baselines: complete (structural N/A folds recorded)
 
 Commands run:
 
@@ -12,7 +12,7 @@ PYTHONPATH=. python3 scripts/run_external_baselines.py --data-root data --output
 
 Artifacts: `results/external_baselines/metrics.json`, `skill_scores.md`, `README.md`; implementation in `fes_bench/baselines/` and `scripts/run_external_baselines.py`.
 
-Key result: Bartel skill is negative wherever a matched global-mean pair floor exists: −2.848 on temp extrap, −2.950/−4.992/−3.384 on the SiO₂ LOPO folds, and −1.326 on SiO₂ LOSO. Interpolation is positive on temp extrap (+0.692). `global_mean_delta_g` is pair-level and uses all available training pair labels, so LOPO/LOSO retain a nontrivial floor. A mat-agent rerun is live to obtain phase-ID MLP metrics with the working Torch environment. The separate Hf DPA E0/volume helper hit a PyTorch/e3nn safe-load compatibility error and was terminated; Bartel Hf rows remain explicitly unavailable.
+Key result: Bartel skill is negative wherever a matched global-mean pair floor exists: −2.848 on temp extrap, −2.950/−4.992/−3.384 on the SiO₂ LOPO folds, and −1.326 on SiO₂ LOSO. Interpolation is positive on temp extrap (+0.692). The mat-agent rerun completed; phase-ID MLP skill is also negative on temp extrap (−0.858), while LOPO/LOSO are structurally unavailable because the held-out target has no training rows. `global_mean_delta_g` is pair-level and uses all available training pair labels, so LOPO/LOSO retain a nontrivial floor. The separate Hf DPA E0/volume helper hit a PyTorch/e3nn safe-load compatibility error and was terminated; Bartel Hf rows remain explicitly unavailable.
 
 Bartel coefficient audit: original and implementation values match for all four coefficients. The fixed-composition limitation (mass identical, volume-only phase discrimination) is in the docstring and report.
 
