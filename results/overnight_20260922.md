@@ -16,7 +16,7 @@ Key result: Bartel skill is negative wherever a matched global-mean pair floor e
 
 Bartel coefficient audit: original and implementation values match for all four coefficients. The fixed-composition limitation (mass identical, volume-only phase discrimination) is in the docstring and report.
 
-## Line B — SiO₂ QH: running
+## Line B — SiO₂ QH: raw calculation complete; reliability diagnosis running
 
 Command launched in isolated `/share/jzr/codex_fes_overnight_20260922_1790052610710037915`:
 
@@ -24,7 +24,7 @@ Command launched in isolated `/share/jzr/codex_fes_overnight_20260922_1790052610
 /root/miniconda3/envs/mat-agent/bin/python -m fes_bench.qh.run --config configs/qh/sio2_qh_domains_sse_pbe.yaml
 ```
 
-The process was verified live (PID 1996888; it has `/dev/nvidia4` and `/dev/nvidia-uvm` open; last poll 2026-09-22 07:06 UTC) with log at `results/phase2_sio2_sse_pbe.log`. The config requests `Domains_SSE_PBE`, three SiO₂ phases, five volume scales, 0.01 Å displacements, and 16³ mesh. Final `fqh.csv`, imaginary-mode reliability report, comparison plot, and failure-mode entries are pending process completion.
+The raw QH process completed after roughly seven hours. It produced all three 1,649-point `fqh.csv` files and `qh_summary.json` under the isolated workspace; `qh.compare` produced `qh_comparison.json` and `fqh_vs_reference.{png,pdf}` with all-phase test MAE 21.8657 meV/atom. Minimum frequencies are negative for every phase and volume. A serial same-protocol `qh.diagnose` queue is now running to record exact negative-mode fractions and BZ locations before finalizing reliability.
 
 ## Line C — environment: partial
 

@@ -7,15 +7,15 @@
 | E3 | complete | `results/phase5/e3_recovery.json` | synthetic recovery accepted |
 | E4 | complete | `results/trivial_floor/metrics.json`, `skill_scores.md` | zero and pairwise constant floors; skills all negative for E1 |
 | E5 | complete (with structural N/A folds) | `results/external_baselines/metrics.json`, `skill_scores.md`, `phase_id_mlp_matagent.md` | Bartel/interp/global floors run; mat-agent phase-ID MLP gives temp-extrap skill −0.858; LOPO/LOSO N/A because held-out targets have no training rows |
-| E6 | running | remote `/share/jzr/codex_fes_overnight_20260922_1790052610710037915/results/phase2_sio2_sse_pbe.log` | three-phase SSE-PBE QH process is live; final curves pending |
-| E7 | pending | `configs/qh/sio2_qh_domains_sse_pbe.yaml` | report/plot follows E6 completion |
+| E6 | complete (raw QH) | `results/phase2/sio2_qh_report.md`, remote `results/phase2_sio2_sse_pbe/sio2/qh_summary.json` | three-phase SSE-PBE QH CSVs and comparison are complete; all minimum frequencies are negative |
+| E7 | running | `results/phase2/sio2_qh_report.md` | serial three-phase imaginary-mode/BZ diagnosis is live; reliability table pending |
 | E8 | complete | `results/phase6_readiness/compile.log`, `pytest_vendor_full.log` | compile passed; vendored full suite 21/21 passed in 4750.31 s |
 | E9 | complete (preflight) | `results/phase5/sio2_second_truth_source_survey.md` | source/format surveyed, no download per instruction |
 | E10 | complete | `results/phase3/split_integrity.json` | frozen split hashes verified |
 | E11 | complete for active domain | `data/{sio2,hf}/`, `results/phase1_delivery.md` | CaSiO3 remains source hold |
 | E12 | partial | `results/phase6_readiness/readiness.md` | tests are green; Phase 6 readiness still awaits QH and V100 environment sync |
 | E13 | complete | `results/table2_delta_g_amplitude.md` | pair ΔG amplitude table generated |
-| E14 | partial | this report and `results/overnight_20260922.md` | overnight queue still has live QH work |
+| E14 | partial | this report and `results/overnight_20260922.md` | raw QH finished; serial reliability diagnosis remains live |
 
 ## Deviations from design
 
