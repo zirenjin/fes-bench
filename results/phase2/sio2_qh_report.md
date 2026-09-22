@@ -38,10 +38,20 @@ grid. The generated remote artifacts are
 
 The QH summary already shows large negative minimum frequencies at every
 volume: quartz −3.274 to −2.174 THz, cristobalite −3.619 to −1.026 THz, and
-tridymite −3.555 to −0.388 THz. Therefore a reliable-QH decision is not
-expected for any phase. The exact negative-mode fraction and Brillouin-zone
-distribution will be recorded from the serial `qh.diagnose` outputs before
-this line is marked complete.
+tridymite −3.555 to −0.388 THz. The same-head diagnostic at volume scale 1.0
+gives the following exact mode counts (threshold −0.05 THz):
+
+| phase | min freq (THz) | negative modes / all modes | negative-mode fraction | negative q-points / q-points | negative q-point fraction | Γ-neighborhood fraction of negative modes | `qh_reliable` |
+|---|---:|---:|---:|---:|---:|---:|---|
+| quartz_beta | −2.63652 | 8,178 / 1,495,908 | 0.005467 | 2,051 / 2,052 | 0.999513 | 0 | **false** |
+| cristobalite_beta | −1.70034 | 16,187 / 1,181,952 | 0.013695 | 2,052 / 2,052 | 1.000000 | 0.000494 | **false** |
+| tridymite_p63mmc | −1.65362 | 19,359 / 1,329,696 | 0.014559 | 2,052 / 2,052 | 1.000000 | 0.000413 | **false** |
+
+The total-mode denominator is `n_qpoints × n_modes`. Negative modes are distributed throughout the
+Brillouin-zone mesh rather than being Γ-local, so no Γ exclusion or ASR
+post-filter was applied. JSON evidence is in the isolated workspace at
+`quartz_beta_imaginary_diagnosis.json`, `cristobalite_beta_imaginary_diagnosis.json`,
+and `tridymite_p63mmc_imaginary_diagnosis.json`.
 
 ## Deviations from design
 

@@ -8,7 +8,7 @@
 | Frozen splits | pass | `results/phase3/split_integrity.json` |
 | Trivial floors | pass | `results/trivial_floor/metrics.json` |
 | External baselines | partial | `results/external_baselines/`; mat-agent rerun is live for phase-ID MLP; Hf DPA E0 helper hit a PyTorch/e3nn compatibility load failure and was terminated |
-| SiO₂ QH | running | remote PID 1996888, log under the isolated workspace |
+| SiO₂ QH | pass (with expected unreliability) | isolated `results/phase2_sio2_sse_pbe/sio2/` raw QH CSVs, `qh_comparison.json`, and three `*_imaginary_diagnosis.json` files; all phases `qh_reliable=false` |
 
 Conclusion: **not yet Phase 6 ready**. The remaining blockers are concrete environment/runtime gates and the still-running QH calculation; no benchmark-model training was started.
 
