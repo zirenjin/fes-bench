@@ -28,7 +28,7 @@ The process was verified live (PID 1996888; A100 memory about 561 MiB at last po
 
 ## Line C — environment: partial
 
-The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. `compileall` passed remotely. The targeted baseline smoke process was launched, but pytest is not installed in base, mat-agent, or `/usr/bin/python3`, so the requested full pytest suite cannot run without installing a dependency. No installation was attempted.
+The curated code/data were synchronized to the isolated remote workspace; the unrelated pre-existing `/share/jzr/fes-bench` directory was not used. `compileall` passed remotely. The targeted baseline smoke process was launched and then terminated after it continued consuming CPU; the complete baseline result is already persisted locally. Pytest is not installed in base, mat-agent, or `/usr/bin/python3`, so the requested full pytest suite cannot run without installing a dependency. No installation was attempted. See `results/phase6_readiness/`.
 
 ## Line D — complete for lightweight items
 

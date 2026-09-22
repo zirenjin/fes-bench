@@ -1,0 +1,5 @@
+Command: /root/miniconda3/envs/mat-agent/bin/python -m compileall -q fes_bench scripts tests
+Result: compile_exit:0
+
+Command: PYTHONPATH=. /root/miniconda3/envs/mat-agent/bin/python scripts/run_external_baselines.py --data-root data --output-root results/external_baselines_smoke --splits splits/temp_extrap.json
+Result: the redundant smoke process was terminated with signal 143 after it continued consuming CPU; the complete external-baseline result is already persisted in results/external_baselines/.
