@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
     "split": "system_loso",
     "split_sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
     "predictor_config": null,
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:24:35.144794+00:00",
+    "timestamp_utc": "2026-09-23T14:33:17.502868+00:00",
     "input_metrics": "result/experiments/legacy_support/trivial_floor/metrics.json",
     "input_metrics_sha256": "03c3a2d09e60da643d541b8188f2e39dcd8c8285309b54db6965c82d8ff33270",
     "missing": []

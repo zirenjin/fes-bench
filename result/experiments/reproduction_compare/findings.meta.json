@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-23T14:25:32.396628+00:00",
-  "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+  "generated_utc": "2026-09-23T14:33:46.698733+00:00",
+  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
   "inputs": [
     {
       "path": "configs/raw_runs.json",

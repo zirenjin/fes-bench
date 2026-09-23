@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
     "split": "phase_lopo",
     "split_sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac",
     "predictor_config": "configs/predictors/bartel2018.yaml",
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:24:33.487023+00:00",
+    "timestamp_utc": "2026-09-23T14:33:16.683069+00:00",
     "input_metrics": "result/experiments/legacy_support/external_baselines/metrics.json",
     "input_metrics_sha256": "44a65d5ccf2ebf45aae625219ed5e80e0951893bfebb585b4f3eacf430a705e3",
     "missing": []

@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
     "split": "reference_statistics",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:24:39.196473+00:00",
+    "timestamp_utc": "2026-09-23T14:33:20.086076+00:00",
     "input_metrics": "result/experiments/legacy_support/reference_delta_g_stats.json",
     "input_metrics_sha256": "7e2c5f87d97586a00088ab068c84152655d98ffdf83ef4403560601ef43cd6bf",
     "missing": []
