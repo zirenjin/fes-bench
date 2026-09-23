@@ -1,0 +1,143 @@
+{
+  "provenance": {
+    "git_commit": "03c30c6f698b0aa0dfa2eab9dbf69fec09e36fe1",
+    "split": "system_loso",
+    "split_sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
+    "predictor_config": null,
+    "predictor_config_sha256": null,
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench historical result normalizer v1",
+    "timestamp_utc": "2026-09-23T01:56:44.875255+00:00",
+    "input_metrics": "results/reference/system_loso/metrics.json",
+    "input_metrics_sha256": "9deb83dfb6885dc8f6472b940298bcbad93801e5c6e3759804972e9612d218a7",
+    "missing": []
+  },
+  "metrics": {
+    "G_MAE_eV_per_atom": 0.0,
+    "coverage_2sigma": 1.0,
+    "folds": {
+      "hf": {
+        "G_MAE_eV_per_atom": 0.0,
+        "coverage_2sigma": 1.0,
+        "n_test_frames": 2504,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "Tc_err_from_dG_K": [
+              0.0
+            ],
+            "Tc_error_K": [
+              0.0
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              4.999999999999449e-05
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0,
+            "delta_G_RMSE_eV_per_atom": 0.0,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "pair_support": "test_and_train_partner",
+            "predicted_Tc_K": [
+              1919.0
+            ],
+            "reference_Tc_K": [
+              1919.0
+            ],
+            "sign_accuracy": 1.0
+          }
+        },
+        "predictor": "reference",
+        "seeds": [
+          11,
+          23,
+          37,
+          51,
+          67
+        ]
+      },
+      "sio2": {
+        "G_MAE_eV_per_atom": 0.0,
+        "coverage_2sigma": 1.0,
+        "n_test_frames": 4947,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "Tc_err_from_dG_K": [
+              0.0
+            ],
+            "Tc_error_K": [
+              0.0
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.551407561479095e-06
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0,
+            "delta_G_RMSE_eV_per_atom": 0.0,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "pair_support": "test_and_train_partner",
+            "predicted_Tc_K": [
+              1542.7087047758675
+            ],
+            "reference_Tc_K": [
+              1542.7087047758675
+            ],
+            "sign_accuracy": 1.0
+          },
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [],
+            "delta_G_MAE_eV_per_atom": 0.0,
+            "delta_G_RMSE_eV_per_atom": 0.0,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "pair_support": "test_and_train_partner",
+            "predicted_Tc_K": [],
+            "reference_Tc_K": [],
+            "sign_accuracy": 1.0
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [
+              0.0
+            ],
+            "Tc_error_K": [
+              0.0
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.448345272997869e-06
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0,
+            "delta_G_RMSE_eV_per_atom": 0.0,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "pair_support": "test_and_train_partner",
+            "predicted_Tc_K": [
+              1582.3215510581538
+            ],
+            "reference_Tc_K": [
+              1582.3215510581538
+            ],
+            "sign_accuracy": 1.0
+          }
+        },
+        "predictor": "reference",
+        "seeds": [
+          11,
+          23,
+          37,
+          51,
+          67
+        ]
+      }
+    },
+    "n_test_frames": 7451,
+    "predictor": "reference",
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      67
+    ]
+  }
+}

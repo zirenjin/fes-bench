@@ -1,5 +1,5 @@
 {
-  "data_root": "../../data",
+  "data_root": "data",
   "system": "sio2",
   "type_map": ["O", "Si"],
   "pressures_GPa": [0.0],
@@ -16,9 +16,9 @@
     "notes": "The source does not separately report a size-error bound; numeric zero is a schema placeholder and must not be interpreted as a convergence claim."
   },
   "phases": [
-    {"name": "quartz_beta", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv"},
-    {"name": "cristobalite_beta", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/cristobalite_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/cristobalite_beta_pbe_d3bj.csv"},
-    {"name": "tridymite_p63mmc", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_beta_pbe_d3bj.csv"},
-    {"name": "tridymite_c2221", "source": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_ortho_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_ortho_pbe_d3bj.csv"}
+    {"name": "quartz_beta", "source": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv"},
+    {"name": "cristobalite_beta", "source": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/cristobalite_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/cristobalite_beta_pbe_d3bj.csv"},
+    {"name": "tridymite_p63mmc", "source": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_beta_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_beta_pbe_d3bj.csv"},
+    {"name": "tridymite_c2221", "source": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_ortho_pbe_d3bj.csv", "provenance": "DaRUS-4999/direct_upsampling_data_rungs_1-3/thermodynamic_properties/tridymite_ortho_pbe_d3bj.csv"}
   ]
 }

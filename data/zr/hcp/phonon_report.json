@@ -1,8 +1,8 @@
 {
   "system": "zr",
   "phase": "hcp",
-  "source_run": "/GenSIvePFS/users/zirenj/fes-bench/runs/phase2_tizr_qh_20260921/results/zr",
-  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "source_run": "external/runs/phase2_tizr_qh_20260921/results/zr",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "head": "Domains_Alloy",
   "supercell_matrix": [2, 2, 2],
   "mesh": [12, 12, 12],

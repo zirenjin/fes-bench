@@ -1,0 +1,8 @@
+{
+  "system": "hf",
+  "system_json": "data/hf/system.json",
+  "doi": "10.18419/DARUS-3582",
+  "functional": "PBE",
+  "pressure_range_GPa": [0.0001, 0.0001],
+  "truth_level": "PBE thermodynamic integration"
+}

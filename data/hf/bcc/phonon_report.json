@@ -16,7 +16,7 @@
   "qh_reliable": false,
   "reference_pressure_inherited": true,
   "source": {
-    "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+    "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
     "head": "Domains_Alloy",
     "mesh": [
       12,

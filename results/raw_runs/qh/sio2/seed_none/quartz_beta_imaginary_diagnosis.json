@@ -1,0 +1,1 @@
+{"system":"sio2","phase":"quartz_beta","head":"Domains_SSE_PBE","mesh":[16,16,16],"supercell_matrix":[1,1,1],"volume_scale":1.0,"minimum_frequency_THz":-2.63651796751047,"negative_mode_fraction":0.005466913740684588,"negative_qpoint_fraction":0.9995126705653021,"negative_modes_are_gamma_local":false,"negative_threshold_THz":-0.05}

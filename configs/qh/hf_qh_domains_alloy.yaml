@@ -1,8 +1,8 @@
 {
-  "data_root": "../../data",
-  "output_root": "../../results/phase2_domains_alloy",
+  "data_root": "data",
+  "output_root": "results/phase2_domains_alloy",
   "system": "hf",
-  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "head": "Domains_Alloy",
   "phases": ["hcp", "bcc"],
   "supercell_matrix": [2, 2, 2],

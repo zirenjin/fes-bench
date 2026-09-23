@@ -1,0 +1,41 @@
+{
+  "provenance": {
+    "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e",
+    "split": "qh",
+    "split_sha256": null,
+    "predictor_config": "configs/qh/sio2_qh_domains_sse_pbe.yaml",
+    "predictor_config_sha256": null,
+    "checkpoint_path": "external/checkpoints/DPA-3.1-3M.pt",
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench QH raw-run import v1",
+    "timestamp_utc": "2026-09-22T00:00:00+00:00",
+    "source_uri": "remote://thu-GenSi/codex_fes_overnight_20260922_1790052610710037915/results/phase2_sio2_sse_pbe",
+    "source_mount": "thu-GenSi:share/jzr",
+    "source_path": "remote://thu-GenSi/codex_fes_overnight_20260922_1790052610710037915/results/phase2_sio2_sse_pbe/qh_comparison.json",
+    "source_sha256": {
+      "qh_summary.json": "9c8c6bda6ba2d406098406fa902928c103c07f81b1d2318a746241a71b512a05",
+      "quartz_beta_fqh.csv": "5213897edca222f672cfcd58134e46279f1a5152f27b8e3e08ad2324b8bdf466",
+      "cristobalite_beta_fqh.csv": "5acf33327661c29c5741415c4696eff4a5214a6739a2d3a6df5c77ab91417873",
+      "tridymite_p63mmc_fqh.csv": "56767ed9d3f4b2835d81e82c3caa95d66a6408188c8812d0285f18bd773c0b03",
+      "qh_comparison.json": "bf115d39074945ecbf6e7cc07f56097157457c4dfaf90ba46e99d56ed3e43b97",
+      "quartz_beta_imaginary_diagnosis.json": "43acf21fa6b2804d47c0199341169cfb8145f69e272e6fd557ce87fb89be2b46",
+      "cristobalite_beta_imaginary_diagnosis.json": "3f00f47d7de413dd464e1e59839dac8f5be63b9746854c38d2c0e851973cdf09",
+      "tridymite_p63mmc_imaginary_diagnosis.json": "17143842c9223abe8a614d88c176b5b7110a03e4865a655b0aae7d7ae1f2a174"
+    },
+    "missing": []
+  },
+  "metrics": {
+    "qh_summary": "qh_summary.json",
+    "qh_comparison": "qh_comparison.json",
+    "imaginary_diagnostics": [
+      "quartz_beta_imaginary_diagnosis.json",
+      "cristobalite_beta_imaginary_diagnosis.json",
+      "tridymite_p63mmc_imaginary_diagnosis.json"
+    ],
+    "fqh_csv": [
+      "quartz_beta_fqh.csv",
+      "cristobalite_beta_fqh.csv",
+      "tridymite_p63mmc_fqh.csv"
+    ]
+  }
+}

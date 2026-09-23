@@ -1,0 +1,8 @@
+{
+  "system": "sio2",
+  "system_json": "data/sio2/system.json",
+  "doi": "10.18419/DARUS-4999",
+  "functional": "PBE-D3(BJ)",
+  "pressure_range_GPa": [0.0, 0.0],
+  "truth_level": "PBE-D3(BJ) direct upsampling"
+}

@@ -23,7 +23,7 @@
     "lattice_A": {"a": 2.935, "c": 4.659},
     "source_structure": "structure.source.extxyz",
     "calculator": "deepmd.calculator.DP",
-    "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+    "checkpoint": "external/models/DPA-3.1-3M.pt",
     "head": "Domains_Alloy",
     "optimizer": "FIRE",
     "cell_relaxed": true,

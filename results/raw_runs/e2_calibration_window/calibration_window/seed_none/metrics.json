@@ -1,0 +1,120 @@
+{
+  "provenance": {
+    "git_commit": "03c30c6f698b0aa0dfa2eab9dbf69fec09e36fe1",
+    "split": "e2_calibration_window",
+    "split_sha256": null,
+    "predictor_config": null,
+    "predictor_config_sha256": null,
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench historical result normalizer v1",
+    "timestamp_utc": "2026-09-23T01:56:51.824892+00:00",
+    "input_metrics": "results/phase5/e2_leakage_audit.json",
+    "input_metrics_sha256": "e3efb9ac4ed6066f31a930f821a650db7941ff7e1e32c7aa7505c947197987db",
+    "missing": []
+  },
+  "metrics": {
+    "rows": [
+      {
+        "basis": "polynomial",
+        "seed": 11,
+        "formal_G_MAE": 6.1351856980348485,
+        "heldout_G_MAE": 2.947561881803204,
+        "delta_G_MAE": -3.1876238162316444,
+        "relative_delta_percent": -51.956435764489854,
+        "mean_pair_delta_G_MAE": 2.8189256484623115e-17,
+        "max_Tc_delta_K": 2.3646862246096134e-11
+      },
+      {
+        "basis": "polynomial",
+        "seed": 23,
+        "formal_G_MAE": 6.179600149247405,
+        "heldout_G_MAE": 2.9664812979905983,
+        "delta_G_MAE": -3.213118851256807,
+        "relative_delta_percent": -51.99557857555109,
+        "mean_pair_delta_G_MAE": -2.949029909160572e-17,
+        "max_Tc_delta_K": 1.7280399333685637e-10
+      },
+      {
+        "basis": "polynomial",
+        "seed": 37,
+        "formal_G_MAE": 6.163721644272313,
+        "heldout_G_MAE": 2.9594910180411724,
+        "delta_G_MAE": -3.20423062623114,
+        "relative_delta_percent": -51.98532333478584,
+        "mean_pair_delta_G_MAE": 1.7058114180438604e-17,
+        "max_Tc_delta_K": 1.4551915228366852e-10
+      },
+      {
+        "basis": "polynomial",
+        "seed": 51,
+        "formal_G_MAE": 6.142581821302738,
+        "heldout_G_MAE": 2.951351475543911,
+        "delta_G_MAE": -3.1912303457588265,
+        "relative_delta_percent": -51.952589946649184,
+        "mean_pair_delta_G_MAE": -4.452456921673805e-17,
+        "max_Tc_delta_K": 1.3596945791505277e-10
+      },
+      {
+        "basis": "polynomial",
+        "seed": 67,
+        "formal_G_MAE": 6.132506900141759,
+        "heldout_G_MAE": 2.946402758519854,
+        "delta_G_MAE": -3.1861041416219047,
+        "relative_delta_percent": -51.954350700335205,
+        "mean_pair_delta_G_MAE": 2.587629184998737e-17,
+        "max_Tc_delta_K": 1.9099388737231493e-10
+      },
+      {
+        "basis": "tlog_polynomial",
+        "seed": 11,
+        "formal_G_MAE": 1.98139080103808,
+        "heldout_G_MAE": 0.8015098783098372,
+        "delta_G_MAE": -1.179880922728243,
+        "relative_delta_percent": -59.54811751977883,
+        "mean_pair_delta_G_MAE": -8.673617379884035e-18,
+        "max_Tc_delta_K": 1.4097167877480388e-11
+      },
+      {
+        "basis": "tlog_polynomial",
+        "seed": 23,
+        "formal_G_MAE": 1.9841932857838969,
+        "heldout_G_MAE": 0.802553788842687,
+        "delta_G_MAE": -1.1816394969412098,
+        "relative_delta_percent": -59.55264063270825,
+        "mean_pair_delta_G_MAE": -9.974659986866641e-18,
+        "max_Tc_delta_K": 2.2737367544323206e-11
+      },
+      {
+        "basis": "tlog_polynomial",
+        "seed": 37,
+        "formal_G_MAE": 2.0083570881469237,
+        "heldout_G_MAE": 0.8116236249319623,
+        "delta_G_MAE": -1.1967334632149615,
+        "relative_delta_percent": -59.58768339942807,
+        "mean_pair_delta_G_MAE": 1.9949319973733282e-17,
+        "max_Tc_delta_K": 7.275957614183426e-12
+      },
+      {
+        "basis": "tlog_polynomial",
+        "seed": 51,
+        "formal_G_MAE": 2.00050854663662,
+        "heldout_G_MAE": 0.8084758634911827,
+        "delta_G_MAE": -1.1920326831454373,
+        "relative_delta_percent": -59.58648290453731,
+        "mean_pair_delta_G_MAE": -2.6599093298311043e-17,
+        "max_Tc_delta_K": 3.410605131648481e-11
+      },
+      {
+        "basis": "tlog_polynomial",
+        "seed": 67,
+        "formal_G_MAE": 2.0012981733053405,
+        "heldout_G_MAE": 0.808668979280047,
+        "delta_G_MAE": -1.1926291940252935,
+        "relative_delta_percent": -59.59277882393452,
+        "mean_pair_delta_G_MAE": 5.782411586589357e-19,
+        "max_Tc_delta_K": 7.912603905424476e-11
+      }
+    ]
+  }
+}

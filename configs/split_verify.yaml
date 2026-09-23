@@ -1,4 +1,4 @@
 {
-  "splits_dir": "../splits",
-  "output": "../results/phase3/split_integrity.json"
+  "splits_dir": "splits",
+  "output": "results/phase3/split_integrity.json"
 }

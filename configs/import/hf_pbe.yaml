@@ -1,5 +1,5 @@
 {
-  "data_root": "../../data",
+  "data_root": "data",
   "system": "hf",
   "type_map": ["Hf"],
   "pressures_GPa": [0.0001],
@@ -18,7 +18,7 @@
   "phases": [
     {
       "name": "hcp",
-      "source": "../../data/raw/hf/table-thermodynamic-Hf-hcp-PBE.tab",
+      "source": "data/raw/hf/table-thermodynamic-Hf-hcp-PBE.tab",
       "delimiter": "\t",
       "skip_rows": 1,
       "temperature_column": "# T (K)",
@@ -29,7 +29,7 @@
     },
     {
       "name": "bcc",
-      "source": "../../data/raw/hf/table-thermodynamic-Hf-bcc-PBE.tab",
+      "source": "data/raw/hf/table-thermodynamic-Hf-bcc-PBE.tab",
       "delimiter": "\t",
       "skip_rows": 1,
       "temperature_column": "# T (K)",

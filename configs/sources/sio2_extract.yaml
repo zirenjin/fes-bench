@@ -1,8 +1,8 @@
 {
   "archives": [
     {
-      "archive": "../../data/raw/sio2/direct_upsampling_data_rungs_1-3.zip",
-      "destination": "../../data/raw/sio2/unpacked"
+      "archive": "data/raw/sio2/direct_upsampling_data_rungs_1-3.zip",
+      "destination": "data/raw/sio2/unpacked"
     }
   ]
 }

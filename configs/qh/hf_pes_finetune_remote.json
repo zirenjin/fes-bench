@@ -75,24 +75,24 @@
     "stat_file": "hf_pes_stats.hdf5",
     "training_data": {
       "systems": [
-        "/share/jzr/pes_origin_audit_20260920/hf_pes/hcp/train",
-        "/share/jzr/pes_origin_audit_20260920/hf_pes/bcc/train"
+        "external/pes_origin_audit_20260920/hf_pes/hcp/train",
+        "external/pes_origin_audit_20260920/hf_pes/bcc/train"
       ],
       "batch_size": 1
     },
     "validation_data": {
       "systems": [
-        "/share/jzr/pes_origin_audit_20260920/hf_pes/hcp/valid",
-        "/share/jzr/pes_origin_audit_20260920/hf_pes/bcc/valid"
+        "external/pes_origin_audit_20260920/hf_pes/hcp/valid",
+        "external/pes_origin_audit_20260920/hf_pes/bcc/valid"
       ],
       "batch_size": 1,
       "numb_btch": 8
     },
     "numb_steps": 3000,
     "seed": 23,
-    "disp_file": "/share/jzr/pes_origin_audit_20260920/hf_pes_finetune.log",
+    "disp_file": "results/hf_pes_finetune.log",
     "disp_freq": 100,
     "save_freq": 500,
-    "save_ckpt": "/share/jzr/pes_origin_audit_20260920/hf_pes_finetuned/model.ckpt"
+    "save_ckpt": "external/checkpoints/hf_pes_finetuned/model.ckpt"
   }
 }

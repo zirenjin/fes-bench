@@ -1,7 +1,7 @@
 {
-  "data_root": "../../data",
+  "data_root": "data",
   "system": "sio2",
-  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/pes_dpa31_fes_full_singlehead_a100/model.ckpt-5000.pt",
+  "checkpoint": "external/checkpoints/model.ckpt-5000.pt",
   "head": null,
   "phases": ["quartz_beta"],
   "cell_relaxed": false,

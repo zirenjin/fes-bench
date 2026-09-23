@@ -1,7 +1,7 @@
 {
-  "data_root": "../../data",
+  "data_root": "data",
   "system": "ti",
-  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "head": "Domains_Alloy",
   "phases": ["hcp", "bcc"],
   "fmax_eV_per_A": 0.01,

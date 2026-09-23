@@ -1,20 +1,20 @@
 {
-  "data_root": "../../data",
+  "data_root": "data",
   "system": "sio2",
   "sources": [
     {
       "phase": "quartz_beta",
-      "source": "../../data/raw/sio2/training/quartz_beta_pbe_d3bj/12.0Ang3_1986K/step_01200/OUTCAR",
+      "source": "data/raw/sio2/training/quartz_beta_pbe_d3bj/12.0Ang3_1986K/step_01200/OUTCAR",
       "source_temperature_K": 1986
     },
     {
       "phase": "cristobalite_beta",
-      "source": "../../data/raw/sio2/training/cristobalite_beta_pbe_d3bj/14.2857Ang3_1986K/step_03600/OUTCAR",
+      "source": "data/raw/sio2/training/cristobalite_beta_pbe_d3bj/14.2857Ang3_1986K/step_03600/OUTCAR",
       "source_temperature_K": 1986
     },
     {
       "phase": "tridymite_p63mmc",
-      "source": "../../data/raw/sio2/training/tridymite_beta_pbe_d3bj/14.0Ang3_1986K/step_01200/OUTCAR",
+      "source": "data/raw/sio2/training/tridymite_beta_pbe_d3bj/14.0Ang3_1986K/step_01200/OUTCAR",
       "source_temperature_K": 1986
     },
     {

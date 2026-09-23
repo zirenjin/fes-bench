@@ -1,7 +1,7 @@
-data_root: ../../data
+data_root: data
 system: sio2
 phase: quartz_beta
-checkpoint: /GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt
+checkpoint: external/checkpoints/DPA-3.1-3M.pt
 heads: [Domains_Alloy, Domains_SSE_PBE]
 volume_scale: 1.0
 supercell_matrix: [2, 2, 2]
@@ -11,4 +11,4 @@ negative_threshold_THz: -0.05
 gamma_radius_fraction: 0.05
 asr: false
 fc_symmetry: false
-output_markdown: ../../results/phase2/sio2_alloy_head_check.md
+output_markdown: results/phase2/sio2_alloy_head_check.md

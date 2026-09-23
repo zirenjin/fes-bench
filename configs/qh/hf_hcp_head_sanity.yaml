@@ -1,6 +1,6 @@
 {
-  "structure": "../../data/hf/hcp/structure.extxyz",
-  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "structure": "data/hf/hcp/structure.extxyz",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "heads": ["Domains_SSE_PBE", "Domains_Alloy"],
-  "output": "../../results/phase2/hcp_head_sanity.json"
+  "output": "results/phase2/hcp_head_sanity.json"
 }

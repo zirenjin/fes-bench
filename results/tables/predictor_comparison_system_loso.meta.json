@@ -1,0 +1,68 @@
+{
+  "generated_utc": "2026-09-23T01:57:01.423383+00:00",
+  "git_commit": "03c30c6f698b0aa0dfa2eab9dbf69fec09e36fe1",
+  "inputs": [
+    {
+      "path": "results/raw_runs/system_loso/bartel2018/seed_none/metrics.json",
+      "sha256": "740e7bf2b6c981fe1ffd491a8a23d2bf5a843e1d5ca41b54d14d5a2beb6f6181"
+    },
+    {
+      "path": "results/raw_runs/system_loso/constant_delta_g/seed_none/metrics.json",
+      "sha256": "a5dac533f0e7d929fbbe2216bd4dc829cabda220a1d85e34ee2867aba6d39049"
+    },
+    {
+      "path": "results/raw_runs/system_loso/constant_offset_0.005/seed_none/metrics.json",
+      "sha256": "f43ba9cd645149b498ff2f855cacb16e04db5fdfd6dec03b02d525174aa15691"
+    },
+    {
+      "path": "results/raw_runs/system_loso/global_mean_delta_g/seed_none/metrics.json",
+      "sha256": "00820b16bd97ee3af61bf35cecd398784ab96bfa5ff5793f9ec738ff4ee26da9"
+    },
+    {
+      "path": "results/raw_runs/system_loso/interp_const/seed_none/metrics.json",
+      "sha256": "febb5b7d203b1e53d67662dd0cac64473f341dde27063fc0781e93a8413ed1f2"
+    },
+    {
+      "path": "results/raw_runs/system_loso/phase_id_mlp/seed_none/metrics.json",
+      "sha256": "404f1ff4467596dc9ecb1b36131846cf785980f3a74905dc39f53a682e9a5d88"
+    },
+    {
+      "path": "results/raw_runs/system_loso/reference/seed_none/metrics.json",
+      "sha256": "391f51844d4e2197790e301739a216532d2088bb2db18fdb2c784660baed4985"
+    },
+    {
+      "path": "results/raw_runs/system_loso/reference_noise_0.005/seed_none/metrics.json",
+      "sha256": "1b90d28e0a79abd9b1daf12f0e9a5677044a1ae3acc835191cda051f3d1663e0"
+    },
+    {
+      "path": "results/raw_runs/system_loso/root_stability_iid_0.005/seed_none/metrics.json",
+      "sha256": "0ea8653f34c86eb2041d91f2a3ae3b838849d0a7fcea00873bd56703a313e47f"
+    },
+    {
+      "path": "results/raw_runs/system_loso/zero/seed_none/metrics.json",
+      "sha256": "e9d48309f006c3ec7c7d29a94cd53f8ac2b8ecbe777969f1ac328d25fed8dcdb"
+    }
+  ],
+  "missing": [
+    {
+      "field": "bartel2018.G_MAE_eV_per_atom",
+      "reason": "pair-only predictor or unavailable phase-energy metric"
+    },
+    {
+      "field": "constant_delta_g.G_MAE_eV_per_atom",
+      "reason": "pair-only predictor or unavailable phase-energy metric"
+    },
+    {
+      "field": "interp_const.G_MAE_eV_per_atom",
+      "reason": "pair-only predictor or unavailable phase-energy metric"
+    },
+    {
+      "field": "phase_id_mlp.G_MAE_eV_per_atom",
+      "reason": "pair-only predictor or unavailable phase-energy metric"
+    },
+    {
+      "field": "zero.G_MAE_eV_per_atom",
+      "reason": "pair-only predictor or unavailable phase-energy metric"
+    }
+  ]
+}

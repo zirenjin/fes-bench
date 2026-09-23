@@ -961,6 +961,38 @@
       "std_eV_per_atom": 0.0035763756298466736,
       "min_eV_per_atom": -0.004992832653204715,
       "max_eV_per_atom": 0.007303547988877668
+    },
+    {
+      "split": "reference_full_grid",
+      "fold": "\u2014",
+      "subset": "all",
+      "system": "ti",
+      "pair": "bcc_minus_hcp",
+      "n_frames": 693,
+      "temperature_range_K": [
+        835.0,
+        1527.0
+      ],
+      "mean_eV_per_atom": -0.004800144300144299,
+      "std_eV_per_atom": 0.006111490607003739,
+      "min_eV_per_atom": -0.013399999999999967,
+      "max_eV_per_atom": 0.007599999999999996
+    },
+    {
+      "split": "reference_full_grid",
+      "fold": "\u2014",
+      "subset": "all",
+      "system": "zr",
+      "pair": "bcc_minus_hcp",
+      "n_frames": 910,
+      "temperature_range_K": [
+        610.0,
+        1519.0
+      ],
+      "mean_eV_per_atom": -0.001354725274725273,
+      "std_eV_per_atom": 0.008580716604806301,
+      "min_eV_per_atom": -0.012900000000000023,
+      "max_eV_per_atom": 0.016699999999999993
     }
   ]
 }

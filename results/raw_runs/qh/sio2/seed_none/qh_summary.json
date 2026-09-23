@@ -1,0 +1,13 @@
+{
+  "system": "sio2",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "head": "Domains_SSE_PBE",
+  "supercell_matrix": [1, 1, 1],
+  "mesh": [16, 16, 16],
+  "volume_scales": [0.96, 0.98, 1.0, 1.02, 1.04],
+  "phases": {
+    "quartz_beta": {"n_temperatures": 1649, "minimum_frequency_THz_by_volume": {"0.96": -3.2740289033485914, "0.98": -2.9225379062421797, "1.0": -2.6265424236661876, "1.02": -2.389510987322863, "1.04": -2.174187837018785}, "output": "quartz_beta_fqh.csv"},
+    "cristobalite_beta": {"n_temperatures": 1649, "minimum_frequency_THz_by_volume": {"0.96": -3.619317251616584, "0.98": -2.551570193252487, "1.0": -1.7049248619292896, "1.02": -1.3020061007461314, "1.04": -1.026203885966747}, "output": "cristobalite_beta_fqh.csv"},
+    "tridymite_p63mmc": {"n_temperatures": 1649, "minimum_frequency_THz_by_volume": {"0.96": -3.554613730817086, "0.98": -2.6141591424316593, "1.0": -1.6510207588356054, "1.02": -0.796784637557753, "1.04": -0.38817562935323663}, "output": "tridymite_p63mmc_fqh.csv"}
+  }
+}

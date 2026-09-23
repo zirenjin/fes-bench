@@ -1,4 +1,15 @@
-"""Evaluate a predictor specification against a frozen benchmark split."""
+"""Evaluate a predictor specification against a frozen benchmark split.
+
+Metric definitions:
+- G_MAE | mean absolute error of phase G | eV/atom | ↓
+- delta_G_MAE | mean absolute error of pair ΔG = G(left) − G(right) | eV/atom | ↓
+- delta_G_RMSE | root mean squared error of pair ΔG | eV/atom | ↓
+- sign_accuracy | fraction of evaluation points with matching ΔG sign | fraction | ↑
+- Tc_error | predicted crossing temperature minus reference crossing temperature | K | ↓
+- false_crossings | predicted crossings beyond the reference crossing count | count | ↓
+- missed_crossings | reference crossings not predicted | count | ↓
+- coverage_2sigma | fraction of reference values covered by seed mean ± 2σ | fraction | ↑
+"""
 
 from __future__ import annotations
 

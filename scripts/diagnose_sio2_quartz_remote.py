@@ -14,10 +14,10 @@ from phonopy import Phonopy
 from phonopy.structure.atoms import PhonopyAtoms
 
 
-ROOT = Path("/GenSIvePFS/users/zirenj/fes-bench")
+ROOT = Path(".")
 PHASE = ROOT / "data/sio2/quartz_beta"
 OUT = ROOT / "runs/phase2_sio2_quartz_head_20260922"
-CHECKPOINT = "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt"
+CHECKPOINT = "external/checkpoints/DPA-3.1-3M.pt"
 HEADS = ["Domains_Alloy", "Domains_SSE_PBE"]
 
 

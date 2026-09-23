@@ -1,16 +1,16 @@
 {
-  "data_root": "../data",
-  "split_root": "../splits",
-  "results_root": "../results",
-  "model_root": "../configs/models",
-  "phase3_noise_log": "../results/phase3/v100_r18_noise_20260921.log",
-  "phase4_fes_log": "../results/phase4/v100_upstream_fes_20260921.log",
-  "phase5_recheck_log": "../results/phase5/v100_r15_recheck_20260921.log",
+  "data_root": "data",
+  "split_root": "splits",
+  "results_root": "results",
+  "model_root": "configs/models",
+  "phase3_noise_log": "results/phase3/v100_r18_noise_20260921.log",
+  "phase4_fes_log": "results/phase4/v100_upstream_fes_20260921.log",
+  "phase5_recheck_log": "results/phase5/v100_r15_recheck_20260921.log",
   "splits": ["temp_extrap", "phase_lopo", "system_loso"],
   "required_holds": [
-    "../results/phase1/casio3_source_hold.md",
-    "../results/phase5/e1_e2_reanalysis_hold.md",
-    "../data/sio2/exclusions.json"
+    "results/phase1/casio3_source_hold.md",
+    "results/phase5/e1_e2_reanalysis_hold.md",
+    "data/sio2/exclusions.json"
   ],
-  "output": "../results/completion_audit_20260921.json"
+  "output": "results/completion_audit_20260921.json"
 }

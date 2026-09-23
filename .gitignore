@@ -1,5 +1,9 @@
 # Large generated benchmark data stay local; manifests and documentation are tracked.
 data/*/*
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
 !data/*/download.json
 !data/*/system.json
 !data/*/reference_crossings.json
@@ -8,6 +12,14 @@ data/*/*
 results/*
 !results/phase0/
 !results/phase0/**
+!results/README.md
+!results/tables/
+!results/tables/**
+!results/audits/
+!results/audits/**
+!results/raw_runs/
+!results/raw_runs/**
+!results/_legacy/
 __pycache__/
 .pytest_cache/
 *.py[cod]

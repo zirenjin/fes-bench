@@ -1,16 +1,16 @@
 {
   "archives": [
     {
-      "archive": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/moment_tensor_potentials/training_sets/quartz_beta_pbe_d3bj.tgz",
-      "destination": "../../data/raw/sio2/training"
+      "archive": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/moment_tensor_potentials/training_sets/quartz_beta_pbe_d3bj.tgz",
+      "destination": "data/raw/sio2/training"
     },
     {
-      "archive": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/moment_tensor_potentials/training_sets/cristobalite_beta_pbe_d3bj.tgz",
-      "destination": "../../data/raw/sio2/training"
+      "archive": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/moment_tensor_potentials/training_sets/cristobalite_beta_pbe_d3bj.tgz",
+      "destination": "data/raw/sio2/training"
     },
     {
-      "archive": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/moment_tensor_potentials/training_sets/tridymite_beta_pbe_d3bj.tgz",
-      "destination": "../../data/raw/sio2/training"
+      "archive": "data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/moment_tensor_potentials/training_sets/tridymite_beta_pbe_d3bj.tgz",
+      "destination": "data/raw/sio2/training"
     }
   ]
 }

@@ -53,6 +53,11 @@ def main() -> int:
     parser.add_argument("--data-root", required=True, type=Path)
     parser.add_argument("--splits-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument(
+        "--include-system-full-grids",
+        action="store_true",
+        help="add one all-grid record for systems absent from the frozen split files",
+    )
     args = parser.parse_args()
     records = []
     for split_path in sorted(args.splits_root.glob("*.json")):
@@ -81,6 +86,22 @@ def main() -> int:
             records.extend(
                 {"split": split_path.stem, "fold": "—", "subset": "test_plus_train_partner", **item}
                 for item in curves(partner_rows, args.data_root)
+            )
+    if args.include_system_full_grids:
+        existing_systems = {str(item["system"]) for item in records}
+        for system_path in sorted(args.data_root.glob("*/system.json")):
+            system = system_path.parent.name
+            if system in existing_systems:
+                continue
+            system_meta = json.loads(system_path.read_text(encoding="utf-8"))
+            rows = []
+            for phase in system_meta.get("phases", []):
+                with (args.data_root / system / phase / "reference_G.csv").open(newline="", encoding="utf-8") as handle:
+                    n_points = sum(1 for _ in handle) - 1
+                rows.extend({"system": system, "phase": phase, "T_index": index} for index in range(n_points))
+            records.extend(
+                {"split": "reference_full_grid", "fold": "—", "subset": "all", **item}
+                for item in curves(rows, args.data_root)
             )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     payload = {"units": "eV/atom", "definition": "ΔG = G(left) − G(right); std uses population normalization (ddof=0)", "records": records}

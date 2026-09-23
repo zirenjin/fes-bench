@@ -1,0 +1,1 @@
+{"system":"sio2","phase":"cristobalite_beta","head":"Domains_SSE_PBE","mesh":[16,16,16],"supercell_matrix":[1,1,1],"volume_scale":1.0,"minimum_frequency_THz":-1.7003437316879308,"negative_mode_fraction":0.013695141596274637,"negative_qpoint_fraction":1.0,"negative_modes_are_gamma_local":false,"negative_threshold_THz":-0.05}

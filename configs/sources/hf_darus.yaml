@@ -1,29 +1,29 @@
 {
-  "raw_root": "../../data/raw",
+  "raw_root": "data/raw",
   "downloads": [
     {
       "system": "hf",
       "doi": "10.18419/DARUS-3582",
       "filename": "Hf_hcp_PBE.tar.gz",
-      "url": "https://darus.uni-stuttgart.de/api/access/datafile/239818"
+      "url": "https://darus.uni-stuttgart.de/api/accedatafile/239818"
     },
     {
       "system": "hf",
       "doi": "10.18419/DARUS-3582",
       "filename": "Hf_bcc_PBE.tar.gz",
-      "url": "https://darus.uni-stuttgart.de/api/access/datafile/239823"
+      "url": "https://darus.uni-stuttgart.de/api/accedatafile/239823"
     },
     {
       "system": "hf",
       "doi": "10.18419/DARUS-3582",
       "filename": "table-thermodynamic-Hf-hcp-PBE.tab",
-      "url": "https://darus.uni-stuttgart.de/api/access/datafile/239787"
+      "url": "https://darus.uni-stuttgart.de/api/accedatafile/239787"
     },
     {
       "system": "hf",
       "doi": "10.18419/DARUS-3582",
       "filename": "table-thermodynamic-Hf-bcc-PBE.tab",
-      "url": "https://darus.uni-stuttgart.de/api/access/datafile/246489"
+      "url": "https://darus.uni-stuttgart.de/api/accedatafile/246489"
     }
   ]
 }

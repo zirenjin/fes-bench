@@ -1,8 +1,8 @@
 {
-  "data_root": "../../data",
-  "output_root": "../../results/phase2_sio2_sse_pbe",
+  "data_root": "data",
+  "output_root": "results/phase2_sio2_sse_pbe",
   "system": "sio2",
-  "checkpoint": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "head": "Domains_SSE_PBE",
   "phases": ["quartz_beta", "cristobalite_beta", "tridymite_p63mmc"],
   "supercell_matrix": [1, 1, 1],

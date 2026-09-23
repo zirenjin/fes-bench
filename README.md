@@ -1,5 +1,50 @@
 # fes-bench
 
+## Reorganized table + audit layout
+
+The repository is organized around configuration-driven raw runs, tables, and
+audits. Paths in the reproducibility commands below are relative to the
+repository root; public datasets and external checkpoints are not committed.
+
+```text
+configs/systems/       system contracts and reference levels
+configs/splits/        split-generation parameters
+configs/predictors/    predictor contracts
+data/raw/              ignored public archives
+data/processed/        ignored derived data
+scripts/data/           normalization and download entry points
+scripts/qh/             configured QH wrapper
+scripts/eval/           configured evaluator wrapper
+scripts/tables/         CSV + meta.json table builders
+scripts/audits/         findings.csv + findings.meta.json audits
+results/raw_runs/       normalized JSON runs with provenance
+results/tables/         reproducible CSV summaries
+results/audits/         structured audit findings
+results/_legacy/        local-only archived phase records (ignored by Git)
+```
+
+## Reproduce every current conclusion
+
+```bash
+python3 scripts/reference_delta_g_stats.py --data-root data --splits-root splits \
+  --output results/reference_delta_g_stats --include-system-full-grids
+PYTHONPATH=. python3 scripts/data/normalize_raw_runs.py --manifest configs/raw_runs.json
+for table in system_inventory phase_inventory split_definitions metric_definitions; do
+  PYTHONPATH=scripts/tables python3 "scripts/tables/${table}.py"
+done
+for split in temp_extrap phase_lopo system_loso; do
+  PYTHONPATH=scripts/tables python3 scripts/tables/predictor_comparison.py --split "$split"
+  PYTHONPATH=scripts/tables python3 scripts/tables/crossing_errors.py --split "$split"
+done
+for audit in crossing_reevaluation calibration_window synthetic_recovery skill_floor mae_convention split_sign_structure imaginary_modes representative_structures reference_statistics leakage reproduction_compare; do
+  PYTHONPATH=scripts/audits python3 "scripts/audits/${audit}.py"
+done
+```
+
+The output index and provenance route for each conclusion is
+`results/README.md`; public data URLs, SHA-256 values, and landing paths are in
+`data/README.md` and `data/*/download.json`.
+
 Reproducible infrastructure for benchmarking polymorph Gibbs free-energy
 predictions. This is an independent repository: `deepmd-kit` is an external
 runtime dependency used only by later training and QH phases.
@@ -65,6 +110,22 @@ python -m fes_bench.synthetic.e3_recovery --config configs/synthetic/e3_recovery
 pytest
 ```
 
+## Development environment
+
+The test dependency is the optional `test` extra declared in `pyproject.toml`:
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -e '.[test]'
+python -m pytest
+```
+
+The current local interpreter cannot run pytest because that package is not
+installed (`No module named pytest`). Install the optional extra in a virtual
+environment as above; no dependency installation was performed during the
+legacy-record migration.
+
 The supplied YAML files use JSON syntax, which is valid YAML and keeps Phase 0
 free of a parser dependency. Later phases may use normal YAML when their
 environment explicitly provides a YAML parser.
@@ -95,18 +156,10 @@ tests/                executable tests
 
 ## Delivery records and deviations
 
-Each phase record names its artifacts, actual command output, acceptance
-evidence, and deviations:
-
-- `results/phase1_delivery.md` — source/representative holds and data audit.
-- `results/phase2_delivery.md` — QH diagnostic gate; no invalid curve is used
-  as a production physical baseline.
-- `results/phase3_delivery.md` — frozen splits, reference/noise acceptance,
-  V100 evaluation, tables, and curves.
-- `results/phase4_delivery.md` — scoped `feat/fes-head` physics-baseline
-  interface and focused frozen-export evidence.
-- `results/phase5_delivery.md` — external baseline fixtures, E3 recovery, and
-  the non-fabricated E1/E2 availability hold.
+Historical phase delivery records are preserved locally under
+`results/_legacy/` and deliberately excluded from Git. The tracked
+reproduction entry point is `results/README.md`; it indexes the structured
+raw runs, tables, audits, and their missing-cell metadata.
 - `results/completion_audit_20260921.json` — machine-readable artifact audit;
   `pass_with_holds` means infrastructure checks pass while the declared source
   and physical holds remain active.

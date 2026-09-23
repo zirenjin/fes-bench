@@ -1,0 +1,1 @@
+{"predictor": "interp_const", "implementation": "fes_bench.baselines.interp_const"}

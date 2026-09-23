@@ -1,11 +1,11 @@
 {
-  "raw_root": "../../data/raw",
+  "raw_root": "data/raw",
   "downloads": [
     {
       "system": "sio2",
       "doi": "10.18419/DARUS-4999",
       "filename": "direct_upsampling_data_rungs_1-3.zip",
-      "url": "https://darus.uni-stuttgart.de/api/access/datafile/380770"
+      "url": "https://darus.uni-stuttgart.de/api/accedatafile/380770"
     }
   ]
 }

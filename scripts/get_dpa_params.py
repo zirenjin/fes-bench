@@ -13,7 +13,7 @@ from deepmd.calculator import DP
 def main() -> None:
     root = Path("data")
     calculator = DP(
-        model="/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/models/DPA-3.1-3M.pt",
+        model="external/checkpoints/DPA-3.1-3M.pt",
         head="Domains_Alloy",
     )
     for phase in ("hcp", "bcc"):
