@@ -1,6 +1,6 @@
 {
-  "data_root": "data",
-  "source_root": "results/phase2_domains_alloy/hf",
+  "data_root": "../../data/processed",
+  "source_root": "../../result/experiments/quasi_harmonic/raw_runs/hf",
   "system": "hf",
   "phases": ["hcp", "bcc"],
   "qh_reliable": {"hcp": true, "bcc": false},

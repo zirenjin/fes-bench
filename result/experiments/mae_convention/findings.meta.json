@@ -1,0 +1,54 @@
+{
+  "generated_utc": "2026-09-23T14:24:51.056324+00:00",
+  "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+  "inputs": [
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_11/metrics.json",
+      "sha256": "6b9d6f56d6e53a57abf4a1eea218cd1253567baa4d79514273ae3ad8c46767eb"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_23/metrics.json",
+      "sha256": "6f9715be4472b35a1e4cd4fe9ed26866e1d3c4c80c803b9df984573c82f77a51"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_37/metrics.json",
+      "sha256": "274ec50182ee12a7aeabb8e1e34b8fc019c0bdc1997e334ea08da88f1f1c8210"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_51/metrics.json",
+      "sha256": "08075baea3aa7337393b6ae39eaafd2e3efeac7f0c0863f446f2345af4e95ffe"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_67/metrics.json",
+      "sha256": "58625d6bb3789430ff57324f060742fb2909e3ae0a231c9722c137e11be84dd6"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_11/metrics.json",
+      "sha256": "b5670622a5302375fc57107f34a55ee0eda44fa76f01c0ab97f4bb821e1f2635"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_23/metrics.json",
+      "sha256": "158d0529d80c385f68e36e0b8694c1d175a059d26cdd1ba324bca580227dabf0"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_37/metrics.json",
+      "sha256": "f5629ffd70adf0e8b9cc2cb2f82e4fdeddf0d3c2a964467a049e276631259e1a"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_51/metrics.json",
+      "sha256": "1caa32d4ccb58d5e7f8989f2e0d96c2222c1808387d996c93c4201595596b50c"
+    },
+    {
+      "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_67/metrics.json",
+      "sha256": "7f6f3c601d06ba29f824a1dfa2c7cf19e99e593c92db452bc88aeb43ab33d234"
+    }
+  ],
+  "missing": [
+    {
+      "field": "historical_2.56_meV_per_atom",
+      "reason": "detached four-phase all_pair_metrics artifact is not present in normalized raw metrics; cannot be regenerated from this checkout"
+    }
+  ],
+  "resolution": "closed",
+  "resolution_note": "Historical 2.56 meV/atom is closed: four-phase gauge-C, quartz–C2221 single pair, full grid, different checkpoint; it does not affect current conclusions."
+}

@@ -1,1 +1,1 @@
-{"split": "system_loso", "frozen_json": "splits/system_loso.json", "held_out_unit": "system"}
+{"split": "system_loso", "frozen_json": "data/processed/splits/system_loso.json", "held_out_unit": "system"}

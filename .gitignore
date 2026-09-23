@@ -1,25 +1,28 @@
-# Large generated benchmark data stay local; manifests and documentation are tracked.
-data/*/*
+# Public archive originals stay local; processed benchmark inputs are tracked.
 data/raw/*
-data/processed/*
 !data/raw/.gitkeep
-!data/processed/.gitkeep
-!data/*/download.json
-!data/*/system.json
-!data/*/reference_crossings.json
-!data/*/representative_audit.md
-!data/phase0_manifest.json
-results/*
-!results/phase0/
-!results/phase0/**
-!results/README.md
-!results/tables/
-!results/tables/**
-!results/audits/
-!results/audits/**
-!results/raw_runs/
-!results/raw_runs/**
-!results/_legacy/
+result/*
+!result/README.md
+!result/tables/
+!result/tables/**
+!result/experiments/
+!result/experiments/**
+# Historical support material is local unless it is already tracked as a raw
+# source for a normalized run. New plots, logs, and copied remote artifacts do
+# not become benchmark evidence merely by being present in a worktree.
+result/experiments/legacy_support/*
+!result/experiments/legacy_support/external_baselines/
+!result/experiments/legacy_support/trivial_floor/
+!result/experiments/legacy_support/reference/
+result/experiments/legacy_support/reference/**
+!result/experiments/legacy_support/reference/**/metrics.json
+!result/experiments/legacy_support/reference_noise_0.005/
+result/experiments/legacy_support/reference_noise_0.005/**
+!result/experiments/legacy_support/reference_noise_0.005/**/metrics.json
+result/experiments/legacy_support/phase3/**
+result/experiments/legacy_support/phase5/**
+!result/_legacy/
+!result/_legacy/**
 __pycache__/
 .pytest_cache/
 *.py[cod]

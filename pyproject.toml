@@ -16,5 +16,9 @@ test = ["pytest>=7"]
 testpaths = ["tests"]
 addopts = "-ra"
 
+[tool.setuptools]
+package-dir = {"" = "src/lib"}
+
 [tool.setuptools.packages.find]
+where = ["src/lib"]
 include = ["fes_bench*"]

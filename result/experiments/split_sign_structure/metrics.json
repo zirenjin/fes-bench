@@ -1,0 +1,17 @@
+{
+  "provenance": {
+    "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+    "split_sha256": null,
+    "predictor_config": null,
+    "predictor_config_sha256": null,
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench experiment-index v1",
+    "timestamp_utc": "2026-09-23T14:28:26.538386+00:00",
+    "inputs": []
+  },
+  "metrics": {
+    "kind": "provenance index",
+    "raw_metrics": []
+  }
+}

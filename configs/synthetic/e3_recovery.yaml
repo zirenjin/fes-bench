@@ -5,5 +5,5 @@
   "repr_only_basis": "mlp",
   "repr_only_steps": 3000,
   "repr_only_learning_rate": 0.01,
-  "output": "results/phase5/e3_recovery.json"
+  "output": "result/experiments/synthetic_recovery/e3_recovery.json"
 }

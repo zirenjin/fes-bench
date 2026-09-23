@@ -90,7 +90,7 @@
     },
     "numb_steps": 3000,
     "seed": 23,
-    "disp_file": "results/hf_pes_finetune.log",
+    "disp_file": "result/experiments/quasi_harmonic/hf_pes_finetune.log",
     "disp_freq": 100,
     "save_freq": 500,
     "save_ckpt": "external/checkpoints/hf_pes_finetuned/model.ckpt"

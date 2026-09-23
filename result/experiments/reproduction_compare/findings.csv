@@ -1,0 +1,7 @@
+check,expected,observed,status,evidence
+normalized_payload_equality,33,33,pass,configs/raw_runs.json and result/experiments raw outputs
+sio2_qh_csv_source_sha256,3,3,pass,result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/metrics.json
+sio2_qh_json_support_present,5,5,pass,sanitized local JSON with source SHA recorded in metrics provenance
+sio2_qh_missing_support_documented,0,0,pass,provenance.missing in result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/metrics.json
+derived_table_generation,10,10,pass,src/tables (4 inventory/definition tables + 3 split predictor tables + 3 split crossing tables)
+pre_migration_table_csv_equality,10,10,pass,731606a:results/tables compared byte-for-byte

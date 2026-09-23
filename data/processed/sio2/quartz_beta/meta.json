@@ -1,0 +1,47 @@
+{
+  "functional": "PBE",
+  "dispersion": "D3(BJ)",
+  "supercell": "not separately reported in thermodynamic table",
+  "kpoints": "not separately reported in thermodynamic table",
+  "convergence": "not separately reported in thermodynamic table",
+  "size_error_eV_per_atom": 0.0,
+  "method": "direct upsampling",
+  "doi": "10.18419/DARUS-4999",
+  "notes": "The source does not separately report a size-error bound; numeric zero is a schema placeholder and must not be interpreted as a convergence claim.",
+  "interpolated": false,
+  "raw_table": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv",
+  "unit_conversion": {
+    "energy_to_eV_per_atom": 1.0,
+    "pressure_to_GPa": 1.0
+  },
+  "grid_harmonization": {
+    "original_points": 1649,
+    "common_points": 1649,
+    "method": "exact T/P intersection; no free-energy value interpolation"
+  },
+  "representative": {
+    "status": "relaxed",
+    "calculator": "deepmd.calculator.DP",
+    "checkpoint": "external/pes_dpa31_fes_full_singlehead_a100/model.ckpt-5000.pt",
+    "head": null,
+    "optimizer": "FIRE",
+    "cell_relaxed": false,
+    "fmax_eV_per_A": 0.001,
+    "max_steps": 5000,
+    "converged": true,
+    "energy_eV_per_atom": {
+      "before": -7.735202646712364,
+      "after": -8.032564200592777
+    },
+    "volume_A3_per_atom": {
+      "before": 12.000000004933593,
+      "after": 12.000000004933593
+    },
+    "space_group": {
+      "before": "P1",
+      "after": "C2"
+    },
+    "max_displacement_A": 1.4951516189982728,
+    "relaxation_log": "representative_relaxation.log"
+  }
+}

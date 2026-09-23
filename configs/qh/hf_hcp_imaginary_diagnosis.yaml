@@ -1,5 +1,5 @@
 {
-  "data_root": "data",
+  "data_root": "../../data/processed",
   "system": "hf",
   "phase": "hcp",
   "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
@@ -12,5 +12,5 @@
   "gamma_radius_fraction": 0.05,
   "asr": false,
   "fc_symmetry": false,
-  "output_markdown": "results/phase2/hcp_imaginary_diagnosis.md"
+  "output_markdown": "result/experiments/imaginary_modes/hcp_imaginary_diagnosis.md"
 }

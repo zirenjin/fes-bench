@@ -1,1 +1,1 @@
-{"split": "temp_extrap", "frozen_json": "splits/temp_extrap.json", "generation_parameters": {"crossing_buffer_K": 100.0}}
+{"split": "temp_extrap", "frozen_json": "data/processed/splits/temp_extrap.json", "generation_parameters": {"crossing_buffer_K": 100.0}}

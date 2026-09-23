@@ -1,0 +1,116 @@
+{
+  "generated_utc": "2026-09-23T14:25:12.273539+00:00",
+  "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+  "inputs": [
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/bartel2018/seed_none/metrics.json",
+      "sha256": "2a7b5d8eef94f20efb3c354bd4fc45066753e6c12ca30829c69f9cb1ba06d9e4"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/constant_delta_g/seed_none/metrics.json",
+      "sha256": "20e713ba30e5122d86717b032d9e182b8fed4755e3c030f22f92f4698ad23db7"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/constant_offset_0.005/seed_none/metrics.json",
+      "sha256": "034a2978d89ac152dd3acef234d9be91486e132dea3a7ec9436d4a9d9bfd1352"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/global_mean_delta_g/seed_none/metrics.json",
+      "sha256": "944cc3f2bf14dc841cac2cc120b2d0f33115a8b57b20b1139d614e4b22ff55af"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/interp_const/seed_none/metrics.json",
+      "sha256": "c899feb847a5abdcdd16b35a25acb32b16d4fe345bae2453da199f97d7f3e65f"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/phase_id_mlp/seed_none/metrics.json",
+      "sha256": "95778d13fb43651b812fce282b1948a51f9de7251f4c1c022a20b723adc61714"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/reference/seed_none/metrics.json",
+      "sha256": "16baa342032d3be0dadfb906261f1175e5d42d1bb5504ee27e31c3c9e6b68a9a"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/reference_noise_0.005/seed_none/metrics.json",
+      "sha256": "8ec2a59f15880d78e1b79af340b6c795dbcb55bb067bb8775ac08805946ae785"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/root_stability_iid_0.005/seed_none/metrics.json",
+      "sha256": "b20f58d1ea60dec3179f16499f5dee3664075e1ec5f8d57a4b6a4e8cd54ba9aa"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/zero/seed_none/metrics.json",
+      "sha256": "75f9224092261cada3ed556602df5803ae5470ef04ec5225b80f6bd927e60ce8"
+    }
+  ],
+  "missing": [
+    {
+      "field": "bartel2018:hf:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "bartel2018:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "constant_delta_g:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "constant_offset_0.005:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "global_mean_delta_g:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "interp_const:hf:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:sio2:cristobalite_beta_minus_quartz_beta.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:sio2:quartz_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:hf:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:sio2:cristobalite_beta_minus_quartz_beta.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:sio2:quartz_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "reference:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "reference_noise_0.005:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "root_stability_iid_0.005:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "zero:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    }
+  ]
+}

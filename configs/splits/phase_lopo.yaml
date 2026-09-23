@@ -1,1 +1,1 @@
-{"split": "phase_lopo", "frozen_json": "splits/phase_lopo.json", "held_out_unit": "phase"}
+{"split": "phase_lopo", "frozen_json": "data/processed/splits/phase_lopo.json", "held_out_unit": "phase"}

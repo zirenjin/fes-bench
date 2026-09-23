@@ -1,5 +1,0 @@
-phase,minimum_frequency_THz,negative_mode_fraction,negative_qpoint_fraction,qh_reliable,source
-hcp,,,,False,results/phase2/hcp_imaginary_diagnosis.json
-cristobalite_beta,-1.7003437316879308,0.013695141596274637,1.0,False,results/raw_runs/qh/sio2/seed_none/cristobalite_beta_imaginary_diagnosis.json
-quartz_beta,-2.63651796751047,0.005466913740684588,0.9995126705653021,False,results/raw_runs/qh/sio2/seed_none/quartz_beta_imaginary_diagnosis.json
-tridymite_p63mmc,-1.6536151379484725,0.01455896686159844,1.0,False,results/raw_runs/qh/sio2/seed_none/tridymite_p63mmc_imaginary_diagnosis.json

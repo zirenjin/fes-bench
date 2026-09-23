@@ -1,5 +1,5 @@
 {
-  "data_root": "data",
+  "data_root": "../../data/processed",
   "system": "zr",
   "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "head": "Domains_Alloy",

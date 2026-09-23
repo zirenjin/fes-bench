@@ -1,0 +1,30 @@
+{
+  "functional": "PBE",
+  "dispersion": "none",
+  "supercell": "not separately reported in thermodynamic table",
+  "kpoints": "not separately reported in thermodynamic table",
+  "convergence": "not separately reported in thermodynamic table",
+  "size_error_eV_per_atom": 0.0,
+  "method": "thermodynamic integration",
+  "doi": "10.18419/DARUS-3582",
+  "notes": "The source table does not separately report a finite-size error bound; numeric zero is a schema placeholder and not a convergence claim. Pressure is normalized from 0.1 MPa to 0.0001 GPa.",
+  "interpolated": true,
+  "raw_table": "../../data/raw/hf/table-thermodynamic-Hf-hcp-PBE.tab",
+  "unit_conversion": {
+    "energy_to_eV_per_atom": 0.001,
+    "pressure_to_GPa": 1.0
+  },
+  "grid_harmonization": {
+    "original_points": 2328,
+    "common_points": 1252,
+    "method": "exact T/P intersection; no free-energy value interpolation"
+  },
+  "representative": {
+    "status": "source_standardized",
+    "source": "external/data/raw/hf/unpacked/Hf_hcp_PBE/e.effective_QH_potentials/a.20K_4Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
+    "method": "spglib.standardize_cell(to_primitive=True, no_idealize=False)",
+    "source_atoms": 96,
+    "primitive_atoms": 2,
+    "fixed_for_all_temperatures": true
+  }
+}

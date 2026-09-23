@@ -1,0 +1,275 @@
+{
+  "provenance": {
+    "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+    "split": "phase_lopo",
+    "split_sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac",
+    "predictor_config": null,
+    "predictor_config_sha256": null,
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench historical result normalizer v1",
+    "timestamp_utc": "2026-09-23T14:24:34.869988+00:00",
+    "input_metrics": "result/experiments/legacy_support/trivial_floor/metrics.json",
+    "input_metrics_sha256": "03c3a2d09e60da643d541b8188f2e39dcd8c8285309b54db6965c82d8ff33270",
+    "missing": []
+  },
+  "metrics": {
+    "folds": {
+      "hf:bcc": {
+        "G_MAE_eV_per_atom": null,
+        "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
+        "aggregate_pair_MAE_eV_per_atom": 0.011399840255591053,
+        "aggregate_pair_sign_accuracy": 0.0023961661341853034,
+        "n_fittable_pairs": 1,
+        "n_test_frames": 1252,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "Tc_err_from_dG_K": [
+              null
+            ],
+            "Tc_error_K": [
+              -217.5
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              0.0
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              0.0
+            ],
+            "delta_G_MAE_eV_per_atom": 0.011399840255591053,
+            "delta_G_RMSE_eV_per_atom": 0.014514649975034311,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1252,
+            "predicted_Tc_K": [
+              1701.5
+            ],
+            "reference_Tc_K": [
+              1919.0
+            ],
+            "sign_accuracy": 0.0023961661341853034,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          }
+        }
+      },
+      "hf:hcp": {
+        "G_MAE_eV_per_atom": null,
+        "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
+        "aggregate_pair_MAE_eV_per_atom": 0.011399840255591053,
+        "aggregate_pair_sign_accuracy": 0.0023961661341853034,
+        "n_fittable_pairs": 1,
+        "n_test_frames": 1252,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "Tc_err_from_dG_K": [
+              null
+            ],
+            "Tc_error_K": [
+              -217.5
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              0.0
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              0.0
+            ],
+            "delta_G_MAE_eV_per_atom": 0.011399840255591053,
+            "delta_G_RMSE_eV_per_atom": 0.014514649975034311,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1252,
+            "predicted_Tc_K": [
+              1701.5
+            ],
+            "reference_Tc_K": [
+              1919.0
+            ],
+            "sign_accuracy": 0.0023961661341853034,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          }
+        }
+      },
+      "sio2:cristobalite_beta": {
+        "G_MAE_eV_per_atom": null,
+        "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
+        "aggregate_pair_MAE_eV_per_atom": 0.001731491377663837,
+        "aggregate_pair_sign_accuracy": 0.0,
+        "n_fittable_pairs": 2,
+        "n_test_frames": 1649,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "Tc_err_from_dG_K": [
+              2.4004140848797712e-14
+            ],
+            "Tc_error_K": [
+              132.29129522413245
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.551407561479095e-06
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              1.8126505071242027e-19
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0032090932428213907,
+            "delta_G_RMSE_eV_per_atom": 0.0037701963751909148,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1649,
+            "predicted_Tc_K": [
+              1675.0
+            ],
+            "reference_Tc_K": [
+              1542.7087047758675
+            ],
+            "sign_accuracy": 0.0,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          },
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [],
+            "delta_G_MAE_at_crossing_eV_per_atom": [],
+            "delta_G_MAE_eV_per_atom": 0.00025388951250628343,
+            "delta_G_RMSE_eV_per_atom": 0.00026057898915280087,
+            "false_crossings": 1,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1649,
+            "predicted_Tc_K": [
+              1675.0
+            ],
+            "reference_Tc_K": [],
+            "sign_accuracy": 0.0,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          }
+        }
+      },
+      "sio2:quartz_beta": {
+        "G_MAE_eV_per_atom": null,
+        "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
+        "aggregate_pair_MAE_eV_per_atom": 0.0031737074473312567,
+        "aggregate_pair_sign_accuracy": 0.0,
+        "n_fittable_pairs": 2,
+        "n_test_frames": 1649,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "Tc_err_from_dG_K": [
+              2.4004140848797712e-14
+            ],
+            "Tc_error_K": [
+              132.29129522413245
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.551407561479095e-06
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              1.8126505071242027e-19
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0032090932428213907,
+            "delta_G_RMSE_eV_per_atom": 0.0037701963751909148,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1649,
+            "predicted_Tc_K": [
+              1675.0
+            ],
+            "reference_Tc_K": [
+              1542.7087047758675
+            ],
+            "sign_accuracy": 0.0,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [
+              9.888037149776003e-14
+            ],
+            "Tc_error_K": [
+              92.67844894184623
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.448345272997869e-06
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              7.364951476376141e-19
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0031383216518411222,
+            "delta_G_RMSE_eV_per_atom": 0.003674567173657598,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1649,
+            "predicted_Tc_K": [
+              1675.0
+            ],
+            "reference_Tc_K": [
+              1582.3215510581538
+            ],
+            "sign_accuracy": 0.0,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          }
+        }
+      },
+      "sio2:tridymite_p63mmc": {
+        "G_MAE_eV_per_atom": null,
+        "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
+        "aggregate_pair_MAE_eV_per_atom": 0.0016961055821737027,
+        "aggregate_pair_sign_accuracy": 0.0,
+        "n_fittable_pairs": 2,
+        "n_test_frames": 1649,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [],
+            "delta_G_MAE_at_crossing_eV_per_atom": [],
+            "delta_G_MAE_eV_per_atom": 0.00025388951250628343,
+            "delta_G_RMSE_eV_per_atom": 0.00026057898915280087,
+            "false_crossings": 1,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1649,
+            "predicted_Tc_K": [
+              1675.0
+            ],
+            "reference_Tc_K": [],
+            "sign_accuracy": 0.0,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [
+              9.888037149776003e-14
+            ],
+            "Tc_error_K": [
+              92.67844894184623
+            ],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.448345272997869e-06
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              7.364951476376141e-19
+            ],
+            "delta_G_MAE_eV_per_atom": 0.0031383216518411222,
+            "delta_G_RMSE_eV_per_atom": 0.003674567173657598,
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1649,
+            "predicted_Tc_K": [
+              1675.0
+            ],
+            "reference_Tc_K": [
+              1582.3215510581538
+            ],
+            "sign_accuracy": 0.0,
+            "status": "ok",
+            "train_delta_G_mean_eV_per_atom": 0.0
+          }
+        }
+      }
+    },
+    "method": "zero"
+  }
+}

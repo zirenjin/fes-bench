@@ -1,0 +1,10 @@
+{
+  "excluded_from_main_benchmark": [
+    {
+      "phase": "tridymite_c2221",
+      "reason": "No public PBE-D3(BJ) source structure/trajectory was found in the authorized DaRUS SiO2 source package; the COD fallback is not permitted.",
+      "retained_reference_table": "tridymite_c2221/reference_G.csv",
+      "decision": "Excluded before Phase 1 representative relaxation and all later main-benchmark splits."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "data_root": "data",
-  "result_root": "results/phase2",
+  "data_root": "../../data/processed",
+  "result_root": "../../result/experiments/quasi_harmonic",
   "system": "hf",
   "phases": ["hcp", "bcc"],
   "train_T_max_K": 1800

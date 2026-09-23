@@ -1,6 +1,6 @@
 {
-  "data_root": "data",
-  "output_root": "results/phase2_sio2_sse_pbe",
+  "data_root": "../../data/processed",
+  "output_root": "../../result/experiments/quasi_harmonic/raw_runs",
   "system": "sio2",
   "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
   "head": "Domains_SSE_PBE",

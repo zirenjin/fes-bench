@@ -1,5 +1,5 @@
 {
-  "data_root": "data",
-  "output_root": "splits",
+  "data_root": "../data/processed",
+  "output_root": "../data/processed/splits",
   "systems": ["hf"]
 }

@@ -1,0 +1,2 @@
+# Normalized tabular artifacts are text; retain stable cross-platform diffs.
+*.csv text eol=lf

@@ -1,6 +1,6 @@
 {
   "system": "ti",
-  "system_json": "data/ti/system.json",
+  "system_json": "data/processed/ti/system.json",
   "doi": "10.18419/DARUS-3582",
   "functional": "PBE",
   "pressure_range_GPa": [0.0001, 0.0001],

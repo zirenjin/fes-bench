@@ -1,5 +1,0 @@
-system,phases,n_phases,type_map,truth_level,functional,T_min_K,T_max_K,grid_points,delta_G_std_min_meV_per_atom,delta_G_std_max_meV_per_atom,relative_numbers,qh_reliable_count,doi
-hf,hcp;bcc,2,Hf,PBE thermodynamic integration,PBE,1076.0,2327.0,1252,11.987141445494691,11.987141445494691,1,0,10.18419/DARUS-3582
-sio2,quartz_beta;cristobalite_beta;tridymite_p63mmc,3,O;Si,PBE-D3(BJ) direct upsampling,PBE,851.0,2499.0,1649,0.05866451250302246,3.6068657835538818,3,0,10.18419/DARUS-4999
-ti,hcp;bcc,2,Ti,PBE thermodynamic integration,PBE,835.0,1527.0,693,6.111490607003739,6.111490607003739,1,0,10.18419/DARUS-3582
-zr,hcp;bcc,2,Zr,PBE thermodynamic integration,PBE,610.0,1519.0,910,8.580716604806302,8.580716604806302,1,0,10.18419/DARUS-3582

@@ -1,0 +1,19 @@
+{
+  "generated_utc": "2026-09-23T14:24:53.511858+00:00",
+  "git_commit": "731606aeb116a132a8c9b36cdeef700c3d16143c",
+  "inputs": [
+    {
+      "path": "data/processed/splits/phase_lopo.json",
+      "sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac"
+    },
+    {
+      "path": "data/processed/splits/system_loso.json",
+      "sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93"
+    },
+    {
+      "path": "data/processed/splits/temp_extrap.json",
+      "sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0"
+    }
+  ],
+  "missing": []
+}

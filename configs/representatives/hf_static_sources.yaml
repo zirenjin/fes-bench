@@ -1,15 +1,15 @@
 {
-  "data_root": "data",
+  "data_root": "../../data/processed",
   "system": "hf",
   "phases": [
     {
       "name": "hcp",
-      "source": "data/raw/hf/unpacked/Hf_hcp_PBE/e.effective_QH_potentials/a.20K_4Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
+      "source": "../../data/raw/hf/unpacked/Hf_hcp_PBE/e.effective_QH_potentials/a.20K_4Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
       "symprec_A": 0.01
     },
     {
       "name": "bcc",
-      "source": "data/raw/hf/unpacked/Hf_bcc_PBE/e.effective_QH_potentials/b.melting_T_5Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
+      "source": "../../data/raw/hf/unpacked/Hf_bcc_PBE/e.effective_QH_potentials/b.melting_T_5Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
       "symprec_A": 0.01
     }
   ]

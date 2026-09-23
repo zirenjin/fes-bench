@@ -1,5 +1,5 @@
 {
-  "data_root": "data",
+  "data_root": "../../data/processed",
   "system": "sio2",
   "checkpoint": "external/checkpoints/model.ckpt-5000.pt",
   "head": null,

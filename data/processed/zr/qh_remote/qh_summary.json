@@ -1,0 +1,40 @@
+{
+  "system": "zr",
+  "checkpoint": "external/models/DPA-3.1-3M.pt",
+  "head": "Domains_Alloy",
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "mesh": [
+    12,
+    12,
+    12
+  ],
+  "volume_scales": [
+    0.98,
+    1.0,
+    1.02
+  ],
+  "phases": {
+    "hcp": {
+      "n_temperatures": 910,
+      "minimum_frequency_THz_by_volume": {
+        "0.98": 0.2800828440276399,
+        "1.0": 0.28511419759284723,
+        "1.02": 0.2865177470281524
+      },
+      "output": "hcp_fqh.csv"
+    },
+    "bcc": {
+      "n_temperatures": 910,
+      "minimum_frequency_THz_by_volume": {
+        "0.98": -1.9566374355780562,
+        "1.0": -2.15484455006001,
+        "1.02": -2.3568962518096126
+      },
+      "output": "bcc_fqh.csv"
+    }
+  }
+}
