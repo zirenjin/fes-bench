@@ -1,0 +1,13 @@
+{
+  "canonical_json": "result/experiments/crossing_reevaluation/sio2_reanalysis.json",
+  "canonical_json_sha256": "c41f9b3db7286e26984cf195acb0bb70d101dfeeffb7d570b0b42b65e4eebdcd",
+  "historical_json": "result/experiments/legacy_support/phase5/sio2_reanalysis.json",
+  "historical_json_sha256": "87e9094fac20bd7d16fe35c5e9476d1962a74ca3a07ef343507711a685043daa",
+  "tolerance_config": "configs/reproduction_tolerance.yaml",
+  "tolerance_config_sha256": "565136bfdc5d9d235e0b5552471dad4ca806c13d9d594e9ba0c7155d2042082d",
+  "reproduction_check": "result/experiments/crossing_reevaluation/reproduction_check.csv",
+  "reproduction_check_sha256": "5e1f6bddc39ad19a063cc5e730c399fb0bc07a1e6fd121d7a0e0b4712b6172c4",
+  "reproduction_status": "pass",
+  "checked_fields": 2770,
+  "failed_fields": 0
+}

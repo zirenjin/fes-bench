@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "E1 frozen-checkpoint reproduction",
+  "absolute_tolerances": {
+    "discrete": 0.0,
+    "temperature_K": 0.05,
+    "energy_eV_per_atom": 1e-6,
+    "ratio": 0.0,
+    "exact_other": 0.0
+  },
+  "rationale": {
+    "discrete": "Crossing counts, false/missed crossings, and list cardinalities are categorical outcomes and must match exactly.",
+    "temperature_K": "0.05 K is one twentieth of the 1 K reference-grid spacing.",
+    "energy_eV_per_atom": "1e-6 eV/atom is one thousandth of the reported meV/atom precision.",
+    "ratio": "sign_accuracy and other ratios are determined by discrete classifications and must match exactly.",
+    "floating_point": "GPU floating-point evaluation need not be bitwise identical across runtime environments."
+  }
+}

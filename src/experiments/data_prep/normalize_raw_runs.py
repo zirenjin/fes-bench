@@ -77,8 +77,10 @@ def write_run(root: Path, split: str, predictor: str, seed: str, payload: Any, s
     out.write_text(json.dumps(body, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def normalize(root: Path, manifest: dict[str, Any]) -> int:
+def normalize(root: Path, manifest: dict[str, Any], include_sources: set[str] | None = None) -> int:
     for spec in manifest["runs"]:
+        if include_sources is not None and str(spec["source"]) not in include_sources:
+            continue
         source = root / spec["source"]
         if not source.exists():
             raise FileNotFoundError(source)
@@ -102,7 +104,8 @@ def normalize(root: Path, manifest: dict[str, Any]) -> int:
                 write_run(root, spec["split"], predictor, seed, record, source, missing)
         else:
             raise ValueError(f"Unknown mode: {mode}")
-    build_inventory(root)
+    if include_sources is None:
+        build_inventory(root)
     return 0
 
 
@@ -186,10 +189,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", type=Path, default=Path("."))
     parser.add_argument("--manifest", type=Path, default=Path("configs/raw_runs.json"))
+    parser.add_argument("--include-source", action="append", help="normalize only this manifest source; may be repeated")
     args = parser.parse_args()
     root = args.repo_root.resolve()
     manifest_path = args.manifest if args.manifest.is_absolute() else root / args.manifest
-    return normalize(root, json.loads(manifest_path.read_text(encoding="utf-8")))
+    return normalize(root, json.loads(manifest_path.read_text(encoding="utf-8")), set(args.include_source) if args.include_source else None)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,9 @@
+{
+  "predictor": "historical_sio2_fes_checkpoint",
+  "implementation": "precomputed curves evaluated by fes_bench.eval.run",
+  "system": "sio2",
+  "phases": ["quartz_beta", "cristobalite_beta", "tridymite_p63mmc"],
+  "bases": ["polynomial", "tlog_polynomial"],
+  "calibration": "mean reference-minus-prediction over frozen temp_extrap train frames",
+  "frozen_split": "data/processed/splits/temp_extrap.json"
+}

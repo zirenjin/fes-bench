@@ -1,0 +1,21 @@
+{
+  "comparison": "checkpoint_record_field_tolerance",
+  "reference": "legacy_support/phase5/sio2_reanalysis.json",
+  "historical_json_sha256": "87e9094fac20bd7d16fe35c5e9476d1962a74ca3a07ef343507711a685043daa",
+  "candidate_json_sha256_before_annotation": "8461fbbcf15ff95582d8c6442b3c6019bb9da674ec0a1b82659442d0090c3ef0",
+  "tolerance_config": "configs/reproduction_tolerance.yaml",
+  "tolerance_config_sha256": "565136bfdc5d9d235e0b5552471dad4ca806c13d9d594e9ba0c7155d2042082d",
+  "expected_records": 10,
+  "observed_records": 10,
+  "checked_fields": 2770,
+  "passed_fields": 2770,
+  "failed_fields": 0,
+  "status": "pass",
+  "ignored_host_specific_fields": [
+    "checkpoint",
+    "config_training_systems",
+    "provenance",
+    "metrics.*.*.predictor"
+  ],
+  "check_csv": "reproduction_check.csv"
+}

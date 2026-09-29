@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+    "git_commit": "77fc77b2c2b8e8de156da4aa7ce4b02b4f6471ce",
     "split": "e1_full_grid",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,9 +8,9 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:33:19.908817+00:00",
-    "input_metrics": "result/experiments/legacy_support/phase5/sio2_reanalysis.json",
-    "input_metrics_sha256": "87e9094fac20bd7d16fe35c5e9476d1962a74ca3a07ef343507711a685043daa",
+    "timestamp_utc": "2026-09-29T18:15:37.238099+00:00",
+    "input_metrics": "result/experiments/crossing_reevaluation/sio2_reanalysis.json",
+    "input_metrics_sha256": "c41f9b3db7286e26984cf195acb0bb70d101dfeeffb7d570b0b42b65e4eebdcd",
     "missing": [
       {
         "field": "checkpoint_path",
@@ -21,31 +21,31 @@
   "metrics": {
     "basis": "tlog_polynomial",
     "seed": 67,
-    "checkpoint": "external/model.pth",
+    "checkpoint": "external/checkpoints/tlog_polynomial/seed67/model.pth",
     "config_training_systems": [
-      "external/quartz_beta",
-      "external/cristobalite_beta",
-      "external/tridymite_p63mmc",
-      "external/tridymite_c2221"
+      "external/training_data/quartz_beta",
+      "external/training_data/cristobalite_beta",
+      "external/training_data/tridymite_p63mmc",
+      "external/training_data/tridymite_c2221"
     ],
     "model_internal_c_system_field": null,
     "calibration_constants_eV_per_atom": {
-      "formal_train_window": -3.593660598783404,
-      "heldout_window_audit": -1.5923624254780637
+      "formal_train_window": -3.5936605989362063,
+      "heldout_window_audit": -1.5923624258307705
     },
     "metrics": {
       "formal_train_window": {
         "full_range": {
-          "G_MAE_eV_per_atom": 1.3723880695044652,
+          "G_MAE_eV_per_atom": 1.3723880696849309,
           "coverage_2sigma": 0.0,
           "n_test_frames": 4947,
           "pairs": {
             "sio2:cristobalite_beta_minus_quartz_beta": {
               "Tc_err_from_dG_K": [
-                1317.3580146794804
+                1317.352945743614
               ],
               "Tc_error_K": [
-                558.845721449901
+                558.8474384584449
               ],
               "Tc_scatter_K": [
                 0.0
@@ -54,19 +54,19 @@
                 7.551407561479095e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.009947907273225717
+                0.009947868995625088
               ],
-              "delta_G_MAE_eV_per_atom": 0.007600111325475967,
-              "delta_G_RMSE_eV_per_atom": 0.008443580503355277,
+              "delta_G_MAE_eV_per_atom": 0.007600110702501301,
+              "delta_G_RMSE_eV_per_atom": 0.008443579945393834,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_only",
               "predicted_Tc_K": [
-                2101.5544262257686
+                2101.5561432343125
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2101.5544262257686
+                  2101.5561432343125
                 ]
               ],
               "reference_Tc_K": [
@@ -80,17 +80,17 @@
               "Tc_scatter_K": [],
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
-              "delta_G_MAE_eV_per_atom": 0.0021886032312093567,
-              "delta_G_RMSE_eV_per_atom": 0.002573744766015763,
+              "delta_G_MAE_eV_per_atom": 0.0021886046957383842,
+              "delta_G_RMSE_eV_per_atom": 0.002573745978621658,
               "false_crossings": 1,
               "missed_crossings": 0,
               "pair_support": "test_only",
               "predicted_Tc_K": [
-                2258.9296255723657
+                2258.915476723183
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2258.9296255723657
+                  2258.915476723183
                 ]
               ],
               "reference_Tc_K": [],
@@ -98,10 +98,10 @@
             },
             "sio2:quartz_beta_minus_tridymite_p63mmc": {
               "Tc_err_from_dG_K": [
-                1636.723378197655
+                1636.7153852410986
               ],
               "Tc_error_K": [
-                546.95502324839
+                546.953548995217
               ],
               "Tc_scatter_K": [
                 0.0
@@ -110,19 +110,19 @@
                 7.448345272997869e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.012190880837203608
+                0.012190821302903424
               ],
-              "delta_G_MAE_eV_per_atom": 0.00973195822420321,
-              "delta_G_RMSE_eV_per_atom": 0.010952694517393512,
+              "delta_G_MAE_eV_per_atom": 0.00973195914671546,
+              "delta_G_RMSE_eV_per_atom": 0.010952695260173765,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_only",
               "predicted_Tc_K": [
-                2129.276574306544
+                2129.275100053371
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2129.276574306544
+                  2129.275100053371
                 ]
               ],
               "reference_Tc_K": [
@@ -131,22 +131,22 @@
               "sign_accuracy": 0.6682838083687083
             }
           },
-          "predictor": "precomputed:external/tlog_polynomial_seed67_formal_train_window.json",
+          "predictor": "precomputed:external/curves/tlog_polynomial_seed67_formal_train_window.json",
           "seeds": [
             67
           ]
         },
         "temp_extrap": {
-          "G_MAE_eV_per_atom": 2.0012981733053405,
+          "G_MAE_eV_per_atom": 2.0012981731054356,
           "coverage_2sigma": 0.0,
           "n_test_frames": 3171,
           "pairs": {
             "sio2:cristobalite_beta_minus_quartz_beta": {
               "Tc_err_from_dG_K": [
-                1317.3580146794804
+                1317.352945743614
               ],
               "Tc_error_K": [
-                558.845721449901
+                558.8474384584449
               ],
               "Tc_scatter_K": [
                 0.0
@@ -155,19 +155,19 @@
                 7.551407561479095e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.009947907273225717
+                0.009947868995625088
               ],
-              "delta_G_MAE_eV_per_atom": 0.007600111325475967,
-              "delta_G_RMSE_eV_per_atom": 0.008443580503355277,
+              "delta_G_MAE_eV_per_atom": 0.007600110702501301,
+              "delta_G_RMSE_eV_per_atom": 0.008443579945393834,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
               "predicted_Tc_K": [
-                2101.5544262257686
+                2101.5561432343125
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2101.5544262257686
+                  2101.5561432343125
                 ]
               ],
               "reference_Tc_K": [
@@ -181,17 +181,17 @@
               "Tc_scatter_K": [],
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
-              "delta_G_MAE_eV_per_atom": 0.0021886032312093567,
-              "delta_G_RMSE_eV_per_atom": 0.002573744766015763,
+              "delta_G_MAE_eV_per_atom": 0.0021886046957383842,
+              "delta_G_RMSE_eV_per_atom": 0.002573745978621658,
               "false_crossings": 1,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
               "predicted_Tc_K": [
-                2258.9296255723657
+                2258.915476723183
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2258.9296255723657
+                  2258.915476723183
                 ]
               ],
               "reference_Tc_K": [],
@@ -199,10 +199,10 @@
             },
             "sio2:quartz_beta_minus_tridymite_p63mmc": {
               "Tc_err_from_dG_K": [
-                1636.723378197655
+                1636.7153852410986
               ],
               "Tc_error_K": [
-                546.95502324839
+                546.953548995217
               ],
               "Tc_scatter_K": [
                 0.0
@@ -211,19 +211,19 @@
                 7.448345272997869e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.012190880837203608
+                0.012190821302903424
               ],
-              "delta_G_MAE_eV_per_atom": 0.00973195822420321,
-              "delta_G_RMSE_eV_per_atom": 0.010952694517393512,
+              "delta_G_MAE_eV_per_atom": 0.00973195914671546,
+              "delta_G_RMSE_eV_per_atom": 0.010952695260173765,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
               "predicted_Tc_K": [
-                2129.276574306544
+                2129.275100053371
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2129.276574306544
+                  2129.275100053371
                 ]
               ],
               "reference_Tc_K": [
@@ -232,7 +232,7 @@
               "sign_accuracy": 0.6682838083687083
             }
           },
-          "predictor": "precomputed:external/tlog_polynomial_seed67_formal_train_window.json",
+          "predictor": "precomputed:external/curves/tlog_polynomial_seed67_formal_train_window.json",
           "seeds": [
             67
           ]
@@ -240,16 +240,16 @@
       },
       "heldout_window_audit": {
         "full_range": {
-          "G_MAE_eV_per_atom": 1.2368293691302432,
+          "G_MAE_eV_per_atom": 1.2368293690028893,
           "coverage_2sigma": 0.0,
           "n_test_frames": 4947,
           "pairs": {
             "sio2:cristobalite_beta_minus_quartz_beta": {
               "Tc_err_from_dG_K": [
-                1317.3580146794804
+                1317.3529457437317
               ],
               "Tc_error_K": [
-                558.8457214499801
+                558.8474384584799
               ],
               "Tc_scatter_K": [
                 0.0
@@ -258,19 +258,19 @@
                 7.551407561479095e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.009947907273225717
+                0.009947868995625976
               ],
-              "delta_G_MAE_eV_per_atom": 0.007600111325476108,
-              "delta_G_RMSE_eV_per_atom": 0.00844358050335542,
+              "delta_G_MAE_eV_per_atom": 0.007600110702501523,
+              "delta_G_RMSE_eV_per_atom": 0.008443579945394021,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_only",
               "predicted_Tc_K": [
-                2101.5544262258477
+                2101.5561432343475
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2101.5544262258477
+                  2101.5561432343475
                 ]
               ],
               "reference_Tc_K": [
@@ -284,17 +284,17 @@
               "Tc_scatter_K": [],
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
-              "delta_G_MAE_eV_per_atom": 0.002188603231209198,
-              "delta_G_RMSE_eV_per_atom": 0.002573744766015646,
+              "delta_G_MAE_eV_per_atom": 0.0021886046957381796,
+              "delta_G_RMSE_eV_per_atom": 0.0025737459786215303,
               "false_crossings": 1,
               "missed_crossings": 0,
               "pair_support": "test_only",
               "predicted_Tc_K": [
-                2258.9296255723657
+                2258.915476723154
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2258.9296255723657
+                  2258.915476723154
                 ]
               ],
               "reference_Tc_K": [],
@@ -302,10 +302,10 @@
             },
             "sio2:quartz_beta_minus_tridymite_p63mmc": {
               "Tc_err_from_dG_K": [
-                1636.7233781976124
+                1636.7153852412605
               ],
               "Tc_error_K": [
-                546.95502324839
+                546.953548995217
               ],
               "Tc_scatter_K": [
                 0.0
@@ -314,19 +314,19 @@
                 7.448345272997869e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.01219088083720329
+                0.01219082130290463
               ],
-              "delta_G_MAE_eV_per_atom": 0.00973195822420323,
-              "delta_G_RMSE_eV_per_atom": 0.010952694517393535,
+              "delta_G_MAE_eV_per_atom": 0.009731959146715485,
+              "delta_G_RMSE_eV_per_atom": 0.010952695260173794,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_only",
               "predicted_Tc_K": [
-                2129.276574306544
+                2129.275100053371
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2129.276574306544
+                  2129.275100053371
                 ]
               ],
               "reference_Tc_K": [
@@ -335,22 +335,22 @@
               "sign_accuracy": 0.6682838083687083
             }
           },
-          "predictor": "precomputed:external/tlog_polynomial_seed67_heldout_window_audit.json",
+          "predictor": "precomputed:external/curves/tlog_polynomial_seed67_heldout_window_audit.json",
           "seeds": [
             67
           ]
         },
         "temp_extrap": {
-          "G_MAE_eV_per_atom": 0.808668979280047,
+          "G_MAE_eV_per_atom": 0.8086689791933266,
           "coverage_2sigma": 0.0,
           "n_test_frames": 3171,
           "pairs": {
             "sio2:cristobalite_beta_minus_quartz_beta": {
               "Tc_err_from_dG_K": [
-                1317.3580146794804
+                1317.3529457437317
               ],
               "Tc_error_K": [
-                558.8457214499801
+                558.8474384584799
               ],
               "Tc_scatter_K": [
                 0.0
@@ -359,19 +359,19 @@
                 7.551407561479095e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.009947907273225717
+                0.009947868995625976
               ],
-              "delta_G_MAE_eV_per_atom": 0.007600111325476108,
-              "delta_G_RMSE_eV_per_atom": 0.00844358050335542,
+              "delta_G_MAE_eV_per_atom": 0.007600110702501523,
+              "delta_G_RMSE_eV_per_atom": 0.008443579945394021,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
               "predicted_Tc_K": [
-                2101.5544262258477
+                2101.5561432343475
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2101.5544262258477
+                  2101.5561432343475
                 ]
               ],
               "reference_Tc_K": [
@@ -385,17 +385,17 @@
               "Tc_scatter_K": [],
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
-              "delta_G_MAE_eV_per_atom": 0.002188603231209198,
-              "delta_G_RMSE_eV_per_atom": 0.002573744766015646,
+              "delta_G_MAE_eV_per_atom": 0.0021886046957381796,
+              "delta_G_RMSE_eV_per_atom": 0.0025737459786215303,
               "false_crossings": 1,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
               "predicted_Tc_K": [
-                2258.9296255723657
+                2258.915476723154
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2258.9296255723657
+                  2258.915476723154
                 ]
               ],
               "reference_Tc_K": [],
@@ -403,10 +403,10 @@
             },
             "sio2:quartz_beta_minus_tridymite_p63mmc": {
               "Tc_err_from_dG_K": [
-                1636.7233781976124
+                1636.7153852412605
               ],
               "Tc_error_K": [
-                546.95502324839
+                546.953548995217
               ],
               "Tc_scatter_K": [
                 0.0
@@ -415,19 +415,19 @@
                 7.448345272997869e-06
               ],
               "delta_G_MAE_at_crossing_eV_per_atom": [
-                0.01219088083720329
+                0.01219082130290463
               ],
-              "delta_G_MAE_eV_per_atom": 0.00973195822420323,
-              "delta_G_RMSE_eV_per_atom": 0.010952694517393535,
+              "delta_G_MAE_eV_per_atom": 0.009731959146715485,
+              "delta_G_RMSE_eV_per_atom": 0.010952695260173794,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
               "predicted_Tc_K": [
-                2129.276574306544
+                2129.275100053371
               ],
               "predicted_Tc_by_seed_K": [
                 [
-                  2129.276574306544
+                  2129.275100053371
                 ]
               ],
               "reference_Tc_K": [
@@ -436,12 +436,23 @@
               "sign_accuracy": 0.6682838083687083
             }
           },
-          "predictor": "precomputed:external/tlog_polynomial_seed67_heldout_window_audit.json",
+          "predictor": "precomputed:external/curves/tlog_polynomial_seed67_heldout_window_audit.json",
           "seeds": [
             67
           ]
         }
       }
+    },
+    "provenance": {
+      "git_commit": "77fc77b2c2b8e8de156da4aa7ce4b02b4f6471ce",
+      "split": "data/processed/splits/temp_extrap.json",
+      "split_sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0",
+      "predictor_config": "configs/predictors/crossing_reevaluation.yaml",
+      "predictor_config_sha256": "89c82e52b529b9645b920a54227518e8dc590061d827ce9cf27b9fd04ebffd61",
+      "checkpoint_path": "external/checkpoints/tlog_polynomial/seed67/model.pth",
+      "checkpoint_sha256": "70907220285288f978ab525844fbc3697b3cb13024fd23a29c5d17b83a09b58b",
+      "evaluator_version": "fes_bench.eval.run:f1324ff5ab05a0e7e58893dce5c2074d4a8654e841b96431d3f3ec8c890e660d",
+      "timestamp_utc": "2026-09-29T16:12:00.761442+00:00"
     }
   }
 }

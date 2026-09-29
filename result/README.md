@@ -33,6 +33,29 @@ hash; `src/tables/crossing_errors.py --split temp_extrap` performs the read.
 The matching `.meta.json` files retain field-specific explanations. The current
 tables have 33, 15, and 32 cells of these respective types.
 
+## E1 reproduction tolerance
+
+The fixed policy is in `configs/reproduction_tolerance.yaml`; it is derived
+from resolution, not fitted to a reproduction result. Crossing counts, false/
+missed crossings, list cardinalities, `sign_accuracy`, and other ratios must
+match exactly. `T_c` and `T_c`-error fields use an absolute tolerance of
+0.05 K (one twentieth of the 1 K grid); G/ΔG and calibration-energy fields use
+1e-6 eV/atom (one thousandth of the reported meV/atom precision). GPU
+floating-point evaluation is not required to be bitwise identical across
+runtime environments.
+
+The canonical E1 checkpoint output is
+`experiments/crossing_reevaluation/sio2_reanalysis.json`, produced by
+`src/experiments/crossing_reevaluation_run.py`. Its field-level audit is
+`experiments/crossing_reevaluation/reproduction_check.csv`; the canonical and
+historical SHA-256 values, and the pass result, are recorded in its sibling
+`sio2_reanalysis.meta.json`. The original input remains unchanged at
+`experiments/legacy_support/phase5/sio2_reanalysis.json`.
+
+E1 status: complete; acceptance criterion three did not pass because the
+cristobalite–tridymite pair has one false crossing for each of 10/10
+checkpoints. This is a model conclusion, not a reproduction failure.
+
 ## Known issue recorded, not resolved
 
 `constant_delta_g` is structurally unavailable on LOPO/LOSO. Therefore

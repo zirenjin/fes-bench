@@ -1,47 +1,59 @@
 {
-  "generated_utc": "2026-09-23T14:33:21.262024+00:00",
-  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+  "generated_utc": "2026-09-29T18:15:37.585268+00:00",
+  "git_commit": "77fc77b2c2b8e8de156da4aa7ce4b02b4f6471ce",
   "inputs": [
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_11/metrics.json",
-      "sha256": "4dc25749198fc9df9b64d66ba085458509a72209e028953797c38c46a941b0a2"
+      "sha256": "50bc981af77049b46ec2487d9ed90ccf5114a970f38dfcad0349caae1db882f5"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_23/metrics.json",
-      "sha256": "fd3541d2fa5b6a4b5bf37d5123809676c771521070ce13083e33aaa346ed703b"
+      "sha256": "fbc77d5748765fb26dc3d4dc51545d693a7d86fd485a717af2277750452f6e8c"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_37/metrics.json",
-      "sha256": "bccaa4f4124c31717f5f734bbb4f156227a75cd473f4a9a3aa7663fda98096d5"
+      "sha256": "3b9c05bcfb21e521d2c787f86568fc0089f976e24eb737b9ab69fc3be72a2950"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_51/metrics.json",
-      "sha256": "4b362251fb95b1a539481986e8b6a65be16853f15dddc1adecde570af469debf"
+      "sha256": "db62b30de937d42721634d3b3bf0d927e9e41a972a25677f94bc51954ac588e7"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_67/metrics.json",
-      "sha256": "cb029edd6452bb44af70480ceeefd8acb9258e1f2c60b196f66f2bc101fa09a5"
+      "sha256": "464a9334e975d80401717df4adf9cd51f959a5c7948a4f84c3fd4812f0499836"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_11/metrics.json",
-      "sha256": "4c57cda60dcf2c64c65b10a3dc8dcae78fc797bb73f6814b1d8e6ba36395168f"
+      "sha256": "e6fc3d660741042c20b72be3bcb998c8064c8d1fe3485aaeca5894058b183651"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_23/metrics.json",
-      "sha256": "8e0bef404fcba053383df4f39c558f7bc662fe5feb10d84f286a1cb7a0195f6b"
+      "sha256": "cb639fb3df36539275eafc9a14d84e917ec052d6b2eb2b7db4ee623e1a4f334c"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_37/metrics.json",
-      "sha256": "fd98466f6cd9f15f8c0d60f811af6540a518a1061cbb3866f22a96b1c4ecabd6"
+      "sha256": "81ba2035c2bfdcf83fd7800e317afcf0bc889132c34b0c42cfe54156a4ead65c"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_51/metrics.json",
-      "sha256": "fb911ff3b1facf3c1b19e907541cf11fcfb6a23ad9dad55fa9c9c1da6fe33876"
+      "sha256": "38eef8a2d56a6d9c51b2d66f008fbbf05ff05ba0fe7fbd021114e90a62b03219"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_67/metrics.json",
-      "sha256": "3c59a0e81146f8eb872e1cfd80c51280857e3c72822991b94903fe05b09eb7db"
+      "sha256": "3481e0b75208244fa4eb6fd61aaff3a9a3ba7ec7f7a13cdcd1bf67b0bf1c10fe"
     }
   ],
-  "missing": []
+  "missing": [],
+  "notes": {
+    "acceptance_wording": "The canonical E1 subset has two reference-crossing pairs, not three, because C2221 is excluded.",
+    "no_reference_pair": "cristobalite_beta_minus_tridymite_p63mmc has no reference crossing; Tc fields use n/a:no_reference_crossing.",
+    "acceptance_conclusion": "Across polynomial and tlog_polynomial, 10/10 checkpoint records produce one false crossing for the no-reference cristobalite–tridymite pair; acceptance criterion three is not met.",
+    "conclusion": {
+      "polynomial": "Two reference-crossing pairs: sio2:cristobalite_beta_minus_quartz_beta: 669.437 ± 1.157 K; sio2:quartz_beta_minus_tridymite_p63mmc: 625.660 ± 1.268 K. The no-reference pair has 5/5 false crossings for this basis.",
+      "tlog_polynomial": "Two reference-crossing pairs: sio2:cristobalite_beta_minus_quartz_beta: 559.160 ± 0.270 K; sio2:quartz_beta_minus_tridymite_p63mmc: 547.164 ± 0.195 K. The no-reference pair has 5/5 false crossings for this basis."
+    }
+  },
+  "supporting_outputs": [
+    "result/experiments/crossing_reevaluation/summary.csv"
+  ]
 }

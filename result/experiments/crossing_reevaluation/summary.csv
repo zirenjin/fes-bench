@@ -1,0 +1,7 @@
+basis,pair,n_seeds,Tc_error_mean_K,Tc_error_std_K,false_crossings_total,missed_crossings_total,sign_accuracy_mean,sign_accuracy_std,status
+polynomial,sio2:cristobalite_beta_minus_quartz_beta,5,669.4373315315609,1.157007171636417,0,0,0.5938144329896907,0.0007906855555127502,reference_crossing
+polynomial,sio2:cristobalite_beta_minus_tridymite_p63mmc,5,n/a:no_reference_crossing,n/a:no_reference_crossing,5,0,0.809824135839903,0.0011016314205327402,n/a:no_reference_crossing
+polynomial,sio2:quartz_beta_minus_tridymite_p63mmc,5,625.6602256221136,1.2684730869244558,0,0,0.6206185567010309,0.0009196938076472436,reference_crossing
+tlog_polynomial,sio2:cristobalite_beta_minus_quartz_beta,5,559.1600258159921,0.2696934675240692,0,0,0.6607640994542147,0.00033215437083393824,reference_crossing
+tlog_polynomial,sio2:cristobalite_beta_minus_tridymite_p63mmc,5,n/a:no_reference_crossing,n/a:no_reference_crossing,5,0,0.8539721043056397,0.0005073741822523182,n/a:no_reference_crossing
+tlog_polynomial,sio2:quartz_beta_minus_tridymite_p63mmc,5,547.1639214575449,0.19504034931382172,0,0,0.6682838083687083,0.0,reference_crossing
