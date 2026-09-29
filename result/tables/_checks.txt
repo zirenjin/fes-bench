@@ -15,3 +15,6 @@
 ✓ crossing_errors_phase_lopo: meta 记录 34 处缺失 → predictor unavailable without training phase×18; structural N/A: pair has no reference crossing on the frozen grid×16
 ✓ crossing_errors_system_loso: meta 记录 17 处缺失 → predictor unavailable without training phase×9; structural N/A: pair has no reference crossing on the frozen grid×8
 ✓ crossing_errors_temp_extrap: meta 记录 14 处缺失 → structural N/A: pair has no reference crossing on the frozen grid×9; predictor unavailable without training phase×5
+✓ temp_extrap: 非自检行存在未标记空值 []
+✓ phase_lopo: 非自检行存在未标记空值 []
+✓ system_loso: 非自检行存在未标记空值 []

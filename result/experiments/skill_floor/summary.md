@@ -1,6 +1,6 @@
 # Zero ΔG floor
 
-`constant_delta_g` is fitted separately for each ordered ΔG = G(left) − G(right) from the intersection of that pair's *training* temperature points.  It is deliberately unavailable when a fold contains no pairwise training labels (rather than leaking held-out labels).
+Skill scores in the tables use the zero floor uniformly: `1 − MAE / MAE_zero`, with `MAE_zero` equal to the mean reference |ΔG| on evaluated points. `constant_delta_g` is fitted separately for each ordered ΔG = G(left) − G(right) from pair *training* points and is unavailable when a fold has no pairwise training labels.
 
 Phase-level G MAE and coverage are not defined for these pair predictors.
 
@@ -89,7 +89,7 @@ No new model was trained. The design evaluator's phase-level G MAE/coverage cann
 
 # Training-mean constant ΔG floor
 
-`constant_delta_g` is fitted separately for each ordered ΔG = G(left) − G(right) from the intersection of that pair's *training* temperature points.  It is deliberately unavailable when a fold contains no pairwise training labels (rather than leaking held-out labels).
+Skill scores in the tables use the zero floor uniformly: `1 − MAE / MAE_zero`, with `MAE_zero` equal to the mean reference |ΔG| on evaluated points. `constant_delta_g` is fitted separately for each ordered ΔG = G(left) − G(right) from pair *training* points and is unavailable when a fold has no pairwise training labels.
 
 Phase-level G MAE and coverage are not defined for these pair predictors.
 

@@ -1,0 +1,4 @@
+table,cell,old_value,new_value,reason
+predictor_comparison_temp_extrap,pair-only ranking_accuracy,n/a:pair_only_predictor,numeric,computed from per-temperature all-pair sign agreement on T>T* test points
+predictor_comparison_phase_lopo,pair-only ranking_accuracy,n/a:pair_only_predictor,numeric or n/a:no_training_phase,computed on full relative grid; unavailable only when no pair training phase exists
+predictor_comparison_system_loso,pair-only ranking_accuracy,n/a:pair_only_predictor,numeric or n/a:no_training_phase,computed on full relative grid; unavailable only when no pair training phase exists

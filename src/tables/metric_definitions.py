@@ -26,6 +26,8 @@ def main() -> int:
             continue
         metric, definition, unit, direction = [item.strip() for item in line.strip()[2:].split("|")]
         rows.append({"metric": metric, "definition": definition, "unit": unit, "direction": direction})
+    if not any(row["metric"] == "skill_score" for row in rows):
+        rows.append({"metric": "skill_score", "definition": "1 − MAE / MAE_zero，MAE_zero = 评测点上参照 |ΔG| 的均值", "unit": "fraction", "direction": "↑"})
     csv_path = output / "metric_definitions.csv"; csv_write(csv_path, ["metric", "definition", "unit", "direction"], rows)
     meta_write(root, csv_path, [root / "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json", evaluator], [])
     return 0

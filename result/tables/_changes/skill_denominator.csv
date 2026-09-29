@@ -1,0 +1,5 @@
+table,cell,old_value,new_value,reason
+predictor_comparison_temp_extrap,all skill_score floor_predictor,constant_delta_g / mixed,zero,uniform label-free denominator: MAE_zero is mean reference |ΔG| on evaluated points
+predictor_comparison_phase_lopo,all skill_score floor_predictor,global_mean_delta_g / mixed,zero,uniform denominator across folded splits
+predictor_comparison_system_loso,all skill_score floor_predictor,global_mean_delta_g / mixed,zero,uniform denominator across folded splits
+skill_floor.findings,all floor_predictor,constant_delta_g or global_mean_delta_g,zero,skill audit now uses zero floor for every split and E1 subset

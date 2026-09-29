@@ -1,7 +1,3 @@
 # External-baseline results
 
-See `skill_scores.md` and `metrics.json`.
-
-## Deviations from design
-
-No new model was trained. Missing Bartel representative energies and the broken remote torch library are recorded as unavailable rather than filled with substitute values.
+See `skill_scores.md` and `metrics.json`. Skill scores use the zero floor uniformly: `1 − MAE / MAE_zero`. Bartel includes Hf via the Domains_Alloy E0 calculation; the SiO₂-only Bartel ΔG MAE is 28.2 meV/atom.

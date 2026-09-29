@@ -274,8 +274,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.3250798722044728,
+          "ranking_accuracy_by_system": {
+            "hf": 0.3250798722044728
+          }
         },
         "hf:hcp": {
           "G_MAE_eV_per_atom": null,
@@ -308,8 +310,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.3250798722044728,
+          "ranking_accuracy_by_system": {
+            "hf": 0.3250798722044728
+          }
         },
         "sio2:cristobalite_beta": {
           "G_MAE_eV_per_atom": null,
@@ -358,8 +362,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.0,
+          "ranking_accuracy_by_system": {
+            "sio2": 0.0
+          }
         },
         "sio2:quartz_beta": {
           "G_MAE_eV_per_atom": null,
@@ -416,8 +422,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.0,
+          "ranking_accuracy_by_system": {
+            "sio2": 0.0
+          }
         },
         "sio2:tridymite_p63mmc": {
           "G_MAE_eV_per_atom": null,
@@ -466,8 +474,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.0,
+          "ranking_accuracy_by_system": {
+            "sio2": 0.0
+          }
         }
       },
       "method": "global_mean_delta_g"
@@ -788,8 +798,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.3250798722044728,
+          "ranking_accuracy_by_system": {
+            "hf": 0.3250798722044728
+          }
         },
         "sio2": {
           "G_MAE_eV_per_atom": null,
@@ -862,8 +874,10 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.0,
+          "ranking_accuracy_by_system": {
+            "sio2": 0.0
+          }
         }
       },
       "method": "global_mean_delta_g"
@@ -1151,8 +1165,11 @@
               "status": "ok"
             }
           },
-          "ranking_accuracy": null,
-          "ranking_accuracy_by_system": {}
+          "ranking_accuracy": 0.06261980830670927,
+          "ranking_accuracy_by_system": {
+            "hf": 0.19291338582677164,
+            "sio2": 0.0
+          }
         }
       },
       "method": "global_mean_delta_g"

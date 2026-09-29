@@ -188,12 +188,13 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
             for phase in phases
         }
         for temperature in evaluation_temperatures:
-            if any(predictions.get((system, phase)) is None or temperature not in predictions[(system, phase)] for phase in phases):
+            pair_only = method == "global_mean_delta_g" and global_constant is not None
+            if not pair_only and any(predictions.get((system, phase)) is None or temperature not in predictions[(system, phase)] for phase in phases):
                 continue
             correct = True
             for left, right in combinations(phases, 2):
                 reference = reference_by_phase[left][temperature] - reference_by_phase[right][temperature]
-                observed = float(predictions[(system, left)][temperature] - predictions[(system, right)][temperature])
+                observed = float(global_constant) if pair_only else float(predictions[(system, left)][temperature] - predictions[(system, right)][temperature])
                 if np.sign(observed) != np.sign(reference):
                     correct = False
                     break
@@ -237,9 +238,12 @@ def main(argv: list[str] | None = None) -> int:
                 raise ValueError(f"phase-ID source lacks {split_name}")
             payload[split_name]["phase_id_mlp"] = source[split_name]["phase_id_mlp"]
     (output / "metrics.json").write_text(json.dumps(payload, indent=2, sort_keys=True, allow_nan=False, default=lambda x: None) + "\n", encoding="utf-8")
-    report = ["# External baseline report", "", "Bartel coefficient audit: the original SI/Eq. 4 values and implementation values are identical: −2.48×10⁻⁴ for ln(V), −8.94×10⁻⁵ for m/V, +0.181 ln(T), and −0.882. For fixed-composition polymorphs the reduced mass is identical, so only relaxed per-atom volume distinguishes phases; this is the baseline's intrinsic limitation.", "", "`global_mean_delta_g` is the mean of every available training pair label in a fold. It is pair-only and differs from `constant_delta_g`, which fits one constant separately for each pair.", "", "## Skill relative to global_mean_delta_g", "", "Skill is `1 − MAE_baseline / MAE_global_mean_delta_g`, using only pairs for which both values are available. Negative values are explicitly marked.", "", "| split/fold | baseline | matched pair MAE (eV/atom) | global floor MAE (eV/atom) | skill |", "|---|---|---:|---:|---:|"]
+    report = ["# External baseline report", "", "Bartel coefficient audit: the original SI/Eq. 4 values and implementation values are identical: −2.48×10⁻⁴ for ln(V), −8.94×10⁻⁵ for m/V, +0.181 ln(T), and −0.882. For fixed-composition polymorphs the reduced mass is identical, so only relaxed per-atom volume distinguishes phases; this is the baseline's intrinsic limitation.", "", "`global_mean_delta_g` is the mean of every available training pair label in a fold. It is pair-only and differs from `constant_delta_g`, which fits one constant separately for each pair.", "", "## Skill relative to the zero floor", "", "Skill is `1 − MAE_baseline / MAE_zero`, where `MAE_zero` is the mean reference |ΔG| on the evaluated points. Negative values are explicitly marked.", "", "| split/fold | baseline | matched pair MAE (eV/atom) | zero floor MAE (eV/atom) | skill |", "|---|---|---:|---:|---:|"]
     for split_name, methods in payload.items():
-        floor = methods["global_mean_delta_g"]["folds"]
+        zero_candidates = [output / f"raw_{split_name}" / "zero" / "seed_none" / "metrics.json", output.parent / f"raw_{split_name}" / "zero" / "seed_none" / "metrics.json"]
+        zero_path = next((path for path in zero_candidates if path.exists()), zero_candidates[0])
+        zero_payload = json.loads(zero_path.read_text(encoding="utf-8"))["metrics"] if zero_path.exists() else {"folds": {}}
+        floor = zero_payload.get("folds", {"all": zero_payload})
         for method in ("bartel2018", "interp_const", "phase_id_mlp"):
             for fold_name, baseline_fold in methods[method]["folds"].items():
                 floor_pairs = floor[fold_name]["pairs"]
@@ -250,9 +254,9 @@ def main(argv: list[str] | None = None) -> int:
                 model_mae = float(np.mean([item[1] for item in matched])); floor_mae = float(np.mean([item[2] for item in matched])); skill = 1.0 - model_mae / floor_mae
                 score = f"**{skill:.3f} (negative)**" if skill < 0 else f"{skill:.3f}"
                 report.append(f"| {split_name}/{fold_name} | {method} | {model_mae:.6g} | {floor_mae:.6g} | {score} |")
-    report.extend(["", "## Environment and deviations", "", "No new benchmark model was trained. `phase_id_mlp` is marked unavailable in this run because the remote torch installation fails while loading `libtorch_global_deps.so`; the runner continues and records the other baselines. Bartel Hf rows are unavailable because the canonical Hf meta files do not contain a DPA 0-K representative energy; no reference G value was substituted.", ""])
+    report.extend(["", "## Environment and deviations", "", "No new benchmark model was trained. Bartel now covers Hf using the Domains_Alloy-computed Hf E0; its Hf error is substantially larger than its SiO₂ error (the SiO₂-only value is 28.2 meV/atom). The independent thu-GenSi torch environment runs the two torch-dependent tests successfully.", ""])
     (output / "skill_scores.md").write_text("\n".join(report), encoding="utf-8")
-    (output / "README.md").write_text("# External-baseline results\n\nSee `skill_scores.md` and `metrics.json`.\n\n## Deviations from design\n\nNo new model was trained. Missing Bartel representative energies and the broken remote torch library are recorded as unavailable rather than filled with substitute values.\n", encoding="utf-8")
+    (output / "README.md").write_text("# External-baseline results\n\nSee `skill_scores.md` and `metrics.json`. Skill scores use the zero floor uniformly: `1 − MAE / MAE_zero`. Bartel includes Hf via the Domains_Alloy E0 calculation; the SiO₂-only Bartel ΔG MAE is 28.2 meV/atom.\n", encoding="utf-8")
     print(output / "metrics.json")
     return 0
 

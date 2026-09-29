@@ -93,15 +93,20 @@ and the current SiO2 QH curves fail the physical reliability gate.
 CSV N/A values are explicit: `n/a:no_reference_crossing`,
 `n/a:pair_only_predictor`, `n/a:no_training_phase`,
 `n/a:degenerate_prediction`, and `n/a:input_unavailable`. Detailed reasons remain
-in the matching `.meta.json`. `constant_delta_g` is structurally unavailable
-on LOPO/LOSO, so skill denominators remain `constant_delta_g` for temp-extrap
-and `global_mean_delta_g` for LOPO/LOSO; this migration records rather than
-recomputes that difference.
+in the matching `.meta.json`. Skill scores now use the zero floor uniformly:
+`1 − MAE / MAE_zero`, where `MAE_zero` is the mean reference `|ΔG|` on the
+evaluated points. This removes split-dependent denominators and makes every
+skill score directly comparable.
+
+Bartel now covers Hf using the Domains_Alloy-computed Hf E0. Its Hf error is
+substantially larger than its SiO₂ error; the SiO₂-only table reports 28.2
+meV/atom for Bartel ΔG MAE.
 
 Historical delivery records are cleaned and tracked under `result/_legacy/`.
 They are not separate generated evidence and are not used by table scripts.
-The local interpreter currently has no `pytest`; install the optional test
-extra shown above before running `python -m pytest`. The local lightweight run
-passes 19 tests and skips 2 torch-dependent modules because torch is unavailable;
-the isolated thu-GenSi run passes 19 and skips the same 2 modules because its
-torch installation lacks `libtorch_global_deps.so`.
+Install the optional test extra shown above before running `python -m pytest`.
+The local lightweight run passes 19 tests and skips 2 torch-dependent modules
+because the local interpreter has no usable torch. On thu-GenSi, the independent
+`/share/jzr/conda-envs/fes-bench-torch` environment uses CPU torch and both
+torch-dependent modules pass (`2 passed in 44.35s`); this repaired environment
+is the prerequisite for T3.

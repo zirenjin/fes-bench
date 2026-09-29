@@ -60,9 +60,14 @@ checkpoints. This is a model conclusion, not a reproduction failure.
 
 ## Known issue recorded, not resolved
 
-`constant_delta_g` is structurally unavailable on LOPO/LOSO. Therefore
-temp-extrap skill uses `constant_delta_g`, whereas LOPO/LOSO use
-`global_mean_delta_g`; no denominator was silently unified in this migration.
+Skill scores now use the zero floor uniformly on every split and subset:
+`1 − MAE / MAE_zero`, where `MAE_zero` is the mean reference `|ΔG|` on the
+evaluated points. The zero floor is label-free, available for every split, and
+avoids making the denominator depend on whether a fold happens to contain a
+training phase.
+
+Bartel covers Hf from the Domains_Alloy-computed Hf E0. Its Hf error is much
+larger than its SiO₂ error; the SiO₂-only table gives 28.2 meV/atom.
 
 无训练 predictor 在 phase_lopo 与 system_loso 上指标相同是预期的：两者的测试点并集都是全部相对的全温区，权重比例一致。
 

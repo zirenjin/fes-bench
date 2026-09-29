@@ -1,10 +1,10 @@
 {
-  "generated_utc": "2026-09-23T14:33:23.512316+00:00",
-  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+  "generated_utc": "2026-09-29T19:46:28.575225+00:00",
+  "git_commit": "34d19661f11fb0d18c035cc45df240db8cdacab4",
   "inputs": [
     {
       "path": "configs/raw_runs.json",
-      "sha256": "d0d5239781cacc0f9f05ed1e6eeec54d90033304f89fd93ec0c5ff70b984342c"
+      "sha256": "526e1bcdc1d1153287777cf81fb5036af876b7434c936aa66feae22fdca9075c"
     },
     {
       "path": "configs/splits/temp_extrap.yaml",
@@ -36,67 +36,59 @@
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_11/metrics.json",
-      "sha256": "4dc25749198fc9df9b64d66ba085458509a72209e028953797c38c46a941b0a2"
+      "sha256": "50bc981af77049b46ec2487d9ed90ccf5114a970f38dfcad0349caae1db882f5"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_23/metrics.json",
-      "sha256": "fd3541d2fa5b6a4b5bf37d5123809676c771521070ce13083e33aaa346ed703b"
+      "sha256": "fbc77d5748765fb26dc3d4dc51545d693a7d86fd485a717af2277750452f6e8c"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_37/metrics.json",
-      "sha256": "bccaa4f4124c31717f5f734bbb4f156227a75cd473f4a9a3aa7663fda98096d5"
+      "sha256": "3b9c05bcfb21e521d2c787f86568fc0089f976e24eb737b9ab69fc3be72a2950"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_51/metrics.json",
-      "sha256": "4b362251fb95b1a539481986e8b6a65be16853f15dddc1adecde570af469debf"
+      "sha256": "db62b30de937d42721634d3b3bf0d927e9e41a972a25677f94bc51954ac588e7"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_67/metrics.json",
-      "sha256": "cb029edd6452bb44af70480ceeefd8acb9258e1f2c60b196f66f2bc101fa09a5"
+      "sha256": "464a9334e975d80401717df4adf9cd51f959a5c7948a4f84c3fd4812f0499836"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_11/metrics.json",
-      "sha256": "4c57cda60dcf2c64c65b10a3dc8dcae78fc797bb73f6814b1d8e6ba36395168f"
+      "sha256": "e6fc3d660741042c20b72be3bcb998c8064c8d1fe3485aaeca5894058b183651"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_23/metrics.json",
-      "sha256": "8e0bef404fcba053383df4f39c558f7bc662fe5feb10d84f286a1cb7a0195f6b"
+      "sha256": "cb639fb3df36539275eafc9a14d84e917ec052d6b2eb2b7db4ee623e1a4f334c"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_37/metrics.json",
-      "sha256": "fd98466f6cd9f15f8c0d60f811af6540a518a1061cbb3866f22a96b1c4ecabd6"
+      "sha256": "81ba2035c2bfdcf83fd7800e317afcf0bc889132c34b0c42cfe54156a4ead65c"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_51/metrics.json",
-      "sha256": "fb911ff3b1facf3c1b19e907541cf11fcfb6a23ad9dad55fa9c9c1da6fe33876"
+      "sha256": "38eef8a2d56a6d9c51b2d66f008fbbf05ff05ba0fe7fbd021114e90a62b03219"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_67/metrics.json",
-      "sha256": "3c59a0e81146f8eb872e1cfd80c51280857e3c72822991b94903fe05b09eb7db"
+      "sha256": "3481e0b75208244fa4eb6fd61aaff3a9a3ba7ec7f7a13cdcd1bf67b0bf1c10fe"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "b6658b4e4c77b1ea19fc699e866e69e7c161f992f4d400388daa9105411b8c0b"
-    },
-    {
-      "path": "result/experiments/external_baselines/raw_phase_lopo/constant_delta_g/seed_none/metrics.json",
-      "sha256": "07527c43d131dd4b868d529709e0cd826282cfcf49b5a55a4ad0452547096d97"
+      "sha256": "4295e9632004e5041f87ea1776881b9dfe2af34e1946fdf3177fe8fc0b3c3a65"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
       "sha256": "a062cc6f944ad40a072b3d5381efbdd3d070e8c21ffbbf614fc2c16b18588d42"
     },
     {
-      "path": "result/experiments/external_baselines/raw_phase_lopo/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "978f825aab17fcd670db38c07925645cb8b60044a0c4ceb938e58e7c906f696a"
-    },
-    {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "0bb7059cef299589e084dd3e46e28e009c3b86c1fb96aa5cbd901dbd25f4b013"
+      "sha256": "65adb47b9efeb01ab5f8bd98031af0559634da32eb4a1ff0956e21e653a46c59"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "2575a4d602f9733139fcc55c0889ebcc2043ef31681db050d50e418dac23c9ac"
+      "sha256": "79784cb5607bb84c6b5eaf7e5cedcc8c66ce524b7e564384b7506fa2328f322c"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
@@ -112,31 +104,23 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "7d650e3484b47c0b9cc8c9a69422ee657e81eae0b11073cbb08f74ffd6d96e24"
+      "sha256": "acea4bcd242e907e5cec23ca5a7fc201d2438c62e416ad4d8c9c0ee087d3c908"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/bartel2018/seed_none/metrics.json",
-      "sha256": "f03509ba80f9e447a37898e75d6508701e37c2d9dc5ab20a7b4497e932aa0d36"
-    },
-    {
-      "path": "result/experiments/external_baselines/raw_system_loso/constant_delta_g/seed_none/metrics.json",
-      "sha256": "faeca7b9fa62b9b01da99b7a80b638ba76af2d2c0cccac0eee8a202e6aa65295"
+      "sha256": "0cc57ad116eb63d2bec9c0d69e405c85cd97fda7b5957f06e5ef7cba4efcf17e"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/constant_offset_0.005/seed_none/metrics.json",
       "sha256": "e475b2486e2c227305a6dba13b1093c1014e12364627c0a4cace887960f51a2f"
     },
     {
-      "path": "result/experiments/external_baselines/raw_system_loso/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "afef052a0817c10dfc17ceade4e15b978a892820610404cf6206f35dd6f86ccf"
-    },
-    {
       "path": "result/experiments/external_baselines/raw_system_loso/interp_const/seed_none/metrics.json",
-      "sha256": "6f260681454fa07f84b5b2e963994d60a6f4bfce42eb653f5d5c15c797b6bbdf"
+      "sha256": "30e35bd2dd83f0fc93280511208ee06fe853a0165955b1755dbc41c2b65a23f8"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "628a619c701ef262f255285d3ea0e12e5333e97a30dcab8cfcbedd7ebf75779a"
+      "sha256": "9a15912a0326540614a399b717626fe4a865a62db28ccbf5158dd23efc9704f3"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/reference/seed_none/metrics.json",
@@ -152,31 +136,23 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/zero/seed_none/metrics.json",
-      "sha256": "4d1d9f80555c3af9248af2f26e55b4fa1765bc6c33b361b755481d5a3b80ae56"
+      "sha256": "c48f867e139765e0e8c4d5d1f6b48ea182683fe90732de1a4e81a278ab529783"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "64498b278b83ef0594989c75fb01b4cfa83b6e4ec4bd13184f8486b51cce17a4"
-    },
-    {
-      "path": "result/experiments/external_baselines/raw_temp_extrap/constant_delta_g/seed_none/metrics.json",
-      "sha256": "1ed1b47e06c03fdb5ffe3a712f53fbcb54a7e30a025b006cb57011d129a0c359"
+      "sha256": "15b40355e444896b5be4c3e2a4bb361eacdbc1fac71d42ce18bf8aca3f9d94eb"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
       "sha256": "af3f175beda8957732d364f1c9f055873123708ce2851630031a5ca7feb2e569"
     },
     {
-      "path": "result/experiments/external_baselines/raw_temp_extrap/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "c2db3884814f248b8d974a2c00c34c1a648daff152977a2af9557f84007ca858"
-    },
-    {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "1b00dde542906df5eb2a305f69b8a39009e3ae549fa3029d60d5950311926d36"
+      "sha256": "8335e0f775f705e479317a9fd17bdd122fded2a0ff4fcf988192989e77e3ece0"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "4cce7ede1ba92263389e6dd5a7c0d3b0b4a9b6f784aab4efd546cec4bced6421"
+      "sha256": "0c7454c14a29363a23d27a4eff847c793908b2f227df8170ed83100ae970c9ee"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
@@ -192,12 +168,8 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "373098d49299c64686ef7410b8ef979d9ee81e9eacd01328b9f3254eee62cc9d"
+      "sha256": "c801206301909cf891723aca9c8b758b4b649b764e5ea83680fd84bc46b60bf6"
     }
   ],
-  "missing": [],
-  "evaluation_regime": "in_sample",
-  "notes": {
-    "evaluation_regime": "检查点训练覆盖 851–2499 K 全部四相；以下 Tc 误差、假交点与技能分均为训练集内结果。"
-  }
+  "missing": []
 }

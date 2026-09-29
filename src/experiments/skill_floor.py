@@ -16,7 +16,7 @@ def folds(body: dict) -> dict[str, dict]:
 
 
 def e1_constant_floor(root: Path) -> tuple[dict[str, float], set[str], list[Path]]:
-    """Derive pairwise training-mean floors from the configured reference grid."""
+    """Derive zero floors: mean absolute reference ΔG on the full grid."""
     sample = next(root.glob("result/experiments/crossing_reevaluation/raw_runs/*/seed_*/metrics.json"))
     sample_metrics = json.loads(sample.read_text(encoding="utf-8"))["metrics"]
     pair_names = list(sample_metrics["metrics"]["formal_train_window"]["full_range"]["pairs"])
@@ -53,8 +53,7 @@ def e1_constant_floor(root: Path) -> tuple[dict[str, float], set[str], list[Path
         pair = f"{system_id}:{left}_minus_{right}"
         delta = [a - b for a, b in zip(values[left], values[right])]
         indices = [i for i, _ in enumerate(delta) if i in train.get((system_id, left), set()) and i in train.get((system_id, right), set())]
-        constant = sum(delta[i] for i in indices) / len(indices)
-        floor = sum(abs(item - constant) for item in delta) / len(delta)
+        floor = sum(abs(item) for item in delta) / len(delta)
         floors[pair] = floor
         floors[f"{system_id}:{right}_minus_{left}"] = floor
     return floors, set(floors), inputs
@@ -66,13 +65,13 @@ def main() -> int:
     split_dirs = sorted(path for path in (root / "result/experiments/external_baselines").glob("raw_*") if path.is_dir())
     for split_dir in split_dirs:
         split = split_dir.name.removeprefix("raw_")
-        constants = split_dir / "constant_delta_g/seed_none/metrics.json"; global_floor = split_dir / "global_mean_delta_g/seed_none/metrics.json"
-        if not constants.exists() or not global_floor.exists(): continue
-        inputs.extend([constants, global_floor]); constant_folds = folds(json.loads(constants.read_text(encoding="utf-8"))["metrics"]); global_folds = folds(json.loads(global_floor.read_text(encoding="utf-8"))["metrics"])
+        zero_path = split_dir / "zero/seed_none/metrics.json"
+        if not zero_path.exists(): continue
+        inputs.append(zero_path); zero_folds = folds(json.loads(zero_path.read_text(encoding="utf-8"))["metrics"])
         for path in sorted(split_dir.glob("*/seed_none/metrics.json")):
             predictor = path.parts[-3]
             if predictor in {"constant_delta_g", "global_mean_delta_g"}: continue
-            inputs.append(path); model_folds = folds(json.loads(path.read_text(encoding="utf-8"))["metrics"]); denominator_name, floor_folds = ("constant_delta_g", constant_folds) if predictor in {"zero", "reference", "reference_noise_0.005", "constant_offset_0.005", "root_stability_iid_0.005"} else ("global_mean_delta_g", global_folds)
+            inputs.append(path); model_folds = folds(json.loads(path.read_text(encoding="utf-8"))["metrics"]); denominator_name, floor_folds = "zero", zero_folds
             for fold, model_fold in sorted(model_folds.items()):
                 floor_fold = floor_folds.get(fold, {})
                 model_pairs = model_fold.get("pairs", {}); floor_pairs = floor_fold.get("pairs", {}); matched = [(float(item["delta_G_MAE_eV_per_atom"]), float(floor_pairs[pair]["delta_G_MAE_eV_per_atom"])) for pair, item in model_pairs.items() if item.get("delta_G_MAE_eV_per_atom") is not None and floor_pairs.get(pair, {}).get("delta_G_MAE_eV_per_atom") is not None]
@@ -96,7 +95,7 @@ def main() -> int:
             model_value = sum(item[1] for item in selected) / len(selected) if selected else None
             floor_value = sum(item[2] for item in selected) / len(selected) if selected else None
             skill = None if model_value is None or not floor_value else 1.0 - model_value / floor_value
-            rows.append({"split": "e1_full_grid", "fold": str(seed), "predictor": basis, "floor_predictor": "constant_delta_g", "aggregation": aggregation, "model_MAE_eV_per_atom": model_value, "floor_MAE_eV_per_atom": floor_value, "skill": skill, "skill_status": "NEGATIVE" if skill is not None and skill < 0 else "non-negative" if skill is not None else "unavailable"})
+            rows.append({"split": "e1_full_grid", "fold": str(seed), "predictor": basis, "floor_predictor": "zero", "aggregation": aggregation, "model_MAE_eV_per_atom": model_value, "floor_MAE_eV_per_atom": floor_value, "skill": skill, "skill_status": "NEGATIVE" if skill is not None and skill < 0 else "non-negative" if skill is not None else "unavailable"})
     write_audit(root, "skill_floor", ["split", "fold", "predictor", "floor_predictor", "aggregation", "model_MAE_eV_per_atom", "floor_MAE_eV_per_atom", "skill", "skill_status"], rows, inputs, [])
     return 0
 

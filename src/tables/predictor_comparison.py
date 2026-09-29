@@ -63,16 +63,18 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
         ranking = numeric(ranking_source)
         if ranking is not None:
             ranking_values.append((ranking, int(fold.get("n_test_frames", 0) or 0)))
+        elif isinstance(ranking_source, str) and ranking_source.startswith("n/a:"):
+            markers.append(ranking_source)
         for name, pair in fold.get("pairs", {}).items():
             if not isinstance(pair, dict):
                 continue
             if system is not None and not str(name).startswith(f"{system}:"):
                 continue
             all_pairs_seen.add(str(name))
-            if not include_all_pairs and not pair.get("reference_Tc_K", []):
-                continue
             if pair.get("status") in {"not_fittable_without_pair_training_labels", "unavailable_without_training_phase"}:
                 markers.append(NO_TRAINING)
+                continue
+            if not include_all_pairs and not pair.get("reference_Tc_K", []):
                 continue
             pairs_covered.add(str(name))
             weight = int(pair.get("n_evaluation_points", fold.get("n_test_frames", 0)) or 0)
@@ -101,7 +103,7 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
         "delta_G_MAE_eV_per_atom": weighted(pair_values["delta_G_MAE_eV_per_atom"]) if pair_values["delta_G_MAE_eV_per_atom"] else (unavailable or ""),
         "delta_G_RMSE_eV_per_atom": weighted(pair_values["delta_G_RMSE_eV_per_atom"]) if pair_values["delta_G_RMSE_eV_per_atom"] else (unavailable or ""),
         "sign_accuracy": weighted(pair_values["sign_accuracy"]) if pair_values["sign_accuracy"] else (unavailable or ""),
-        "ranking_accuracy": weighted(ranking_values) if ranking_values else (PAIR_ONLY if g_mae == PAIR_ONLY else (unavailable or "n/a:input_unavailable")),
+        "ranking_accuracy": weighted(ranking_values) if ranking_values else (unavailable or "n/a:input_unavailable"),
         "Tc_error_K": sum(tc_values) / len(tc_values) if tc_values else (unavailable or ""),
         "Tc_err_from_dG_K": sum(slope_values) / len(slope_values) if slope_values else (unavailable or ""),
         "false_crossings": sum(false_values) if false_values else (unavailable or ""),
@@ -112,11 +114,8 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
 
 
 def floor(rows: dict[str, dict[str, Any]]) -> tuple[str, float | None]:
-    for predictor in ("constant_delta_g", "global_mean_delta_g"):
-        value = numeric(rows.get(predictor, {}).get("delta_G_MAE_eV_per_atom"))
-        if value is not None and value > 0:
-            return predictor, value
-    return "", None
+    value = numeric(rows.get("zero", {}).get("delta_G_MAE_eV_per_atom"))
+    return ("zero", value) if value is not None and value > 0 else ("zero", None)
 
 
 def result_rows(rows: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
@@ -124,11 +123,12 @@ def result_rows(rows: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
     output = []
     for predictor, summary in rows.items():
         mae = numeric(summary["delta_G_MAE_eV_per_atom"])
+        values = {key: ("n/a:input_unavailable" if summary[key] == "" else summary[key]) for key in ("G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered")}
         output.append({
             "predictor": predictor,
-            **{key: summary[key] for key in ("G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered")},
-            "skill_score": 1.0 - mae / floor_value if mae is not None and floor_value else "",
-            "floor_predictor": floor_name if mae is not None and floor_value else "",
+            **values,
+            "skill_score": 1.0 - mae / floor_value if mae is not None and floor_value else (summary["delta_G_MAE_eV_per_atom"] if isinstance(summary["delta_G_MAE_eV_per_atom"], str) and summary["delta_G_MAE_eV_per_atom"].startswith("n/a:") else "n/a:input_unavailable"),
+            "floor_predictor": floor_name if mae is not None and floor_value else "zero",
             "seed_mean": NO_SEED,
             "seed_std": NO_SEED,
         })
@@ -136,7 +136,7 @@ def result_rows(rows: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def e1_rows() -> list[dict[str, Any]]:
-    return [{"predictor": name, **{field: NOT_TRAINED for field in FIELDS if field not in {"predictor", "pairs_covered"}}, "pairs_covered": 0} for name in ("repr. regression (polynomial)", "repr. regression (tlog)")]
+    return [{"predictor": name, **{field: NOT_TRAINED for field in FIELDS if field not in {"predictor", "pairs_covered", "floor_predictor"}}, "pairs_covered": 0, "floor_predictor": "zero"} for name in ("repr. regression (polynomial)", "repr. regression (tlog)")]
 
 
 FIELDS = ["predictor", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "skill_score", "floor_predictor", "seed_mean", "seed_std"]

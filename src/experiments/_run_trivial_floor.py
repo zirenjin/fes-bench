@@ -96,7 +96,18 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
     train = _rows_by_phase(list(fold.get("train", [])))
     test = _rows_by_phase(list(fold["test"]))
     all_rows = {key: set(test.get(key, set())) | set(train.get(key, set())) for key in set(train) | set(test)}
+    # Cache source tables once per phase.  The ranking audit visits every
+    # temperature and otherwise repeatedly reparses the same CSVs.
+    tables = {(system, phase): load(system, phase, data_root).G_table for system, phase in all_rows}
+
+    def cached_curve(system: str, phase: str, indexes: set[int]) -> dict[float, float]:
+        table = tables[(system, phase)]
+        return {float(table[i].T_K): float(table[i].G_eV_per_atom) for i in indexes}
+
     pairs: dict[str, object] = {}
+    ranking_values: list[bool] = []
+    ranking_by_system: dict[str, list[bool]] = defaultdict(list)
+    ranking_unavailable = False
     for system in sorted({key[0] for key in test}):
         phases = sorted(phase for candidate_system, phase in all_rows if candidate_system == system)
         for left, right in combinations(phases, 2):
@@ -110,13 +121,13 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
             if not eval_shared:
                 continue
             train_shared = train.get((system, left), set()) & train.get((system, right), set())
-            left_eval, right_eval = _curve(data_root, system, left, eval_shared), _curve(data_root, system, right, eval_shared)
+            left_eval, right_eval = cached_curve(system, left, eval_shared), cached_curve(system, right, eval_shared)
             temperatures = np.array(sorted(set(left_eval) & set(right_eval)))
             reference = np.array([left_eval[t] - right_eval[t] for t in temperatures])
             if method == "zero":
                 observed, fitted, constant = np.zeros_like(reference), True, 0.0
             elif train_shared:
-                left_train, right_train = _curve(data_root, system, left, train_shared), _curve(data_root, system, right, train_shared)
+                left_train, right_train = cached_curve(system, left, train_shared), cached_curve(system, right, train_shared)
                 shared_train_t = sorted(set(left_train) & set(right_train))
                 constant = float(np.mean([left_train[t] - right_train[t] for t in shared_train_t]))
                 observed, fitted = np.full_like(reference, constant), True
@@ -125,6 +136,28 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
                 # must not enter a fitted-constant aggregate.
                 observed, fitted, constant = np.zeros_like(reference), False, None
             pairs[f"{system}:{left}_minus_{right}"] = _pair_metrics(reference, observed, temperatures, fitted=fitted, constant=constant)
+        evaluation_temperatures = sorted({float(tables[(system, phase)][index].T_K) for (item_system, phase), indexes in test.items() if item_system == system for index in indexes})
+        phase_curves = {phase: cached_curve(system, phase, all_rows[(system, phase)]) for phase in phases}
+        for temperature in evaluation_temperatures:
+            ok = True
+            for left, right in combinations(phases, 2):
+                if temperature not in phase_curves[left] or temperature not in phase_curves[right]:
+                    ok = False; break
+                reference = phase_curves[left][temperature] - phase_curves[right][temperature]
+                if method == "zero":
+                    observed = 0.0
+                else:
+                    train_shared = train.get((system, left), set()) & train.get((system, right), set())
+                    if not train_shared:
+                        ranking_unavailable = True
+                        ok = False; break
+                    left_train, right_train = cached_curve(system, left, train_shared), cached_curve(system, right, train_shared)
+                    constant_value = float(np.mean([left_train[t] - right_train[t] for t in sorted(set(left_train) & set(right_train))]))
+                    observed = constant_value
+                if np.sign(observed) != np.sign(reference):
+                    ok = False; break
+            ranking_values.append(ok)
+            ranking_by_system[system].append(ok)
     eligible = [v for v in pairs.values() if isinstance(v, dict) and v["status"] == "ok"]
     return {
         "n_test_frames": sum(len(indexes) for indexes in test.values()),
@@ -134,6 +167,8 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
         "aggregate_pair_MAE_eV_per_atom": float(np.mean([v["delta_G_MAE_eV_per_atom"] for v in eligible])) if eligible else None,
         "aggregate_pair_sign_accuracy": float(np.mean([v["sign_accuracy"] for v in eligible])) if eligible else None,
         "n_fittable_pairs": len(eligible),
+        "ranking_accuracy": "n/a:no_training_phase" if ranking_unavailable else (float(np.mean(ranking_values)) if ranking_values else None),
+        "ranking_accuracy_by_system": {system: ("n/a:no_training_phase" if ranking_unavailable else float(np.mean(values))) for system, values in ranking_by_system.items() if values},
     }
 
 
@@ -153,7 +188,7 @@ def _fmt(value: object) -> str:
 
 
 def _markdown(payload: dict[str, object], title: str) -> str:
-    lines = [f"# {title}", "", "`constant_delta_g` is fitted separately for each ordered ΔG = G(left) − G(right) from the intersection of that pair's *training* temperature points.  It is deliberately unavailable when a fold contains no pairwise training labels (rather than leaking held-out labels).", "", "Phase-level G MAE and coverage are not defined for these pair predictors.", ""]
+    lines = [f"# {title}", "", "Skill scores in the tables use the zero floor uniformly: `1 − MAE / MAE_zero`, with `MAE_zero` equal to the mean reference |ΔG| on evaluated points. `constant_delta_g` is fitted separately for each ordered ΔG = G(left) − G(right) from pair *training* points and is unavailable when a fold has no pairwise training labels.", "", "Phase-level G MAE and coverage are not defined for these pair predictors.", ""]
     for split_name, result in payload.items():
         lines.extend([f"## {split_name}", ""])
         for fold_name, fold in result["folds"].items():

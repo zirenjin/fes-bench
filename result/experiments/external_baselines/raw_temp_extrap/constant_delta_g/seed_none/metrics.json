@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "75370e5dd9469f4fc7b16da00f98063668f55d49",
+    "git_commit": "34d19661f11fb0d18c035cc45df240db8cdacab4",
     "split": "temp_extrap",
     "split_sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0",
     "predictor_config": null,
@@ -8,9 +8,9 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-29T19:14:38.809050+00:00",
+    "timestamp_utc": "2026-09-29T20:00:49.097409+00:00",
     "input_metrics": "result/experiments/skill_floor/metrics.json",
-    "input_metrics_sha256": "1e6725bb3c7268b8f6d07acc21ba302f19afc1a26355a01e1723e1cea2a7cee3",
+    "input_metrics_sha256": "0d41098ea826e3629839ea9a404c286e8d82e1a7e4b5b7f54880d39a12d46794",
     "missing": []
   },
   "metrics": {
@@ -111,6 +111,11 @@
             "status": "ok",
             "train_delta_G_mean_eV_per_atom": -0.0030737285450740544
           }
+        },
+        "ranking_accuracy": 0.12651757188498403,
+        "ranking_accuracy_by_system": {
+          "hf": 0.19291338582677164,
+          "sio2": 0.0946073793755913
         }
       }
     },

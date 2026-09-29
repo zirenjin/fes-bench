@@ -1,0 +1,3 @@
+table,cell,old_value,new_value,reason
+predictor_comparison_phase_lopo,interp_const and phase_id_mlp metrics,blank,n/a:no_training_phase,held-out phase has no required training phase
+predictor_comparison_system_loso,interp_const and phase_id_mlp metrics,blank,n/a:no_training_phase,held-out system has no required training phase

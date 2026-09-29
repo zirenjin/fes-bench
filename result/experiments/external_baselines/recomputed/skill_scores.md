@@ -4,20 +4,20 @@ Bartel coefficient audit: the original SI/Eq. 4 values and implementation values
 
 `global_mean_delta_g` is the mean of every available training pair label in a fold. It is pair-only and differs from `constant_delta_g`, which fits one constant separately for each pair.
 
-## Skill relative to global_mean_delta_g
+## Skill relative to the zero floor
 
-Skill is `1 − MAE_baseline / MAE_global_mean_delta_g`, using only pairs for which both values are available. Negative values are explicitly marked.
+Skill is `1 − MAE_baseline / MAE_zero`, where `MAE_zero` is the mean reference |ΔG| on the evaluated points. Negative values are explicitly marked.
 
-| split/fold | baseline | matched pair MAE (eV/atom) | global floor MAE (eV/atom) | skill |
+| split/fold | baseline | matched pair MAE (eV/atom) | zero floor MAE (eV/atom) | skill |
 |---|---|---:|---:|---:|
-| temp_extrap/all | bartel2018 | 0.0505362 | 0.00597276 | **-7.461 (negative)** |
-| temp_extrap/all | interp_const | 0.00366713 | 0.00597276 | 0.386 |
-| temp_extrap/all | phase_id_mlp | 0.0118581 | 0.00597276 | **-0.985 (negative)** |
-| phase_lopo/hf:bcc | bartel2018 | 0.128374 | 0.0114594 | **-10.203 (negative)** |
-| phase_lopo/hf:hcp | bartel2018 | 0.128374 | 0.0114594 | **-10.203 (negative)** |
-| phase_lopo/sio2:cristobalite_beta | bartel2018 | 0.01866 | 0.00472384 | **-2.950 (negative)** |
-| phase_lopo/sio2:quartz_beta | bartel2018 | 0.0250602 | 0.00418241 | **-4.992 (negative)** |
-| phase_lopo/sio2:tridymite_p63mmc | bartel2018 | 0.0145734 | 0.0033239 | **-3.384 (negative)** |
+| temp_extrap/all | bartel2018 | 0.0505362 | 0.00277298 | **-17.225 (negative)** |
+| temp_extrap/all | interp_const | 0.00366713 | 0.00277298 | **-0.322 (negative)** |
+| temp_extrap/all | phase_id_mlp | 0.0118581 | 0.00277298 | **-3.276 (negative)** |
+| phase_lopo/hf:bcc | bartel2018 | 0.128374 | 0.0113998 | **-10.261 (negative)** |
+| phase_lopo/hf:hcp | bartel2018 | 0.128374 | 0.0113998 | **-10.261 (negative)** |
+| phase_lopo/sio2:cristobalite_beta | bartel2018 | 0.01866 | 0.00173149 | **-9.777 (negative)** |
+| phase_lopo/sio2:quartz_beta | bartel2018 | 0.0250602 | 0.00317371 | **-6.896 (negative)** |
+| phase_lopo/sio2:tridymite_p63mmc | bartel2018 | 0.0145734 | 0.00169611 | **-7.592 (negative)** |
 | phase_lopo/hf:bcc | interp_const | — | — | unavailable |
 | phase_lopo/hf:hcp | interp_const | — | — | unavailable |
 | phase_lopo/sio2:cristobalite_beta | interp_const | — | — | unavailable |
@@ -28,8 +28,8 @@ Skill is `1 − MAE_baseline / MAE_global_mean_delta_g`, using only pairs for wh
 | phase_lopo/sio2:cristobalite_beta | phase_id_mlp | — | — | unavailable |
 | phase_lopo/sio2:quartz_beta | phase_id_mlp | — | — | unavailable |
 | phase_lopo/sio2:tridymite_p63mmc | phase_id_mlp | — | — | unavailable |
-| system_loso/hf | bartel2018 | 0.128374 | 0.0114594 | **-10.203 (negative)** |
-| system_loso/sio2 | bartel2018 | 0.0194312 | 0.0083536 | **-1.326 (negative)** |
+| system_loso/hf | bartel2018 | 0.128374 | 0.0113998 | **-10.261 (negative)** |
+| system_loso/sio2 | bartel2018 | 0.0194312 | 0.00220043 | **-7.831 (negative)** |
 | system_loso/hf | interp_const | — | — | unavailable |
 | system_loso/sio2 | interp_const | — | — | unavailable |
 | system_loso/hf | phase_id_mlp | — | — | unavailable |
@@ -37,4 +37,4 @@ Skill is `1 − MAE_baseline / MAE_global_mean_delta_g`, using only pairs for wh
 
 ## Environment and deviations
 
-No new benchmark model was trained. `phase_id_mlp` is marked unavailable in this run because the remote torch installation fails while loading `libtorch_global_deps.so`; the runner continues and records the other baselines. Bartel Hf rows are unavailable because the canonical Hf meta files do not contain a DPA 0-K representative energy; no reference G value was substituted.
+No new benchmark model was trained. Bartel now covers Hf using the Domains_Alloy-computed Hf E0; its Hf error is substantially larger than its SiO₂ error (the SiO₂-only value is 28.2 meV/atom). The independent thu-GenSi torch environment runs the two torch-dependent tests successfully.
