@@ -1,14 +1,18 @@
 {
-  "generated_utc": "2026-09-23T14:33:31.688174+00:00",
-  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+  "generated_utc": "2026-09-29T18:54:38.458752+00:00",
+  "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
   "inputs": [
     {
       "path": "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json",
-      "sha256": "c6eda0b51415d9e2a970558c0f232de10e7d7410f683fadd4586c1062b337ceb"
+      "sha256": "a2309cc9a14d4f9499aa79886fdb7a13f03406d6ecf4ae01246d82bc73906070"
     },
     {
       "path": "result/experiments/reference_statistics/raw_runs/reference_statistics/seed_none/metrics.json",
       "sha256": "18b2f73b59f3b1d82278fce040910314a7455e65cbe2d94602a04ae096805545"
+    },
+    {
+      "path": "result/tables/phase_inventory.csv",
+      "sha256": "f78e2974bb5162b47662fbff9e8ddba40c54a576a3b14bf50fcbf2d2bb4357c2"
     }
   ],
   "missing": []

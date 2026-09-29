@@ -85,7 +85,8 @@ and the current SiO2 QH curves fail the physical reliability gate.
 ## Notes
 
 CSV N/A values are explicit: `n/a:no_reference_crossing`,
-`n/a:pair_only_predictor`, and `n/a:no_training_phase`. Detailed reasons remain
+`n/a:pair_only_predictor`, `n/a:no_training_phase`,
+`n/a:degenerate_prediction`, and `n/a:input_unavailable`. Detailed reasons remain
 in the matching `.meta.json`. `constant_delta_g` is structurally unavailable
 on LOPO/LOSO, so skill denominators remain `constant_delta_g` for temp-extrap
 and `global_mean_delta_g` for LOPO/LOSO; this migration records rather than

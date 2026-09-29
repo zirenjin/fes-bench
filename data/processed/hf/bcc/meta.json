@@ -20,11 +20,33 @@
     "method": "exact T/P intersection; no free-energy value interpolation"
   },
   "representative": {
-    "status": "source_standardized",
+    "status": "relaxed",
     "source": "external/data/raw/hf/unpacked/Hf_bcc_PBE/e.effective_QH_potentials/b.melting_T_5Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
     "method": "spglib.standardize_cell(to_primitive=True, no_idealize=False)",
     "source_atoms": 128,
     "primitive_atoms": 1,
-    "fixed_for_all_temperatures": true
+    "fixed_for_all_temperatures": true,
+    "calculator": "deepmd.calculator.DP",
+    "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+    "head": "Domains_Alloy",
+    "optimizer": "FIRE",
+    "cell_relaxed": true,
+    "fmax_eV_per_A": 0.01,
+    "max_steps": 1000,
+    "converged": true,
+    "energy_eV_per_atom": {
+      "before": -7.041641592979431,
+      "after": -7.042352735996246
+    },
+    "volume_A3_per_atom": {
+      "before": 21.984144148687502,
+      "after": 22.185547228604133
+    },
+    "space_group": {
+      "before": "Im-3m",
+      "after": "Im-3m"
+    },
+    "max_displacement_A": 1.3829404010795132e-09,
+    "relaxation_log": "representative_relaxation.log"
   }
 }

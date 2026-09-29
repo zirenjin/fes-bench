@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+    "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
     "split": "_inventory",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,9 +8,9 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:33:20.662777+00:00",
+    "timestamp_utc": "2026-09-29T18:54:36.895365+00:00",
     "input_metrics": "configs/raw_runs.json",
-    "input_metrics_sha256": "d0d5239781cacc0f9f05ed1e6eeec54d90033304f89fd93ec0c5ff70b984342c",
+    "input_metrics_sha256": "526e1bcdc1d1153287777cf81fb5036af876b7434c936aa66feae22fdca9075c",
     "missing": []
   },
   "metrics": {
@@ -4620,22 +4620,44 @@
             "method": "exact T/P intersection; no free-energy value interpolation"
           },
           "representative": {
-            "status": "source_standardized",
+            "status": "relaxed",
             "source": "external/data/raw/hf/unpacked/Hf_hcp_PBE/e.effective_QH_potentials/a.20K_4Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
             "method": "spglib.standardize_cell(to_primitive=True, no_idealize=False)",
             "source_atoms": 96,
             "primitive_atoms": 2,
-            "fixed_for_all_temperatures": true
+            "fixed_for_all_temperatures": true,
+            "calculator": "deepmd.calculator.DP",
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "head": "Domains_Alloy",
+            "optimizer": "FIRE",
+            "cell_relaxed": true,
+            "fmax_eV_per_A": 0.01,
+            "max_steps": 1000,
+            "converged": true,
+            "energy_eV_per_atom": {
+              "before": -7.190026745200157,
+              "after": -7.19450256228447
+            },
+            "volume_A3_per_atom": {
+              "before": 22.188159579860788,
+              "after": 22.62783510445465
+            },
+            "space_group": {
+              "before": "P6_3/mmc",
+              "after": "P6_3/mmc"
+            },
+            "max_displacement_A": 0.055469366870915464,
+            "relaxation_log": "representative_relaxation.log"
           }
         },
         "reference_points": 1252,
         "structure_path": "data/processed/hf/hcp/structure.extxyz",
         "lattice_edge_lengths_A": [
-          3.189,
-          3.189,
-          5.03862
+          3.1971460587592726,
+          3.197146035751698,
+          5.112312804523309
         ],
-        "shortest_edge_A": 3.189,
+        "shortest_edge_A": 3.197146035751698,
         "atom_count": 2,
         "qh": {
           "supercell": [
@@ -4678,22 +4700,44 @@
             "method": "exact T/P intersection; no free-energy value interpolation"
           },
           "representative": {
-            "status": "source_standardized",
+            "status": "relaxed",
             "source": "external/data/raw/hf/unpacked/Hf_bcc_PBE/e.effective_QH_potentials/b.melting_T_5Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp",
             "method": "spglib.standardize_cell(to_primitive=True, no_idealize=False)",
             "source_atoms": 128,
             "primitive_atoms": 1,
-            "fixed_for_all_temperatures": true
+            "fixed_for_all_temperatures": true,
+            "calculator": "deepmd.calculator.DP",
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "head": "Domains_Alloy",
+            "optimizer": "FIRE",
+            "cell_relaxed": true,
+            "fmax_eV_per_A": 0.01,
+            "max_steps": 1000,
+            "converged": true,
+            "energy_eV_per_atom": {
+              "before": -7.041641592979431,
+              "after": -7.042352735996246
+            },
+            "volume_A3_per_atom": {
+              "before": 21.984144148687502,
+              "after": 22.185547228604133
+            },
+            "space_group": {
+              "before": "Im-3m",
+              "after": "Im-3m"
+            },
+            "max_displacement_A": 1.3829404010795132e-09,
+            "relaxation_log": "representative_relaxation.log"
           }
         },
         "reference_points": 1252,
         "structure_path": "data/processed/hf/bcc/structure.extxyz",
         "lattice_edge_lengths_A": [
-          3.0566366626571764,
-          3.0566366626571764,
-          3.0566366626571764
+          3.0659425520882215,
+          3.0659425435342436,
+          3.0659425397896958
         ],
-        "shortest_edge_A": 3.0566366626571764,
+        "shortest_edge_A": 3.0659425397896958,
         "atom_count": 1,
         "qh": {
           "supercell": [

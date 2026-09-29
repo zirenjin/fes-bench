@@ -206,6 +206,7 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
     point_errors: list[float] = []
     pair_metrics: dict[str, dict[str, object]] = {}
     coverage_values: list[bool] = []
+    ranking_values: list[bool] = []
     systems = sorted({system for system, _ in test_by_system_phase})
     for system in systems:
         phases = sorted(phase for item_system, phase in by_system_phase if item_system == system)
@@ -244,6 +245,22 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                 test_std = np.array([std_map[value] for value in test_temperatures])
                 point_errors.extend(np.abs(test_mean - test_reference).tolist())
                 coverage_values.extend(np.abs(test_mean - test_reference) <= 2.0 * test_std + 1.0e-14)
+        evaluation_temperatures = sorted({float(cache[(system, phase)][index].T_K) for (item_system, phase), indexes in test_by_system_phase.items() if item_system == system for index in indexes})
+        for temperature in evaluation_temperatures:
+            correct = True
+            for left_index, left in enumerate(phases):
+                for right in phases[left_index + 1 :]:
+                    left_reference = next(point.G_eV_per_atom for point in cache[(system, left)] if point.T_K == temperature)
+                    right_reference = next(point.G_eV_per_atom for point in cache[(system, right)] if point.T_K == temperature)
+                    left_t, left_mean, _ = predictions[left]
+                    right_t, right_mean, _ = predictions[right]
+                    observed = float(dict(zip(left_t.tolist(), left_mean.tolist()))[temperature] - dict(zip(right_t.tolist(), right_mean.tolist()))[temperature])
+                    if np.sign(observed) != np.sign(left_reference - right_reference):
+                        correct = False
+                        break
+                if not correct:
+                    break
+            ranking_values.append(correct)
         for left_index, left in enumerate(phases):
             for right in phases[left_index + 1 :]:
                 if (system, left) not in test_by_system_phase and (system, right) not in test_by_system_phase:
@@ -315,35 +332,38 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                             temperatures[nearest + 1] - temperatures[nearest - 1]
                         )
                     slope_by_root.append(float(abs(slope)))
+                degenerate = bool(np.all(np.abs(observed) <= 1.0e-12))
                 pair_metrics[f"{system}:{left}_minus_{right}"] = {
                     "pair_support": "test_and_train_partner" if train else "test_only",
+                    "status": "degenerate_prediction" if degenerate else "ok",
                     "delta_G_MAE_eV_per_atom": delta_mae,
                     "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
-                    "delta_G_MAE_at_crossing_eV_per_atom": crossing_mae,
+                    "delta_G_MAE_at_crossing_eV_per_atom": crossing_mae if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
                     "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
                     "reference_Tc_K": roots_reference,
-                    "predicted_Tc_K": roots_predicted,
-                    "predicted_Tc_by_seed_K": seed_roots,
+                    "predicted_Tc_K": roots_predicted if not degenerate else ["n/a:degenerate_prediction"],
+                    "predicted_Tc_by_seed_K": seed_roots if not degenerate else [["n/a:degenerate_prediction"] for _ in seeds],
                     "Tc_scatter_K": [
                         float(np.nanstd([roots[kk] for roots in seed_roots if len(roots) > kk]))
                         if any(len(roots) > kk for roots in seed_roots)
                         else math.nan
                         for kk in range(len(roots_reference))
-                    ],
-                    "Tc_error_K": [pred - ref for pred, ref in zip(roots_predicted, roots_reference)],
-                    "crossing_slope_eV_per_atom_per_K": slope_by_root,
+                    ] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                    "Tc_error_K": [pred - ref for pred, ref in zip(roots_predicted, roots_reference)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                    "crossing_slope_eV_per_atom_per_K": slope_by_root if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
                     "Tc_err_from_dG_K": [
                         error / slope if slope else math.nan
                         for error, slope in zip(crossing_mae, slope_by_root)
-                    ],
-                    "false_crossings": max(0, len(roots_predicted) - len(roots_reference)),
-                    "missed_crossings": max(0, len(roots_reference) - len(roots_predicted)),
+                    ] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                    "false_crossings": max(0, len(roots_predicted) - len(roots_reference)) if not degenerate else "n/a:degenerate_prediction",
+                    "missed_crossings": max(0, len(roots_reference) - len(roots_predicted)) if not degenerate else "n/a:degenerate_prediction",
                 }
     return {
         "predictor": spec,
         "n_test_frames": len(test),
         "seeds": seeds,
         "G_MAE_eV_per_atom": float(np.mean(point_errors)) if point_errors else math.nan,
+        "ranking_accuracy": float(np.mean(ranking_values)) if ranking_values else math.nan,
         "coverage_2sigma": float(np.mean(coverage_values)) if coverage_values else math.nan,
         "pairs": pair_metrics,
     }

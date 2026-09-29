@@ -49,13 +49,15 @@ def csv_write(path: Path, fieldnames: list[str], rows: list[dict[str, Any]]) -> 
         writer.writerows({key: ("" if value is None else value) for key, value in row.items()} for row in rows)
 
 
-def meta_write(root: Path, csv_path: Path, inputs: list[Path], missing: list[dict[str, str]]) -> None:
+def meta_write(root: Path, csv_path: Path, inputs: list[Path], missing: list[dict[str, str]], extra: dict[str, Any] | None = None) -> None:
     payload = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "git_commit": git_commit(root),
         "inputs": [{"path": str(path.relative_to(root)), "sha256": sha256(path)} for path in sorted(set(inputs))],
         "missing": missing,
     }
+    if extra:
+        payload.update(extra)
     csv_path.with_suffix(".meta.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 

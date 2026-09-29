@@ -1,0 +1,58 @@
+{
+  "generated_utc": "2026-09-29T18:56:31.670072+00:00",
+  "inputs": [
+    {
+      "path": "external/e1_training_configs/polynomial/seed11/config.json",
+      "sha256": "618b6901c0fe19b028f52e432fe0d061246f13e224dac4f625f5d111932ce6cd"
+    },
+    {
+      "path": "external/e1_training_configs/polynomial/seed23/config.json",
+      "sha256": "3daf8febefcce4ee690ad12395fe73138c08b48d493f9ab3f0f1930da33c03fa"
+    },
+    {
+      "path": "external/e1_training_configs/polynomial/seed37/config.json",
+      "sha256": "6ad44d6cc994616a28c4d019f4fdfca0140949d6afe2a292d36934c77647a67e"
+    },
+    {
+      "path": "external/e1_training_configs/polynomial/seed51/config.json",
+      "sha256": "7beb4a49d1f65b82c72514567f8c49ef4113b267b9efb970bd82cc297d76c0de"
+    },
+    {
+      "path": "external/e1_training_configs/polynomial/seed67/config.json",
+      "sha256": "61673c889b425859238b6dc71f687217e468ce416fb9060f3d885ba3b84c0232"
+    },
+    {
+      "path": "external/e1_training_configs/tlog_polynomial/seed11/config.json",
+      "sha256": "7430b50c22a8753103f99481b94f29d5cb88d59f6a644d50d89d7bfeb637797b"
+    },
+    {
+      "path": "external/e1_training_configs/tlog_polynomial/seed23/config.json",
+      "sha256": "e474bad0ae1afaaf4d9a907b234d92785947c6ae679e1c15a315ae07d3f8ea29"
+    },
+    {
+      "path": "external/e1_training_configs/tlog_polynomial/seed37/config.json",
+      "sha256": "5e56567075f7e67ca30ef4293f6017a9b00616b9bc0b8279f57d886bcfea70c9"
+    },
+    {
+      "path": "external/e1_training_configs/tlog_polynomial/seed51/config.json",
+      "sha256": "a2b3df7a26c95e0b3c895a6294c1256f7cca0a900ebdae0ccde1cefe1083203e"
+    },
+    {
+      "path": "external/e1_training_configs/tlog_polynomial/seed67/config.json",
+      "sha256": "d41efbc00d159542ac4c7fda28ca0b7fec588ac582e0998d1671d65996005ce3"
+    },
+    {
+      "path": "data/processed/splits/phase_lopo.json",
+      "sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac"
+    },
+    {
+      "path": "data/processed/splits/system_loso.json",
+      "sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93"
+    },
+    {
+      "path": "data/processed/splits/temp_extrap.json",
+      "sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0"
+    }
+  ],
+  "conclusion": "All ten E1 checkpoints used quartz, cristobalite, tridymite_p63mmc, and tridymite_c2221 across 851--2499 K. None is eligible for any frozen benchmark split."
+}

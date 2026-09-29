@@ -40,6 +40,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--data-root", default="data/processed")
     parser.add_argument("--splits", nargs="+", default=["data/processed/splits/temp_extrap.json", "data/processed/splits/phase_lopo.json", "data/processed/splits/system_loso.json"])
     parser.add_argument("--output-root", default="result/experiments/external_baselines")
+    parser.add_argument("--phase-id-metrics", help="existing phase-ID MLP metrics to use instead of fitting a new MLP")
     return parser
 
 
@@ -128,15 +129,30 @@ def _phase_prediction(method: str, data_root: Path, train_rows: list[dict[str, o
     raise ValueError(method)
 
 
+def _crossing_slope(reference: np.ndarray, temperatures: np.ndarray, root: float) -> float:
+    nearest = int(np.argmin(np.abs(temperatures - root)))
+    if nearest == 0:
+        return float(abs((reference[1] - reference[0]) / (temperatures[1] - temperatures[0])))
+    if nearest == len(reference) - 1:
+        return float(abs((reference[-1] - reference[-2]) / (temperatures[-1] - temperatures[-2])))
+    return float(abs((reference[nearest + 1] - reference[nearest - 1]) / (temperatures[nearest + 1] - temperatures[nearest - 1])))
+
+
 def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.ndarray) -> dict[str, object]:
     ref_roots, pred_roots = _root(reference, temperatures), _root(observed, temperatures)
+    crossing_error = [float(abs(np.interp(root, temperatures, observed - reference))) for root in ref_roots]
+    slopes = [_crossing_slope(reference, temperatures, root) for root in ref_roots]
     return {
+        "n_evaluation_points": int(len(temperatures)),
         "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(observed - reference))),
         "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
         "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
         "reference_Tc_K": ref_roots,
         "predicted_Tc_K": pred_roots,
         "Tc_error_K": [float(pred - ref) for pred, ref in zip(pred_roots, ref_roots)],
+        "delta_G_MAE_at_crossing_eV_per_atom": crossing_error,
+        "crossing_slope_eV_per_atom_per_K": slopes,
+        "Tc_err_from_dG_K": [float(error / slope) if slope else None for error, slope in zip(crossing_error, slopes)],
         "false_crossings": max(0, len(pred_roots) - len(ref_roots)),
         "missed_crossings": max(0, len(ref_roots) - len(pred_roots)),
     }
@@ -162,6 +178,27 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
             test_indexes = sorted(test[(system, phase)])
             test_t, test_g = _reference(data_root, system, phase, test_indexes)
             scalar_errors.extend(abs(prediction[float(t)] - g) for t, g in zip(test_t, test_g, strict=True))
+    ranking_values: list[bool] = []
+    ranking_by_system: dict[str, list[bool]] = defaultdict(list)
+    for system in sorted({key[0] for key in test}):
+        phases = sorted(phase for item_system, phase in all_rows if item_system == system)
+        evaluation_temperatures = sorted({float(_table(data_root, system, phase)[index].T_K) for (item_system, phase), indexes in test.items() if item_system == system for index in indexes})
+        reference_by_phase = {
+            phase: {float(point.T_K): float(point.G_eV_per_atom) for point in _table(data_root, system, phase)}
+            for phase in phases
+        }
+        for temperature in evaluation_temperatures:
+            if any(predictions.get((system, phase)) is None or temperature not in predictions[(system, phase)] for phase in phases):
+                continue
+            correct = True
+            for left, right in combinations(phases, 2):
+                reference = reference_by_phase[left][temperature] - reference_by_phase[right][temperature]
+                observed = float(predictions[(system, left)][temperature] - predictions[(system, right)][temperature])
+                if np.sign(observed) != np.sign(reference):
+                    correct = False
+                    break
+            ranking_values.append(correct)
+            ranking_by_system[system].append(correct)
     pairs: dict[str, object] = {}
     for system in sorted({key[0] for key in test}):
         phases = sorted(phase for item_system, phase in all_rows if item_system == system)
@@ -178,7 +215,7 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
                 observed = None if lp is None or rp is None else np.array([lp[float(t)] - rp[float(t)] for t in left_ref_t])
             pairs[f"{system}:{left}_minus_{right}"] = {"status": "ok" if observed is not None else "unavailable_without_training_phase", "global_mean_delta_g_eV_per_atom": global_constant, **(_pair_metrics(reference, observed, left_ref_t) if observed is not None else {})}
     values = [pair["delta_G_MAE_eV_per_atom"] for pair in pairs.values() if "delta_G_MAE_eV_per_atom" in pair]
-    return {"n_test_frames": len(test_rows), "G_MAE_eV_per_atom": float(np.mean(scalar_errors)) if scalar_errors else None, "pairs": pairs, "aggregate_pair_MAE_eV_per_atom": float(np.mean(values)) if values else None, "global_mean_delta_g_eV_per_atom": global_constant}
+    return {"n_test_frames": len(test_rows), "G_MAE_eV_per_atom": float(np.mean(scalar_errors)) if scalar_errors else None, "ranking_accuracy": float(np.mean(ranking_values)) if ranking_values else None, "ranking_accuracy_by_system": {key: float(np.mean(values)) for key, values in ranking_by_system.items()}, "pairs": pairs, "aggregate_pair_MAE_eV_per_atom": float(np.mean(values)) if values else None, "global_mean_delta_g_eV_per_atom": global_constant}
 
 
 def _evaluate(data_root: Path, split: dict[str, object], method: str) -> dict[str, object]:
@@ -192,6 +229,12 @@ def main(argv: list[str] | None = None) -> int:
     payload: dict[str, object] = {}
     for split_arg in args.splits:
         split_path = Path(split_arg); split = json.loads(split_path.read_text(encoding="utf-8")); payload[split_path.stem] = {method: _evaluate(data_root, split, method) for method in ("bartel2018", "interp_const", "phase_id_mlp", "global_mean_delta_g")}
+    if args.phase_id_metrics:
+        source = json.loads(Path(args.phase_id_metrics).read_text(encoding="utf-8"))
+        for split_name in payload:
+            if split_name not in source or "phase_id_mlp" not in source[split_name]:
+                raise ValueError(f"phase-ID source lacks {split_name}")
+            payload[split_name]["phase_id_mlp"] = source[split_name]["phase_id_mlp"]
     (output / "metrics.json").write_text(json.dumps(payload, indent=2, sort_keys=True, allow_nan=False, default=lambda x: None) + "\n", encoding="utf-8")
     report = ["# External baseline report", "", "Bartel coefficient audit: the original SI/Eq. 4 values and implementation values are identical: −2.48×10⁻⁴ for ln(V), −8.94×10⁻⁵ for m/V, +0.181 ln(T), and −0.882. For fixed-composition polymorphs the reduced mass is identical, so only relaxed per-atom volume distinguishes phases; this is the baseline's intrinsic limitation.", "", "`global_mean_delta_g` is the mean of every available training pair label in a fold. It is pair-only and differs from `constant_delta_g`, which fits one constant separately for each pair.", "", "## Skill relative to global_mean_delta_g", "", "Skill is `1 − MAE_baseline / MAE_global_mean_delta_g`, using only pairs for which both values are available. Negative values are explicitly marked.", "", "| split/fold | baseline | matched pair MAE (eV/atom) | global floor MAE (eV/atom) | skill |", "|---|---|---:|---:|---:|"]
     for split_name, methods in payload.items():

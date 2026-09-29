@@ -1,14 +1,34 @@
 {
-  "generated_utc": "2026-09-23T14:33:32.123118+00:00",
-  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+  "generated_utc": "2026-09-29T18:54:37.338687+00:00",
+  "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
   "inputs": [
     {
-      "path": "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json",
-      "sha256": "c6eda0b51415d9e2a970558c0f232de10e7d7410f683fadd4586c1062b337ceb"
+      "path": "data/processed/hf/bcc/phonon_report.json",
+      "sha256": "d6ffa79ee677854e85d8bd3c9d9c018855aadc0021b1b240fb41f4abce1272b4"
     },
     {
-      "path": "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/metrics.json",
-      "sha256": "142c16672cd69d279103b3c7c7d261b311d5dd84cdcf9441a41a8946ab9b77d2"
+      "path": "data/processed/hf/hcp/phonon_report.json",
+      "sha256": "ebf236472ab6588e87ac715534ed70e5305b9d0bb9b7cdfb255cd15eda9bb0aa"
+    },
+    {
+      "path": "data/processed/ti/bcc/phonon_report.json",
+      "sha256": "318c16d23efbb17a9e7b66f4e5f0a5ff4de84da0e3993c5a4c8de09275431139"
+    },
+    {
+      "path": "data/processed/ti/hcp/phonon_report.json",
+      "sha256": "799d752e9c0726d3928539f17bd5f68efe1e31dc76e2f7e60744f9e000166401"
+    },
+    {
+      "path": "data/processed/zr/bcc/phonon_report.json",
+      "sha256": "f9d6a355bc7de210c40658476f4a437e6fdb0ba0611121ef394af8ba8ba353fb"
+    },
+    {
+      "path": "data/processed/zr/hcp/phonon_report.json",
+      "sha256": "8739359f79987712a59c1cd44e45bea929d22d8a2338a7b9fc1908f771961241"
+    },
+    {
+      "path": "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json",
+      "sha256": "a2309cc9a14d4f9499aa79886fdb7a13f03406d6ecf4ae01246d82bc73906070"
     }
   ],
   "missing": []

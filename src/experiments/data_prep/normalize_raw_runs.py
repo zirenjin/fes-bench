@@ -190,8 +190,12 @@ def main() -> int:
     parser.add_argument("--repo-root", type=Path, default=Path("."))
     parser.add_argument("--manifest", type=Path, default=Path("configs/raw_runs.json"))
     parser.add_argument("--include-source", action="append", help="normalize only this manifest source; may be repeated")
+    parser.add_argument("--inventory-only", action="store_true", help="refresh only the processed-data inventory")
     args = parser.parse_args()
     root = args.repo_root.resolve()
+    if args.inventory_only:
+        build_inventory(root)
+        return 0
     manifest_path = args.manifest if args.manifest.is_absolute() else root / args.manifest
     return normalize(root, json.loads(manifest_path.read_text(encoding="utf-8")), set(args.include_source) if args.include_source else None)
 

@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+    "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
     "split": "system_loso",
     "split_sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
     "predictor_config": "configs/predictors/phase_id_mlp.yaml",
@@ -8,9 +8,9 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:33:17.110388+00:00",
-    "input_metrics": "result/experiments/legacy_support/external_baselines/metrics.json",
-    "input_metrics_sha256": "44a65d5ccf2ebf45aae625219ed5e80e0951893bfebb585b4f3eacf430a705e3",
+    "timestamp_utc": "2026-09-29T19:00:25.413421+00:00",
+    "input_metrics": "result/experiments/external_baselines/recomputed/metrics.json",
+    "input_metrics_sha256": "9a92fea803f5668027f33d37308a55af02565ab9d6f80f57033902c5f1ad8a48",
     "missing": []
   },
   "metrics": {

@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-09-23T14:33:36.309926+00:00",
-  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+  "generated_utc": "2026-09-29T19:00:28.387060+00:00",
+  "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "64498b278b83ef0594989c75fb01b4cfa83b6e4ec4bd13184f8486b51cce17a4"
+      "sha256": "5422018a6ce8025a754ba40a6f680f66db0527b9711e109a419a1ef28320b1aa"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_delta_g/seed_none/metrics.json",
-      "sha256": "1ed1b47e06c03fdb5ffe3a712f53fbcb54a7e30a025b006cb57011d129a0c359"
+      "sha256": "df7c5b69b7f0c71be339b2d0c4f3a17231159b98f97f9a0a3c63390ead0ba31f"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
@@ -16,15 +16,15 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "c2db3884814f248b8d974a2c00c34c1a648daff152977a2af9557f84007ca858"
+      "sha256": "e8f47be7a6509a1ce5aeba131bd883c840e7ff14ab922a61e380ee284912683c"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "1b00dde542906df5eb2a305f69b8a39009e3ae549fa3029d60d5950311926d36"
+      "sha256": "1f41855d0c25cc272da2c1903df28befbacc38f275ddbf1f62d2eb85aad6f559"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "4cce7ede1ba92263389e6dd5a7c0d3b0b4a9b6f784aab4efd546cec4bced6421"
+      "sha256": "1c6851a768cf4711371979a390cd04e46e240507f9450a07ea940ec5456866ae"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
@@ -40,29 +40,16 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "373098d49299c64686ef7410b8ef979d9ee81e9eacd01328b9f3254eee62cc9d"
+      "sha256": "52a9cf4d245f24008c0564de1769a49f47298ee7939969ae7b425032031a8960"
     }
   ],
-  "missing": [
-    {
-      "field": "bartel2018.G_MAE_eV_per_atom",
-      "reason": "pair-only predictor or unavailable phase-energy metric"
-    },
-    {
-      "field": "constant_delta_g.G_MAE_eV_per_atom",
-      "reason": "pair-only predictor or unavailable phase-energy metric"
-    },
-    {
-      "field": "interp_const.G_MAE_eV_per_atom",
-      "reason": "pair-only predictor or unavailable phase-energy metric"
-    },
-    {
-      "field": "phase_id_mlp.G_MAE_eV_per_atom",
-      "reason": "pair-only predictor or unavailable phase-energy metric"
-    },
-    {
-      "field": "zero.G_MAE_eV_per_atom",
-      "reason": "pair-only predictor or unavailable phase-energy metric"
-    }
-  ]
+  "missing": [],
+  "aggregation": {
+    "folded_splits": "pair metrics: per-fold test region then n_evaluation_points-weighted; G MAE: n_test_frames-weighted",
+    "default_pairs": "exclude pairs without a reference crossing",
+    "include_all_pairs_csv": "predictor_comparison_temp_extrap_include_all_pairs.csv",
+    "sio2_csv": "predictor_comparison_temp_extrap_sio2.csv",
+    "fold_detail_csv": "predictor_comparison_temp_extrap_folds.csv"
+  },
+  "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."
 }

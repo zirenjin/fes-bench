@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "runs": [
-    {"source": "result/experiments/legacy_support/external_baselines/metrics.json", "mode": "nested", "split": "*", "predictor": "*", "seed": "none"},
-    {"source": "result/experiments/legacy_support/trivial_floor/metrics.json", "mode": "nested", "split": "*", "predictor": "*", "seed": "none"},
+    {"source": "result/experiments/external_baselines/recomputed/metrics.json", "mode": "nested", "split": "*", "predictor": "*", "seed": "none"},
+    {"source": "result/experiments/skill_floor/metrics.json", "mode": "nested", "split": "*", "predictor": "*", "seed": "none"},
     {"source": "result/experiments/legacy_support/reference/temp_extrap/metrics.json", "mode": "flat", "split": "temp_extrap", "predictor": "reference", "seed": "none"},
     {"source": "result/experiments/legacy_support/reference/phase_lopo/metrics.json", "mode": "flat", "split": "phase_lopo", "predictor": "reference", "seed": "none"},
     {"source": "result/experiments/legacy_support/reference/system_loso/metrics.json", "mode": "flat", "split": "system_loso", "predictor": "reference", "seed": "none"},

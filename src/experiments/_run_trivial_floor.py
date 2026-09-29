@@ -53,24 +53,42 @@ def _slope(reference: np.ndarray, temperatures: np.ndarray, root: float) -> floa
 
 def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.ndarray, *, fitted: bool, constant: float | None) -> dict[str, object]:
     roots_ref = _root(reference, temperatures)
+    if not fitted:
+        return {
+            "status": "not_fittable_without_pair_training_labels",
+            "train_delta_G_mean_eV_per_atom": constant,
+            "n_evaluation_points": int(len(temperatures)),
+            "delta_G_MAE_eV_per_atom": "n/a:no_training_phase",
+            "delta_G_RMSE_eV_per_atom": "n/a:no_training_phase",
+            "sign_accuracy": "n/a:no_training_phase",
+            "reference_Tc_K": roots_ref,
+            "predicted_Tc_K": ["n/a:no_training_phase"],
+            "Tc_error_K": ["n/a:no_training_phase"] * len(roots_ref),
+            "delta_G_MAE_at_crossing_eV_per_atom": ["n/a:no_training_phase"] * len(roots_ref),
+            "crossing_slope_eV_per_atom_per_K": ["n/a:no_training_phase"] * len(roots_ref),
+            "Tc_err_from_dG_K": ["n/a:no_training_phase"] * len(roots_ref),
+            "false_crossings": "n/a:no_training_phase",
+            "missed_crossings": "n/a:no_training_phase",
+        }
     roots_pred = _root(observed, temperatures)
+    degenerate = bool(np.all(np.abs(observed) <= 1.0e-12))
     crossing_error = [float(abs(np.interp(root, temperatures, observed - reference))) for root in roots_ref]
     slopes = [_slope(reference, temperatures, root) for root in roots_ref]
     return {
-        "status": "ok" if fitted else "not_fittable_without_pair_training_labels",
+        "status": "degenerate_prediction" if degenerate else "ok",
         "train_delta_G_mean_eV_per_atom": constant,
         "n_evaluation_points": int(len(temperatures)),
         "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(observed - reference))),
         "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
         "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
         "reference_Tc_K": roots_ref,
-        "predicted_Tc_K": roots_pred,
-        "Tc_error_K": [float(pred - ref) for pred, ref in zip(roots_pred, roots_ref)],
-        "delta_G_MAE_at_crossing_eV_per_atom": crossing_error,
-        "crossing_slope_eV_per_atom_per_K": slopes,
-        "Tc_err_from_dG_K": [float(error / slope) if slope else math.nan for error, slope in zip(crossing_error, slopes)],
-        "false_crossings": max(0, len(roots_pred) - len(roots_ref)),
-        "missed_crossings": max(0, len(roots_ref) - len(roots_pred)),
+        "predicted_Tc_K": roots_pred if not degenerate else ["n/a:degenerate_prediction"],
+        "Tc_error_K": [float(pred - ref) for pred, ref in zip(roots_pred, roots_ref)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
+        "delta_G_MAE_at_crossing_eV_per_atom": crossing_error if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
+        "crossing_slope_eV_per_atom_per_K": slopes if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
+        "Tc_err_from_dG_K": [float(error / slope) if slope else math.nan for error, slope in zip(crossing_error, slopes)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
+        "false_crossings": max(0, len(roots_pred) - len(roots_ref)) if not degenerate else "n/a:degenerate_prediction",
+        "missed_crossings": max(0, len(roots_ref) - len(roots_pred)) if not degenerate else "n/a:degenerate_prediction",
     }
 
 
@@ -123,7 +141,11 @@ def _evaluate(split: dict[str, object], data_root: Path, method: str) -> dict[st
 
 
 def _fmt(value: object) -> str:
-    return "—" if value is None else f"{float(value):.6g}"
+    if value is None:
+        return "—"
+    if isinstance(value, str) and value.startswith("n/a:"):
+        return value
+    return f"{float(value):.6g}"
 
 
 def _markdown(payload: dict[str, object], title: str) -> str:

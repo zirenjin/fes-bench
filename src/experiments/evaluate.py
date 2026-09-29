@@ -1,7 +1,7 @@
 """Produce one configuration-driven predictor evaluation — shared evaluator."""
 
-from fes_bench.eval.run import main
+from fes_bench.eval.run import run
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(run())

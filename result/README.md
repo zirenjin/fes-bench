@@ -29,6 +29,8 @@ hash; `src/tables/crossing_errors.py --split temp_extrap` performs the read.
 - `n/a:no_reference_crossing`: the frozen reference grid has no sign change.
 - `n/a:pair_only_predictor`: the predictor does not produce phase-level `G`.
 - `n/a:no_training_phase`: a held-out fold lacks a required training phase or system.
+- `n/a:degenerate_prediction`: predicted ΔG is within `1e-12 eV/atom` of zero on the entire evaluation grid, so crossings and their derived errors are undefined.
+- `n/a:input_unavailable`: a predictor's required immutable input is absent.
 
 The matching `.meta.json` files retain field-specific explanations. The current
 tables have 33, 15, and 32 cells of these respective types.

@@ -6,10 +6,38 @@ Reads the normalized inventory and reference-statistics raw runs only.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 from pathlib import Path
 
 from common import csv_write, inventory, meta_write
+
+
+def display_functional(phase_records: list[dict]) -> str:
+    """Render the functional from processed metadata, including dispersion."""
+
+    values: set[str] = set()
+    for item in phase_records:
+        meta = item.get("meta", {})
+        functional = str(meta.get("functional", "")).strip()
+        dispersion = str(meta.get("dispersion", "")).strip()
+        if functional and dispersion and dispersion.lower() not in {"none", "n/a", "na"}:
+            values.add(f"{functional}-{dispersion}")
+        elif functional:
+            values.add(functional)
+    return ";".join(sorted(values))
+
+
+def qh_counts_from_phase_inventory(path: Path) -> dict[str, int]:
+    """Derive per-system reliable-QH counts from Table 2, never independently."""
+
+    counts: dict[str, int] = {}
+    with path.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            if str(row.get("qh_reliable", "")).strip().lower() == "true":
+                system = str(row["system"])
+                counts[system] = counts.get(system, 0) + 1
+    return counts
 
 
 def main() -> int:
@@ -29,6 +57,11 @@ def main() -> int:
         for record in body["metrics"].get("records", []):
             key = (str(record.get("system")), str(record.get("pair")))
             amplitudes[key] = record
+    phase_inventory = output / "phase_inventory.csv"
+    if not phase_inventory.exists():
+        raise FileNotFoundError("Generate phase_inventory.csv before system_inventory.csv so QH counts have one source of truth.")
+    qh_counts = qh_counts_from_phase_inventory(phase_inventory)
+    inputs.append(phase_inventory)
     rows = []
     missing = []
     for system, data in sorted(inv["systems"].items()):
@@ -37,7 +70,7 @@ def main() -> int:
         points = [item.get("reference_points") for item in phase_records if item.get("reference_points") is not None]
         temperatures = data.get("reference_grid", {}).get("T_K", [])
         stds = [float(item["std_eV_per_atom"]) * 1000.0 for (item_system, _), item in amplitudes.items() if item_system == system]
-        rows.append({"system": system, "phases": ";".join(phase_names), "n_phases": len(phase_names), "type_map": ";".join(data.get("type_map", [])), "truth_level": data.get("truth_level", ""), "functional": ";".join(sorted({str(item.get("meta", {}).get("functional", "")) for item in phase_records})), "T_min_K": min(temperatures) if temperatures else "", "T_max_K": max(temperatures) if temperatures else "", "grid_points": min(points) if points and len(set(points)) == 1 else ";".join(str(point) for point in points), "delta_G_std_min_meV_per_atom": min(stds) if stds else "", "delta_G_std_max_meV_per_atom": max(stds) if stds else "", "relative_numbers": len(phase_names) * (len(phase_names) - 1) // 2, "qh_reliable_count": sum(item.get("qh_reliable") is True for item in phase_records), "doi": ";".join(sorted({str(item.get("meta", {}).get("doi", "")) for item in phase_records}))})
+        rows.append({"system": system, "phases": ";".join(phase_names), "n_phases": len(phase_names), "type_map": ";".join(data.get("type_map", [])), "truth_level": data.get("truth_level", ""), "functional": display_functional(phase_records), "T_min_K": min(temperatures) if temperatures else "", "T_max_K": max(temperatures) if temperatures else "", "grid_points": min(points) if points and len(set(points)) == 1 else ";".join(str(point) for point in points), "delta_G_std_min_meV_per_atom": min(stds) if stds else "", "delta_G_std_max_meV_per_atom": max(stds) if stds else "", "relative_numbers": len(phase_names) * (len(phase_names) - 1) // 2, "qh_reliable_count": qh_counts.get(system, 0), "doi": ";".join(sorted({str(item.get("meta", {}).get("doi", "")) for item in phase_records}))})
         if not stds:
             missing.append({"field": f"{system}.delta_G_std", "reason": "no reference-statistics raw run for this system"})
     fields = ["system", "phases", "n_phases", "type_map", "truth_level", "functional", "T_min_K", "T_max_K", "grid_points", "delta_G_std_min_meV_per_atom", "delta_G_std_max_meV_per_atom", "relative_numbers", "qh_reliable_count", "doi"]

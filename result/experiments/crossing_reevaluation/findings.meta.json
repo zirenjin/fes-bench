@@ -44,7 +44,9 @@
     }
   ],
   "missing": [],
+  "evaluation_regime": "in_sample",
   "notes": {
+    "evaluation_regime": "检查点训练覆盖 851–2499 K 全部四相；以下 Tc 误差、假交点与技能分均为训练集内结果。",
     "acceptance_wording": "The canonical E1 subset has two reference-crossing pairs, not three, because C2221 is excluded.",
     "no_reference_pair": "cristobalite_beta_minus_tridymite_p63mmc has no reference crossing; Tc fields use n/a:no_reference_crossing.",
     "acceptance_conclusion": "Across polynomial and tlog_polynomial, 10/10 checkpoint records produce one false crossing for the no-reference cristobalite–tridymite pair; acceptance criterion three is not met.",

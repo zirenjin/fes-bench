@@ -1,0 +1,10 @@
+{
+  "data_root": "../../data/processed",
+  "system": "hf",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "head": "Domains_Alloy",
+  "phases": ["hcp", "bcc"],
+  "fmax_eV_per_A": 0.01,
+  "max_steps": 1000,
+  "cell_relaxed": true
+}

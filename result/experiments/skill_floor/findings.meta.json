@@ -195,5 +195,9 @@
       "sha256": "373098d49299c64686ef7410b8ef979d9ee81e9eacd01328b9f3254eee62cc9d"
     }
   ],
-  "missing": []
+  "missing": [],
+  "evaluation_regime": "in_sample",
+  "notes": {
+    "evaluation_regime": "检查点训练覆盖 851–2499 K 全部四相；以下 Tc 误差、假交点与技能分均为训练集内结果。"
+  }
 }

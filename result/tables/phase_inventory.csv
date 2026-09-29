@@ -1,10 +1,10 @@
 system,phase,space_group_before,space_group_after,primitive_atoms,representative_source,relaxation_status,qh_supercell,shortest_edge_A,q_mesh,imaginary_fraction,qh_reliable
-hf,bcc,,,1,external/data/raw/hf/unpacked/Hf_bcc_PBE/e.effective_QH_potentials/b.melting_T_5Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp,source_standardized,"[2, 2, 2]",3.0566366626571764,"[12, 12, 12]",,
-hf,hcp,,,2,external/data/raw/hf/unpacked/Hf_hcp_PBE/e.effective_QH_potentials/a.20K_4Shells_mediumCell_writeForceConstPot/POSCAR_supercell_1st_alat.vasp,source_standardized,"[2, 2, 2]",3.189,"[12, 12, 12]",,
-sio2,cristobalite_beta,P1,P1,192,,relaxed,"[1, 1, 1]",13.99805143,"[16, 16, 16]",0.013695141596274637,False
-sio2,quartz_beta,P1,C2,243,,relaxed,"[1, 1, 1]",14.51784322,"[16, 16, 16]",0.005466913740684588,False
-sio2,tridymite_p63mmc,P1,P1,216,,relaxed,"[1, 1, 1]",14.726499328717185,"[16, 16, 16]",0.01455896686159844,False
-ti,bcc,Im-3m,Im-3m,2,structure.source.extxyz,relaxed,"[2, 2, 2]",3.245,"[12, 12, 12]",,
-ti,hcp,P6_3/mmc,P6_3/mmc,2,structure.source.extxyz,relaxed,"[2, 2, 2]",2.935,"[12, 12, 12]",,
-zr,bcc,Im-3m,Im-3m,2,structure.source.extxyz,relaxed,"[2, 2, 2]",3.565,"[12, 12, 12]",,
-zr,hcp,P6_3/mmc,P6_3/mmc,2,structure.source.extxyz,relaxed,"[2, 2, 2]",3.2389997550379652,"[12, 12, 12]",,
+hf,bcc,Im-3m,Im-3m,1,data/processed/hf/bcc/structure.extxyz,relaxed,"[2, 2, 2]",3.0659425397896958,"[12, 12, 12]",,False
+hf,hcp,P6_3/mmc,P6_3/mmc,2,data/processed/hf/hcp/structure.extxyz,relaxed,"[2, 2, 2]",3.197146035751698,"[12, 12, 12]",,True
+sio2,cristobalite_beta,P1,P1,192,data/processed/sio2/cristobalite_beta/structure.extxyz,relaxed,"[1, 1, 1]",13.99805143,"[16, 16, 16]",0.013695141596274637,False
+sio2,quartz_beta,P1,C2,243,data/processed/sio2/quartz_beta/structure.extxyz,relaxed,"[1, 1, 1]",14.51784322,"[16, 16, 16]",0.005466913740684588,False
+sio2,tridymite_p63mmc,P1,P1,216,data/processed/sio2/tridymite_p63mmc/structure.extxyz,relaxed,"[1, 1, 1]",14.726499328717185,"[16, 16, 16]",0.01455896686159844,False
+ti,bcc,Im-3m,Im-3m,2,data/processed/ti/bcc/structure.extxyz,relaxed,"[2, 2, 2]",3.245,"[12, 12, 12]",,False
+ti,hcp,P6_3/mmc,P6_3/mmc,2,data/processed/ti/hcp/structure.extxyz,relaxed,"[2, 2, 2]",2.935,"[12, 12, 12]",,True
+zr,bcc,Im-3m,Im-3m,2,data/processed/zr/bcc/structure.extxyz,relaxed,"[2, 2, 2]",3.565,"[12, 12, 12]",,False
+zr,hcp,P6_3/mmc,P6_3/mmc,2,data/processed/zr/hcp/structure.extxyz,relaxed,"[2, 2, 2]",3.2389997550379652,"[12, 12, 12]",,True
