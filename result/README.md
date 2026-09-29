@@ -64,5 +64,9 @@ checkpoints. This is a model conclusion, not a reproduction failure.
 temp-extrap skill uses `constant_delta_g`, whereas LOPO/LOSO use
 `global_mean_delta_g`; no denominator was silently unified in this migration.
 
+无训练 predictor 在 phase_lopo 与 system_loso 上指标相同是预期的：两者的测试点并集都是全部相对的全温区，权重比例一致。
+
+temp_extrap 的无训练 predictor 只在共享的 `T>T*` 测试点评测；zero 排除 crist–trid 后为 3.4692 meV/atom（全网格为 5.4372），按测试点评测后与参考口径一致。
+
 `_legacy/` contains six cleaned historical delivery records and `CLEANING.md`.
 They are tracked for provenance but not read by table scripts.

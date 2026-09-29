@@ -1,0 +1,3 @@
+cell,old_value,new_value,reason
+zero.delta_G_MAE_eV_per_atom,0.005437249925560107,0.005437249925560107,"unchanged: LOSO test point union is the full relative grid"
+bartel2018.delta_G_MAE_eV_per_atom,0.05348859588489591,0.05348859588489591,"unchanged: LOSO test point union is the full relative grid"

@@ -10,9 +10,9 @@ Skill is `1 − MAE_baseline / MAE_global_mean_delta_g`, using only pairs for wh
 
 | split/fold | baseline | matched pair MAE (eV/atom) | global floor MAE (eV/atom) | skill |
 |---|---|---:|---:|---:|
-| temp_extrap/all | bartel2018 | 0.046667 | 0.00638272 | **-6.311 (negative)** |
-| temp_extrap/all | interp_const | 0.001969 | 0.00638272 | 0.692 |
-| temp_extrap/all | phase_id_mlp | 0.0118581 | 0.00638272 | **-0.858 (negative)** |
+| temp_extrap/all | bartel2018 | 0.0505362 | 0.00597276 | **-7.461 (negative)** |
+| temp_extrap/all | interp_const | 0.00366713 | 0.00597276 | 0.386 |
+| temp_extrap/all | phase_id_mlp | 0.0118581 | 0.00597276 | **-0.985 (negative)** |
 | phase_lopo/hf:bcc | bartel2018 | 0.128374 | 0.0114594 | **-10.203 (negative)** |
 | phase_lopo/hf:hcp | bartel2018 | 0.128374 | 0.0114594 | **-10.203 (negative)** |
 | phase_lopo/sio2:cristobalite_beta | bartel2018 | 0.01866 | 0.00472384 | **-2.950 (negative)** |

@@ -102,7 +102,11 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
         for left, right in combinations(phases, 2):
             if (system, left) not in test and (system, right) not in test:
                 continue
-            eval_shared = all_rows[(system, left)] & all_rows[(system, right)]
+            # When both phases contribute test rows (temp extrapolation), score
+            # only their shared test grid.  In LOPO/LOSO one partner is train
+            # only, so retain the full shared grid needed for a physical pair.
+            test_shared = test.get((system, left), set()) & test.get((system, right), set())
+            eval_shared = test_shared or (all_rows[(system, left)] & all_rows[(system, right)])
             if not eval_shared:
                 continue
             train_shared = train.get((system, left), set()) & train.get((system, right), set())

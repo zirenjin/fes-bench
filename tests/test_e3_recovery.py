@@ -1,3 +1,10 @@
+import pytest
+
+try:
+    pytest.importorskip("torch")
+except OSError:
+    pytest.skip("torch runtime is unavailable", allow_module_level=True)
+
 from fes_bench.synthetic.e3_recovery import recover
 
 

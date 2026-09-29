@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-09-29T19:00:28.387060+00:00",
-  "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
+  "generated_utc": "2026-09-29T19:14:51.449470+00:00",
+  "git_commit": "75370e5dd9469f4fc7b16da00f98063668f55d49",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "5422018a6ce8025a754ba40a6f680f66db0527b9711e109a419a1ef28320b1aa"
+      "sha256": "9ce5c323ece6f340b5663afdff416f067772f5dfd9c7ab5d188586497510d149"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_delta_g/seed_none/metrics.json",
-      "sha256": "df7c5b69b7f0c71be339b2d0c4f3a17231159b98f97f9a0a3c63390ead0ba31f"
+      "sha256": "1336bf27d4dd549f6a6747fd482299d60a63a44e19f669c516e19a46f76b4372"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
@@ -16,15 +16,15 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "e8f47be7a6509a1ce5aeba131bd883c840e7ff14ab922a61e380ee284912683c"
+      "sha256": "c4fb7c7155d719f7a63c2d3089b6b2fa59c85ad865c0a9034f6c149ed5ab3178"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "1f41855d0c25cc272da2c1903df28befbacc38f275ddbf1f62d2eb85aad6f559"
+      "sha256": "367f5c5ddd5b9e0eb7851fe4415af44a3a4f59e5e5a0b6c3a641a9b1c691a61b"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "1c6851a768cf4711371979a390cd04e46e240507f9450a07ea940ec5456866ae"
+      "sha256": "041f5710e8ac05823c2ac5b8ecbea3d7a92a7218b141f3d2355f704cffec311f"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
@@ -40,7 +40,7 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "52a9cf4d245f24008c0564de1769a49f47298ee7939969ae7b425032031a8960"
+      "sha256": "50f79ca114629e8c70cf0ad4c3f6b8910248a678b8f7d0871400419d9b8f9685"
     }
   ],
   "missing": [],

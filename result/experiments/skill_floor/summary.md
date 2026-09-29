@@ -12,10 +12,10 @@ Fittable pairs: 0; aggregate ΔG MAE: — eV/atom; aggregate sign accuracy: —.
 
 | Pair | status | train mean ΔG (eV/atom) | ΔG MAE | ΔG RMSE | sign accuracy | reference / predicted Tc (K) | false / missed |
 |---|---|---:|---:|---:|---:|---|---:|
-| hf:bcc_minus_hcp | degenerate_prediction | 0 | 0.0113998 | 0.0145146 | 0.00239617 | 1919 / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
-| sio2:cristobalite_beta_minus_quartz_beta | degenerate_prediction | 0 | 0.00320909 | 0.0037702 | 0 | 1542.71 / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
-| sio2:cristobalite_beta_minus_tridymite_p63mmc | degenerate_prediction | 0 | 0.00025389 | 0.000260579 | 0 | — / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
-| sio2:quartz_beta_minus_tridymite_p63mmc | degenerate_prediction | 0 | 0.00313832 | 0.00367457 | 0 | 1582.32 / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
+| hf:bcc_minus_hcp | degenerate_prediction | 0 | 0.00423642 | 0.00507363 | 0.00590551 | 1919 / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
+| sio2:cristobalite_beta_minus_quartz_beta | degenerate_prediction | 0 | 0.00339517 | 0.00409094 | 0 | 1542.71 / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
+| sio2:cristobalite_beta_minus_tridymite_p63mmc | degenerate_prediction | 0 | 0.000285824 | 0.000287805 | 0 | — / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
+| sio2:quartz_beta_minus_tridymite_p63mmc | degenerate_prediction | 0 | 0.0031745 | 0.00387741 | 0 | 1582.32 / n/a:degenerate_prediction | n/a:degenerate_prediction / n/a:degenerate_prediction |
 
 ## phase_lopo
 
@@ -97,14 +97,14 @@ Phase-level G MAE and coverage are not defined for these pair predictors.
 
 ### all
 
-Fittable pairs: 4; aggregate ΔG MAE: 0.00528856 eV/atom; aggregate sign accuracy: 0.634019.
+Fittable pairs: 4; aggregate ΔG MAE: 0.00809516 eV/atom; aggregate sign accuracy: 0.354993.
 
 | Pair | status | train mean ΔG (eV/atom) | ΔG MAE | ΔG RMSE | sign accuracy | reference / predicted Tc (K) | false / missed |
 |---|---|---:|---:|---:|---:|---|---:|
-| hf:bcc_minus_hcp | ok | 0.016291 | 0.0124592 | 0.014471 | 0.672524 | 1919 / — | 0 / 1 |
-| sio2:cristobalite_beta_minus_quartz_beta | ok | 0.00287686 | 0.00434745 | 0.00536716 | 0.419648 | 1542.71 / — | 0 / 1 |
-| sio2:cristobalite_beta_minus_tridymite_p63mmc | ok | -0.000196871 | 7.26838e-05 | 8.18087e-05 | 1 | — / — | 0 / 0 |
-| sio2:quartz_beta_minus_tridymite_p63mmc | ok | -0.00307373 | 0.00427486 | 0.00530447 | 0.443905 | 1582.32 / — | 0 / 1 |
+| hf:bcc_minus_hcp | ok | 0.016291 | 0.0199794 | 0.0202809 | 0.192913 | 1919 / — | 0 / 1 |
+| sio2:cristobalite_beta_minus_quartz_beta | ok | 0.00287686 | 0.00620058 | 0.00664348 | 0.0946074 | 1542.71 / — | 0 / 1 |
+| sio2:cristobalite_beta_minus_tridymite_p63mmc | ok | -0.000196871 | 8.90505e-05 | 9.51248e-05 | 1 | — / — | 0 / 0 |
+| sio2:quartz_beta_minus_tridymite_p63mmc | ok | -0.00307373 | 0.00611163 | 0.00656944 | 0.13245 | 1582.32 / — | 0 / 1 |
 
 ## phase_lopo
 

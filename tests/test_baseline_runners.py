@@ -16,8 +16,8 @@ def test_global_mean_delta_g_uses_training_labels_only():
 
 
 def test_external_and_trivial_floor_artifacts_are_present():
-    external = json.loads(Path("result/experiments/legacy_support/external_baselines/metrics.json").read_text(encoding="utf-8"))
-    trivial = json.loads(Path("result/experiments/legacy_support/trivial_floor/metrics.json").read_text(encoding="utf-8"))
+    external = json.loads(Path("result/experiments/external_baselines/recomputed/metrics.json").read_text(encoding="utf-8"))
+    trivial = json.loads(Path("result/experiments/skill_floor/metrics.json").read_text(encoding="utf-8"))
     assert set(("temp_extrap", "phase_lopo", "system_loso")) <= external.keys()
     assert set(("temp_extrap", "phase_lopo", "system_loso")) <= trivial.keys()
     assert "global_mean_delta_g" in external["temp_extrap"]

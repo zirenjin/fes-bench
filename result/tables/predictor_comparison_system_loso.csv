@@ -3,8 +3,8 @@ bartel2018,2.926895235111253,0.05348859588489591,0.053935398576146286,0.59692307
 constant_delta_g,n/a:pair_only_predictor,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:pair_only_predictor,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,,,n/a:no_seed,n/a:no_seed
 constant_offset_0.005,0.005000000000000496,7.038516674910252e-18,1.8443038084265943e-17,1.0,n/a:input_unavailable,0.0,0.0,0,0,3,0.9999999999999992,global_mean_delta_g,n/a:no_seed,n/a:no_seed
 global_mean_delta_g,n/a:pair_only_predictor,0.009177535180192493,0.010588683183022883,0.4430769230769231,n/a:pair_only_predictor,,1091.3155086037164,0,3,3,0.0,global_mean_delta_g,n/a:no_seed,n/a:no_seed
-interp_const,n/a:pair_only_predictor,,,,n/a:pair_only_predictor,,,,,0,,,n/a:no_seed,n/a:no_seed
-phase_id_mlp,n/a:pair_only_predictor,,,,n/a:pair_only_predictor,,,,,0,,,n/a:no_seed,n/a:no_seed
+interp_const,n/a:input_unavailable,,,,n/a:input_unavailable,,,,,0,,,n/a:no_seed,n/a:no_seed
+phase_id_mlp,n/a:input_unavailable,,,,n/a:input_unavailable,,,,,0,,,n/a:no_seed,n/a:no_seed
 reference,0.0,0.0,0.0,1.0,n/a:input_unavailable,0.0,0.0,0,0,3,1.0,global_mean_delta_g,n/a:no_seed,n/a:no_seed
 reference_noise_0.005,0.0027356408589656604,0.0019110095112585814,0.0019110095112585814,0.8568317470559768,n/a:input_unavailable,199.63462191158018,200.17983277012078,0,0,3,0.7917731205887353,global_mean_delta_g,n/a:no_seed,n/a:no_seed
 repr. regression (polynomial),n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,0,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split,n/a:not_trained_for_split

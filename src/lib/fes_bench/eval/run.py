@@ -267,7 +267,9 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                     continue
                 left_t, left_g, left_seed_g = predictions[left]
                 right_t, right_g, right_seed_g = predictions[right]
-                shared = sorted(set(left_t.tolist()) & set(right_t.tolist()))
+                test_shared_indices = set(test_by_system_phase.get((system, left), [])) & set(test_by_system_phase.get((system, right), []))
+                test_shared = {float(cache[(system, left)][index].T_K) for index in test_shared_indices}
+                shared = sorted(test_shared or (set(left_t.tolist()) & set(right_t.tolist())))
                 if not shared:
                     continue
                 left_map = dict(zip(left_t.tolist(), left_g.tolist()))

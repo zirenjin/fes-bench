@@ -205,7 +205,8 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
         for left, right in combinations(phases, 2):
             if (system, left) not in test and (system, right) not in test:
                 continue
-            shared = sorted(set(all_rows[(system, left)]) & set(all_rows[(system, right)]))
+            test_shared = set(test.get((system, left), [])) & set(test.get((system, right), []))
+            shared = sorted(test_shared or (set(all_rows[(system, left)]) & set(all_rows[(system, right)])))
             left_ref_t, left_ref = _reference(data_root, system, left, shared); _, right_ref = _reference(data_root, system, right, shared)
             reference = left_ref - right_ref
             if method == "global_mean_delta_g":
