@@ -1,0 +1,6 @@
+artifact,field,old_value,new_value,reason
+sio2/quartz_beta,minimum_frequency_THz,-1.0540316,-0.6546361,formal Domains_Alloy QH at volume scale 1.0
+sio2/quartz_beta,negative_mode_fraction,0.00160751,0.000578704,formal Domains_Alloy QH at volume scale 1.0
+sio2/cristobalite_beta,negative_mode_fraction,0.0474537,0.0587963,formal Domains_Alloy QH at volume scale 1.0
+sio2/tridymite_p63mmc,negative_mode_fraction,0.0556520,0.0663098,formal Domains_Alloy QH at volume scale 1.0
+sio2/quartz_beta,soft_mode_minimum_qpoint,not recorded,"[0,0,0]",dedicated negative-mode q-point diagnostic

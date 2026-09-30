@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-09-23T14:33:40.105413+00:00",
-  "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+  "generated_utc": "2026-09-30T03:46:51.764638+00:00",
+  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "b6658b4e4c77b1ea19fc699e866e69e7c161f992f4d400388daa9105411b8c0b"
+      "sha256": "06a8d0b9df5ca0fca620272549c79f578d9e4ab7cdd7bf810a153e82ba146fe6"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_delta_g/seed_none/metrics.json",
-      "sha256": "07527c43d131dd4b868d529709e0cd826282cfcf49b5a55a4ad0452547096d97"
+      "sha256": "7085466e3d3fe1e8ea14bc94b950e65bdb6911d9e8736c2025ca791669f327e9"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
@@ -16,15 +16,15 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "978f825aab17fcd670db38c07925645cb8b60044a0c4ceb938e58e7c906f696a"
+      "sha256": "8e2da1844e4730923eea8824d4e0da3d3a43fa1b221604fabe385ef374d2725c"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "0bb7059cef299589e084dd3e46e28e009c3b86c1fb96aa5cbd901dbd25f4b013"
+      "sha256": "a926985ea95a3573e8c2cf8a122f738715979dcdfeb896dda11dba4581853c41"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "2575a4d602f9733139fcc55c0889ebcc2043ef31681db050d50e418dac23c9ac"
+      "sha256": "0fdbeebe78c3e549ea8098f81a7f0bc9ee2feb1ca877075647a4aee84a37addd"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
@@ -40,18 +40,10 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "7d650e3484b47c0b9cc8c9a69422ee657e81eae0b11073cbb08f74ffd6d96e24"
+      "sha256": "6916889e0de934edeb2e82cb07f05a50af1abc79a416a9dd9f0a2f0c9bfde203"
     }
   ],
   "missing": [
-    {
-      "field": "bartel2018:hf:bcc_minus_hcp.reference_Tc_K",
-      "reason": "predictor unavailable without training phase"
-    },
-    {
-      "field": "bartel2018:hf:bcc_minus_hcp.reference_Tc_K",
-      "reason": "predictor unavailable without training phase"
-    },
     {
       "field": "bartel2018:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
       "reason": "structural N/A: pair has no reference crossing on the frozen grid"

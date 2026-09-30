@@ -1,0 +1,146 @@
+{
+  "heads": [
+    {
+      "asr_applied": false,
+      "fc_symmetry_applied": false,
+      "gamma_acoustic_contribution_fraction_of_negative_modes": 0.05,
+      "gamma_acoustic_negative_count": 1,
+      "gamma_qpoints": 1,
+      "gamma_radius_Ainv": 0.028104328558857024,
+      "gamma_radius_fraction_of_conservative_BZ_radius": 0.05,
+      "head": "Domains_SSE_PBE",
+      "maximum_frequency_THz": 38.28910325442132,
+      "minimum_frequency_THz": -1.1533986058996282,
+      "minimum_frequency_qpoint_count": 1,
+      "minimum_frequency_qpoints": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "n_modes": 27,
+      "n_qpoints": 270,
+      "negative_mode_count": 20,
+      "negative_mode_fraction": 0.0027434842249657062,
+      "negative_mode_fraction_within_gamma_radius": 0.05,
+      "negative_modes_are_gamma_local": false,
+      "negative_modes_within_gamma_radius": 1,
+      "negative_qpoint_count": 19,
+      "negative_qpoint_examples": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0625,
+          0.0,
+          0.0
+        ],
+        [
+          0.125,
+          0.0,
+          0.0
+        ],
+        [
+          0.1875,
+          0.0,
+          0.0
+        ],
+        [
+          0.0625,
+          0.0625,
+          0.0
+        ],
+        [
+          0.125,
+          0.0625,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0625
+        ],
+        [
+          0.0625,
+          0.0,
+          0.0625
+        ],
+        [
+          0.125,
+          0.0,
+          0.0625
+        ],
+        [
+          0.1875,
+          0.0,
+          0.0625
+        ],
+        [
+          0.0625,
+          0.0625,
+          0.0625
+        ],
+        [
+          0.0,
+          0.0,
+          0.125
+        ],
+        [
+          0.0625,
+          0.0,
+          0.125
+        ],
+        [
+          0.0,
+          0.0,
+          0.1875
+        ],
+        [
+          0.0625,
+          0.0,
+          0.1875
+        ],
+        [
+          0.0,
+          0.0,
+          0.25
+        ],
+        [
+          0.0625,
+          0.0,
+          0.25
+        ],
+        [
+          0.0,
+          0.0,
+          0.3125
+        ],
+        [
+          0.0,
+          0.0,
+          0.375
+        ]
+      ],
+      "negative_qpoint_fraction": 0.07037037037037037,
+      "negative_qpoint_max_distance_to_gamma_Ainv": 0.4215649283828553,
+      "negative_qpoint_min_distance_to_gamma_Ainv": 0.0,
+      "negative_threshold_THz": -0.05
+    }
+  ],
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "phase": "quartz_beta",
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "system": "sio2",
+  "volume_scale": 1.0
+}

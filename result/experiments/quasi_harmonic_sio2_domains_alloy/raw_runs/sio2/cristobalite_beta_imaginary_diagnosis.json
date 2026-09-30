@@ -1,0 +1,22 @@
+{
+  "system": "sio2",
+  "phase": "cristobalite_beta",
+  "head": "Domains_Alloy",
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "volume_scale": 1.0,
+  "minimum_frequency_THz": -2.3999590388843037,
+  "negative_mode_fraction": 0.0587962962962963,
+  "negative_qpoint_fraction": 1.0,
+  "negative_threshold_THz": -0.05,
+  "qh_reliable": false,
+  "source_qh_summary": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json"
+}

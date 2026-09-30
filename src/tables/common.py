@@ -31,9 +31,12 @@ def git_commit(root: Path) -> str:
 
 
 def raw_runs(root: Path, split: str | None = None) -> Iterable[tuple[Path, dict[str, Any]]]:
-    pattern = f"result/experiments/external_baselines/raw_{split or '*'}/*/*/metrics.json"
-    for path in sorted(root.glob(pattern)):
-        yield path, json.loads(path.read_text(encoding="utf-8"))
+    patterns = [f"result/experiments/external_baselines/raw_{split or '*'}/*/*/metrics.json"]
+    if split == "temp_extrap":
+        patterns.append("result/experiments/t3_temp_extrap/raw_runs/*/*/metrics.json")
+    for pattern in patterns:
+        for path in sorted(root.glob(pattern)):
+            yield path, json.loads(path.read_text(encoding="utf-8"))
 
 
 def inventory(root: Path) -> dict[str, Any]:

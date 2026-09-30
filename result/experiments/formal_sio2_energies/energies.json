@@ -1,0 +1,40 @@
+{
+  "provenance": {
+    "git_commit": "unavailable_external_workspace",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+    "head": "Domains_Alloy"
+  },
+  "rows": [
+    {
+      "phase": "quartz_beta",
+      "structure": "data/processed/sio2/quartz_beta/structure.extxyz",
+      "structure_sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc",
+      "n_atoms": 9,
+      "E_DPA_eV_per_atom": -2.67487901449204,
+      "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_Alloy"
+    },
+    {
+      "phase": "cristobalite_beta",
+      "structure": "data/processed/sio2/cristobalite_beta/structure.extxyz",
+      "structure_sha256": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a",
+      "n_atoms": 24,
+      "E_DPA_eV_per_atom": -2.6604938221474534,
+      "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_Alloy"
+    },
+    {
+      "phase": "tridymite_p63mmc",
+      "structure": "data/processed/sio2/tridymite_p63mmc/structure.extxyz",
+      "structure_sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e",
+      "n_atoms": 12,
+      "E_DPA_eV_per_atom": -2.658554968734587,
+      "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_Alloy"
+    }
+  ]
+}

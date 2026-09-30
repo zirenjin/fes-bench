@@ -1,0 +1,11 @@
+{
+  "generated_utc": "2026-09-29T21:48:08.067753+00:00",
+  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "system": "zr",
+  "old_sources": "canonical data/processed/<system>/<phase>/fqh.csv and archived/current metadata",
+  "new_source": "result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json",
+  "inputs_sha256": {
+    "result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json": "32dca4bff7f4baac9a1fb3e3ab932aa1e3a6644beebbad0756c9a78450ecfd51"
+  },
+  "missing": []
+}

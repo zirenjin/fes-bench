@@ -21,27 +21,56 @@
   },
   "representative": {
     "status": "relaxed",
+    "source": "data/processed/sio2/_ideal_sources/tridymite.cif",
+    "source_sha256": "d1083f164ad29d6ee8c9b1ef9f8efb4c34dc489a4182936addb323fffdc3e977",
+    "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_hP12_194_cg_f-001/aflow.cif",
+    "prototype": "A2B_hP12_194_cg_f-001",
+    "icsd": null,
+    "darus_phase": "tridymite_beta_pbe_d3bj",
+    "reference_model_audit": "beta-tridymite P6_3/mmc; DaRUS-4999/Forslund et al. methods cite Kihara (1978), matching the AFLOW hP12 prototype (Si 4f, O 2c+6g)",
+    "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
+    "space_group": {
+      "before": "P6_3/mmc",
+      "after": "P6_3/mmc"
+    },
+    "target_space_group": "P6_3/mmc",
     "calculator": "deepmd.calculator.DP",
-    "checkpoint": "external/pes_dpa31_fes_full_singlehead_a100/model.ckpt-5000.pt",
-    "head": null,
-    "optimizer": "FIRE",
-    "cell_relaxed": false,
+    "head": "Domains_SSE_PBE",
+    "converged": true,
+    "relaxation_mode": "hydrostatic_variable_cell",
+    "energy_eV_per_atom": {
+      "before": -3.9432244524359703,
+      "after": -4.10686831176281
+    },
+    "max_displacement_A": 0.3852845404815334,
     "fmax_eV_per_A": 0.001,
     "max_steps": 5000,
-    "converged": true,
-    "energy_eV_per_atom": {
-      "before": -7.770496028634155,
-      "after": -8.026050554436688
-    },
-    "volume_A3_per_atom": {
-      "before": 13.999999993552622,
-      "after": 13.999999993552622
-    },
-    "space_group": {
-      "before": "P1",
-      "after": "P1"
-    },
-    "max_displacement_A": 1.4357733891137427,
-    "relaxation_log": "representative_relaxation.log"
+    "source_atoms": 12,
+    "relaxed_atoms": 12,
+    "archive_previous": "data/processed/sio2/_archive_md_snapshot/tridymite_p63mmc/meta.json"
+  },
+  "downstream_recompute_required": [
+    "result/experiments/external_baselines (Bartel and phase-level baselines)",
+    "result/experiments/quasi_harmonic",
+    "result/experiments/imaginary_modes",
+    "result/experiments/reference_statistics",
+    "result/experiments/representative_structures (E4)"
+  ],
+  "same_head_energy_audit": {
+    "script": "src/experiments/data_prep/audit_sio2_energy_mapping.py",
+    "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+    "head": "Domains_SSE_PBE",
+    "old_energy_eV_per_atom": -4.101952646341589,
+    "new_energy_eV_per_atom": -4.106868289411068,
+    "delta_new_minus_old_eV_per_atom": -0.004915643069479003,
+    "status": "within_tens_of_meV_after_variable_cell_relaxation"
+  },
+  "formal_energy_eV_per_atom": -2.658554968734587,
+  "formal_energy_provenance": {
+    "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "head": "Domains_Alloy",
+    "source": "result/experiments/formal_sio2_energies/energies.json",
+    "structure_sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "system": "sio2",
+  "source_root": "data/processed/sio2/_ideal_sources",
+  "output_root": "data/processed/sio2/_rebuild_candidates",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "head": "Domains_SSE_PBE",
+  "relax_cell": true,
+  "fmax_eV_per_A": 0.001,
+  "max_steps": 5000,
+  "phases": {
+    "quartz_beta": {"source": "quartz.cif", "target_space_group": "P6_422", "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_hP9_181_i_d-001/aflow.cif", "prototype": "A2B_hP9_181_i_d-001", "icsd": "26430", "darus_phase": "quartz_beta_pbe_d3bj", "reference_model": "beta-quartz P6_422; DaRUS-4999/Forslund et al. methods cite Bragg & Gibbs (1925), matching the AFLOW P6_422 prototype"},
+    "cristobalite_beta": {"source": "cristobalite.cif", "target_space_group": "Fd-3m", "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_cF24_227_c_a-001/aflow.cif", "prototype": "A2B_cF24_227_c_a-001", "icsd": null, "darus_phase": "cristobalite_beta_pbe_d3bj", "reference_model": "beta-cristobalite Fd-3m; DaRUS-4999/Forslund et al. methods cite Wyckoff (1925), matching the AFLOW cF24 prototype (Si 8a, O 16c)"},
+    "tridymite_p63mmc": {"source": "tridymite.cif", "target_space_group": "P6_3/mmc", "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_hP12_194_cg_f-001/aflow.cif", "prototype": "A2B_hP12_194_cg_f-001", "icsd": null, "darus_phase": "tridymite_beta_pbe_d3bj", "reference_model": "beta-tridymite P6_3/mmc; DaRUS-4999/Forslund et al. methods cite Kihara (1978), matching the AFLOW hP12 prototype (Si 4f, O 2c+6g)"}
+  }
+}

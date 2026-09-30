@@ -1,0 +1,4 @@
+artifact,field,old_value,new_value,reason
+data/processed/sio2/quartz_beta/meta.json,E_DPA_eV_per_atom,-4.09950738814142,-2.67487901449204,E4/Bartel formal Domains_Alloy single-point on rebuilt structure
+data/processed/sio2/cristobalite_beta/meta.json,E_DPA_eV_per_atom,-4.109503240634997,-2.6604938221474534,E4/Bartel formal Domains_Alloy single-point on rebuilt structure
+data/processed/sio2/tridymite_p63mmc/meta.json,E_DPA_eV_per_atom,-4.10686831176281,-2.658554968734587,E4/Bartel formal Domains_Alloy single-point on rebuilt structure

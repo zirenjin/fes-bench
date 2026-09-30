@@ -1,0 +1,27 @@
+{
+  "status": "relaxed",
+  "source": "data/processed/sio2/_ideal_sources/tridymite.cif",
+  "source_sha256": "d1083f164ad29d6ee8c9b1ef9f8efb4c34dc489a4182936addb323fffdc3e977",
+  "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_hP12_194_cg_f-001/aflow.cif",
+  "prototype": "A2B_hP12_194_cg_f-001",
+  "icsd": null,
+  "darus_phase": "tridymite_beta_pbe_d3bj",
+  "reference_model_audit": "beta-tridymite P6_3/mmc; DaRUS-4999/Forslund et al. methods cite Kihara (1978), matching the AFLOW hP12 prototype (Si 4f, O 2c+6g)",
+  "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
+  "space_group": {
+    "before": "P6_3/mmc",
+    "after": "P6_3/mmc"
+  },
+  "target_space_group": "P6_3/mmc",
+  "calculator": "deepmd.calculator.DP",
+  "head": "Domains_SSE_PBE",
+  "converged": true,
+  "relaxation_mode": "hydrostatic_variable_cell",
+  "energy_eV_per_atom": {
+    "before": -3.9432244524359703,
+    "after": -4.10686831176281
+  },
+  "max_displacement_A": 0.3852845404815334,
+  "fmax_eV_per_A": 0.001,
+  "max_steps": 5000
+}

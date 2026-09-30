@@ -1,0 +1,4 @@
+artifact,field,old_value,new_value,reason
+data/processed/sio2/qh_comparison.json,calibration_eV_per_atom,-3.955996927729158,-5.33912039723811,rebuilt structures + formal DPA-3.1-3M Domains_Alloy QH
+data/processed/sio2/qh_comparison.json,test_mae_meV_per_atom,21.865703586039405,17.617831013749544,rebuilt structures + formal DPA-3.1-3M Domains_Alloy QH
+data/processed/sio2/qh_comparison.json,test_max_abs_error_meV_per_atom,59.11393848169766,36.812142051863006,rebuilt structures + formal DPA-3.1-3M Domains_Alloy QH

@@ -1,0 +1,22 @@
+{
+  "system": "sio2",
+  "phase": "cristobalite_beta",
+  "head": "Domains_SSE_PBE",
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "volume_scale": 1.0,
+  "minimum_frequency_THz": -2.646364797465613,
+  "negative_mode_fraction": 0.047453703703703706,
+  "negative_qpoint_fraction": 1.0,
+  "negative_threshold_THz": -0.05,
+  "qh_reliable": false,
+  "source_qh_summary": "result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/qh_summary.json"
+}

@@ -1,0 +1,27 @@
+{
+  "status": "relaxed",
+  "source": "data/processed/sio2/_ideal_sources/quartz.cif",
+  "source_sha256": "a8770add6d4351ce4cd9256174ba5180e288bedbd1ba76ac57225c88573e6abc",
+  "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_hP9_181_i_d-001/aflow.cif",
+  "prototype": "A2B_hP9_181_i_d-001",
+  "icsd": "26430",
+  "darus_phase": "quartz_beta_pbe_d3bj",
+  "reference_model_audit": "beta-quartz P6_422; DaRUS-4999/Forslund et al. methods cite Bragg & Gibbs (1925), matching the AFLOW P6_422 prototype",
+  "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
+  "space_group": {
+    "before": "P6_422",
+    "after": "P6_422"
+  },
+  "target_space_group": "P6_422",
+  "calculator": "deepmd.calculator.DP",
+  "head": "Domains_SSE_PBE",
+  "converged": true,
+  "relaxation_mode": "hydrostatic_variable_cell",
+  "energy_eV_per_atom": {
+    "before": -4.060992870065901,
+    "after": -4.09950738814142
+  },
+  "max_displacement_A": 0.12270312151727887,
+  "fmax_eV_per_A": 0.001,
+  "max_steps": 5000
+}

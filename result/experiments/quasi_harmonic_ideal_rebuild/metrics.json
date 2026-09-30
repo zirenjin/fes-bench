@@ -1,0 +1,77 @@
+{
+  "provenance": {
+    "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+    "split": "qh",
+    "split_sha256": null,
+    "predictor_config": "configs/qh/sio2_ideal_rebuild.yaml",
+    "predictor_config_sha256": "91d6291f832be56f3659963064f379df106eae439fff4c5ece765ed9561905e9",
+    "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "evaluator_version": "compare_qh_rebuild.py v1",
+    "timestamp_utc": "2026-09-29T23:09:07.365158+00:00",
+    "raw_summary": "result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/qh_summary.json"
+  },
+  "metrics": {
+    "rows": [
+      {
+        "system": "sio2",
+        "phase": "cristobalite_beta",
+        "old_space_group": "P1",
+        "new_space_group": "Fd-3m",
+        "old_atoms": 192,
+        "new_atoms": 24,
+        "old_E_DPA_eV_per_atom": -8.030370044215019,
+        "new_E_DPA_eV_per_atom": -4.109503240634997,
+        "delta_E_DPA_eV_per_atom": 3.9208668035800214,
+        "old_imaginary_fraction": 0.013695141596274637,
+        "new_imaginary_fraction": 0.047453703703703706,
+        "delta_imaginary_fraction": 0.03375856210742907,
+        "common_temperature_points": 1649,
+        "mean_abs_delta_F_QH_eV_per_atom": 0.01828548383906248,
+        "max_abs_delta_F_QH_eV_per_atom": 0.030568672159130728,
+        "old_fqh_sha256": "5acf33327661c29c5741415c4696eff4a5214a6739a2d3a6df5c77ab91417873",
+        "new_fqh_sha256": "c3415e141116f8575f1ab5e6b23f4d18baf2fd3bf3e1e26e10c7b4e22cbb41d3"
+      },
+      {
+        "system": "sio2",
+        "phase": "quartz_beta",
+        "old_space_group": "C2",
+        "new_space_group": "P6_422",
+        "old_atoms": 243,
+        "new_atoms": 9,
+        "old_E_DPA_eV_per_atom": -8.032564200592777,
+        "new_E_DPA_eV_per_atom": -4.09950738814142,
+        "delta_E_DPA_eV_per_atom": 3.9330568124513565,
+        "old_imaginary_fraction": 0.005466913740684588,
+        "new_imaginary_fraction": 0.0016075102880658437,
+        "delta_imaginary_fraction": -0.003859403452618744,
+        "common_temperature_points": 1649,
+        "mean_abs_delta_F_QH_eV_per_atom": 0.040824075532660466,
+        "max_abs_delta_F_QH_eV_per_atom": 0.05497669574311104,
+        "old_fqh_sha256": "5213897edca222f672cfcd58134e46279f1a5152f27b8e3e08ad2324b8bdf466",
+        "new_fqh_sha256": "bd2e38ceff10c9921f94c93d4d2b85cbd4f61385a15c2885588dbb26b3c07a5b"
+      },
+      {
+        "system": "sio2",
+        "phase": "tridymite_p63mmc",
+        "old_space_group": "P1",
+        "new_space_group": "P6_3/mmc",
+        "old_atoms": 216,
+        "new_atoms": 12,
+        "old_E_DPA_eV_per_atom": -8.026050554436688,
+        "new_E_DPA_eV_per_atom": -4.10686831176281,
+        "delta_E_DPA_eV_per_atom": 3.9191822426738785,
+        "old_imaginary_fraction": 0.01455896686159844,
+        "new_imaginary_fraction": 0.055652006172839504,
+        "delta_imaginary_fraction": 0.041093039311241066,
+        "common_temperature_points": 1649,
+        "mean_abs_delta_F_QH_eV_per_atom": 0.031136932226534655,
+        "max_abs_delta_F_QH_eV_per_atom": 0.04753252392952945,
+        "old_fqh_sha256": "56767ed9d3f4b2835d81e82c3caa95d66a6408188c8812d0285f18bd773c0b03",
+        "new_fqh_sha256": "4d48cb78ea51e59a31859b475448c3f32378ae529e8de90d307c39d4a07fc87f"
+      }
+    ],
+    "old_reference": "pre-rebuild canonical QH outputs",
+    "new_reference": "result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/qh_summary.json"
+  }
+}

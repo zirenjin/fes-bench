@@ -1,0 +1,15 @@
+{
+  "experiment": "T3_temp_extrap",
+  "basis": "tlog_polynomial",
+  "split": "data/processed/splits_v2/temp_extrap.json",
+  "seeds": [11, 23, 37, 51, 67],
+  "systems": ["sio2", "hf"],
+  "e1_config_audit": "result/experiments/crossing_reevaluation/training_config_audit.csv",
+  "e1_config_template": "external/e1_training_configs/tlog_polynomial/seed{seed}/config.json",
+  "e1_template_sha256_from_audit": true,
+  "runtime_e1_config_fallback": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/results/continuous_sio2/tlog_polynomial/seed{seed}/config.json",
+  "temperature_basis": "tlog_polynomial",
+  "head_policy": "configs/models/head_policy.yaml",
+  "calibration": "one constant per system, fitted on frozen train rows only",
+  "numb_steps": 3000
+}

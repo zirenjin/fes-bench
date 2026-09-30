@@ -1,0 +1,27 @@
+{
+  "status": "relaxed",
+  "source": "data/processed/sio2/_ideal_sources/cristobalite.cif",
+  "source_sha256": "38fd61881f571344611163c8b311c6ded20bc08deb516dcca79abe3005947606",
+  "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_cF24_227_c_a-001/aflow.cif",
+  "prototype": "A2B_cF24_227_c_a-001",
+  "icsd": null,
+  "darus_phase": "cristobalite_beta_pbe_d3bj",
+  "reference_model_audit": "beta-cristobalite Fd-3m; DaRUS-4999/Forslund et al. methods cite Wyckoff (1925), matching the AFLOW cF24 prototype (Si 8a, O 16c)",
+  "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
+  "space_group": {
+    "before": "Fd-3m",
+    "after": "Fd-3m"
+  },
+  "target_space_group": "Fd-3m",
+  "calculator": "deepmd.calculator.DP",
+  "head": "Domains_SSE_PBE",
+  "converged": true,
+  "relaxation_mode": "hydrostatic_variable_cell",
+  "energy_eV_per_atom": {
+    "before": -3.9587841319541135,
+    "after": -4.109503240634997
+  },
+  "max_displacement_A": 0.48978847120707436,
+  "fmax_eV_per_A": 0.001,
+  "max_steps": 5000
+}

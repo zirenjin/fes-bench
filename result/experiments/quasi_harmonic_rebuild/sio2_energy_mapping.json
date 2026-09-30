@@ -1,0 +1,105 @@
+{
+  "provenance": {
+    "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "head": "Domains_SSE_PBE",
+    "checkpoint_type_map_observed": "periodic-table universal map; O and Si identified by symbols (DPA-3.1-3M.pt)",
+    "system_type_map": [
+      "O",
+      "Si"
+    ],
+    "mapping_rule": "DeepMD maps chemical symbols to the checkpoint type map; system.json order is not used to relabel extxyz symbols."
+  },
+  "rows": [
+    {
+      "phase": "quartz_beta",
+      "version": "old",
+      "path": "data/processed/sio2/_archive_md_snapshot/quartz_beta/structure.extxyz",
+      "n_atoms": 243,
+      "species_counts": {
+        "Si": 81,
+        "O": 162
+      },
+      "si_o_ratio": "81:162",
+      "nearest_SiO_A": 1.6082900775034292,
+      "mean_four_shortest_SiO_A": 1.60829026647783,
+      "total_energy_eV": -991.6131668686867,
+      "energy_eV_per_atom": -4.080712620858793
+    },
+    {
+      "phase": "quartz_beta",
+      "version": "new",
+      "path": "data/processed/sio2/quartz_beta/structure.extxyz",
+      "n_atoms": 9,
+      "species_counts": {
+        "Si": 3,
+        "O": 6
+      },
+      "si_o_ratio": "3:6",
+      "nearest_SiO_A": 1.6273776742969137,
+      "mean_four_shortest_SiO_A": 1.627377675504904,
+      "total_energy_eV": -36.89556685090065,
+      "energy_eV_per_atom": -4.09950742787785
+    },
+    {
+      "phase": "cristobalite_beta",
+      "version": "old",
+      "path": "data/processed/sio2/_archive_md_snapshot/cristobalite_beta/structure.extxyz",
+      "n_atoms": 192,
+      "species_counts": {
+        "Si": 64,
+        "O": 128
+      },
+      "si_o_ratio": "64:128",
+      "nearest_SiO_A": 1.619408049940739,
+      "mean_four_shortest_SiO_A": 1.6194099222968203,
+      "total_energy_eV": -789.1140585541725,
+      "energy_eV_per_atom": -4.109969054969649
+    },
+    {
+      "phase": "cristobalite_beta",
+      "version": "new",
+      "path": "data/processed/sio2/cristobalite_beta/structure.extxyz",
+      "n_atoms": 24,
+      "species_counts": {
+        "Si": 8,
+        "O": 16
+      },
+      "si_o_ratio": "8:16",
+      "nearest_SiO_A": 1.6214542850284805,
+      "mean_four_shortest_SiO_A": 1.6214542862178996,
+      "total_energy_eV": -98.62807109951973,
+      "energy_eV_per_atom": -4.109502962479989
+    },
+    {
+      "phase": "tridymite_p63mmc",
+      "version": "old",
+      "path": "data/processed/sio2/_archive_md_snapshot/tridymite_p63mmc/structure.extxyz",
+      "n_atoms": 216,
+      "species_counts": {
+        "Si": 72,
+        "O": 144
+      },
+      "si_o_ratio": "72:144",
+      "nearest_SiO_A": 1.6047324504709353,
+      "mean_four_shortest_SiO_A": 1.6049392862925294,
+      "total_energy_eV": -886.0217716097832,
+      "energy_eV_per_atom": -4.101952646341589
+    },
+    {
+      "phase": "tridymite_p63mmc",
+      "version": "new",
+      "path": "data/processed/sio2/tridymite_p63mmc/structure.extxyz",
+      "n_atoms": 12,
+      "species_counts": {
+        "O": 8,
+        "Si": 4
+      },
+      "si_o_ratio": "4:8",
+      "nearest_SiO_A": 1.6210411305248948,
+      "mean_four_shortest_SiO_A": 1.6210411305248948,
+      "total_energy_eV": -49.282419472932816,
+      "energy_eV_per_atom": -4.106868289411068
+    }
+  ]
+}

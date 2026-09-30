@@ -61,7 +61,9 @@ def _to_ase(cell):
     )
 
 
-def _thermal_for_volume(phonon, calculator, temperatures: list[float], mesh: list[int]) -> tuple[dict[float, float], float]:
+def _thermal_for_volume(
+    phonon, calculator, temperatures: list[float], mesh: list[int], negative_threshold: float
+) -> tuple[dict[float, float], float, float, float]:
     displaced = phonon.supercells_with_displacements
     forces = []
     for supercell in displaced:
@@ -84,14 +86,21 @@ def _thermal_for_volume(phonon, calculator, temperatures: list[float], mesh: lis
         raise ConfigError(f"phonopy did not return requested temperatures: {missing[:5]}")
     phonon.run_mesh(mesh, with_eigenvectors=False, is_mesh_symmetry=True)
     frequencies = phonon.get_mesh_dict()["frequencies"]
-    return ({temperature: by_t[temperature] for temperature in temperatures}, float(frequencies.min()))
+    negative = frequencies < negative_threshold
+    per_q = negative.sum(axis=1)
+    return (
+        {temperature: by_t[temperature] for temperature in temperatures},
+        float(frequencies.min()),
+        float(negative.mean()),
+        float((per_q > 0).mean()),
+    )
 
 
 def _write_phase(path: Path, rows: list[dict[str, object]]) -> None:
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(
             handle,
-            fieldnames=["T_K", "F_QH_eV_per_atom", "E_static_eV_per_atom", "volume_scale", "min_frequency_THz"],
+            fieldnames=["T_K", "F_QH_eV_per_atom", "E_static_eV_per_atom", "volume_scale", "min_frequency_THz", "checkpoint_sha256", "head"],
         )
         writer.writeheader()
         writer.writerows(rows)
@@ -116,6 +125,7 @@ def run(config_path: str | Path) -> int:
     if not phases or not all(isinstance(phase, str) for phase in phases):
         raise ConfigError("phases must be a non-empty list of strings")
     supercell_matrix = config.get("supercell_matrix", [2, 2, 2])
+    supercell_by_phase = config.get("supercell_matrix_by_phase", {})
     mesh = config.get("mesh", [16, 16, 16])
     volume_scales = config.get("volume_scales", [0.98, 1.0, 1.02])
     if not all(isinstance(value, (int, float)) and value > 0 for value in volume_scales):
@@ -130,6 +140,7 @@ def run(config_path: str | Path) -> int:
         "system": config["system"],
         "checkpoint": config["checkpoint"],
         "head": config.get("head"),
+        "checkpoint_sha256": config.get("checkpoint_sha256"),
         "supercell_matrix": supercell_matrix,
         "mesh": mesh,
         "volume_scales": volume_scales,
@@ -139,19 +150,26 @@ def run(config_path: str | Path) -> int:
         phase_dir = root / phase
         atoms0 = read(phase_dir / "structure.extxyz")
         temperatures = _reference_temperatures(phase_dir / "reference_G.csv")
-        candidates: list[tuple[float, float, dict[float, float], float]] = []
+        candidates: list[tuple[float, float, dict[float, float], float, float, float]] = []
         for scale in volume_scales:
             atoms = atoms0.copy()
             atoms.set_cell(atoms0.cell.array * float(scale) ** (1.0 / 3.0), scale_atoms=True)
             atoms.calc = calculator
             static_energy = atoms.get_potential_energy() / len(atoms)
-            phonon = Phonopy(_to_phonopy(atoms), supercell_matrix=supercell_matrix)
+            phase_supercell = supercell_by_phase.get(phase, supercell_matrix)
+            phonon = Phonopy(_to_phonopy(atoms), supercell_matrix=phase_supercell)
             phonon.generate_displacements(distance=float(config.get("displacement_distance_A", 0.01)))
-            thermal, min_frequency = _thermal_for_volume(phonon, calculator, temperatures, mesh)
-            candidates.append((float(scale), float(static_energy), thermal, min_frequency))
+            thermal, min_frequency, negative_fraction, negative_qpoint_fraction = _thermal_for_volume(
+                phonon,
+                calculator,
+                temperatures,
+                mesh,
+                float(config.get("imaginary_frequency_cutoff_THz", -0.05)),
+            )
+            candidates.append((float(scale), float(static_energy), thermal, min_frequency, negative_fraction, negative_qpoint_fraction))
         rows: list[dict[str, object]] = []
         for temperature in temperatures:
-            scale, energy, thermal, min_frequency = min(candidates, key=lambda item: item[1] + item[2][temperature])
+            scale, energy, thermal, min_frequency, _, _ = min(candidates, key=lambda item: item[1] + item[2][temperature])
             rows.append(
                 {
                     "T_K": f"{temperature:.12g}",
@@ -159,12 +177,17 @@ def run(config_path: str | Path) -> int:
                     "E_static_eV_per_atom": f"{energy:.16g}",
                     "volume_scale": f"{scale:.12g}",
                     "min_frequency_THz": f"{min_frequency:.12g}",
+                    "checkpoint_sha256": config.get("checkpoint_sha256", ""),
+                    "head": config.get("head", ""),
                 }
             )
         _write_phase(output_root / f"{phase}_fqh.csv", rows)
         summary["phases"][phase] = {
+            "supercell_matrix": supercell_by_phase.get(phase, supercell_matrix),
             "n_temperatures": len(rows),
-            "minimum_frequency_THz_by_volume": {str(scale): min_frequency for scale, _, _, min_frequency in candidates},
+            "minimum_frequency_THz_by_volume": {str(scale): min_frequency for scale, _, _, min_frequency, _, _ in candidates},
+            "negative_mode_fraction_by_volume": {str(scale): negative_fraction for scale, _, _, _, negative_fraction, _ in candidates},
+            "negative_qpoint_fraction_by_volume": {str(scale): negative_qpoint_fraction for scale, _, _, _, _, negative_qpoint_fraction in candidates},
             "output": f"{phase}_fqh.csv",
         }
         print(f"QH complete: {phase} temperatures={len(rows)}")

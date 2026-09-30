@@ -32,12 +32,16 @@ def _rows(path: Path) -> dict[float, dict[str, float]]:
 
 def run(config_path: str | Path) -> int:
     try:
+        import numpy as np
+    except ImportError as exc:
+        raise ConfigError("numpy is required for QH comparison") from exc
+    try:
         import matplotlib.pyplot as plt
         from matplotlib import gridspec
-        import numpy as np
         import seaborn as sns
+        have_plot = True
     except ImportError as exc:
-        raise ConfigError("matplotlib, seaborn, and numpy are required for QH comparison") from exc
+        have_plot = False
     config_file = Path(config_path).expanduser().resolve()
     config = load_mapping(config_file)
     for key in ("data_root", "result_root", "system"):
@@ -67,7 +71,9 @@ def run(config_path: str | Path) -> int:
         train_offsets.extend(selected)
         merged[phase] = records
     calibration = float(np.mean(train_offsets))
-    metrics: dict[str, object] = {"system": config["system"], "train_T_max_K": train_max, "calibration_eV_per_atom": calibration, "phases": {}}
+    summary = result_dir / "qh_summary.json"
+    summary_payload = json.loads(summary.read_text(encoding="utf-8")) if summary.exists() else {}
+    metrics: dict[str, object] = {"system": config["system"], "train_T_max_K": train_max, "calibration_eV_per_atom": calibration, "checkpoint": summary_payload.get("checkpoint", ""), "checkpoint_sha256": summary_payload.get("checkpoint_sha256", ""), "head": summary_payload.get("head", ""), "phases": {}}
     all_test_errors: list[float] = []
     for phase, records in merged.items():
         for record in records:
@@ -86,6 +92,9 @@ def run(config_path: str | Path) -> int:
     metrics["test_max_abs_error_meV_per_atom"] = float(np.max(all_test_errors))
     (result_dir / "qh_comparison.json").write_text(json.dumps(metrics, indent=2) + "\n", encoding="utf-8")
 
+    if not have_plot:
+        print(f"QH comparison complete (metrics only): test_MAE_meV_per_atom={metrics['test_mae_meV_per_atom']:.6g}")
+        return 0
     sns.set_theme(font_scale=1.0, style="whitegrid", font="DejaVu Sans")
     palette = sns.color_palette("colorblind", len(phases))
     n_phases = len(phases)

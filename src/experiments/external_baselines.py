@@ -71,7 +71,12 @@ def _reference(data_root: Path, system: str, phase: str, indexes: list[int]) -> 
 def _bartel_params(data_root: Path, system: str, phase: str) -> tuple[float, float, float] | None:
     phase_data = load(system, phase, data_root)
     representative = phase_data.meta.get("representative", {})
-    energy = representative.get("energy_eV_per_atom", {}).get("after")
+    # Formal baseline energies are single-point evaluations with the policy
+    # checkpoint/head; relaxation energies may use a PES-only head and are not
+    # valid Bartel E0 inputs.
+    energy = phase_data.meta.get("formal_energy_eV_per_atom")
+    if energy is None:
+        energy = representative.get("energy_eV_per_atom", {}).get("after")
     if energy is None:
         return None
     volume, mass = _species_volume(phase_data.structure)

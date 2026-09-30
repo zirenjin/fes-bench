@@ -1,0 +1,19 @@
+{
+  "generated_utc": "2026-09-29T23:09:09.369326+00:00",
+  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "system": "zr",
+  "old_sources": "canonical data/processed/<system>/<phase>/fqh.csv and archived/current metadata",
+  "new_source": "result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json",
+  "inputs_sha256": {
+    "data/processed/zr/bcc/fqh.csv": "d55041ea367bb9809140163e070440e23a846f244f7c494804bfd4228dd957ca",
+    "data/processed/zr/bcc/meta.json": "d025c0a7857dfbdf90d5ae3da462936eafdebcd86b43db961eee8f0c9adcaa3b",
+    "data/processed/zr/hcp/fqh.csv": "ef4bc4c7b6a925f90e9fe1536f79dcb4747bd773af7c2ee44ae311eb4ae23ca1",
+    "data/processed/zr/hcp/meta.json": "804f9a3eea131e1f00fc346ffddfa42af110e82a4b99ad4d4c63abe10332f9b4",
+    "result/experiments/quasi_harmonic_10a/old_diagnostics/zr/bcc_imaginary_diagnosis.json": "e99e42ff3c19424012a80a03c45cd2d445d956063074bfe97b6c75f0a2c17acb",
+    "result/experiments/quasi_harmonic_10a/old_diagnostics/zr/hcp_imaginary_diagnosis.json": "4d67ff32c4a5e66a9c5fbc98721379cc9e57aef43728c8a033b38554609cb77a",
+    "result/experiments/quasi_harmonic_10a/raw_runs/zr/bcc_fqh.csv": "a421836cb1f8e413ad070b1af349696bdb9d7e8e42ef449b7a2088729bc57e0e",
+    "result/experiments/quasi_harmonic_10a/raw_runs/zr/hcp_fqh.csv": "57d7743e87a97b80daf13fe325f8711632119909317274ae8d94f2067c784e14",
+    "result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json": "32dca4bff7f4baac9a1fb3e3ab932aa1e3a6644beebbad0756c9a78450ecfd51"
+  },
+  "missing": []
+}

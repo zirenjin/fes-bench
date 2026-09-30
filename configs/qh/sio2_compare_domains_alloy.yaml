@@ -1,0 +1,5 @@
+data_root: ../../data/processed
+result_root: ../../result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs
+system: sio2
+phases: [quartz_beta, cristobalite_beta, tridymite_p63mmc]
+train_T_max_K: 1442

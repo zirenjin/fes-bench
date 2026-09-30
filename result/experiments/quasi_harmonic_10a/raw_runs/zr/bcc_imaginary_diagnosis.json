@@ -1,0 +1,22 @@
+{
+  "system": "zr",
+  "phase": "bcc",
+  "head": "Domains_Alloy",
+  "mesh": [
+    12,
+    12,
+    12
+  ],
+  "supercell_matrix": [
+    3,
+    3,
+    3
+  ],
+  "volume_scale": 1.0,
+  "minimum_frequency_THz": -2.1493143424794505,
+  "negative_mode_fraction": 0.19940476190476192,
+  "negative_qpoint_fraction": 0.8035714285714286,
+  "negative_threshold_THz": -0.05,
+  "qh_reliable": false,
+  "source_qh_summary": "/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json"
+}

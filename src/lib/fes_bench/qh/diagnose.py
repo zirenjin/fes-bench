@@ -99,6 +99,13 @@ def _diagnose(qpoints: np.ndarray, frequencies: np.ndarray, cell: np.ndarray, co
     gamma_negative = int(negative[gamma_mask].sum())
     gamma_acoustic_negative = int(acoustic[gamma_mask].sum())
     per_q = negative.sum(axis=1)
+    minimum_frequency = float(frequencies.min())
+    minimum_mask = np.isclose(frequencies, minimum_frequency, rtol=0.0, atol=1.0e-10)
+    minimum_q_indices = np.flatnonzero(minimum_mask.any(axis=1))
+    negative_q_indices = np.flatnonzero(per_q > 0)
+    minimum_qpoints = qpoints[minimum_q_indices]
+    negative_qpoints = qpoints[negative_q_indices]
+    negative_q_distances = q_distance[negative_q_indices]
     return {
         "head": head,
         "n_qpoints": int(len(qpoints)),
@@ -115,7 +122,12 @@ def _diagnose(qpoints: np.ndarray, frequencies: np.ndarray, cell: np.ndarray, co
         "negative_mode_fraction_within_gamma_radius": float(gamma_negative / negative_count) if negative_count else 0.0,
         "gamma_acoustic_negative_count": gamma_acoustic_negative,
         "gamma_acoustic_contribution_fraction_of_negative_modes": float(gamma_acoustic_negative / negative_count) if negative_count else 0.0,
-        "minimum_frequency_THz": float(frequencies.min()),
+        "minimum_frequency_THz": minimum_frequency,
+        "minimum_frequency_qpoints": minimum_qpoints.tolist(),
+        "minimum_frequency_qpoint_count": int(len(minimum_qpoints)),
+        "negative_qpoint_examples": negative_qpoints[:32].tolist(),
+        "negative_qpoint_min_distance_to_gamma_Ainv": float(negative_q_distances.min()) if len(negative_q_distances) else None,
+        "negative_qpoint_max_distance_to_gamma_Ainv": float(negative_q_distances.max()) if len(negative_q_distances) else None,
         "maximum_frequency_THz": float(frequencies.max()),
         "asr_applied": bool(config.get("asr", False)),
         "fc_symmetry_applied": bool(config.get("fc_symmetry", False)),

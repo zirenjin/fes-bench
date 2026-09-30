@@ -1,0 +1,3 @@
+data_root: ../../data/processed
+output_root: ../../data/processed/splits_v2
+systems: [hf, sio2, ti, zr]

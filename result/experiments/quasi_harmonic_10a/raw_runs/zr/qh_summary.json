@@ -1,0 +1,70 @@
+{
+  "system": "zr",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "head": "Domains_Alloy",
+  "supercell_matrix": [
+    4,
+    4,
+    4
+  ],
+  "mesh": [
+    12,
+    12,
+    12
+  ],
+  "volume_scales": [
+    0.98,
+    1.0,
+    1.02
+  ],
+  "phases": {
+    "hcp": {
+      "supercell_matrix": [
+        4,
+        4,
+        2
+      ],
+      "n_temperatures": 910,
+      "minimum_frequency_THz_by_volume": {
+        "0.98": 0.3239607663947544,
+        "1.0": 0.3240717202728534,
+        "1.02": 0.32132081711705673
+      },
+      "negative_mode_fraction_by_volume": {
+        "0.98": 0.0,
+        "1.0": 0.0,
+        "1.02": 0.0
+      },
+      "negative_qpoint_fraction_by_volume": {
+        "0.98": 0.0,
+        "1.0": 0.0,
+        "1.02": 0.0
+      },
+      "output": "hcp_fqh.csv"
+    },
+    "bcc": {
+      "supercell_matrix": [
+        3,
+        3,
+        3
+      ],
+      "n_temperatures": 910,
+      "minimum_frequency_THz_by_volume": {
+        "0.98": -1.9858256387599733,
+        "1.0": -2.1493143424794505,
+        "1.02": -2.396840570259639
+      },
+      "negative_mode_fraction_by_volume": {
+        "0.98": 0.17559523809523808,
+        "1.0": 0.19940476190476192,
+        "1.02": 0.22023809523809523
+      },
+      "negative_qpoint_fraction_by_volume": {
+        "0.98": 0.7857142857142857,
+        "1.0": 0.8035714285714286,
+        "1.02": 0.8392857142857143
+      },
+      "output": "bcc_fqh.csv"
+    }
+  }
+}

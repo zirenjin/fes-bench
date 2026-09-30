@@ -1,27 +1,30 @@
 {
   "system": "sio2",
   "train_T_max_K": 1442.0,
-  "calibration_eV_per_atom": -3.955996927729158,
+  "calibration_eV_per_atom": -5.33912039723811,
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "checkpoint_sha256": "",
+  "head": "Domains_Alloy",
   "phases": {
     "quartz_beta": {
       "n_points": 1649,
-      "test_mae_meV_per_atom": 44.247918915972754,
-      "test_max_abs_error_meV_per_atom": 59.11393848169766,
+      "test_mae_meV_per_atom": 13.442800951440248,
+      "test_max_abs_error_meV_per_atom": 21.712710121597922,
       "nonmonotonic_positive_steps": 0
     },
     "cristobalite_beta": {
       "n_points": 1649,
-      "test_mae_meV_per_atom": 8.120184887795602,
-      "test_max_abs_error_meV_per_atom": 20.06848100942271,
+      "test_mae_meV_per_atom": 15.23875138714011,
+      "test_max_abs_error_meV_per_atom": 25.13398219958063,
       "nonmonotonic_positive_steps": 0
     },
     "tridymite_p63mmc": {
       "n_points": 1649,
-      "test_mae_meV_per_atom": 13.229006954349849,
-      "test_max_abs_error_meV_per_atom": 28.030289379028517,
+      "test_mae_meV_per_atom": 24.171940702668277,
+      "test_max_abs_error_meV_per_atom": 36.812142051863006,
       "nonmonotonic_positive_steps": 0
     }
   },
-  "test_mae_meV_per_atom": 21.865703586039405,
-  "test_max_abs_error_meV_per_atom": 59.11393848169766
+  "test_mae_meV_per_atom": 17.617831013749544,
+  "test_max_abs_error_meV_per_atom": 36.812142051863006
 }

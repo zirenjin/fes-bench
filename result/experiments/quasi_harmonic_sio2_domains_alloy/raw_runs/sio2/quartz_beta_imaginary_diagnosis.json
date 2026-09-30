@@ -1,0 +1,22 @@
+{
+  "system": "sio2",
+  "phase": "quartz_beta",
+  "head": "Domains_Alloy",
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "volume_scale": 1.0,
+  "minimum_frequency_THz": -0.6546361230241283,
+  "negative_mode_fraction": 0.0005787037037037037,
+  "negative_qpoint_fraction": 0.013888888888888888,
+  "negative_threshold_THz": -0.05,
+  "qh_reliable": true,
+  "source_qh_summary": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json"
+}

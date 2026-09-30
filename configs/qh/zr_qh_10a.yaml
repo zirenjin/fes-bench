@@ -1,0 +1,15 @@
+{
+  "data_root": "../../data/processed",
+  "output_root": "../../result/experiments/quasi_harmonic_10a/raw_runs",
+  "system": "zr",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "head": "Domains_Alloy",
+  "phases": ["hcp", "bcc"],
+  "supercell_matrix": [4, 4, 4],
+  "supercell_matrix_by_phase": {"hcp": [4, 4, 2], "bcc": [3, 3, 3]},
+  "mesh": [12, 12, 12],
+  "volume_scales": [0.98, 1.0, 1.02],
+  "displacement_distance_A": 0.01,
+  "imaginary_frequency_cutoff_THz": -0.05,
+  "imaginary_reliable_fraction": 0.01
+}

@@ -26,6 +26,14 @@ def main() -> int:
         exec(compile(source, f"{notebook}:cell-{index}", "exec"), namespace)
         if index == 5:
             checks = "\n".join(namespace["CHECKS"]) + "\n"
+            # Provenance check is kept outside the notebook so it cannot be
+            # accidentally bypassed by display/export code.
+            audit = root / "result/experiments/checkpoint_consistency/findings.csv"
+            if audit.exists():
+                import csv
+                rows = list(csv.DictReader(audit.open(encoding="utf-8")))
+                bad = [r for r in rows if r.get("status") == "mismatch"]
+                checks += ("⚠ checkpoint/head mismatch: %d\n" % len(bad)) if bad else "✓ checkpoint/head provenance consistent for audited canonical rows\n"
             (root / "result/tables/_checks.txt").write_text(checks, encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in namespace["CHECKS"]) else 0
     raise RuntimeError("notebook consistency-check cell was not executed")

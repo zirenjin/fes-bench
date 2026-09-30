@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-09-29T20:00:52.947826+00:00",
-  "git_commit": "34d19661f11fb0d18c035cc45df240db8cdacab4",
+  "generated_utc": "2026-09-30T03:46:50.056484+00:00",
+  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "207c5dbb5bba26c617ff4866654bcba984e20769542c4d947a2effaa2109a140"
+      "sha256": "06a8d0b9df5ca0fca620272549c79f578d9e4ab7cdd7bf810a153e82ba146fe6"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_delta_g/seed_none/metrics.json",
-      "sha256": "6d76d599fa0b716ee747c175d9cd30b50cc083fcfb0b245c3ef72023e835d45e"
+      "sha256": "7085466e3d3fe1e8ea14bc94b950e65bdb6911d9e8736c2025ca791669f327e9"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
@@ -16,15 +16,15 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "8eb45ca56cc30211716fbb05a662a2f2a81bcf3bc00a2a0e8c67d05f62a40355"
+      "sha256": "8e2da1844e4730923eea8824d4e0da3d3a43fa1b221604fabe385ef374d2725c"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "6c251161859b79dafac83909da0fc301c098f0029b1f885afbc1639fbc3697a3"
+      "sha256": "a926985ea95a3573e8c2cf8a122f738715979dcdfeb896dda11dba4581853c41"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "6bbf331062509b7fc27a0bb185cbbd4c87a12e099e9f5db8845f68068b65d0f5"
+      "sha256": "0fdbeebe78c3e549ea8098f81a7f0bc9ee2feb1ca877075647a4aee84a37addd"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
@@ -40,7 +40,7 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "b474c128e84ab6d4a2150ad123f4c8a11e0601ba8c9926c89d1321208126ffd2"
+      "sha256": "6916889e0de934edeb2e82cb07f05a50af1abc79a416a9dd9f0a2f0c9bfde203"
     }
   ],
   "missing": [],

@@ -1,35 +1,101 @@
 {
-  "generated_utc": "2026-09-29T18:54:37.338687+00:00",
-  "git_commit": "771ea0bcb80f0bb1abe15235030c3c257d037451",
+  "generated_utc": "2026-09-30T03:58:21.740800+00:00",
+  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
   "inputs": [
     {
-      "path": "data/processed/hf/bcc/phonon_report.json",
-      "sha256": "d6ffa79ee677854e85d8bd3c9d9c018855aadc0021b1b240fb41f4abce1272b4"
+      "path": "data/processed/hf/bcc/meta.json",
+      "sha256": "77268126939d02b2248682474ed4d9529b31ec52325b25315134d362aeb570bd"
     },
     {
-      "path": "data/processed/hf/hcp/phonon_report.json",
-      "sha256": "ebf236472ab6588e87ac715534ed70e5305b9d0bb9b7cdfb255cd15eda9bb0aa"
+      "path": "data/processed/hf/bcc/structure.extxyz",
+      "sha256": "926c117b2a022b78feba3693b844f36a90d607c7838f0a15cdd11615ebc82d57"
     },
     {
-      "path": "data/processed/ti/bcc/phonon_report.json",
-      "sha256": "318c16d23efbb17a9e7b66f4e5f0a5ff4de84da0e3993c5a4c8de09275431139"
+      "path": "data/processed/hf/hcp/meta.json",
+      "sha256": "fdd95cf313e0c4e68e65d68c861b6cc3dadd8c1ca33c570a44b8568b749c39e1"
     },
     {
-      "path": "data/processed/ti/hcp/phonon_report.json",
-      "sha256": "799d752e9c0726d3928539f17bd5f68efe1e31dc76e2f7e60744f9e000166401"
+      "path": "data/processed/hf/hcp/structure.extxyz",
+      "sha256": "80499285b4de6ac3ef304c2574b81019f6942a520297fa08eb8663f44cf20d45"
     },
     {
-      "path": "data/processed/zr/bcc/phonon_report.json",
-      "sha256": "f9d6a355bc7de210c40658476f4a437e6fdb0ba0611121ef394af8ba8ba353fb"
+      "path": "data/processed/sio2/cristobalite_beta/meta.json",
+      "sha256": "f48b5003ecb8451fb6073eae142e65ab53257c6d686264d71400807177b953fb"
     },
     {
-      "path": "data/processed/zr/hcp/phonon_report.json",
-      "sha256": "8739359f79987712a59c1cd44e45bea929d22d8a2338a7b9fc1908f771961241"
+      "path": "data/processed/sio2/cristobalite_beta/structure.extxyz",
+      "sha256": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/meta.json",
+      "sha256": "2c34ec0eeefed463f4c36a6f9a7869c1432fb5819838b120987fb61790d5f17c"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/structure.extxyz",
+      "sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/meta.json",
+      "sha256": "3dbb9d8cb69f13ba76682e5dc3e65c42889be6cd43bc79834123bc6b438e1b8e"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/structure.extxyz",
+      "sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e"
+    },
+    {
+      "path": "data/processed/ti/bcc/meta.json",
+      "sha256": "727046a3826c1e077c63b918cda196d559bc5eaf4feae905d6bb550298ace138"
+    },
+    {
+      "path": "data/processed/ti/bcc/structure.extxyz",
+      "sha256": "c35db4e4c20d8fb3e53ebb1970abae39ad3910b044ca16e3586a3d26a942d0cd"
+    },
+    {
+      "path": "data/processed/ti/hcp/meta.json",
+      "sha256": "2ef2993024eb3ad424381689956fa133a0342d4fee371f8f06dac9d7950a4cc8"
+    },
+    {
+      "path": "data/processed/ti/hcp/structure.extxyz",
+      "sha256": "8ad45674d035c7951afca5fb94ac458a2a213bcb4c63fd6715b54b2a2480b498"
+    },
+    {
+      "path": "data/processed/zr/bcc/meta.json",
+      "sha256": "d025c0a7857dfbdf90d5ae3da462936eafdebcd86b43db961eee8f0c9adcaa3b"
+    },
+    {
+      "path": "data/processed/zr/bcc/structure.extxyz",
+      "sha256": "b130b555367f6db6fe925f6291210f832676668acb679d8f64c11577b1e55882"
+    },
+    {
+      "path": "data/processed/zr/hcp/meta.json",
+      "sha256": "804f9a3eea131e1f00fc346ffddfa42af110e82a4b99ad4d4c63abe10332f9b4"
+    },
+    {
+      "path": "data/processed/zr/hcp/structure.extxyz",
+      "sha256": "c56c0f8e60ce25466ec6f83c7e1c4f2a8b7eb8f6d0ce6a388a9c3d7b949297ce"
     },
     {
       "path": "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json",
-      "sha256": "a2309cc9a14d4f9499aa79886fdb7a13f03406d6ecf4ae01246d82bc73906070"
+      "sha256": "a8caeb8474ebf0454345f1fa2c91a1abfdb90cdaf580c10df853644e23d6025f"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/hf/qh_summary.json",
+      "sha256": "4eca2a8d22505c345dad5aa8735df65f648a154e7912a350716bab38f9382cf3"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/ti/qh_summary.json",
+      "sha256": "f8a53978fb894657931c2037702b07fa858df286e9a6452549ffcf766b5d2b5c"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json",
+      "sha256": "32dca4bff7f4baac9a1fb3e3ab932aa1e3a6644beebbad0756c9a78450ecfd51"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json",
+      "sha256": "3e4189b707b8d94a840cc06cbe2ba5e068fc2adef7f1e6c6a3317dfb9f84472b"
     }
   ],
-  "missing": []
+  "missing": [],
+  "imaginary_reliable_fraction_threshold": 0.01,
+  "qh_reliable_derived": "imaginary_fraction <= threshold"
 }

@@ -1,0 +1,55 @@
+{
+  "functional": "PBE",
+  "dispersion": "D3(BJ)",
+  "supercell": "not separately reported in thermodynamic table",
+  "kpoints": "not separately reported in thermodynamic table",
+  "convergence": "not separately reported in thermodynamic table",
+  "size_error_eV_per_atom": 0.0,
+  "method": "direct upsampling",
+  "doi": "10.18419/DARUS-4999",
+  "notes": "The source does not separately report a size-error bound; numeric zero is a schema placeholder and must not be interpreted as a convergence claim.",
+  "interpolated": false,
+  "raw_table": "../../data/raw/sio2/unpacked/direct_upsampling_data_rungs_1-3/thermodynamic_properties/quartz_beta_pbe_d3bj.csv",
+  "unit_conversion": {
+    "energy_to_eV_per_atom": 1.0,
+    "pressure_to_GPa": 1.0
+  },
+  "grid_harmonization": {
+    "original_points": 1649,
+    "common_points": 1649,
+    "method": "exact T/P intersection; no free-energy value interpolation"
+  },
+  "representative": {
+    "status": "relaxed",
+    "source": "data/processed/sio2/_ideal_sources/quartz.cif",
+    "source_sha256": "a8770add6d4351ce4cd9256174ba5180e288bedbd1ba76ac57225c88573e6abc",
+    "source_url": "https://www.aflowlib.org/prototype-encyclopedia/A2B_hP9_181_i_d-001/aflow.cif",
+    "prototype": "A2B_hP9_181_i_d-001",
+    "icsd": "26430",
+    "space_group": {
+      "before": "P6_422",
+      "after": "P6_422"
+    },
+    "target_space_group": "P6_422",
+    "calculator": "deepmd.calculator.DP",
+    "head": "Domains_SSE_PBE",
+    "converged": true,
+    "energy_eV_per_atom": {
+      "before": -4.060992817083995,
+      "after": -4.071328053871791
+    },
+    "max_displacement_A": 0.05159684919614749,
+    "fmax_eV_per_A": 0.001,
+    "max_steps": 5000,
+    "source_atoms": 9,
+    "relaxed_atoms": 9,
+    "archive_previous": "data/processed/sio2/_archive_md_snapshot/quartz_beta/meta.json"
+  },
+  "downstream_recompute_required": [
+    "result/experiments/external_baselines (Bartel and phase-level baselines)",
+    "result/experiments/quasi_harmonic",
+    "result/experiments/imaginary_modes",
+    "result/experiments/reference_statistics",
+    "result/experiments/representative_structures (E4)"
+  ]
+}

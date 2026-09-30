@@ -8,6 +8,7 @@ a reference crossing.
 from __future__ import annotations
 
 import argparse
+import statistics
 from pathlib import Path
 from typing import Any
 
@@ -139,6 +140,12 @@ def e1_rows() -> list[dict[str, Any]]:
     return [{"predictor": name, **{field: NOT_TRAINED for field in FIELDS if field not in {"predictor", "pairs_covered", "floor_predictor"}}, "pairs_covered": 0, "floor_predictor": "zero"} for name in ("repr. regression (polynomial)", "repr. regression (tlog)")]
 
 
+DISPLAY = {
+    "repr_regression_polynomial": "repr. regression (polynomial)",
+    "repr_regression_tlog": "repr. regression (tlog)",
+}
+
+
 FIELDS = ["predictor", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "skill_score", "floor_predictor", "seed_mean", "seed_std"]
 
 
@@ -149,22 +156,38 @@ def main() -> int:
     parser.add_argument("--output-root", type=Path, default=Path("result/tables"))
     args = parser.parse_args(); root = args.repo_root.resolve(); output = args.output_root if args.output_root.is_absolute() else root / args.output_root
     inputs: list[Path] = []
-    default: dict[str, dict[str, Any]] = {}
-    all_pairs: dict[str, dict[str, Any]] = {}
-    sio2: dict[str, dict[str, Any]] = {}
+    grouped: dict[str, list[dict[str, Any]]] = {}
     fold_rows: list[dict[str, Any]] = []
     for path, body in raw_runs(root, args.split):
         inputs.append(path)
-        predictor = path.parts[-3]
+        predictor = DISPLAY.get(path.parts[-3], path.parts[-3])
         metrics = body["metrics"]
-        default[predictor] = summarize(metrics, include_all_pairs=False)
-        all_pairs[predictor] = summarize(metrics, include_all_pairs=True)
-        sio2[predictor] = summarize(metrics, include_all_pairs=False, system="sio2")
-        for fold_name, fold_body in folds(metrics).items():
-            fold_rows.append({"predictor": predictor, "fold": fold_name, "n_test_frames": fold_body.get("n_test_frames", ""), **summarize({"folds": {fold_name: fold_body}}, include_all_pairs=False)})
-    rows = result_rows(default) + e1_rows()
-    all_rows = result_rows(all_pairs) + e1_rows()
-    sio2_rows = result_rows(sio2) + e1_rows()
+        grouped.setdefault(predictor, []).append(metrics)
+    default: dict[str, dict[str, Any]] = {}; all_pairs: dict[str, dict[str, Any]] = {}; sio2: dict[str, dict[str, Any]] = {}
+    seed_stats: dict[str, tuple[float, float]] = {}
+    for predictor, metric_list in grouped.items():
+        def combine(include_all: bool, system_name: str | None = None) -> dict[str, Any]:
+            folds_combined: dict[str, Any] = {}
+            for idx, metric in enumerate(metric_list):
+                for fold_name, fold_body in folds(metric).items():
+                    folds_combined[f"run_{idx}_{fold_name}"] = fold_body
+            return summarize({"folds": folds_combined}, include_all, system=system_name)
+        default[predictor] = combine(False); all_pairs[predictor] = combine(True); sio2[predictor] = combine(False, "sio2")
+        values = [numeric(summarize(metric, False).get("delta_G_MAE_eV_per_atom")) for metric in metric_list]
+        values = [value for value in values if value is not None]
+        if len(values) > 1:
+            seed_stats[predictor] = (sum(values) / len(values), statistics.stdev(values))
+        for metric in metric_list:
+            for fold_name, fold_body in folds(metric).items():
+                fold_rows.append({"predictor": predictor, "fold": fold_name, "n_test_frames": fold_body.get("n_test_frames", ""), **summarize({"folds": {fold_name: fold_body}}, include_all_pairs=False)})
+    rows = result_rows(default); all_rows = result_rows(all_pairs); sio2_rows = result_rows(sio2)
+    present = {row["predictor"] for row in rows}
+    placeholders = [row for row in e1_rows() if row["predictor"] not in present]
+    rows += placeholders; all_rows += [row for row in placeholders if row["predictor"] not in {r["predictor"] for r in all_rows}]; sio2_rows += [row for row in placeholders if row["predictor"] not in {r["predictor"] for r in sio2_rows}]
+    for table_rows in (rows, all_rows, sio2_rows):
+        for row in table_rows:
+            if row["predictor"] in seed_stats:
+                row["seed_mean"], row["seed_std"] = seed_stats[row["predictor"]]
     rows.sort(key=lambda row: row["predictor"]); all_rows.sort(key=lambda row: row["predictor"]); sio2_rows.sort(key=lambda row: row["predictor"]); fold_rows.sort(key=lambda row: (row["predictor"], row["fold"]))
     csv_path = output / f"predictor_comparison_{args.split}.csv"
     csv_write(csv_path, FIELDS, rows)

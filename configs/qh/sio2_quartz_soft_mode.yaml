@@ -1,0 +1,14 @@
+data_root: ../../data/processed
+system: sio2
+phase: quartz_beta
+checkpoint: external/checkpoints/DPA-3.1-3M.pt
+heads: [Domains_SSE_PBE]
+volume_scale: 1.0
+supercell_matrix: [2, 2, 2]
+mesh: [16, 16, 16]
+displacement_distance_A: 0.01
+negative_threshold_THz: -0.05
+gamma_radius_fraction: 0.05
+asr: false
+fc_symmetry: false
+output_markdown: ../../result/experiments/imaginary_modes/quartz_soft_mode.md

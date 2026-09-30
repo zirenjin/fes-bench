@@ -1,0 +1,22 @@
+{
+  "system": "sio2",
+  "phase": "tridymite_p63mmc",
+  "head": "Domains_SSE_PBE",
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "volume_scale": 1.0,
+  "minimum_frequency_THz": -2.634327333218618,
+  "negative_mode_fraction": 0.055652006172839504,
+  "negative_qpoint_fraction": 0.9600694444444444,
+  "negative_threshold_THz": -0.05,
+  "qh_reliable": false,
+  "source_qh_summary": "result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/qh_summary.json"
+}

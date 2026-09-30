@@ -71,8 +71,9 @@ The active reference domain has 4 systems, 9 phases, and 6 within-system phase
 pairs: Hf (2/1), SiO2 (3/3), Ti (2/1), and Zr (2/1), where each parenthesis is
 phases/pairs. The tabulated reference grids span 693–1,649 points per phase.
 
-SiO2 QH production has diagnostic outputs for 3 of 3 active SiO2 phases; 0 of
-3 pass the physical reliability gate because of imaginary-mode diagnostics.
+Formal Domains_Alloy SiO2 QH production has diagnostic outputs for 3 of 3
+active phases; 1 of 3 (β-quartz) passes the 1% physical reliability gate, while
+β-cristobalite and β-tridymite do not.
 Hf, Ti, and Zr have no current QH production `metrics.json` in this result
 layer, which is data/provenance unavailable here rather than a statement that
 their representative structures are missing. Ti and Zr representative
