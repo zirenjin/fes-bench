@@ -1,26 +1,16 @@
 {
-  "generated_utc": "2026-09-30T03:55:17.361582+00:00",
-  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "generated_utc": "2026-09-30T04:21:17.065932+00:00",
+  "git_commit": "f54bbbd48d3e0232653532d0b475cef5d5fb725c",
   "system": "sio2",
   "old_sources": "canonical data/processed/<system>/<phase>/fqh.csv and archived/current metadata",
   "new_source": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json",
   "inputs_sha256": {
-    "data/processed/sio2/_archive_md_snapshot/cristobalite_beta/meta.json": "239ca783b5c7228ac5b2da86f66ea35e61536481cb27e4fc5c9e53958a952137",
-    "data/processed/sio2/_archive_md_snapshot/quartz_beta/meta.json": "1ae62d7f482289bbd87cf90cf8bc404a83759735f0fb992203417e35b40042a2",
-    "data/processed/sio2/_archive_md_snapshot/tridymite_p63mmc/meta.json": "c3b0b52d3c68156558d7b2bf9fc4e05e0d709a8238e0e5d8faa093c444253500",
-    "data/processed/sio2/cristobalite_beta/meta.json": "f48b5003ecb8451fb6073eae142e65ab53257c6d686264d71400807177b953fb",
-    "data/processed/sio2/quartz_beta/meta.json": "2c34ec0eeefed463f4c36a6f9a7869c1432fb5819838b120987fb61790d5f17c",
-    "data/processed/sio2/tridymite_p63mmc/meta.json": "3dbb9d8cb69f13ba76682e5dc3e65c42889be6cd43bc79834123bc6b438e1b8e",
-    "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/cristobalite_beta_fqh.csv": "5acf33327661c29c5741415c4696eff4a5214a6739a2d3a6df5c77ab91417873",
-    "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/cristobalite_beta_imaginary_diagnosis.json": "571ea821d1aeb0b93b7c4c13cf2a52fa7e79f5cee363f68a028f10a5ba13b50b",
-    "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/quartz_beta_fqh.csv": "5213897edca222f672cfcd58134e46279f1a5152f27b8e3e08ad2324b8bdf466",
-    "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/quartz_beta_imaginary_diagnosis.json": "7b9692e3f0b3ff0ed3bfeab23c7ccfa131f3c039ce2d769392e0dca289d39b96",
-    "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/tridymite_p63mmc_fqh.csv": "56767ed9d3f4b2835d81e82c3caa95d66a6408188c8812d0285f18bd773c0b03",
-    "result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/tridymite_p63mmc_imaginary_diagnosis.json": "5e8a98aaa7962df19016ab66f1ecf49ce97d11370499efdbf961242ef9cf1b3a",
-    "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/cristobalite_beta_fqh.csv": "615592a1c87306c1c20b755aaf1a630663726d143675593de82e68652e96b04c",
-    "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json": "3e4189b707b8d94a840cc06cbe2ba5e068fc2adef7f1e6c6a3317dfb9f84472b",
-    "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/quartz_beta_fqh.csv": "11edaff4ece062e1ad291de8b2048621b40e159cf6bf278509df51ac107c4ddc",
-    "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/tridymite_p63mmc_fqh.csv": "1eb4000968213d62c311a0729fc7b4cdb4b388edb2c3fb0870c98a47e11644f2"
+    "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json": "3e4189b707b8d94a840cc06cbe2ba5e068fc2adef7f1e6c6a3317dfb9f84472b"
   },
-  "missing": []
+  "missing": [
+    {
+      "field": "findings",
+      "reason": "no matching old/new F_QH files"
+    }
+  ]
 }

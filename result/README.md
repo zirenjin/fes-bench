@@ -93,8 +93,9 @@ silently regenerated from the new representatives.
 
 QH now uses the same ≥10 Å shortest-edge protocol for SiO₂ and metals: SiO₂
 uses `[2,2,2]` for all three phases, while Hf/Ti/Zr use phase-specific cells.
-The new SiO₂ QH outputs and imaginary fractions are in
-`experiments/quasi_harmonic_ideal_rebuild/`; metal old/new comparisons are in
+The canonical SiO₂ QH outputs and imaginary fractions are in
+`experiments/quasi_harmonic_sio2_domains_alloy/`; superseded SSE-PBE versions
+are archived under `experiments/legacy_support/qh_superseded_20260930/`; metal old/new comparisons are in
 `experiments/quasi_harmonic_10a/{hf,ti,zr}/findings.csv`. The superseded
 fixed-cell SiO₂ QH outputs are retained under the explicitly invalid
 `legacy_invalid_fixed_cell_20260929/` directory and are not used by tables.
@@ -117,6 +118,17 @@ modes inside the configured Γ neighborhood). It is annotated as a possible
 physical soft mode, but is not Γ-exclusive; the qh_reliable rule is unchanged.
 The 1% imaginary-mode fraction threshold may be insensitive to soft-mode-driven
 phase transitions.
+
+`phase_inventory.csv` takes every SiO₂ imaginary fraction from
+`experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json`,
+the `1.0` equilibrium-volume entry with `[2,2,2]` supercell; the superseded
+SSE-PBE QH outputs are archived under
+`experiments/legacy_support/qh_superseded_20260930/`. The dedicated β-quartz
+soft-mode diagnostic reports a minimum of −1.1533986 THz at q = `[0,0,0]`
+(Γ), recorded in the phase table without replacing the formal fraction.
+The previously reported 0.161% / 4.75% / 5.57% values came from the
+SSE-PBE diagnostic and are now archive-only, so they no longer compete with
+the canonical table source.
 
 Checkpoint provenance for E_DPA/F_QH artifacts is indexed by
 `experiments/checkpoint_consistency/findings.csv`. Formal fields use SHA-256

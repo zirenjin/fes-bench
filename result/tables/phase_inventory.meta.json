@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-30T03:58:21.740800+00:00",
-  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "generated_utc": "2026-09-30T04:21:28.908177+00:00",
+  "git_commit": "f54bbbd48d3e0232653532d0b475cef5d5fb725c",
   "inputs": [
     {
       "path": "data/processed/hf/bcc/meta.json",
@@ -77,6 +77,10 @@
     {
       "path": "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json",
       "sha256": "a8caeb8474ebf0454345f1fa2c91a1abfdb90cdaf580c10df853644e23d6025f"
+    },
+    {
+      "path": "result/experiments/imaginary_modes/quartz_soft_mode.json",
+      "sha256": "d7657f4f3dc6d145cadf99d0e068fd786150f5f3f95f48a5468e705d28e19eff"
     },
     {
       "path": "result/experiments/quasi_harmonic_10a/raw_runs/hf/qh_summary.json",

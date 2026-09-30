@@ -19,6 +19,23 @@ from common import csv_write, inventory, meta_write
 IMAGINARY_THRESHOLD = 0.01
 
 
+def _representative_origin(representative: dict[str, Any]) -> str:
+    """Render AFLOW/MP/DaRUS provenance for the representative structure."""
+    parts: list[str] = []
+    if representative.get("prototype"):
+        parts.append(f"AFLOW:{representative['prototype']}")
+    if representative.get("material_id"):
+        parts.append(f"MP:{representative['material_id']}")
+    if representative.get("icsd"):
+        parts.append(f"ICSD:{representative['icsd']}")
+    if representative.get("darus_phase"):
+        parts.append(f"DaRUS:{representative['darus_phase']}")
+    source = representative.get("source") or representative.get("source_structure")
+    if source and not parts:
+        parts.append(f"file:{source}")
+    return ";".join(str(item) for item in parts) or "not reported"
+
+
 def _lattice(path: Path) -> tuple[list[float], int | None]:
     if not path.exists():
         return [], None
@@ -37,12 +54,13 @@ def _lattice(path: Path) -> tuple[list[float], int | None]:
 
 
 def _candidate_qh(root: Path, system: str, phase: str) -> tuple[dict[str, Any], Path | None, dict[str, Any]]:
-    candidates = sorted(root.glob("result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/*/qh_summary.json"))
-    candidates += sorted(root.glob("result/experiments/quasi_harmonic_10a/raw_runs/*/qh_summary.json"))
-    candidates += sorted(root.glob("result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/*/qh_summary.json"))
-    candidates += sorted(root.glob("result/experiments/quasi_harmonic/raw_runs/*/seed_none/qh_summary.json"))
-    candidates += sorted(root.glob("data/processed/*/qh_remote/qh_summary.json"))
-    candidates += sorted(root.glob("result/experiments/legacy_support/phase2*/**/qh_summary.json"))
+    # One canonical diagnostic source per domain.  SiO2 uses the formal
+    # Domains_Alloy run at equilibrium volume and [2,2,2]; superseded SSE/PES
+    # runs are archived and must not silently win by glob ordering.
+    if system == "sio2":
+        candidates = sorted(root.glob("result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/*/qh_summary.json"))
+    else:
+        candidates = sorted(root.glob("result/experiments/quasi_harmonic_10a/raw_runs/*/qh_summary.json"))
     for path in candidates:
         try:
             summary = json.loads(path.read_text(encoding="utf-8"))
@@ -75,6 +93,19 @@ def _diagnostic(root: Path, system: str, phase: str, summary_path: Path | None, 
     return None, None
 
 
+def _soft_mode_fields(root: Path, system: str, phase: str) -> tuple[Any, Any]:
+    if system != "sio2" or phase != "quartz_beta":
+        return "", ""
+    path = root / "result/experiments/imaginary_modes/quartz_soft_mode.json"
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(payload.get("heads"), list) and payload["heads"]:
+            payload = payload["heads"][0]
+        return payload.get("minimum_frequency_THz", ""), payload.get("minimum_frequency_qpoints", "")
+    except (OSError, json.JSONDecodeError):
+        return "", ""
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", type=Path, default=Path("."))
@@ -100,6 +131,10 @@ def main() -> int:
         if summary_path is not None:
             inputs.append(summary_path)
         imaginary_fraction, diagnostic_path = _diagnostic(root, system, phase, summary_path, phase_record)
+        minimum_frequency, minimum_qpoints = _soft_mode_fields(root, system, phase)
+        soft_mode_path = root / "result/experiments/imaginary_modes/quartz_soft_mode.json"
+        if system == "sio2" and phase == "quartz_beta" and soft_mode_path.exists():
+            inputs.append(soft_mode_path)
         if diagnostic_path is not None:
             inputs.append(diagnostic_path)
         qh_matrix = phase_record.get("supercell_matrix", summary.get("supercell_matrix", ""))
@@ -115,12 +150,17 @@ def main() -> int:
             "space_group_after": sg.get("after", representative.get("space_group_after", "")),
             "primitive_cell_atoms": 1 if phase == "bcc" else representative.get("primitive_atoms", atom_count or ""),
             "representative_source": source,
+            "representative_origin": _representative_origin(representative),
             "relaxation_status": representative.get("status", ""),
             "qh_supercell": "x".join(str(value) for value in qh_matrix) if qh_matrix else "",
             "primitive_shortest_edge_A": min(primitive_edges) if primitive_edges else "",
             "qh_supercell_shortest_edge_A": min(qh_edges) if qh_edges else "",
             "q_mesh": phase_record.get("mesh", summary.get("mesh", "")),
             "imaginary_fraction": imaginary_fraction if imaginary_fraction is not None else "",
+            "imaginary_source": str(summary_path.relative_to(root)) if summary_path is not None else (str(diagnostic_path.relative_to(root)) if diagnostic_path is not None else ""),
+            "imaginary_volume_scale": "1.0" if summary_path is not None else "not reported",
+            "minimum_frequency_THz": minimum_frequency,
+            "minimum_frequency_qpoints": json.dumps(minimum_qpoints, separators=(",", ":")) if isinstance(minimum_qpoints, list) else minimum_qpoints,
             "qh_reliable": derived_reliable,
         })
         if not primitive_edges:
@@ -129,7 +169,7 @@ def main() -> int:
             missing.append({"field": f"{key}.imaginary_fraction", "reason": "QH diagnostic did not record an imaginary-mode fraction"})
         if not qh_matrix:
             missing.append({"field": f"{key}.qh_supercell", "reason": "QH summary is not available"})
-    fields = ["system", "phase", "space_group_before", "space_group_after", "primitive_cell_atoms", "representative_source", "relaxation_status", "qh_supercell", "primitive_shortest_edge_A", "qh_supercell_shortest_edge_A", "q_mesh", "imaginary_fraction", "qh_reliable"]
+    fields = ["system", "phase", "space_group_before", "space_group_after", "primitive_cell_atoms", "representative_source", "representative_origin", "relaxation_status", "qh_supercell", "primitive_shortest_edge_A", "qh_supercell_shortest_edge_A", "q_mesh", "imaginary_fraction", "imaginary_source", "imaginary_volume_scale", "minimum_frequency_THz", "minimum_frequency_qpoints", "qh_reliable"]
     csv_path = output / "phase_inventory.csv"
     csv_write(csv_path, fields, rows)
     meta_write(root, csv_path, inputs, missing, {"imaginary_reliable_fraction_threshold": IMAGINARY_THRESHOLD, "qh_reliable_derived": "imaginary_fraction <= threshold"})

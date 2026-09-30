@@ -1,11 +1,5 @@
 phase,minimum_frequency_THz,minimum_frequency_qpoints,negative_mode_fraction,negative_qpoint_fraction,negative_modes_are_gamma_local,possible_physical_soft_mode,qh_reliable,checkpoint_sha256,head,source
 hcp,-2.495846251906003,[],,,False,False,False,,Domains_SSE_PBE,result/experiments/legacy_support/phase2/hcp_imaginary_diagnosis.json
-cristobalite_beta,-1.7003437316879308,[],0.013695141596274637,1.0,False,False,False,,Domains_SSE_PBE,result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/cristobalite_beta_imaginary_diagnosis.json
-quartz_beta,-2.63651796751047,[],0.005466913740684588,0.9995126705653021,False,False,False,,Domains_SSE_PBE,result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/quartz_beta_imaginary_diagnosis.json
-tridymite_p63mmc,-1.6536151379484725,[],0.01455896686159844,1.0,False,False,False,,Domains_SSE_PBE,result/experiments/quasi_harmonic/raw_runs/sio2/seed_none/tridymite_p63mmc_imaginary_diagnosis.json
-cristobalite_beta,-2.646364797465613,[],0.047453703703703706,1.0,,False,False,,Domains_SSE_PBE,result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/cristobalite_beta_imaginary_diagnosis.json
-quartz_beta,-1.0540316023329863,[],0.0016075102880658437,0.03993055555555555,,False,True,,Domains_SSE_PBE,result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/quartz_beta_imaginary_diagnosis.json
-tridymite_p63mmc,-2.634327333218618,[],0.055652006172839504,0.9600694444444444,,False,False,,Domains_SSE_PBE,result/experiments/quasi_harmonic_ideal_rebuild/raw_runs/sio2/tridymite_p63mmc_imaginary_diagnosis.json
 bcc,-2.2039927076474157,[],0.2107843137254902,0.5588235294117647,,False,False,,Domains_Alloy,result/experiments/quasi_harmonic_10a/raw_runs/hf/bcc_imaginary_diagnosis.json
 hcp,0.28920800443080485,[],0.0,0.0,,False,True,,Domains_Alloy,result/experiments/quasi_harmonic_10a/raw_runs/hf/hcp_imaginary_diagnosis.json
 bcc,-4.1349394540504205,[],0.2648809523809524,0.8392857142857143,,False,False,,Domains_Alloy,result/experiments/quasi_harmonic_10a/raw_runs/ti/bcc_imaginary_diagnosis.json
