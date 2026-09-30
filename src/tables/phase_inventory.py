@@ -54,9 +54,9 @@ def _lattice(path: Path) -> tuple[list[float], int | None]:
 
 
 def _candidate_qh(root: Path, system: str, phase: str) -> tuple[dict[str, Any], Path | None, dict[str, Any]]:
-    # One canonical diagnostic source per domain.  SiO2 uses the formal
-    # Domains_Alloy run at equilibrium volume and [2,2,2]; superseded SSE/PES
-    # runs are archived and must not silently win by glob ordering.
+    # One canonical diagnostic source per domain.  SiO2 uses the adopted
+    # Domains_SSE_PBE run at equilibrium volume and [2,2,2]; the superseded
+    # Domains_Alloy run is archived and must not silently win by glob ordering.
     if system == "sio2":
         candidates = sorted(root.glob("result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/*/qh_summary.json"))
     else:
