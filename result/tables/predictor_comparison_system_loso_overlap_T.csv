@@ -1,7 +1,7 @@
 predictor,G_MAE_eV_per_atom,delta_G_MAE_eV_per_atom,delta_G_RMSE_eV_per_atom,sign_accuracy,ranking_accuracy,Tc_error_K,Tc_err_from_dG_K,false_crossings,missed_crossings,pairs_covered,skill_score,floor_predictor,seed_mean,seed_std
-bartel2018,7.849539351519322,,,,1.0,,,,,0,,zero,n/a:no_seed,n/a:no_seed
-constant_delta_g,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,,zero,n/a:no_seed,n/a:no_seed
-global_mean_delta_g,n/a:input_unavailable,,,,0.0,,,,,0,,zero,n/a:no_seed,n/a:no_seed
-interp_const,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,,zero,n/a:no_seed,n/a:no_seed
-phase_id_mlp,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,,zero,n/a:no_seed,n/a:no_seed
-zero,n/a:input_unavailable,,,,0.0,,,,,0,,zero,n/a:no_seed,n/a:no_seed
+bartel2018,7.849539351519322,0.11829252622199123,0.11837517050634475,1.0,1.0,n/a:no_reference_crossing,n/a:no_reference_crossing,0,0,1,-4.393747791015842,zero,n/a:no_seed,n/a:no_seed
+constant_delta_g,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,n/a:no_training_phase,zero,n/a:no_seed,n/a:no_seed
+global_mean_delta_g,n/a:input_unavailable,0.02477564549876062,0.025404460689407472,0.0,0.0,n/a:no_reference_crossing,n/a:no_reference_crossing,0,0,1,-0.1296874574235649,zero,n/a:no_seed,n/a:no_seed
+interp_const,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,n/a:no_training_phase,zero,n/a:no_seed,n/a:no_seed
+phase_id_mlp,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,n/a:no_training_phase,zero,n/a:no_seed,n/a:no_seed
+zero,n/a:input_unavailable,0.02193141592920354,0.022639368756639723,0.0,0.0,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,1,0.0,zero,n/a:no_seed,n/a:no_seed

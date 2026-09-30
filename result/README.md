@@ -33,6 +33,7 @@ hash; `src/tables/crossing_errors.py --split temp_extrap` performs the read.
 - `n/a:no_training_phase`: a held-out fold lacks a required training phase or system.
 - `n/a:degenerate_prediction`: predicted ΔG is within `1e-12 eV/atom` of zero on the entire evaluation grid, so crossings and their derived errors are undefined.
 - `n/a:missed_crossing`: a reference crossing exists but the predictor produced no corresponding crossing; `Tc_error_K` and `Tc_err_from_dG_K` are undefined.
+- `n/a:undefined_crossing_slope`: a reference crossing exists but the local reference slope is zero, so the ΔG-to-Tc conversion is undefined.
 - `n/a:input_unavailable`: a predictor's required immutable input is absent.
 
 The matching `.meta.json` files retain field-specific explanations. The current

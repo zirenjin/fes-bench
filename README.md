@@ -92,7 +92,7 @@ and the current SiO2 QH curves fail the physical reliability gate.
 
 CSV N/A values are explicit: `n/a:no_reference_crossing`,
 `n/a:pair_only_predictor`, `n/a:no_training_phase`,
-`n/a:degenerate_prediction`, `n/a:missed_crossing`, and `n/a:input_unavailable`. Detailed reasons remain
+`n/a:degenerate_prediction`, `n/a:missed_crossing`, `n/a:undefined_crossing_slope`, and `n/a:input_unavailable`. Detailed reasons remain
 in the matching `.meta.json`. Skill scores now use the zero floor uniformly:
 `1 − MAE / MAE_zero`, where `MAE_zero` is the mean reference `|ΔG|` on the
 evaluated points. This removes split-dependent denominators and makes every

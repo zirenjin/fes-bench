@@ -35,8 +35,21 @@ def main() -> int:
                 if record.get("status") == "unavailable_without_training_phase"
                 else "n/a:no_reference_crossing"
             )
+            if references:
+                tc_marker = "n/a:missed_crossing" if not errors else ""
+            elif record.get("status") == "unavailable_without_training_phase":
+                tc_marker = "n/a:no_training_phase"
+            else:
+                tc_marker = "n/a:no_reference_crossing"
             for index in range(n):
-                row = {"predictor": predictor, "subset": subset, "fold": record.get("fold", ""), "pair": pair, "crossing_index": index + 1, "reference_Tc_K": reference_value[index] if isinstance(reference_value, list) and index < len(reference_value) else (reference_value if index == 0 else ""), "Tc_error_K": errors[index] if index < len(errors) else "", "crossing_slope_eV_per_atom_per_K": slopes[index] if index < len(slopes) else "", "Tc_err_from_dG_K": (record.get("Tc_err_from_dG_K", [])[index] if index < len(record.get("Tc_err_from_dG_K", [])) else ""), "false_crossings": record.get("false_crossings", ""), "missed_crossings": record.get("missed_crossings", "")}
+                slope_value = slopes[index] if index < len(slopes) else (tc_marker or "")
+                if slope_value is None or slope_value == "":
+                    slope_value = tc_marker or "n/a:undefined_crossing_slope"
+                dg_values = record.get("Tc_err_from_dG_K", [])
+                dg_value = dg_values[index] if index < len(dg_values) else tc_marker
+                if dg_value is None or dg_value == "":
+                    dg_value = tc_marker or "n/a:undefined_crossing_slope"
+                row = {"predictor": predictor, "subset": subset, "fold": record.get("fold") or "all", "pair": pair, "crossing_index": index + 1, "reference_Tc_K": reference_value[index] if isinstance(reference_value, list) and index < len(reference_value) else (reference_value if index == 0 else ""), "Tc_error_K": errors[index] if index < len(errors) else tc_marker, "crossing_slope_eV_per_atom_per_K": slope_value, "Tc_err_from_dG_K": dg_value, "false_crossings": tc_marker or record.get("false_crossings", ""), "missed_crossings": tc_marker or record.get("missed_crossings", "")}
                 (overlap_rows if subset == "overlap_T" else rows).append(row)
             if not references:
                 reason = (

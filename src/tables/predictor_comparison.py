@@ -17,6 +17,7 @@ from common import csv_write, meta_write, numeric, raw_runs
 
 PAIR_ONLY = "n/a:pair_only_predictor"
 NO_TRAINING = "n/a:no_training_phase"
+NO_REFERENCE = "n/a:no_reference_crossing"
 DEGENERATE = "n/a:degenerate_prediction"
 MISSED = "n/a:missed_crossing"
 NOT_TRAINED = "n/a:not_trained_for_split"
@@ -58,6 +59,7 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
     false_values: list[int] = []
     missed_values: list[int] = []
     markers: list[Any] = []
+    no_reference = False
     pairs_covered: set[str] = set()
     all_pairs_seen: set[str] = set()
     for fold in folds(metrics).values():
@@ -79,6 +81,8 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
             if pair.get("status") in {"not_fittable_without_pair_training_labels", "unavailable_without_training_phase"}:
                 markers.append(NO_TRAINING)
                 continue
+            if not pair.get("reference_Tc_K", []):
+                no_reference = no_reference or include_all_pairs
             if not include_all_pairs and not pair.get("reference_Tc_K", []):
                 continue
             pairs_covered.add(str(name))
@@ -101,6 +105,7 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
                 elif numeric(value) is not None:
                     target.append(int(value))
     unavailable = marker(markers)
+    tc_unavailable = (NO_REFERENCE if no_reference and not tc_values and NO_TRAINING not in markers else unavailable)
     pair_only = str(metrics.get("method", "")) in {"zero", "constant_delta_g", "global_mean_delta_g"}
     g_mae = weighted(g_values) if system is None and g_values else (PAIR_ONLY if pair_only else "n/a:input_unavailable")
     return {
@@ -109,10 +114,10 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
         "delta_G_RMSE_eV_per_atom": weighted(pair_values["delta_G_RMSE_eV_per_atom"]) if pair_values["delta_G_RMSE_eV_per_atom"] else (unavailable or ""),
         "sign_accuracy": weighted(pair_values["sign_accuracy"]) if pair_values["sign_accuracy"] else (unavailable or ""),
         "ranking_accuracy": weighted(ranking_values) if ranking_values else (unavailable or "n/a:input_unavailable"),
-        "Tc_error_K": sum(tc_values) / len(tc_values) if tc_values else (unavailable or ""),
-        "Tc_err_from_dG_K": sum(slope_values) / len(slope_values) if slope_values else (unavailable or ""),
-        "false_crossings": sum(false_values) if false_values else (unavailable or ""),
-        "missed_crossings": sum(missed_values) if missed_values else (unavailable or ""),
+        "Tc_error_K": sum(tc_values) / len(tc_values) if tc_values else (tc_unavailable or ""),
+        "Tc_err_from_dG_K": sum(slope_values) / len(slope_values) if slope_values else (tc_unavailable or ""),
+        "false_crossings": sum(false_values) if false_values else (tc_unavailable or ""),
+        "missed_crossings": sum(missed_values) if missed_values else (tc_unavailable or ""),
         "pairs_covered": len(pairs_covered),
         "all_pairs_seen": len(all_pairs_seen),
     }
@@ -190,8 +195,25 @@ def main() -> int:
                 fold_rows.append({"predictor": predictor, "fold": fold_name, "eval_subset": "full", "n_test_frames": fold_body.get("n_test_frames", ""), **summarize({"folds": {fold_name: fold_body}}, include_all_pairs=False)})
                 overlap = fold_body.get("overlap_T")
                 if args.split == "system_loso" and isinstance(overlap, dict):
-                    fold_rows.append({"predictor": predictor, "fold": fold_name, "eval_subset": "overlap_T", "n_test_frames": overlap.get("n_test_frames", ""), **summarize({"folds": {fold_name: overlap}}, include_all_pairs=False)})
+                    fold_rows.append({"predictor": predictor, "fold": fold_name, "eval_subset": "overlap_T", "n_test_frames": overlap.get("n_test_frames", ""), **summarize({"folds": {fold_name: overlap}}, include_all_pairs=True)})
     rows = result_rows(default); all_rows = result_rows(all_pairs); sio2_rows = result_rows(sio2)
+    # Add a zero-floor skill score to each fold row, including Hf overlap_T.
+    floor_by_subset: dict[tuple[str, str], float] = {}
+    for fold_row in fold_rows:
+        if fold_row.get("predictor") == "zero":
+            value = numeric(fold_row.get("delta_G_MAE_eV_per_atom"))
+            if value is not None:
+                floor_by_subset[(str(fold_row.get("fold")), str(fold_row.get("eval_subset", "full")))] = value
+    for fold_row in fold_rows:
+        key = (str(fold_row.get("fold")), str(fold_row.get("eval_subset", "full")))
+        mae = numeric(fold_row.get("delta_G_MAE_eV_per_atom")); floor_value = floor_by_subset.get(key)
+        fold_row["floor_predictor"] = "zero"
+        if mae is not None and floor_value and floor_value > 0:
+            fold_row["skill_score"] = 1.0 - mae / floor_value
+        elif isinstance(fold_row.get("delta_G_MAE_eV_per_atom"), str) and fold_row["delta_G_MAE_eV_per_atom"].startswith("n/a:"):
+            fold_row["skill_score"] = fold_row["delta_G_MAE_eV_per_atom"]
+        else:
+            fold_row["skill_score"] = "n/a:input_unavailable"
     present = {row["predictor"] for row in rows}
     placeholders = [row for row in e1_rows() if row["predictor"] not in present]
     rows += placeholders; all_rows += [row for row in placeholders if row["predictor"] not in {r["predictor"] for r in all_rows}]; sio2_rows += [row for row in placeholders if row["predictor"] not in {r["predictor"] for r in sio2_rows}]
@@ -204,8 +226,8 @@ def main() -> int:
     csv_write(csv_path, FIELDS, rows)
     csv_write(output / f"predictor_comparison_{args.split}_include_all_pairs.csv", FIELDS, all_rows)
     csv_write(output / f"predictor_comparison_{args.split}_sio2.csv", FIELDS, sio2_rows)
-    csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "eval_subset", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen"], fold_rows)
-    overlap_rows: list[dict[str, Any]] = []
+    csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "eval_subset", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen", "skill_score", "floor_predictor"], fold_rows)
+    overlap_summaries: dict[str, dict[str, Any]] = {}
     for predictor, metric_list in grouped.items():
         overlap_folds: dict[str, Any] = {}
         for idx, metric in enumerate(metric_list):
@@ -213,8 +235,8 @@ def main() -> int:
                 if isinstance(fold_body, dict) and isinstance(fold_body.get("overlap_T"), dict):
                     overlap_folds[f"run_{idx}_{fold_name}"] = fold_body["overlap_T"]
         if overlap_folds:
-            summary = summarize({"folds": overlap_folds}, False)
-            overlap_rows.append({"predictor": predictor, **summary, "skill_score": "", "floor_predictor": "zero", "seed_mean": NO_SEED, "seed_std": NO_SEED})
+            overlap_summaries[predictor] = summarize({"folds": overlap_folds}, True)
+    overlap_rows = result_rows(overlap_summaries)
     if overlap_rows:
         csv_write(output / f"predictor_comparison_{args.split}_overlap_T.csv", FIELDS, overlap_rows)
     meta_write(root, csv_path, inputs, [], {"aggregation": {"folded_splits": "pair metrics: per-fold test region then n_evaluation_points-weighted; G MAE: n_test_frames-weighted", "default_pairs": "exclude pairs without a reference crossing", "include_all_pairs_csv": f"predictor_comparison_{args.split}_include_all_pairs.csv", "sio2_csv": f"predictor_comparison_{args.split}_sio2.csv", "fold_detail_csv": f"predictor_comparison_{args.split}_folds.csv", "overlap_T_csv": f"predictor_comparison_{args.split}_overlap_T.csv" if overlap_rows else None}, "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."})

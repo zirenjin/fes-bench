@@ -68,6 +68,21 @@ def _non_english_checks(root: Path) -> list[str]:
     return warnings
 
 
+def _metric_csv_empty_checks(root: Path) -> list[str]:
+    """Reject unmarked blanks in fold-level and crossing-level metric CSVs."""
+    out: list[str] = []
+    paths = sorted((root / "result/tables").glob("predictor_comparison_*_folds.csv"))
+    paths += sorted((root / "result/tables").glob("crossing_errors_*.csv"))
+    for path in paths:
+        with path.open(encoding="utf-8", newline="") as fh:
+            for number, row in enumerate(csv.DictReader(fh), start=2):
+                empty = [key for key, value in row.items() if value == ""]
+                if empty:
+                    ident = row.get("predictor", row.get("pair", "row"))
+                    out.append(f"⚠ {path.relative_to(root)}:{number} ({ident}) has unmarked empty cells: {','.join(empty)}")
+    return out
+
+
 def main() -> int:
     root = Path(__file__).resolve().parents[2]
     notebook = root / "src/notebooks/fes_bench_tables.ipynb"
@@ -89,6 +104,7 @@ def main() -> int:
             if exc.name not in {"pandas", "matplotlib", "numpy"}:
                 raise
             checks = _fallback_checks(root)
+            checks.extend(_metric_csv_empty_checks(root))
             checks.extend(_non_english_checks(root))
             (root / "result/tables/_checks.txt").write_text("\n".join(checks) + "\n", encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks) else 0
@@ -109,6 +125,7 @@ def main() -> int:
                 policy_bad = policy_warnings(root)
                 checks += "".join(f"⚠ {item}\n" for item in policy_bad)
             checks += "".join(f"{line}\n" for line in _non_english_checks(root))
+            checks += "".join(f"{line}\n" for line in _metric_csv_empty_checks(root))
             (root / "result/tables/_checks.txt").write_text(checks, encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks.splitlines()) else 0
     raise RuntimeError("notebook consistency-check cell was not executed")
