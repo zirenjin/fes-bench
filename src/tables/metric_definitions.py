@@ -24,10 +24,15 @@ def main() -> int:
             continue
         if not in_section or not line.strip().startswith("- "):
             continue
-        metric, definition, unit, direction = [item.strip() for item in line.strip()[2:].split("|")]
+        # The separator is ambiguous when a definition contains |x| notation.
+        metric, rest = line.strip()[2:].split("|", 1)
+        definition, unit, direction = (item.strip() for item in rest.rsplit("|", 2))
+        metric = metric.strip()
         rows.append({"metric": metric, "definition": definition, "unit": unit, "direction": direction})
-    if not any(row["metric"] == "skill_score" for row in rows):
-        rows.append({"metric": "skill_score", "definition": "1 − MAE / MAE_zero，MAE_zero = 评测点上参照 |ΔG| 的均值", "unit": "fraction", "direction": "↑"})
+    required = {"skill_score", "ranking_accuracy", "Tc_err_from_dG"}
+    missing = sorted(required - {row["metric"] for row in rows})
+    if missing:
+        raise SystemExit(f"evaluator docstring lacks metric definitions: {missing}")
     csv_path = output / "metric_definitions.csv"; csv_write(csv_path, ["metric", "definition", "unit", "direction"], rows)
     meta_write(root, csv_path, [root / "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json", evaluator], [])
     return 0

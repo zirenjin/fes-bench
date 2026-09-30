@@ -1,0 +1,53 @@
+{
+  "provenance": {
+    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "split": "system_loso",
+    "split_sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
+    "predictor_config": "configs/predictors/phase_id_mlp.yaml",
+    "predictor_config_sha256": "587ccb5ca9c23bdd07fc0213b949f02d1ada6d29a2d95521fff6e98fa6900594",
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench historical result normalizer v1",
+    "timestamp_utc": "2026-09-30T16:34:49.353577+00:00",
+    "input_metrics": "result/experiments/external_baselines/recomputed/metrics.json",
+    "input_metrics_sha256": "d73627a1f30986a75bcbe9598bda78ba8a868f8dcbcb56008a723ecba7ef64e5",
+    "missing": []
+  },
+  "metrics": {
+    "folds": {
+      "hf": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+        "n_test_frames": 2504,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+            "status": "unavailable_without_training_phase"
+          }
+        }
+      },
+      "sio2": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
+        "n_test_frames": 4947,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
+            "status": "unavailable_without_training_phase"
+          },
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
+            "status": "unavailable_without_training_phase"
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
+            "status": "unavailable_without_training_phase"
+          }
+        }
+      }
+    },
+    "method": "phase_id_mlp"
+  }
+}

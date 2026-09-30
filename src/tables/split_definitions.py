@@ -65,7 +65,9 @@ def main() -> int:
     rows = []
     inputs = [root / "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json"]
     for split, data in sorted(inventory(root)["splits"].items()):
-        frozen = root / "data/processed/splits" / f"{split}.json"
+        frozen = root / "data/processed/splits_v2" / f"{split}.json"
+        if not frozen.exists():
+            frozen = root / "data/processed/splits" / f"{split}.json"
         if frozen.exists():
             split_json = json.loads(frozen.read_text(encoding="utf-8")); inputs.append(frozen)
         else:

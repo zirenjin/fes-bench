@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-30T17:17:01.246354+00:00",
-  "git_commit": "e0306638903d1754446393908d58bcacdd95aabc",
+  "generated_utc": "2026-09-30T21:05:45.472681+00:00",
+  "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
   "inputs": [
     {
       "path": "data/processed/hf/reference_crossings.json",
@@ -11,16 +11,16 @@
       "sha256": "ffe0974b9a3077158629935fda177be4be6735da36f328b57c378514c0d104fe"
     },
     {
-      "path": "data/processed/splits/phase_lopo.json",
-      "sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac"
+      "path": "data/processed/splits_v2/phase_lopo.json",
+      "sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78"
     },
     {
-      "path": "data/processed/splits/system_loso.json",
-      "sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93"
+      "path": "data/processed/splits_v2/system_loso.json",
+      "sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0"
     },
     {
-      "path": "data/processed/splits/temp_extrap.json",
-      "sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0"
+      "path": "data/processed/splits_v2/temp_extrap.json",
+      "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845"
     },
     {
       "path": "data/processed/ti/reference_crossings.json",
@@ -32,7 +32,7 @@
     },
     {
       "path": "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json",
-      "sha256": "4f2a7e2d48b68576ffcea8c6b373dff0d3ce8a0e21603d0b18cb27af4d74f12a"
+      "sha256": "0109eaaf4903214f1e9c405be56a04af260210685a0b6c3626d0ba24a5ffa24f"
     }
   ],
   "missing": []

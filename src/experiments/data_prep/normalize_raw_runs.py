@@ -48,7 +48,7 @@ def provenance(root: Path, source: Path, split: str, predictor: str, seed: str, 
     return {
         "git_commit": commit(root),
         "split": split,
-        "split_sha256": sha256(root / "data/processed/splits" / f"{split}.json") if (root / "data/processed/splits" / f"{split}.json").exists() else None,
+        "split_sha256": sha256(next((candidate for candidate in (root / "data/processed/splits_v2" / f"{split}.json", root / "data/processed/splits" / f"{split}.json") if candidate.exists()), root / "data/processed/splits_v2" / f"{split}.json")) if (root / "data/processed/splits_v2" / f"{split}.json").exists() or (root / "data/processed/splits" / f"{split}.json").exists() else None,
         "predictor_config": str(config.relative_to(root)) if config.exists() else None,
         "predictor_config_sha256": sha256(config) if config.exists() else None,
         "checkpoint_path": None,
@@ -147,7 +147,10 @@ def build_inventory(root: Path) -> None:
                 "atom_count": atom_count,
             }
     splits: dict[str, Any] = {}
-    for split_path in sorted((root / "data/processed/splits").glob("*.json")):
+    split_paths = sorted((root / "data/processed/splits_v2").glob("*.json"))
+    if not split_paths:
+        split_paths = sorted((root / "data/processed/splits").glob("*.json"))
+    for split_path in split_paths:
         split = json.loads(split_path.read_text(encoding="utf-8"))
         if "folds" in split:
             folds = {name: {subset: len(value.get(subset, [])) for subset in ("train", "test")} for name, value in split["folds"].items()}

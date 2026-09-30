@@ -1,0 +1,103 @@
+{
+  "provenance": {
+    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "split": "phase_lopo",
+    "split_sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac",
+    "predictor_config": "configs/predictors/interp_const.yaml",
+    "predictor_config_sha256": "a49faff7e8c67f123726ad0ab3ea13ede5d0c67d0022ccec8cd177a461eb2ec4",
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench historical result normalizer v1",
+    "timestamp_utc": "2026-09-30T16:34:47.842136+00:00",
+    "input_metrics": "result/experiments/external_baselines/recomputed/metrics.json",
+    "input_metrics_sha256": "d73627a1f30986a75bcbe9598bda78ba8a868f8dcbcb56008a723ecba7ef64e5",
+    "missing": []
+  },
+  "metrics": {
+    "folds": {
+      "hf:bcc": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+        "n_test_frames": 1252,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+            "status": "unavailable_without_training_phase"
+          }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
+      },
+      "hf:hcp": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+        "n_test_frames": 1252,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+            "status": "unavailable_without_training_phase"
+          }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
+      },
+      "sio2:cristobalite_beta": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": 0.004011792285636278,
+        "n_test_frames": 1649,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "global_mean_delta_g_eV_per_atom": 0.004011792285636278,
+            "status": "unavailable_without_training_phase"
+          },
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "global_mean_delta_g_eV_per_atom": 0.004011792285636278,
+            "status": "unavailable_without_training_phase"
+          }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
+      },
+      "sio2:quartz_beta": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": 0.0033878442584891885,
+        "n_test_frames": 1649,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "global_mean_delta_g_eV_per_atom": 0.0033878442584891885,
+            "status": "unavailable_without_training_phase"
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "global_mean_delta_g_eV_per_atom": 0.0033878442584891885,
+            "status": "unavailable_without_training_phase"
+          }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
+      },
+      "sio2:tridymite_p63mmc": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": 0.0029082132965343984,
+        "n_test_frames": 1649,
+        "pairs": {
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "global_mean_delta_g_eV_per_atom": 0.0029082132965343984,
+            "status": "unavailable_without_training_phase"
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "global_mean_delta_g_eV_per_atom": 0.0029082132965343984,
+            "status": "unavailable_without_training_phase"
+          }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
+      }
+    },
+    "method": "interp_const"
+  }
+}

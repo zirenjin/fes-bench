@@ -1,46 +1,46 @@
 {
-  "generated_utc": "2026-09-30T17:17:10.957559+00:00",
-  "git_commit": "e0306638903d1754446393908d58bcacdd95aabc",
+  "generated_utc": "2026-09-30T21:11:36.095119+00:00",
+  "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "be5fd447d737087dad0de9d13bfcf7b3550dd363473b49a84d85dab096dc8d71"
+      "sha256": "b0bf6fe4ec707d6a2d7da3b353474117ffa59e66926be14718dcc85c4e3f4074"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_delta_g/seed_none/metrics.json",
-      "sha256": "3f2a08de2364ba7ae30b7e072a830e69156ab50a31c46af510cd4cbb026f5b1f"
+      "sha256": "0c7a1220e4b0ac495d8b1603d07349e5892c20051dc5af6feec497bbe29124c9"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "203ab34c98edcdc0acfc40fcd43533837ae245dff94fa7ebdf8a2a5be7a29b59"
+      "sha256": "204129c45034ac5193c0f3d195cfba68934a46147dfd0a9ba5d626face6be88e"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "ca6f4c07b567a96d401054d2285cbcf141d5a53ca263664fe574c25496d65057"
+      "sha256": "407c6a5090f366d7b7c1675f921ce3b9e6cbda1f807606d83fbff0a220ef4277"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "21373355e088e47cb622a899535d89512e7869c917b75f66928eb54b32213a70"
+      "sha256": "c7fcc77e097a4815dd3355ef2d11508e40aeabb497edb22578968990e1784673"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "a41b64ae02c87895060d6035d70a492ea46f31c49065f2004ac741ba599cd117"
+      "sha256": "1ef1e4d03f86ce1c13f202504fff1a5608850d03fac80fcc2d32ad357f9ee711"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
-      "sha256": "dea0e1d291d1aeeff1f6b51759a4837cd5cb085585a1e6c6644905961fc089fc"
+      "sha256": "54f18acd43b795c6f4efaeeb1f0da94e57b013997f60b8b28c96f6e4f7b4c713"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "7a69c6a1d87184f8395df4239aa41f15dfc6a82cf3ab89731c33afbd1fb3e11c"
+      "sha256": "4d4ad5df4eef10fa589a7142f32e315e142ea1555dc2af6daf30bc9ccabb1a43"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "9b9039533cd48bb55ab2223241796e6b6b1d6340a6caca8a3b4bf44e6958d1c0"
+      "sha256": "1d007bc331a00491b48535919e94eb6c1b6b6af9ee8f8e66ce3c7610be23fc12"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "0752434e5919cfbaaf0ad721c827c752e7214b448723dfbfc4c22402231bb07e"
+      "sha256": "9334e2e2c53d95e725f3326d79b567c0653686f2e2943e33c0adb3ac3f8cdb0e"
     }
   ],
   "missing": [
@@ -109,6 +109,22 @@
       "reason": "predictor unavailable without training phase"
     },
     {
+      "field": "interp_const:ti:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:ti:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:zr:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:zr:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
       "field": "phase_id_mlp:hf:bcc_minus_hcp.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
@@ -138,6 +154,22 @@
     },
     {
       "field": "phase_id_mlp:sio2:quartz_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:ti:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:ti:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:zr:bcc_minus_hcp.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "phase_id_mlp:zr:bcc_minus_hcp.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {

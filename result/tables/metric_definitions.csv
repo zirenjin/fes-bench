@@ -3,8 +3,10 @@ G_MAE,mean absolute error of phase G,eV/atom,↓
 delta_G_MAE,mean absolute error of pair ΔG = G(left) − G(right),eV/atom,↓
 delta_G_RMSE,root mean squared error of pair ΔG,eV/atom,↓
 sign_accuracy,fraction of evaluation points with matching ΔG sign,fraction,↑
-Tc_error,predicted crossing temperature minus reference crossing temperature,K,↓
+Tc_error,predicted crossing temperature minus reference crossing temperature (signed; smaller magnitude is better),K,↓ (magnitude)
 false_crossings,predicted crossings beyond the reference crossing count,count,↓
 missed_crossings,reference crossings not predicted,count,↓
 coverage_2sigma,fraction of reference values covered by seed mean ± 2σ,fraction,↑
-skill_score,1 − MAE / MAE_zero，MAE_zero = 评测点上参照 |ΔG| 的均值,fraction,↑
+ranking_accuracy,"fraction of evaluation points at which every phase pair of a system has the correct ΔG sign, i.e. the full phase ordering is correct",fraction,↑
+Tc_err_from_dG,ΔG error at the reference crossing divided by |dΔG/dT| there; converts an energy error into a temperature error,K,↓
+skill_score,"1 − MAE / MAE_zero, where MAE_zero is the mean of reference |ΔG| over the evaluated points (the MAE of predicting ΔG = 0); negative means worse than predicting zero",fraction,↑

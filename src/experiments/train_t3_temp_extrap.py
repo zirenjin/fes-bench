@@ -16,6 +16,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 from collections import defaultdict
@@ -81,7 +82,8 @@ def resolve_template(root: Path, cfg: dict[str, Any], audit: dict[str, str], see
 def phase_source(dataset_root: Path, system: str, phase: str) -> Path:
     # The canonical DeepMD roots contain phase directories directly (the
     # system is represented by the selected root, not an extra path segment).
-    return dataset_root / phase
+    nested = dataset_root / system / phase
+    return nested if nested.exists() else dataset_root / phase
 
 
 def load_phase(source: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
@@ -133,6 +135,32 @@ def materialize_dataset(root: Path, dataset_root: Path, out: Path, system: str, 
     return selected
 
 
+def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list[dict[str, Any]]) -> dict[str, list[int]]:
+    """Create an evaluation-only DeepMD view from canonical static representatives."""
+    selected = index_map(rows, system)
+    for phase, indexes in sorted(selected.items()):
+        processed = root / "data/processed" / system / phase
+        source_rows = list(csv.DictReader((processed / "reference_G.csv").open(encoding="utf-8", newline="")))
+        lines = (processed / "structure.extxyz").read_text(encoding="utf-8").splitlines()
+        natoms = int(lines[0]); lattice = re.search(r'Lattice="([^"]+)"', lines[1])
+        if lattice is None: raise ValueError(f"missing lattice in {processed / 'structure.extxyz'}")
+        cell = np.asarray([float(x) for x in lattice.group(1).split()], dtype=float)
+        species = [line.split()[0] for line in lines[2:2 + natoms]]
+        type_map = ["Si", "O"] if system == "sio2" else [system.capitalize()]
+        type_ids = [type_map.index(symbol) for symbol in species]
+        temperatures = np.asarray([[float(source_rows[i]["T_K"]), float(source_rows[i]["P_GPa"])] for i in indexes])
+        energies = np.asarray([[float(source_rows[i]["G_eV_per_atom"])] for i in indexes])
+        coords = np.asarray([[float(x) for x in line.split()[1:4]] for line in lines[2:2 + natoms]], dtype=float).reshape(1, -1)
+        target = out / phase; target.mkdir(parents=True, exist_ok=True)
+        (target / "type.raw").write_text("\n".join(map(str, type_ids)) + "\n", encoding="utf-8")
+        set_path = target / "set.000"; set_path.mkdir(exist_ok=True)
+        np.save(set_path / "coord.npy", np.tile(coords, (len(indexes), 1)))
+        np.save(set_path / "box.npy", np.tile(cell.reshape(1, -1), (len(indexes), 1)))
+        np.save(set_path / "fparam.npy", temperatures)
+        np.save(set_path / "free_energy.npy", energies)
+    return selected
+
+
 def configure(template: dict[str, Any], train_dirs: list[Path], *, seed: int, out: Path) -> dict[str, Any]:
     config = copy.deepcopy(template)
     out = out.resolve()
@@ -147,7 +175,7 @@ def configure(template: dict[str, Any], train_dirs: list[Path], *, seed: int, ou
     return config
 
 
-def run_train(dp: str, repo: Path, config_path: Path, out: Path, init_model: Path) -> Path:
+def run_train(dp: str, repo: Path, config_path: Path, out: Path, init_model: Path, model_branch: str) -> Path:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo / "src/lib")
     env["TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"] = "1"
@@ -157,7 +185,7 @@ def run_train(dp: str, repo: Path, config_path: Path, out: Path, init_model: Pat
         # treating the multi-head checkpoint as a single-task init model).
         # This preserves the Domains_Alloy representation and reinitializes
         # the FES fitting head described by the E1 config.
-        command = [dp, "--pt", "train", "config.json", "--finetune", str(init_model), "--model-branch", "Domains_Alloy"]
+        command = [dp, "--pt", "train", "config.json", "--finetune", str(init_model), "--model-branch", model_branch]
         result = subprocess.run(command, cwd=out, env=env, stdout=handle, stderr=subprocess.STDOUT, check=False)
     (out / "exit_code.txt").write_text(f"{result.returncode}\n", encoding="utf-8")
     if result.returncode:
@@ -275,6 +303,12 @@ def main() -> int:
     ap.add_argument("--output-root", type=Path, default=Path("result/experiments/t3_temp_extrap"))
     ap.add_argument("--seeds", nargs="+", type=int)
     ap.add_argument("--systems", nargs="+", choices=sorted(SYSTEM_PHASES))
+    ap.add_argument("--model-branch", choices=["Domains_Alloy", "Domains_SSE_PBE"],
+                    help="head selected for the run; required when one invocation mixes domains")
+    ap.add_argument("--training-data-root", type=Path,
+                    help="builder output fold, e.g. .../temp_extrap/all")
+    ap.add_argument("--template-config", type=Path,
+                    help="audited E1 runtime template when external config archive is available")
     args = ap.parse_args(); root = args.repo_root.resolve(); config_path = args.config if args.config.is_absolute() else root / args.config; cfg = parse_config(config_path); split_path = root / cfg["split"]; split_rows = parse_rows(split_path)
     seeds = args.seeds or [int(seed) for seed in cfg["seeds"]]
     systems = args.systems or list(cfg["systems"])
@@ -285,22 +319,48 @@ def main() -> int:
     split_hash = sha256(split_path); cfg_hash = sha256(config_path); args.output_root.mkdir(parents=True, exist_ok=True)
     all_system_metrics: dict[str, dict[str, Any]] = {}
     for seed in seeds:
-        audit = audit_row(root, cfg["basis"], int(seed)); template_path = resolve_template(root, cfg, audit, int(seed)); template = parse_config(template_path)
+        audit = audit_row(root, cfg["basis"], int(seed))
+        if args.template_config:
+            template_path = args.template_config if args.template_config.is_absolute() else root / args.template_config
+            template = parse_config(template_path)
+        else:
+            template_path = resolve_template(root, cfg, audit, int(seed)); template = parse_config(template_path)
         for system in systems:
             run = args.output_root / "runs" / cfg["basis"] / system / f"seed_{seed}"; run.mkdir(parents=True, exist_ok=True)
             train_data = run / "data" / "train"; test_data = run / "data" / "test"
-            train_selected = materialize_dataset(root, args.dataset_root, train_data, system, split_rows["train"])
-            test_selected = materialize_dataset(root, args.dataset_root, test_data, system, split_rows["test"])
+            if args.training_data_root:
+                generated = args.training_data_root if args.training_data_root.is_absolute() else root / args.training_data_root
+                # The builder emits only training frames.  Test materialization
+                # remains an explicit post-training evaluation view from the
+                # same canonical sources, and is never passed to train().
+                train_source = generated / system
+                train_selected = index_map(split_rows["train"], system)
+                for phase in sorted(train_source.iterdir() if train_source.exists() else []):
+                    if phase.is_dir():
+                        materialize_phase(phase, train_data / phase.name, list(range(len(np.load(phase / "set.000" / "fparam.npy")))))
+                test_selected = materialize_canonical_dataset(root, test_data, system, split_rows["test"])
+            else:
+                train_selected = materialize_dataset(root, args.dataset_root, train_data, system, split_rows["train"])
+                test_selected = materialize_dataset(root, args.dataset_root, test_data, system, split_rows["test"])
             for phase, indexes in train_selected.items():
                 if not set(indexes) <= {k[2] for k in train_keys if k[0] == system and k[1] == phase}:
                     raise AssertionError(f"train materialization mismatch for {system}/{phase}")
             active_phases = sorted(train_selected)
             model_cfg = configure(template, [train_data / p for p in active_phases], seed=int(seed), out=run)
-            model_cfg["model"]["type_map"] = ["Si", "O"] if system == "sio2" else ["Hf"]
+            model_cfg["model"]["type_map"] = ["Si", "O"] if system == "sio2" else [system.capitalize()]
             (run / "config.json").write_text(json.dumps(model_cfg, indent=2) + "\n", encoding="utf-8")
             provenance = {"basis": cfg["basis"], "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
+            if args.training_data_root:
+                generated_provenance = (args.training_data_root if args.training_data_root.is_absolute() else root / args.training_data_root) / "provenance.json"
+                if generated_provenance.exists():
+                    provenance["training_data_provenance"] = str(generated_provenance.relative_to(root))
+                    provenance["training_data_provenance_sha256"] = sha256(generated_provenance)
+                    generated = json.loads(generated_provenance.read_text(encoding="utf-8"))
+                    provenance["structure_sha256"] = {item["phase"]: item["structure_sha256"] for item in generated.get("phases", []) if item.get("system") == system}
             (run / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n", encoding="utf-8")
-            checkpoint = run_train(args.dp, root, run / "config.json", run, args.init_model)
+            model_branch = args.model_branch or ("Domains_SSE_PBE" if system == "sio2" else "Domains_Alloy")
+            provenance["head"] = model_branch
+            checkpoint = run_train(args.dp, root, run / "config.json", run, args.init_model, model_branch)
             checkpoint = checkpoint.resolve()
             provenance["checkpoint_path"] = str(checkpoint)
             provenance["checkpoint_sha256"] = sha256(checkpoint)

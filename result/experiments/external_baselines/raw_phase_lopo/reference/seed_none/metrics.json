@@ -1,14 +1,14 @@
 {
   "provenance": {
-    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
     "split": "phase_lopo",
-    "split_sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac",
+    "split_sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78",
     "predictor_config": null,
     "predictor_config_sha256": null,
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T16:34:51.546112+00:00",
+    "timestamp_utc": "2026-09-30T21:00:21.708596+00:00",
     "input_metrics": "result/experiments/legacy_support/reference/phase_lopo/metrics.json",
     "input_metrics_sha256": "874dfd3cda81a0d8232536e5876a4ca3cc59aa83b608433bd726f0b533013122",
     "missing": []

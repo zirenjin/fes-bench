@@ -194,7 +194,19 @@ def main() -> int:
     csv_write(output / f"predictor_comparison_{args.split}_include_all_pairs.csv", FIELDS, all_rows)
     csv_write(output / f"predictor_comparison_{args.split}_sio2.csv", FIELDS, sio2_rows)
     csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen"], fold_rows)
-    meta_write(root, csv_path, inputs, [], {"aggregation": {"folded_splits": "pair metrics: per-fold test region then n_evaluation_points-weighted; G MAE: n_test_frames-weighted", "default_pairs": "exclude pairs without a reference crossing", "include_all_pairs_csv": f"predictor_comparison_{args.split}_include_all_pairs.csv", "sio2_csv": f"predictor_comparison_{args.split}_sio2.csv", "fold_detail_csv": f"predictor_comparison_{args.split}_folds.csv"}, "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."})
+    overlap_rows: list[dict[str, Any]] = []
+    for predictor, metric_list in grouped.items():
+        overlap_folds: dict[str, Any] = {}
+        for idx, metric in enumerate(metric_list):
+            for fold_name, fold_body in folds(metric).items():
+                if isinstance(fold_body, dict) and isinstance(fold_body.get("overlap_T"), dict):
+                    overlap_folds[f"run_{idx}_{fold_name}"] = fold_body["overlap_T"]
+        if overlap_folds:
+            summary = summarize({"folds": overlap_folds}, False)
+            overlap_rows.append({"predictor": predictor, **summary, "skill_score": "", "floor_predictor": "zero", "seed_mean": NO_SEED, "seed_std": NO_SEED})
+    if overlap_rows:
+        csv_write(output / f"predictor_comparison_{args.split}_overlap_T.csv", FIELDS, overlap_rows)
+    meta_write(root, csv_path, inputs, [], {"aggregation": {"folded_splits": "pair metrics: per-fold test region then n_evaluation_points-weighted; G MAE: n_test_frames-weighted", "default_pairs": "exclude pairs without a reference crossing", "include_all_pairs_csv": f"predictor_comparison_{args.split}_include_all_pairs.csv", "sio2_csv": f"predictor_comparison_{args.split}_sio2.csv", "fold_detail_csv": f"predictor_comparison_{args.split}_folds.csv", "overlap_T_csv": f"predictor_comparison_{args.split}_overlap_T.csv" if overlap_rows else None}, "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."})
     return 0
 
 

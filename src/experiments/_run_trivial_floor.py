@@ -25,7 +25,7 @@ from fes_bench.eval.run import _root
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", default="data/processed")
-    parser.add_argument("--splits", nargs="+", default=["data/processed/splits/temp_extrap.json", "data/processed/splits/phase_lopo.json", "data/processed/splits/system_loso.json"])
+    parser.add_argument("--splits", nargs="+", default=["data/processed/splits_v2/temp_extrap.json", "data/processed/splits_v2/phase_lopo.json", "data/processed/splits_v2/system_loso.json"])
     parser.add_argument("--output-root", default="result/experiments/skill_floor")
     return parser
 
@@ -174,7 +174,13 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
 
 def _evaluate(split: dict[str, object], data_root: Path, method: str) -> dict[str, object]:
     if isinstance(split.get("folds"), dict):
-        folds = {name: _evaluate_fold(fold, data_root, method) for name, fold in split["folds"].items()}
+        folds = {}
+        for name, fold in split["folds"].items():
+            result = _evaluate_fold(fold, data_root, method)
+            if isinstance(fold, dict) and isinstance(fold.get("overlap_T"), list):
+                overlap_fold = {"train": list(fold.get("train", [])), "test": list(fold["overlap_T"])}
+                result["overlap_T"] = _evaluate_fold(overlap_fold, data_root, method)
+            folds[name] = result
         return {"method": method, "folds": folds}
     return {"method": method, "folds": {"all": _evaluate_fold(split, data_root, method)}}
 

@@ -1,0 +1,122 @@
+{
+  "provenance": {
+    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "split": "temp_extrap",
+    "split_sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0",
+    "predictor_config": "configs/predictors/interp_const.yaml",
+    "predictor_config_sha256": "a49faff7e8c67f123726ad0ab3ea13ede5d0c67d0022ccec8cd177a461eb2ec4",
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "evaluator_version": "fes-bench historical result normalizer v1",
+    "timestamp_utc": "2026-09-30T16:34:49.740344+00:00",
+    "input_metrics": "result/experiments/external_baselines/recomputed/metrics.json",
+    "input_metrics_sha256": "d73627a1f30986a75bcbe9598bda78ba8a868f8dcbcb56008a723ecba7ef64e5",
+    "missing": []
+  },
+  "metrics": {
+    "folds": {
+      "all": {
+        "G_MAE_eV_per_atom": 0.2918117729827114,
+        "aggregate_pair_MAE_eV_per_atom": 0.003667125488402649,
+        "global_mean_delta_g_eV_per_atom": 0.004717224182592401,
+        "n_test_frames": 4187,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "Tc_err_from_dG_K": [
+              null
+            ],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [
+              0.0
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              0.0027999999999999137
+            ],
+            "delta_G_MAE_eV_per_atom": 0.00648877952755897,
+            "delta_G_RMSE_eV_per_atom": 0.007364552522609001,
+            "false_crossings": 0,
+            "global_mean_delta_g_eV_per_atom": 0.004717224182592401,
+            "missed_crossings": 1,
+            "n_evaluation_points": 508,
+            "predicted_Tc_K": [],
+            "reference_Tc_K": [
+              1919.0
+            ],
+            "sign_accuracy": 0.19291338582677164,
+            "status": "ok"
+          },
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "Tc_err_from_dG_K": [
+              100.08643763837853
+            ],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.551407561479095e-06
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              0.0007557934819839576
+            ],
+            "delta_G_MAE_eV_per_atom": 0.004079514385961225,
+            "delta_G_RMSE_eV_per_atom": 0.004725575831088728,
+            "false_crossings": 0,
+            "global_mean_delta_g_eV_per_atom": 0.004717224182592401,
+            "missed_crossings": 1,
+            "n_evaluation_points": 1057,
+            "predicted_Tc_K": [],
+            "reference_Tc_K": [
+              1542.7087047758675
+            ],
+            "sign_accuracy": 0.0946073793755913,
+            "status": "ok"
+          },
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [],
+            "delta_G_MAE_at_crossing_eV_per_atom": [],
+            "delta_G_MAE_eV_per_atom": 3.05589402867646e-05,
+            "delta_G_RMSE_eV_per_atom": 3.511870497067697e-05,
+            "false_crossings": 0,
+            "global_mean_delta_g_eV_per_atom": 0.004717224182592401,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1057,
+            "predicted_Tc_K": [],
+            "reference_Tc_K": [],
+            "sign_accuracy": 1.0,
+            "status": "ok"
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "Tc_err_from_dG_K": [
+              138.52103381089734
+            ],
+            "Tc_error_K": [],
+            "crossing_slope_eV_per_atom_per_K": [
+              7.448345272997869e-06
+            ],
+            "delta_G_MAE_at_crossing_eV_per_atom": [
+              0.0010317524873961752
+            ],
+            "delta_G_MAE_eV_per_atom": 0.004069649099803636,
+            "delta_G_RMSE_eV_per_atom": 0.004729435792312411,
+            "false_crossings": 0,
+            "global_mean_delta_g_eV_per_atom": 0.004717224182592401,
+            "missed_crossings": 1,
+            "n_evaluation_points": 1057,
+            "predicted_Tc_K": [],
+            "reference_Tc_K": [
+              1582.3215510581538
+            ],
+            "sign_accuracy": 0.13245033112582782,
+            "status": "ok"
+          }
+        },
+        "ranking_accuracy": 0.12651757188498403,
+        "ranking_accuracy_by_system": {
+          "hf": 0.19291338582677164,
+          "sio2": 0.0946073793755913
+        }
+      }
+    },
+    "method": "interp_const"
+  }
+}

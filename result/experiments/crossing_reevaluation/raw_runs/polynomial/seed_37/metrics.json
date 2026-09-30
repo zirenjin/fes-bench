@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
     "split": "e1_full_grid",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T16:34:55.911774+00:00",
+    "timestamp_utc": "2026-09-30T21:00:25.198170+00:00",
     "input_metrics": "result/experiments/crossing_reevaluation/sio2_reanalysis.json",
     "input_metrics_sha256": "c41f9b3db7286e26984cf195acb0bb70d101dfeeffb7d570b0b42b65e4eebdcd",
     "missing": [

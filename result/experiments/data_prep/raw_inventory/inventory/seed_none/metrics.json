@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
     "split": "_inventory",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,9 +8,9 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T16:35:00.768559+00:00",
+    "timestamp_utc": "2026-09-30T21:05:42.459360+00:00",
     "input_metrics": "configs/raw_runs.json",
-    "input_metrics_sha256": "526e1bcdc1d1153287777cf81fb5036af876b7434c936aa66feae22fdca9075c",
+    "input_metrics_sha256": "c63c885f50e465a64436f8434eaf03ef05cfc3b50a950e56c4c0fe3f64f1212c",
     "missing": []
   },
   "metrics": {
@@ -5453,61 +5453,91 @@
     },
     "splits": {
       "phase_lopo": {
-        "sha256": "f5985807296059af787fdd7c5a4a5b7d1c2e3261bb536cb2a3c6eef52beb91ac",
-        "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e",
+        "sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78",
+        "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
         "generation_parameters": {
           "crossing_buffer_K": 100.0
         },
         "folds": {
           "hf:bcc": {
-            "train": 6199,
+            "train": 9405,
             "test": 1252
           },
           "hf:hcp": {
-            "train": 6199,
+            "train": 9405,
             "test": 1252
           },
           "sio2:cristobalite_beta": {
-            "train": 5802,
+            "train": 9008,
             "test": 1649
           },
           "sio2:quartz_beta": {
-            "train": 5802,
+            "train": 9008,
             "test": 1649
           },
           "sio2:tridymite_p63mmc": {
-            "train": 5802,
+            "train": 9008,
             "test": 1649
+          },
+          "ti:bcc": {
+            "train": 9964,
+            "test": 693
+          },
+          "ti:hcp": {
+            "train": 9964,
+            "test": 693
+          },
+          "zr:bcc": {
+            "train": 9747,
+            "test": 910
+          },
+          "zr:hcp": {
+            "train": 9747,
+            "test": 910
           }
         }
       },
       "system_loso": {
-        "sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
-        "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e",
+        "sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
+        "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
         "generation_parameters": {
-          "crossing_buffer_K": 100.0
+          "crossing_buffer_K": 100.0,
+          "exclude_systems": [
+            "sio2"
+          ],
+          "held_out_systems": [
+            "hf",
+            "ti",
+            "zr"
+          ],
+          "overlap_T": "Hf test points with T_K <= max Ti/Zr training T_K",
+          "train_systems_per_fold": "all remaining metals only"
         },
         "folds": {
           "hf": {
-            "train": 4947,
+            "train": 3206,
             "test": 2504
           },
-          "sio2": {
-            "train": 2504,
-            "test": 4947
+          "ti": {
+            "train": 4324,
+            "test": 1386
+          },
+          "zr": {
+            "train": 3890,
+            "test": 1820
           }
         }
       },
       "temp_extrap": {
-        "sha256": "08a00c42bc96e1b8ab58b86a86f1ca37a77497ddf60b22809e76c3d76585fcc0",
-        "git_commit": "b5b0b2e679b2da66a593d713afc677f1adeab61e",
+        "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
+        "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
         "generation_parameters": {
           "crossing_buffer_K": 100.0
         },
         "folds": {
           "all": {
-            "train": 3264,
-            "test": 4187
+            "train": 3952,
+            "test": 6705
           }
         }
       }

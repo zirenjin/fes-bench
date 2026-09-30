@@ -38,7 +38,7 @@ def _table(data_root: Path, system: str, phase: str):
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", default="data/processed")
-    parser.add_argument("--splits", nargs="+", default=["data/processed/splits/temp_extrap.json", "data/processed/splits/phase_lopo.json", "data/processed/splits/system_loso.json"])
+    parser.add_argument("--splits", nargs="+", default=["data/processed/splits_v2/temp_extrap.json", "data/processed/splits_v2/phase_lopo.json", "data/processed/splits_v2/system_loso.json"])
     parser.add_argument("--output-root", default="result/experiments/external_baselines")
     parser.add_argument("--phase-id-metrics", help="existing phase-ID MLP metrics to use instead of fitting a new MLP")
     return parser
@@ -227,7 +227,14 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
 
 def _evaluate(data_root: Path, split: dict[str, object], method: str) -> dict[str, object]:
     if isinstance(split.get("folds"), dict):
-        return {"method": method, "folds": {name: _fold(data_root, fold, method) for name, fold in split["folds"].items()}}
+        folds = {}
+        for name, fold in split["folds"].items():
+            result = _fold(data_root, fold, method)
+            if isinstance(fold, dict) and isinstance(fold.get("overlap_T"), list):
+                overlap_fold = {"train": list(fold.get("train", [])), "test": list(fold["overlap_T"])}
+                result["overlap_T"] = _fold(data_root, overlap_fold, method)
+            folds[name] = result
+        return {"method": method, "folds": folds}
     return {"method": method, "folds": {"all": _fold(data_root, split, method)}}
 
 

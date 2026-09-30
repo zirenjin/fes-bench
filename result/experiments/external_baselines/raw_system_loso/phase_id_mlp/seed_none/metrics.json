@@ -1,16 +1,16 @@
 {
   "provenance": {
-    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
     "split": "system_loso",
-    "split_sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
+    "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
     "predictor_config": "configs/predictors/phase_id_mlp.yaml",
     "predictor_config_sha256": "587ccb5ca9c23bdd07fc0213b949f02d1ada6d29a2d95521fff6e98fa6900594",
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T16:34:49.353577+00:00",
-    "input_metrics": "result/experiments/external_baselines/recomputed/metrics.json",
-    "input_metrics_sha256": "d73627a1f30986a75bcbe9598bda78ba8a868f8dcbcb56008a723ecba7ef64e5",
+    "timestamp_utc": "2026-09-30T21:11:20.189219+00:00",
+    "input_metrics": "result/experiments/external_baselines/metrics.json",
+    "input_metrics_sha256": "35d3110a91b495c0ff6fc085b9485eb843e2733a22837b4527230108c0ca6a49",
     "missing": []
   },
   "metrics": {
@@ -18,34 +18,58 @@
       "hf": {
         "G_MAE_eV_per_atom": null,
         "aggregate_pair_MAE_eV_per_atom": null,
-        "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+        "global_mean_delta_g_eV_per_atom": -0.0028442295695570792,
         "n_test_frames": 2504,
+        "overlap_T": {
+          "G_MAE_eV_per_atom": null,
+          "aggregate_pair_MAE_eV_per_atom": null,
+          "global_mean_delta_g_eV_per_atom": -0.0028442295695570792,
+          "n_test_frames": 904,
+          "pairs": {
+            "hf:bcc_minus_hcp": {
+              "global_mean_delta_g_eV_per_atom": -0.0028442295695570792,
+              "status": "unavailable_without_training_phase"
+            }
+          },
+          "ranking_accuracy": null,
+          "ranking_accuracy_by_system": {}
+        },
         "pairs": {
           "hf:bcc_minus_hcp": {
-            "global_mean_delta_g_eV_per_atom": -0.00016925967500418894,
+            "global_mean_delta_g_eV_per_atom": -0.0028442295695570792,
             "status": "unavailable_without_training_phase"
           }
-        }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
       },
-      "sio2": {
+      "ti": {
         "G_MAE_eV_per_atom": null,
         "aggregate_pair_MAE_eV_per_atom": null,
-        "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
-        "n_test_frames": 4947,
+        "global_mean_delta_g_eV_per_atom": 0.004169287696577244,
+        "n_test_frames": 1386,
         "pairs": {
-          "sio2:cristobalite_beta_minus_quartz_beta": {
-            "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
-            "status": "unavailable_without_training_phase"
-          },
-          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
-            "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
-            "status": "unavailable_without_training_phase"
-          },
-          "sio2:quartz_beta_minus_tridymite_p63mmc": {
-            "global_mean_delta_g_eV_per_atom": 0.008184345047923322,
+          "ti:bcc_minus_hcp": {
+            "global_mean_delta_g_eV_per_atom": 0.004169287696577244,
             "status": "unavailable_without_training_phase"
           }
-        }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
+      },
+      "zr": {
+        "G_MAE_eV_per_atom": null,
+        "aggregate_pair_MAE_eV_per_atom": null,
+        "global_mean_delta_g_eV_per_atom": 0.003557994858611825,
+        "n_test_frames": 1820,
+        "pairs": {
+          "zr:bcc_minus_hcp": {
+            "global_mean_delta_g_eV_per_atom": 0.003557994858611825,
+            "status": "unavailable_without_training_phase"
+          }
+        },
+        "ranking_accuracy": null,
+        "ranking_accuracy_by_system": {}
       }
     },
     "method": "phase_id_mlp"
