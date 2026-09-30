@@ -11,7 +11,8 @@
     "timestamp_utc": "2026-09-30T21:11:21.490840+00:00",
     "input_metrics": "result/experiments/external_baselines/metrics.json",
     "input_metrics_sha256": "35d3110a91b495c0ff6fc085b9485eb843e2733a22837b4527230108c0ca6a49",
-    "missing": []
+    "missing": [],
+    "pair_orientation": "data/processed/<system>/reference_crossings.json"
   },
   "metrics": {
     "folds": {
@@ -21,7 +22,7 @@
         "global_mean_delta_g_eV_per_atom": 0.0052354416690408,
         "n_test_frames": 6705,
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               null
             ],
@@ -117,7 +118,7 @@
             "sign_accuracy": 0.13245033112582782,
             "status": "ok"
           },
-          "ti:bcc_minus_hcp": {
+          "ti:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               null
             ],
@@ -145,7 +146,7 @@
             "sign_accuracy": 0.9284552845528455,
             "status": "ok"
           },
-          "zr:bcc_minus_hcp": {
+          "zr:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               21.945536136629613
             ],

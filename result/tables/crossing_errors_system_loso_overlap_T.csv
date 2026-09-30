@@ -1,7 +1,7 @@
 predictor,subset,fold,pair,crossing_index,reference_Tc_K,Tc_error_K,crossing_slope_eV_per_atom_per_K,Tc_err_from_dG_K,false_crossings,missed_crossings
-bartel2018,overlap_T,hf,hf:bcc_minus_hcp,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
-constant_delta_g,overlap_T,hf,hf:bcc_minus_hcp,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
-global_mean_delta_g,overlap_T,hf,hf:bcc_minus_hcp,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
-interp_const,overlap_T,hf,hf:bcc_minus_hcp,1,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
-phase_id_mlp,overlap_T,hf,hf:bcc_minus_hcp,1,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
-zero,overlap_T,hf,hf:bcc_minus_hcp,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
+bartel2018,overlap_T,hf,hf:hcp_minus_bcc,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
+constant_delta_g,overlap_T,hf,hf:hcp_minus_bcc,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
+global_mean_delta_g,overlap_T,hf,hf:hcp_minus_bcc,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing
+interp_const,overlap_T,hf,hf:hcp_minus_bcc,1,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
+phase_id_mlp,overlap_T,hf,hf:hcp_minus_bcc,1,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
+zero,overlap_T,hf,hf:hcp_minus_bcc,1,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing,n/a:no_reference_crossing

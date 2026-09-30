@@ -68,6 +68,22 @@ def _reference(data_root: Path, system: str, phase: str, indexes: list[int]) -> 
     return np.array([table[i].T_K for i in indexes]), np.array([table[i].G_eV_per_atom for i in indexes])
 
 
+def _ordered_pairs(data_root: Path, system: str, phases: list[str]) -> list[tuple[str, str]]:
+    """Return phase pairs in the frozen reference-crossing orientation."""
+    path = data_root / system / "reference_crossings.json"
+    ordered: list[tuple[str, str]] = []
+    if path.exists():
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for item in payload.get("pairs", {}).values():
+            left, right = str(item.get("left")), str(item.get("right"))
+            if left in phases and right in phases:
+                ordered.append((left, right))
+    for left, right in combinations(phases, 2):
+        if (left, right) not in ordered and (right, left) not in ordered:
+            ordered.append((left, right))
+    return ordered
+
+
 def _bartel_params(data_root: Path, system: str, phase: str) -> tuple[float, float, float] | None:
     phase_data = load(system, phase, data_root)
     representative = phase_data.meta.get("representative", {})
@@ -87,7 +103,7 @@ def _global_delta_mean(data_root: Path, train: dict[tuple[str, str], list[int]])
     values: list[float] = []
     for system in sorted({key[0] for key in train}):
         phases = sorted(phase for item_system, phase in train if item_system == system)
-        for left, right in combinations(phases, 2):
+        for left, right in _ordered_pairs(data_root, system, phases):
             shared = sorted(set(train[(system, left)]) & set(train[(system, right)]))
             if not shared:
                 continue
@@ -198,7 +214,7 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
             if not pair_only and any(predictions.get((system, phase)) is None or temperature not in predictions[(system, phase)] for phase in phases):
                 continue
             correct = True
-            for left, right in combinations(phases, 2):
+            for left, right in _ordered_pairs(data_root, system, phases):
                 reference = reference_by_phase[left][temperature] - reference_by_phase[right][temperature]
                 observed = float(global_constant) if pair_only else float(predictions[(system, left)][temperature] - predictions[(system, right)][temperature])
                 if np.sign(observed) != np.sign(reference):
@@ -209,7 +225,7 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
     pairs: dict[str, object] = {}
     for system in sorted({key[0] for key in test}):
         phases = sorted(phase for item_system, phase in all_rows if item_system == system)
-        for left, right in combinations(phases, 2):
+        for left, right in _ordered_pairs(data_root, system, phases):
             if (system, left) not in test and (system, right) not in test:
                 continue
             test_shared = set(test.get((system, left), [])) & set(test.get((system, right), []))

@@ -11,7 +11,8 @@
     "timestamp_utc": "2026-09-30T21:00:21.708596+00:00",
     "input_metrics": "result/experiments/legacy_support/reference/phase_lopo/metrics.json",
     "input_metrics_sha256": "874dfd3cda81a0d8232536e5876a4ca3cc59aa83b608433bd726f0b533013122",
-    "missing": []
+    "missing": [],
+    "pair_orientation": "data/processed/<system>/reference_crossings.json"
   },
   "metrics": {
     "G_MAE_eV_per_atom": 0.0,
@@ -22,7 +23,7 @@
         "coverage_2sigma": 1.0,
         "n_test_frames": 1252,
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               0.0
             ],
@@ -60,7 +61,7 @@
         "coverage_2sigma": 1.0,
         "n_test_frames": 1252,
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               0.0
             ],

@@ -42,6 +42,22 @@ def _curve(data_root: Path, system: str, phase: str, indexes: set[int]) -> dict[
     return {float(table[i].T_K): float(table[i].G_eV_per_atom) for i in indexes}
 
 
+def _ordered_pairs(data_root: Path, system: str, phases: list[str]) -> list[tuple[str, str]]:
+    """Use the phase order recorded by the frozen reference crossing table."""
+    path = data_root / system / "reference_crossings.json"
+    ordered: list[tuple[str, str]] = []
+    if path.exists():
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for item in payload.get("pairs", {}).values():
+            left, right = str(item.get("left")), str(item.get("right"))
+            if left in phases and right in phases:
+                ordered.append((left, right))
+    for left, right in combinations(phases, 2):
+        if (left, right) not in ordered and (right, left) not in ordered:
+            ordered.append((left, right))
+    return ordered
+
+
 def _slope(reference: np.ndarray, temperatures: np.ndarray, root: float) -> float:
     nearest = int(np.argmin(np.abs(temperatures - root)))
     if nearest == 0:
@@ -111,7 +127,7 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
     ranking_unavailable = False
     for system in sorted({key[0] for key in test}):
         phases = sorted(phase for candidate_system, phase in all_rows if candidate_system == system)
-        for left, right in combinations(phases, 2):
+        for left, right in _ordered_pairs(data_root, system, phases):
             if (system, left) not in test and (system, right) not in test:
                 continue
             # When both phases contribute test rows (temp extrapolation), score
@@ -141,7 +157,7 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
         phase_curves = {phase: cached_curve(system, phase, all_rows[(system, phase)]) for phase in phases}
         for temperature in evaluation_temperatures:
             ok = True
-            for left, right in combinations(phases, 2):
+            for left, right in _ordered_pairs(data_root, system, phases):
                 if temperature not in phase_curves[left] or temperature not in phase_curves[right]:
                     ok = False; break
                 reference = phase_curves[left][temperature] - phase_curves[right][temperature]

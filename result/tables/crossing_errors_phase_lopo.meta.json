@@ -1,46 +1,46 @@
 {
-  "generated_utc": "2026-09-30T21:58:51.381271+00:00",
-  "git_commit": "33f41a1974538542fb7970a4cfa41d06ea9b4c5e",
+  "generated_utc": "2026-09-30T22:34:05.040778+00:00",
+  "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "3124e5b934c2a16a3b06391625893c4c522879e27103d4564004fe956fa9c39a"
+      "sha256": "836e9b84a311988823556f639960408aceb4b4743cc2b74bdbea1dc363b93588"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_delta_g/seed_none/metrics.json",
-      "sha256": "b5c35deb030751ad28d6044c45389cc12a17691741e4ef8c8514c7b473d36ac9"
+      "sha256": "250d0641ffb8c3e5615b05802bf07ac82be2b6f9df870bcc784199d07112178f"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "204129c45034ac5193c0f3d195cfba68934a46147dfd0a9ba5d626face6be88e"
+      "sha256": "cc4b2bd034acc2d3900a1f08fcb248617dfcea5ca932a58cba2fd116d9ae2b10"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "c3dfe18bb0e29cdbe6500a1f744892f6f6eb6999e37431971b725fa61182c996"
+      "sha256": "34d92a8e839f03fe4454cc66c0e9ffa6e1f51025181ca1fda295cfdd6c512e08"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "c7fcc77e097a4815dd3355ef2d11508e40aeabb497edb22578968990e1784673"
+      "sha256": "33bdd1505b4f23212bb1580a8c7546efa4766855c176cf4fc9db6d795ab3b050"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "1ef1e4d03f86ce1c13f202504fff1a5608850d03fac80fcc2d32ad357f9ee711"
+      "sha256": "b7ef6c6019a883b1b01fd9cae0cbb6667441872dc00f006e675337d88a1a907b"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
-      "sha256": "54f18acd43b795c6f4efaeeb1f0da94e57b013997f60b8b28c96f6e4f7b4c713"
+      "sha256": "a2f7d9fd076432bcb1bbdd4abddcf6427b3eb34a6defbaeb58b9569c1b4f16c7"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "4d4ad5df4eef10fa589a7142f32e315e142ea1555dc2af6daf30bc9ccabb1a43"
+      "sha256": "8ceb048b0e3b743fa3281bd3741f20ea0ca4df9f882b0502798ace508c22f7ce"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "1d007bc331a00491b48535919e94eb6c1b6b6af9ee8f8e66ce3c7610be23fc12"
+      "sha256": "0a7693368547f72184c1de76e908c90fc2a3782fbde271b99bfe379e47110c32"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "4d3218647b53d9a0c67d44cbe239a7c4a25eb5831927bfaedbed630a41115d22"
+      "sha256": "7e68093d9182a29f4dc64771de793457c067e9e9d22d22dfa3400d0971023411"
     }
   ],
   "missing": [
@@ -77,15 +77,11 @@
       "reason": "structural N/A: pair has no reference crossing on the frozen grid"
     },
     {
-      "field": "interp_const:hf:bcc_minus_hcp.reference_Tc_K",
+      "field": "interp_const:hf:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "interp_const:hf:bcc_minus_hcp.reference_Tc_K",
-      "reason": "predictor unavailable without training phase"
-    },
-    {
-      "field": "interp_const:sio2:cristobalite_beta_minus_quartz_beta.reference_Tc_K",
+      "field": "interp_const:hf:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
@@ -93,7 +89,11 @@
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "interp_const:sio2:cristobalite_beta_minus_quartz_beta.reference_Tc_K",
+      "field": "interp_const:sio2:quartz_beta_minus_cristobalite_beta.reference_Tc_K",
+      "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "interp_const:sio2:quartz_beta_minus_cristobalite_beta.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
@@ -109,27 +109,27 @@
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "interp_const:ti:bcc_minus_hcp.reference_Tc_K",
+      "field": "interp_const:ti:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "interp_const:ti:bcc_minus_hcp.reference_Tc_K",
+      "field": "interp_const:ti:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "interp_const:zr:bcc_minus_hcp.reference_Tc_K",
+      "field": "interp_const:zr:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "interp_const:zr:bcc_minus_hcp.reference_Tc_K",
+      "field": "interp_const:zr:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "phase_id_mlp:hf:bcc_minus_hcp.reference_Tc_K",
+      "field": "phase_id_mlp:hf:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "phase_id_mlp:hf:bcc_minus_hcp.reference_Tc_K",
+      "field": "phase_id_mlp:hf:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
@@ -157,19 +157,19 @@
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "phase_id_mlp:ti:bcc_minus_hcp.reference_Tc_K",
+      "field": "phase_id_mlp:ti:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "phase_id_mlp:ti:bcc_minus_hcp.reference_Tc_K",
+      "field": "phase_id_mlp:ti:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "phase_id_mlp:zr:bcc_minus_hcp.reference_Tc_K",
+      "field": "phase_id_mlp:zr:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {
-      "field": "phase_id_mlp:zr:bcc_minus_hcp.reference_Tc_K",
+      "field": "phase_id_mlp:zr:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
     },
     {

@@ -11,7 +11,8 @@
     "timestamp_utc": "2026-09-30T21:00:24.674780+00:00",
     "input_metrics": "result/experiments/legacy_support/phase3/root_stability_iid_0.005/system_loso/metrics.json",
     "input_metrics_sha256": "361aca26b51f99b979a8c478b3857b1c9fb94ea9fc4d63e77079d6e43e10f7eb",
-    "missing": []
+    "missing": [],
+    "pair_orientation": "data/processed/<system>/reference_crossings.json"
   },
   "metrics": {
     "G_MAE_eV_per_atom": 0.0017823428210505324,
@@ -22,7 +23,7 @@
         "coverage_2sigma": 0.9812300319488818,
         "n_test_frames": 2504,
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               49.45578901189064
             ],

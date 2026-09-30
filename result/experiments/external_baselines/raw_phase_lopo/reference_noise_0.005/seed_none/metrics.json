@@ -11,7 +11,8 @@
     "timestamp_utc": "2026-09-30T21:00:22.360736+00:00",
     "input_metrics": "result/experiments/legacy_support/reference_noise_0.005/phase_lopo/metrics.json",
     "input_metrics_sha256": "1143e76ce6e236e10cec807d688b91d06ad471ca5275298a42fb4af7e32659ba",
-    "missing": []
+    "missing": [],
+    "pair_orientation": "data/processed/<system>/reference_crossings.json"
   },
   "metrics": {
     "G_MAE_eV_per_atom": 0.0027356408589656604,
@@ -22,7 +23,7 @@
         "coverage_2sigma": 1.0,
         "n_test_frames": 1252,
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               14.478547975251207
             ],
@@ -63,7 +64,7 @@
         "coverage_2sigma": 1.0,
         "n_test_frames": 1252,
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               14.478547975251207
             ],

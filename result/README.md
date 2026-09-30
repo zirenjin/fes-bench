@@ -77,6 +77,8 @@ larger than its SiO₂ error; the SiO₂-only table gives 28.2 meV/atom.
 
 temp_extrap 的无训练 predictor 只在共享的 `T>T*` 测试点评测；zero 排除 crist–trid 后为 3.4692 meV/atom（全网格为 5.4372），按测试点评测后与参考口径一致。
 
+Pair-direction audit: `data/processed/{hf,ti,zr}/reference_crossings.json` defines the metal pair as `hcp − bcc`. All regenerated baseline and floor raw runs now use that same direction (the former lexicographic `bcc − hcp` keys were renamed); MAE and crossing temperatures are invariant, while `global_mean_delta_g` constants are recomputed in the common gauge. The temp-extrapolation global-mean ΔG MAE changed from 7.9039 to 10.7782 meV/atom and sign accuracy from 0.3381 to 0.1379; phase-LOPO changed from 6.1511 to 6.1966 meV/atom and 0.4156 to 0.3855. System-LOSO is unchanged because each fold contains one consistently oriented metal pair.
+
 `_legacy/` contains six cleaned historical delivery records and `CLEANING.md`.
 They are tracked for provenance but not read by table scripts.
 

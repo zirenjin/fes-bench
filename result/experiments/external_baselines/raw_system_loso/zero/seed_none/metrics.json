@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "3f6a95ffcfcf670f1c221f6a0146f1043fcf6c00",
+    "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
     "split": "system_loso",
     "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
     "predictor_config": null,
@@ -8,10 +8,11 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T21:41:43.250511+00:00",
+    "timestamp_utc": "2026-09-30T22:26:56.565897+00:00",
     "input_metrics": "result/experiments/skill_floor/metrics.json",
-    "input_metrics_sha256": "5d5860dd4fbd7f04c526e916aec01e734deb6f1267bffd16a6fb5b0d656ccd20",
-    "missing": []
+    "input_metrics_sha256": "bb3cb5d242dc8f3f8410f06852be0b1fa892d85a64f9e9483fd4bf8615c1cff4",
+    "missing": [],
+    "pair_orientation": "data/processed/<system>/reference_crossings.json"
   },
   "metrics": {
     "folds": {
@@ -30,7 +31,7 @@
           "n_fittable_pairs": 0,
           "n_test_frames": 904,
           "pairs": {
-            "hf:bcc_minus_hcp": {
+            "hf:hcp_minus_bcc": {
               "Tc_err_from_dG_K": [],
               "Tc_error_K": [],
               "crossing_slope_eV_per_atom_per_K": [],
@@ -55,7 +56,7 @@
           }
         },
         "pairs": {
-          "hf:bcc_minus_hcp": {
+          "hf:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               "n/a:degenerate_prediction"
             ],
@@ -97,7 +98,7 @@
         "n_fittable_pairs": 0,
         "n_test_frames": 1386,
         "pairs": {
-          "ti:bcc_minus_hcp": {
+          "ti:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               "n/a:degenerate_prediction"
             ],
@@ -139,7 +140,7 @@
         "n_fittable_pairs": 0,
         "n_test_frames": 1820,
         "pairs": {
-          "zr:bcc_minus_hcp": {
+          "zr:hcp_minus_bcc": {
             "Tc_err_from_dG_K": [
               "n/a:degenerate_prediction"
             ],
