@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-09-30T21:11:31.277517+00:00",
-  "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
+  "generated_utc": "2026-09-30T21:42:43.133962+00:00",
+  "git_commit": "3f6a95ffcfcf670f1c221f6a0146f1043fcf6c00",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "08f50ad89ff4240b2fa8ebc35e14b48101fa24f1d27b274f6218ce8e49355355"
+      "sha256": "d1e0652207c6585fc7ee569fa38cf9b3a7704029e0762bd6a5998e2663d5c616"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_delta_g/seed_none/metrics.json",
-      "sha256": "3baffe60346e78bc5bbd6188ec37a4186f40717a2bf43e92a1b2f20c357bc780"
+      "sha256": "88f2b35b82cccb07541d0a2271851fab27d325f7c15f1d1918a84214a7e3b54b"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
@@ -16,15 +16,15 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "8f98dc1227ee4ddc0e40a47efbbdc584b42c784262466c822305cec385c1dae4"
+      "sha256": "c080d569a2ea97c1c9994ab278503b55cd414455e0e9e97d53cb477ea0bed9ff"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "3dbfe695e68ec5c43b1719ba1bb76950224e4c9295e18fc551ec5e73c35ad7dc"
+      "sha256": "7d7ed9ccef5419e0656e2959aca06a6f3b366832c9b7d3695aee176c1cbfeac8"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "98971afd3f0ceb5fc577304411fd4836baa385e05896439389a859588473e4d0"
+      "sha256": "5e260a1ab7324c30f04e2b1c557aa75e2fbefce9447b8e1ced94dc7cc32fcce2"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
@@ -40,7 +40,7 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "dcaa169a0b5ff1cd5d6b345e15659e5d38329326a073c977dd3f6c0e8f8dd848"
+      "sha256": "5da70cbd99ab24d4452aac2055434e1de00d1bd7ded212dcc6ead8dea03cb985"
     }
   ],
   "missing": [],
@@ -49,7 +49,8 @@
     "default_pairs": "exclude pairs without a reference crossing",
     "include_all_pairs_csv": "predictor_comparison_temp_extrap_include_all_pairs.csv",
     "sio2_csv": "predictor_comparison_temp_extrap_sio2.csv",
-    "fold_detail_csv": "predictor_comparison_temp_extrap_folds.csv"
+    "fold_detail_csv": "predictor_comparison_temp_extrap_folds.csv",
+    "overlap_T_csv": null
   },
   "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."
 }

@@ -338,6 +338,7 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                         )
                     slope_by_root.append(float(abs(slope)))
                 degenerate = bool(np.all(np.abs(observed) <= 1.0e-12))
+                missed = (not degenerate) and len(roots_predicted) < len(roots_reference)
                 pair_metrics[f"{system}:{left}_minus_{right}"] = {
                     "pair_support": "test_and_train_partner" if train else "test_only",
                     "status": "degenerate_prediction" if degenerate else "ok",
@@ -354,12 +355,12 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                         else math.nan
                         for kk in range(len(roots_reference))
                     ] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
-                    "Tc_error_K": [pred - ref for pred, ref in zip(roots_predicted, roots_reference)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                    "Tc_error_K": ["n/a:missed_crossing"] * len(roots_reference) if missed else ([pred - ref for pred, ref in zip(roots_predicted, roots_reference)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference)),
                     "crossing_slope_eV_per_atom_per_K": slope_by_root if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
-                    "Tc_err_from_dG_K": [
+                    "Tc_err_from_dG_K": ["n/a:missed_crossing"] * len(roots_reference) if missed else ([
                         error / slope if slope else math.nan
                         for error, slope in zip(crossing_mae, slope_by_root)
-                    ] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                    ] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference)),
                     "false_crossings": max(0, len(roots_predicted) - len(roots_reference)) if not degenerate else "n/a:degenerate_prediction",
                     "missed_crossings": max(0, len(roots_reference) - len(roots_predicted)) if not degenerate else "n/a:degenerate_prediction",
                 }

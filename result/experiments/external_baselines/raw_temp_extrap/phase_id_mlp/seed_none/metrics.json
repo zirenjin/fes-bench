@@ -51,9 +51,11 @@
           },
           "sio2:cristobalite_beta_minus_quartz_beta": {
             "Tc_err_from_dG_K": [
-              1648.3553343960464
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               7.551407561479095e-06
             ],
@@ -91,9 +93,11 @@
           },
           "sio2:quartz_beta_minus_tridymite_p63mmc": {
             "Tc_err_from_dG_K": [
-              2512.891405707289
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               7.448345272997869e-06
             ],

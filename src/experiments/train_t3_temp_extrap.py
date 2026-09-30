@@ -233,6 +233,7 @@ def pair_metrics(ref: np.ndarray, pred: np.ndarray, temperatures: np.ndarray) ->
     roots_ref = _root(ref, temperatures)
     roots_pred = _root(pred, temperatures)
     degenerate = bool(np.all(np.abs(pred) <= 1e-12))
+    missed = (not degenerate) and len(roots_pred) < len(roots_ref)
     return {
         "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(pred - ref))),
         "zero_floor_delta_G_MAE_eV_per_atom": float(np.mean(np.abs(ref))),
@@ -240,7 +241,7 @@ def pair_metrics(ref: np.ndarray, pred: np.ndarray, temperatures: np.ndarray) ->
         "sign_accuracy": float(np.mean(np.sign(pred) == np.sign(ref))),
         "reference_Tc_K": roots_ref,
         "predicted_Tc_K": ["n/a:degenerate_prediction"] if degenerate else roots_pred,
-        "Tc_error_K": ["n/a:degenerate_prediction"] * len(roots_ref) if degenerate else [float(a - b) for a, b in zip(roots_pred, roots_ref)],
+        "Tc_error_K": ["n/a:missed_crossing"] * len(roots_ref) if missed else (["n/a:degenerate_prediction"] * len(roots_ref) if degenerate else [float(a - b) for a, b in zip(roots_pred, roots_ref)]),
         "false_crossings": "n/a:degenerate_prediction" if degenerate else max(0, len(roots_pred) - len(roots_ref)),
         "missed_crossings": "n/a:degenerate_prediction" if degenerate else max(0, len(roots_ref) - len(roots_pred)),
         "n_evaluation_points": int(len(ref)),

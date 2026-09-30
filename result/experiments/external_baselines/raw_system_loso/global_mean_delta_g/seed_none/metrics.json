@@ -51,9 +51,11 @@
         "pairs": {
           "hf:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
-              null
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               0.0
             ],
@@ -87,9 +89,11 @@
         "pairs": {
           "ti:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
-              null
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               0.0
             ],
@@ -123,9 +127,11 @@
         "pairs": {
           "zr:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
-              71.15989717224434
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],

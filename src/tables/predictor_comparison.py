@@ -18,6 +18,7 @@ from common import csv_write, meta_write, numeric, raw_runs
 PAIR_ONLY = "n/a:pair_only_predictor"
 NO_TRAINING = "n/a:no_training_phase"
 DEGENERATE = "n/a:degenerate_prediction"
+MISSED = "n/a:missed_crossing"
 NOT_TRAINED = "n/a:not_trained_for_split"
 NO_SEED = "n/a:no_seed"
 
@@ -30,6 +31,9 @@ def marker(values: list[Any]) -> str | None:
     for value in values:
         if value == DEGENERATE:
             return DEGENERATE
+    for value in values:
+        if value == MISSED:
+            return MISSED
     for value in values:
         if value == NO_TRAINING:
             return NO_TRAINING
@@ -179,7 +183,14 @@ def main() -> int:
             seed_stats[predictor] = (sum(values) / len(values), statistics.stdev(values))
         for metric in metric_list:
             for fold_name, fold_body in folds(metric).items():
-                fold_rows.append({"predictor": predictor, "fold": fold_name, "n_test_frames": fold_body.get("n_test_frames", ""), **summarize({"folds": {fold_name: fold_body}}, include_all_pairs=False)})
+                # Keep system_loso's full and Hf overlap_T evaluations in one
+                # auditable fold table. Ignore obsolete v1 SiO2 folds.
+                if args.split == "system_loso" and fold_name not in {"hf", "ti", "zr"}:
+                    continue
+                fold_rows.append({"predictor": predictor, "fold": fold_name, "eval_subset": "full", "n_test_frames": fold_body.get("n_test_frames", ""), **summarize({"folds": {fold_name: fold_body}}, include_all_pairs=False)})
+                overlap = fold_body.get("overlap_T")
+                if args.split == "system_loso" and isinstance(overlap, dict):
+                    fold_rows.append({"predictor": predictor, "fold": fold_name, "eval_subset": "overlap_T", "n_test_frames": overlap.get("n_test_frames", ""), **summarize({"folds": {fold_name: overlap}}, include_all_pairs=False)})
     rows = result_rows(default); all_rows = result_rows(all_pairs); sio2_rows = result_rows(sio2)
     present = {row["predictor"] for row in rows}
     placeholders = [row for row in e1_rows() if row["predictor"] not in present]
@@ -188,12 +199,12 @@ def main() -> int:
         for row in table_rows:
             if row["predictor"] in seed_stats:
                 row["seed_mean"], row["seed_std"] = seed_stats[row["predictor"]]
-    rows.sort(key=lambda row: row["predictor"]); all_rows.sort(key=lambda row: row["predictor"]); sio2_rows.sort(key=lambda row: row["predictor"]); fold_rows.sort(key=lambda row: (row["predictor"], row["fold"]))
+    rows.sort(key=lambda row: row["predictor"]); all_rows.sort(key=lambda row: row["predictor"]); sio2_rows.sort(key=lambda row: row["predictor"]); fold_rows.sort(key=lambda row: (row["predictor"], row["fold"], row.get("eval_subset", "full")))
     csv_path = output / f"predictor_comparison_{args.split}.csv"
     csv_write(csv_path, FIELDS, rows)
     csv_write(output / f"predictor_comparison_{args.split}_include_all_pairs.csv", FIELDS, all_rows)
     csv_write(output / f"predictor_comparison_{args.split}_sio2.csv", FIELDS, sio2_rows)
-    csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen"], fold_rows)
+    csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "eval_subset", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen"], fold_rows)
     overlap_rows: list[dict[str, Any]] = []
     for predictor, metric_list in grouped.items():
         overlap_folds: dict[str, Any] = {}

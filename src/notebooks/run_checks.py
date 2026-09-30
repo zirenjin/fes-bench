@@ -6,6 +6,7 @@ import builtins
 import csv
 import json
 import os
+import re
 from pathlib import Path
 
 
@@ -43,7 +44,28 @@ def _fallback_checks(root: Path) -> list[str]:
     out.append(f"⚠ phase_inventory missing imaginary_fraction {bad}" if bad else "✓ phase_inventory reliable rows have imaginary_fraction")
     bad=[p.get("phase") for p in phases if p.get("qh_supercell_shortest_edge_A") and float(p["qh_supercell_shortest_edge_A"])<10]
     out.append(f"⚠ QH supercell edge <10 A {bad}" if bad else "✓ QH supercell shortest edges meet 10 A")
+    expected_folds = {"hf", "ti", "zr"}
+    # Main system_loso CSVs must not retain the obsolete v1 SiO2 fold.  The
+    # separately named overlap_T support CSV is intentionally Hf-only.
+    for table_name in ("predictor_comparison_system_loso_folds", "crossing_errors_system_loso"):
+        fold_table = root / "result/tables" / f"{table_name}.csv"
+        if not fold_table.exists():
+            out.append(f"⚠ {table_name} is missing")
+            continue
+        fold_rows = list(csv.DictReader(fold_table.open(encoding="utf-8", newline="")))
+        observed = {r.get("fold", "") for r in fold_rows if r.get("eval_subset", "full") == "full" and r.get("fold", "")}
+        out.append(f"⚠ {table_name} fold set is {sorted(observed)}, expected ['hf', 'ti', 'zr']" if observed != expected_folds else f"✓ {table_name} fold set is exactly {{hf, ti, zr}}")
     return out
+
+
+def _non_english_checks(root: Path) -> list[str]:
+    """The checked-in executable notebook must contain no CJK text."""
+    pattern = re.compile(r"[\u3000-\u303f\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
+    warnings = []
+    for path in sorted((root / "src/notebooks").glob("*.ipynb")):
+        if pattern.search(path.read_text(encoding="utf-8")):
+            warnings.append(f"⚠ non-English text in {path.relative_to(root)}")
+    return warnings
 
 
 def main() -> int:
@@ -67,6 +89,7 @@ def main() -> int:
             if exc.name not in {"pandas", "matplotlib", "numpy"}:
                 raise
             checks = _fallback_checks(root)
+            checks.extend(_non_english_checks(root))
             (root / "result/tables/_checks.txt").write_text("\n".join(checks) + "\n", encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks) else 0
         if index == 5:
@@ -85,6 +108,7 @@ def main() -> int:
                     from src.experiments.checkpoint_consistency import policy_warnings
                 policy_bad = policy_warnings(root)
                 checks += "".join(f"⚠ {item}\n" for item in policy_bad)
+            checks += "".join(f"{line}\n" for line in _non_english_checks(root))
             (root / "result/tables/_checks.txt").write_text(checks, encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks.splitlines()) else 0
     raise RuntimeError("notebook consistency-check cell was not executed")

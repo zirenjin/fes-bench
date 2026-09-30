@@ -72,6 +72,7 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
         }
     roots_pred = _root(observed, temperatures)
     degenerate = bool(np.all(np.abs(observed) <= 1.0e-12))
+    missed = (not degenerate) and len(roots_pred) < len(roots_ref)
     crossing_error = [float(abs(np.interp(root, temperatures, observed - reference))) for root in roots_ref]
     slopes = [_slope(reference, temperatures, root) for root in roots_ref]
     return {
@@ -83,10 +84,10 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
         "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
         "reference_Tc_K": roots_ref,
         "predicted_Tc_K": roots_pred if not degenerate else ["n/a:degenerate_prediction"],
-        "Tc_error_K": [float(pred - ref) for pred, ref in zip(roots_pred, roots_ref)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
+        "Tc_error_K": ["n/a:missed_crossing"] * len(roots_ref) if missed else ([float(pred - ref) for pred, ref in zip(roots_pred, roots_ref)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref)),
         "delta_G_MAE_at_crossing_eV_per_atom": crossing_error if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
         "crossing_slope_eV_per_atom_per_K": slopes if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
-        "Tc_err_from_dG_K": [float(error / slope) if slope else math.nan for error, slope in zip(crossing_error, slopes)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref),
+        "Tc_err_from_dG_K": ["n/a:missed_crossing"] * len(roots_ref) if missed else ([float(error / slope) if slope else math.nan for error, slope in zip(crossing_error, slopes)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref)),
         "false_crossings": max(0, len(roots_pred) - len(roots_ref)) if not degenerate else "n/a:degenerate_prediction",
         "missed_crossings": max(0, len(roots_ref) - len(roots_pred)) if not degenerate else "n/a:degenerate_prediction",
     }

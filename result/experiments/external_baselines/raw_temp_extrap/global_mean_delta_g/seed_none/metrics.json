@@ -23,9 +23,11 @@
         "pairs": {
           "hf:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
-              null
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               0.0
             ],
@@ -47,9 +49,11 @@
           },
           "sio2:cristobalite_beta_minus_quartz_beta": {
             "Tc_err_from_dG_K": [
-              693.3067281055789
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               7.551407561479095e-06
             ],
@@ -87,9 +91,11 @@
           },
           "sio2:quartz_beta_minus_tridymite_p63mmc": {
             "Tc_err_from_dG_K": [
-              702.8999700135543
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               7.448345272997869e-06
             ],
@@ -111,9 +117,11 @@
           },
           "ti:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
-              null
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               0.0
             ],
@@ -135,9 +143,11 @@
           },
           "zr:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
-              104.70883338082753
+              "n/a:missed_crossing"
             ],
-            "Tc_error_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],

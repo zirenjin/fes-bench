@@ -17,8 +17,11 @@ def main() -> int:
     rows, overlap_rows, inputs, missing = [], [], [], []
     for path, body in raw_runs(root, args.split):
         inputs.append(path); predictor = path.parts[-3]
-        records = [("main", pair, record) for pair, record in pair_records(body["metrics"])]
+        records = [("main", pair, record) for pair, record in pair_records(body["metrics"])
+                   if args.split != "system_loso" or record.get("fold", "") in {"hf", "ti", "zr"}]
         for fold_name, fold in body["metrics"].get("folds", {}).items() if isinstance(body["metrics"].get("folds"), dict) else []:
+            if args.split == "system_loso" and fold_name not in {"hf", "ti", "zr"}:
+                continue
             if isinstance(fold, dict) and isinstance(fold.get("overlap_T"), dict):
                 for pair, record in pair_records({"folds": {fold_name: fold["overlap_T"]}}):
                     records.append(("overlap_T", pair, record))

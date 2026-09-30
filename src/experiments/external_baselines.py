@@ -145,6 +145,7 @@ def _crossing_slope(reference: np.ndarray, temperatures: np.ndarray, root: float
 
 def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.ndarray) -> dict[str, object]:
     ref_roots, pred_roots = _root(reference, temperatures), _root(observed, temperatures)
+    missed = len(pred_roots) < len(ref_roots)
     crossing_error = [float(abs(np.interp(root, temperatures, observed - reference))) for root in ref_roots]
     slopes = [_crossing_slope(reference, temperatures, root) for root in ref_roots]
     return {
@@ -154,10 +155,10 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
         "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
         "reference_Tc_K": ref_roots,
         "predicted_Tc_K": pred_roots,
-        "Tc_error_K": [float(pred - ref) for pred, ref in zip(pred_roots, ref_roots)],
+        "Tc_error_K": ["n/a:missed_crossing"] * len(ref_roots) if missed else [float(pred - ref) for pred, ref in zip(pred_roots, ref_roots)],
         "delta_G_MAE_at_crossing_eV_per_atom": crossing_error,
         "crossing_slope_eV_per_atom_per_K": slopes,
-        "Tc_err_from_dG_K": [float(error / slope) if slope else None for error, slope in zip(crossing_error, slopes)],
+        "Tc_err_from_dG_K": ["n/a:missed_crossing"] * len(ref_roots) if missed else [float(error / slope) if slope else None for error, slope in zip(crossing_error, slopes)],
         "false_crossings": max(0, len(pred_roots) - len(ref_roots)),
         "missed_crossings": max(0, len(ref_roots) - len(pred_roots)),
     }

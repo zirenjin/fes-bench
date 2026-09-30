@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
+    "git_commit": "3f6a95ffcfcf670f1c221f6a0146f1043fcf6c00",
     "split": "system_loso",
     "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
     "predictor_config": null,
@@ -8,9 +8,9 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T21:10:16.978703+00:00",
+    "timestamp_utc": "2026-09-30T21:41:43.250511+00:00",
     "input_metrics": "result/experiments/skill_floor/metrics.json",
-    "input_metrics_sha256": "a60dfdaf7a3082d00857bd08a95c357971922226d45b64b9a95724391abacccc",
+    "input_metrics_sha256": "5d5860dd4fbd7f04c526e916aec01e734deb6f1267bffd16a6fb5b0d656ccd20",
     "missing": []
   },
   "metrics": {
