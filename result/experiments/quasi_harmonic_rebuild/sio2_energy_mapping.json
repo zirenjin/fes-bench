@@ -24,7 +24,10 @@
       "nearest_SiO_A": 1.6082900775034292,
       "mean_four_shortest_SiO_A": 1.60829026647783,
       "total_energy_eV": -991.6131668686867,
-      "energy_eV_per_atom": -4.080712620858793
+      "energy_eV_per_atom": -4.080712620858793,
+      "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
     },
     {
       "phase": "quartz_beta",
@@ -39,7 +42,10 @@
       "nearest_SiO_A": 1.6273776742969137,
       "mean_four_shortest_SiO_A": 1.627377675504904,
       "total_energy_eV": -36.89556685090065,
-      "energy_eV_per_atom": -4.09950742787785
+      "energy_eV_per_atom": -4.09950742787785,
+      "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
     },
     {
       "phase": "cristobalite_beta",
@@ -54,7 +60,10 @@
       "nearest_SiO_A": 1.619408049940739,
       "mean_four_shortest_SiO_A": 1.6194099222968203,
       "total_energy_eV": -789.1140585541725,
-      "energy_eV_per_atom": -4.109969054969649
+      "energy_eV_per_atom": -4.109969054969649,
+      "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
     },
     {
       "phase": "cristobalite_beta",
@@ -69,7 +78,10 @@
       "nearest_SiO_A": 1.6214542850284805,
       "mean_four_shortest_SiO_A": 1.6214542862178996,
       "total_energy_eV": -98.62807109951973,
-      "energy_eV_per_atom": -4.109502962479989
+      "energy_eV_per_atom": -4.109502962479989,
+      "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
     },
     {
       "phase": "tridymite_p63mmc",
@@ -84,7 +96,10 @@
       "nearest_SiO_A": 1.6047324504709353,
       "mean_four_shortest_SiO_A": 1.6049392862925294,
       "total_energy_eV": -886.0217716097832,
-      "energy_eV_per_atom": -4.101952646341589
+      "energy_eV_per_atom": -4.101952646341589,
+      "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
     },
     {
       "phase": "tridymite_p63mmc",
@@ -99,7 +114,10 @@
       "nearest_SiO_A": 1.6210411305248948,
       "mean_four_shortest_SiO_A": 1.6210411305248948,
       "total_energy_eV": -49.282419472932816,
-      "energy_eV_per_atom": -4.106868289411068
+      "energy_eV_per_atom": -4.106868289411068,
+      "checkpoint_path": "<external-checkpoint>/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-09-30T03:43:20.247683+00:00",
-  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "generated_utc": "2026-09-30T16:35:17.505254+00:00",
+  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
   "inputs": [
     {
       "path": "data/processed/hf/bcc/meta.json",
-      "sha256": "77268126939d02b2248682474ed4d9529b31ec52325b25315134d362aeb570bd"
+      "sha256": "eba0addf496099fc52ab67064e4e6f0a51a0be5e75689d523e9b5805082ff6f7"
     },
     {
       "path": "data/processed/hf/hcp/meta.json",
-      "sha256": "fdd95cf313e0c4e68e65d68c861b6cc3dadd8c1ca33c570a44b8568b749c39e1"
+      "sha256": "1cd04c744d30b669e2a7b81c7adfd52a0bcc64df80e4d2ace870f8e858ba4700"
     },
     {
       "path": "data/processed/hf/system.json",
@@ -16,11 +16,11 @@
     },
     {
       "path": "data/processed/sio2/cristobalite_beta/meta.json",
-      "sha256": "f48b5003ecb8451fb6073eae142e65ab53257c6d686264d71400807177b953fb"
+      "sha256": "4141ec8ba33dc1599f282a660ecdcf1f972d512dee60ce79a3f812fb34c62ca9"
     },
     {
       "path": "data/processed/sio2/quartz_beta/meta.json",
-      "sha256": "2c34ec0eeefed463f4c36a6f9a7869c1432fb5819838b120987fb61790d5f17c"
+      "sha256": "a1d449d774b56e800113ad18ddd87994e6e51ac5ee95cec5d2711fda5ba4c357"
     },
     {
       "path": "data/processed/sio2/system.json",
@@ -28,15 +28,15 @@
     },
     {
       "path": "data/processed/sio2/tridymite_p63mmc/meta.json",
-      "sha256": "3dbb9d8cb69f13ba76682e5dc3e65c42889be6cd43bc79834123bc6b438e1b8e"
+      "sha256": "eefb8dfe97b0ad377bf1a6d9d3698afaebf3b9809e3bfd281ca0bfd7895a97fb"
     },
     {
       "path": "data/processed/ti/bcc/meta.json",
-      "sha256": "727046a3826c1e077c63b918cda196d559bc5eaf4feae905d6bb550298ace138"
+      "sha256": "07303e6758b7c169f34dd50fca41936edf307a8d3137f0470609d55b1e0d691d"
     },
     {
       "path": "data/processed/ti/hcp/meta.json",
-      "sha256": "2ef2993024eb3ad424381689956fa133a0342d4fee371f8f06dac9d7950a4cc8"
+      "sha256": "f9c3060993e7a39ea85a20be19b6ef5ba2b1d60b61ac0e066b6529ec89a8e7ec"
     },
     {
       "path": "data/processed/ti/system.json",
@@ -44,11 +44,11 @@
     },
     {
       "path": "data/processed/zr/bcc/meta.json",
-      "sha256": "d025c0a7857dfbdf90d5ae3da462936eafdebcd86b43db961eee8f0c9adcaa3b"
+      "sha256": "5bbf3b3f225aba4f4628e9c3ac5a960f11e6ff76fc22a36a441d3a3fcf3b7d9e"
     },
     {
       "path": "data/processed/zr/hcp/meta.json",
-      "sha256": "804f9a3eea131e1f00fc346ffddfa42af110e82a4b99ad4d4c63abe10332f9b4"
+      "sha256": "1d4e199a25b11103363c29dd0a9faca536669f7107ad439464eb09659684d821"
     },
     {
       "path": "data/processed/zr/system.json",

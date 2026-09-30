@@ -8,9 +8,9 @@
       "basis": "metallic-domain head; hcp imaginary-mode diagnosis passed, bcc remains explicitly held"
     },
     "sio2": {
-      "energy_head": "Domains_Alloy",
-      "fqh_head": "Domains_Alloy",
-      "basis": "same selected formal FES head; no claim that the generic SSE-PBE head is a SiO2 PES-relaxation head"
+      "energy_head": "Domains_SSE_PBE",
+      "fqh_head": "Domains_SSE_PBE",
+      "basis": "Si/O domain head; Domains_Alloy judged out-of-domain for SiO₂; structures, energies and QH all evaluated with the same head."
     },
     "ti": {
       "energy_head": "Domains_Alloy",

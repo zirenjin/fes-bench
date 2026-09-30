@@ -20,7 +20,10 @@
     "material_id": "mp-131",
     "prototype": "hcp",
     "space_group_before": "P6_3/mmc (194)",
-    "lattice_A": {"a": 3.239, "c": 5.172},
+    "lattice_A": {
+      "a": 3.239,
+      "c": 5.172
+    },
     "source_structure": "structure.source.extxyz",
     "calculator": "deepmd.calculator.DP",
     "checkpoint": "external/models/DPA-3.1-3M.pt",
@@ -30,12 +33,28 @@
     "fmax_eV_per_A": 0.01,
     "max_steps": 1000,
     "converged": true,
-    "energy_eV_per_atom": {"before": -7.151518642902374, "after": -7.152492448687553},
-    "volume_A3_per_atom": {"before": 23.495302898256167, "after": 23.369038084796507},
-    "space_group": {"before": "P6_3/mmc", "after": "P6_3/mmc"},
+    "energy_eV_per_atom": {
+      "before": -7.151518642902374,
+      "after": -7.152492448687553
+    },
+    "volume_A3_per_atom": {
+      "before": 23.495302898256167,
+      "after": 23.369038084796507
+    },
+    "space_group": {
+      "before": "P6_3/mmc",
+      "after": "P6_3/mmc"
+    },
     "max_displacement_A": 0.020458049764399015,
     "relaxation_log": "representative_relaxation.log",
-    "selection_basis": "MP elemental Zr hcp entry; same MP source family as Zr bcc mp-41"
+    "selection_basis": "MP elemental Zr hcp entry; same MP source family as Zr bcc mp-41",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "energy_provenance": {
+      "checkpoint": "external/models/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_Alloy",
+      "field": "representative.energy_eV_per_atom"
+    }
   },
   "grid_harmonization": {
     "original_points": 1520,

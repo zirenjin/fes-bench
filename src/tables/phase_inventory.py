@@ -58,7 +58,7 @@ def _candidate_qh(root: Path, system: str, phase: str) -> tuple[dict[str, Any], 
     # Domains_Alloy run at equilibrium volume and [2,2,2]; superseded SSE/PES
     # runs are archived and must not silently win by glob ordering.
     if system == "sio2":
-        candidates = sorted(root.glob("result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/*/qh_summary.json"))
+        candidates = sorted(root.glob("result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/*/qh_summary.json"))
     else:
         candidates = sorted(root.glob("result/experiments/quasi_harmonic_10a/raw_runs/*/qh_summary.json"))
     for path in candidates:

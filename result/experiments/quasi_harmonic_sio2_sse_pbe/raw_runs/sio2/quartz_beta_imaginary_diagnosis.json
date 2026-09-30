@@ -1,0 +1,24 @@
+{
+  "system": "sio2",
+  "phase": "quartz_beta",
+  "head": "Domains_SSE_PBE",
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "volume_scale": 1.0,
+  "minimum_frequency_THz": -1.0540316023329863,
+  "negative_mode_fraction": 0.0016075102880658437,
+  "negative_qpoint_fraction": 0.03993055555555555,
+  "negative_threshold_THz": -0.05,
+  "qh_reliable": true,
+  "source_qh_summary": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907"
+}

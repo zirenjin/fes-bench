@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
     "split": "_inventory",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-29T21:46:39.116174+00:00",
+    "timestamp_utc": "2026-09-30T16:35:00.768559+00:00",
     "input_metrics": "configs/raw_runs.json",
     "input_metrics_sha256": "526e1bcdc1d1153287777cf81fb5036af876b7434c936aa66feae22fdca9075c",
     "missing": []
@@ -4647,7 +4647,14 @@
               "after": "P6_3/mmc"
             },
             "max_displacement_A": 0.055469366870915464,
-            "relaxation_log": "representative_relaxation.log"
+            "relaxation_log": "representative_relaxation.log",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_Alloy",
+              "field": "representative.energy_eV_per_atom"
+            }
           }
         },
         "reference_points": 1252,
@@ -4727,7 +4734,14 @@
               "after": "Im-3m"
             },
             "max_displacement_A": 1.3829404010795132e-09,
-            "relaxation_log": "representative_relaxation.log"
+            "relaxation_log": "representative_relaxation.log",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_Alloy",
+              "field": "representative.energy_eV_per_atom"
+            }
           }
         },
         "reference_points": 1252,
@@ -4786,6 +4800,9 @@
             "source_url": "https:external/aflow.cif",
             "prototype": "A2B_hP9_181_i_d-001",
             "icsd": "26430",
+            "darus_phase": "quartz_beta_pbe_d3bj",
+            "reference_model_audit": "beta-quartz P6_422; DaRUS-4999/Forslund et al. methods cite Bragg & Gibbs (1925), matching the AFLOW P6_422 prototype",
+            "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
             "space_group": {
               "before": "P6_422",
               "after": "P6_422"
@@ -4794,48 +4811,82 @@
             "calculator": "deepmd.calculator.DP",
             "head": "Domains_SSE_PBE",
             "converged": true,
+            "relaxation_mode": "hydrostatic_variable_cell",
             "energy_eV_per_atom": {
-              "before": -4.0609928833113775,
-              "after": -4.0713280240694685
+              "before": -4.060992870065901,
+              "after": -4.09950738814142
             },
-            "max_displacement_A": 0.05159683428292805,
+            "max_displacement_A": 0.12270312151727887,
             "fmax_eV_per_A": 0.001,
             "max_steps": 5000,
             "source_atoms": 9,
             "relaxed_atoms": 9,
-            "archive_previous": "data/processed/sio2/_archive_md_snapshot/quartz_beta/meta.json"
+            "archive_previous": "data/processed/sio2/_archive_md_snapshot/quartz_beta/meta.json",
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_SSE_PBE",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "downstream_recompute_required": [
             "result/experiments/external_baselines (Bartel and phase-level baselines)",
             "result/experiments/quasi_harmonic",
             "result/experiments/imaginary_modes",
-            "result/experiments/reference_statistics"
-          ]
+            "result/experiments/reference_statistics",
+            "result/experiments/representative_structures (E4)"
+          ],
+          "same_head_energy_audit": {
+            "script": "src/experiments/data_prep/audit_sio2_energy_mapping.py",
+            "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+            "head": "Domains_SSE_PBE",
+            "old_energy_eV_per_atom": -4.080712620858793,
+            "new_energy_eV_per_atom": -4.09950742787785,
+            "delta_new_minus_old_eV_per_atom": -0.01879480701905667,
+            "status": "within_tens_of_meV_after_variable_cell_relaxation"
+          },
+          "soft_mode_diagnostic": {
+            "source": "result/experiments/imaginary_modes/quartz_soft_mode.json",
+            "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "head": "Domains_SSE_PBE",
+            "minimum_frequency_THz": -1.1533986058996282,
+            "minimum_frequency_qpoints": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "negative_mode_count": 20,
+            "negative_qpoint_count": 19,
+            "negative_modes_within_gamma_radius": 1,
+            "negative_mode_fraction_within_gamma_radius": 0.05,
+            "negative_modes_are_gamma_local": false,
+            "possible_physical_soft_mode": true,
+            "note": "Minimum is at Gamma and strongly negative, but negative modes are not concentrated exclusively in the Gamma neighborhood. This annotation does not change the qh_reliable rule."
+          },
+          "formal_energy_eV_per_atom": -4.09950738814142,
+          "formal_energy_provenance": {
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "head": "Domains_SSE_PBE",
+            "source": "data/processed/sio2/quartz_beta/meta.json representative.energy_eV_per_atom.after (Domains_SSE_PBE)",
+            "structure_sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc"
+          },
+          "energy_head_policy": "Domains_SSE_PBE"
         },
         "reference_points": 1649,
         "structure_path": "data/processed/sio2/quartz_beta/structure.extxyz",
         "lattice_edge_lengths_A": [
-          4.997699999999999,
-          4.9977,
-          5.460099999999999
+          5.1158317060041405,
+          5.115831706004138,
+          5.589161553905415
         ],
-        "shortest_edge_A": 4.997699999999999,
-        "atom_count": 9,
-        "qh": {
-          "supercell": [
-            1,
-            1,
-            1
-          ],
-          "mesh": [
-            16,
-            16,
-            16
-          ],
-          "imaginary_fraction": 0.005466913740684588,
-          "minimum_frequency_THz": -3.2740289033485914,
-          "qh_reliable": false
-        }
+        "shortest_edge_A": 5.115831706004138,
+        "atom_count": 9
       },
       "sio2:cristobalite_beta": {
         "system": "sio2",
@@ -4868,6 +4919,9 @@
             "source_url": "https:external/aflow.cif",
             "prototype": "A2B_cF24_227_c_a-001",
             "icsd": null,
+            "darus_phase": "cristobalite_beta_pbe_d3bj",
+            "reference_model_audit": "beta-cristobalite Fd-3m; DaRUS-4999/Forslund et al. methods cite Wyckoff (1925), matching the AFLOW cF24 prototype (Si 8a, O 16c)",
+            "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
             "space_group": {
               "before": "Fd-3m",
               "after": "Fd-3m"
@@ -4876,48 +4930,61 @@
             "calculator": "deepmd.calculator.DP",
             "head": "Domains_SSE_PBE",
             "converged": true,
+            "relaxation_mode": "hydrostatic_variable_cell",
             "energy_eV_per_atom": {
-              "before": -3.9587841294705868,
-              "after": -3.9587841294705868
+              "before": -3.9587841319541135,
+              "after": -4.109503240634997
             },
-            "max_displacement_A": 0.0,
+            "max_displacement_A": 0.48978847120707436,
             "fmax_eV_per_A": 0.001,
             "max_steps": 5000,
             "source_atoms": 24,
             "relaxed_atoms": 24,
-            "archive_previous": "data/processed/sio2/_archive_md_snapshot/cristobalite_beta/meta.json"
+            "archive_previous": "data/processed/sio2/_archive_md_snapshot/cristobalite_beta/meta.json",
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_SSE_PBE",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "downstream_recompute_required": [
             "result/experiments/external_baselines (Bartel and phase-level baselines)",
             "result/experiments/quasi_harmonic",
             "result/experiments/imaginary_modes",
-            "result/experiments/reference_statistics"
-          ]
+            "result/experiments/reference_statistics",
+            "result/experiments/representative_structures (E4)"
+          ],
+          "same_head_energy_audit": {
+            "script": "src/experiments/data_prep/audit_sio2_energy_mapping.py",
+            "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+            "head": "Domains_SSE_PBE",
+            "old_energy_eV_per_atom": -4.109969054969649,
+            "new_energy_eV_per_atom": -4.109502962479989,
+            "delta_new_minus_old_eV_per_atom": 0.0004660924896597862,
+            "status": "within_tens_of_meV_after_variable_cell_relaxation"
+          },
+          "formal_energy_eV_per_atom": -4.109503240634997,
+          "formal_energy_provenance": {
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "head": "Domains_SSE_PBE",
+            "source": "data/processed/sio2/cristobalite_beta/meta.json representative.energy_eV_per_atom.after (Domains_SSE_PBE)",
+            "structure_sha256": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a"
+          },
+          "energy_head_policy": "Domains_SSE_PBE"
         },
         "reference_points": 1649,
         "structure_path": "data/processed/sio2/cristobalite_beta/structure.extxyz",
         "lattice_edge_lengths_A": [
-          7.166000000000001,
-          7.166000000000001,
-          7.166000000000001
+          7.489176577939865,
+          7.489176577939865,
+          7.489176577939865
         ],
-        "shortest_edge_A": 7.166000000000001,
-        "atom_count": 24,
-        "qh": {
-          "supercell": [
-            1,
-            1,
-            1
-          ],
-          "mesh": [
-            16,
-            16,
-            16
-          ],
-          "imaginary_fraction": 0.013695141596274637,
-          "minimum_frequency_THz": -3.619317251616584,
-          "qh_reliable": false
-        }
+        "shortest_edge_A": 7.489176577939865,
+        "atom_count": 24
       },
       "sio2:tridymite_p63mmc": {
         "system": "sio2",
@@ -4950,6 +5017,9 @@
             "source_url": "https:external/aflow.cif",
             "prototype": "A2B_hP12_194_cg_f-001",
             "icsd": null,
+            "darus_phase": "tridymite_beta_pbe_d3bj",
+            "reference_model_audit": "beta-tridymite P6_3/mmc; DaRUS-4999/Forslund et al. methods cite Kihara (1978), matching the AFLOW hP12 prototype (Si 4f, O 2c+6g)",
+            "reference_paper": "Forslund et al., npj Computational Materials 12, 14 (2026), DOI:10.1038/s41524-025-01874-1; DaRUS-4999",
             "space_group": {
               "before": "P6_3/mmc",
               "after": "P6_3/mmc"
@@ -4958,48 +5028,61 @@
             "calculator": "deepmd.calculator.DP",
             "head": "Domains_SSE_PBE",
             "converged": true,
+            "relaxation_mode": "hydrostatic_variable_cell",
             "energy_eV_per_atom": {
-              "before": -3.943224507073561,
-              "after": -3.943653558691343
+              "before": -3.9432244524359703,
+              "after": -4.10686831176281
             },
-            "max_displacement_A": 0.005845340525419296,
+            "max_displacement_A": 0.3852845404815334,
             "fmax_eV_per_A": 0.001,
             "max_steps": 5000,
             "source_atoms": 12,
             "relaxed_atoms": 12,
-            "archive_previous": "data/processed/sio2/_archive_md_snapshot/tridymite_p63mmc/meta.json"
+            "archive_previous": "data/processed/sio2/_archive_md_snapshot/tridymite_p63mmc/meta.json",
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_SSE_PBE",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "downstream_recompute_required": [
             "result/experiments/external_baselines (Bartel and phase-level baselines)",
             "result/experiments/quasi_harmonic",
             "result/experiments/imaginary_modes",
-            "result/experiments/reference_statistics"
-          ]
+            "result/experiments/reference_statistics",
+            "result/experiments/representative_structures (E4)"
+          ],
+          "same_head_energy_audit": {
+            "script": "src/experiments/data_prep/audit_sio2_energy_mapping.py",
+            "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+            "head": "Domains_SSE_PBE",
+            "old_energy_eV_per_atom": -4.101952646341589,
+            "new_energy_eV_per_atom": -4.106868289411068,
+            "delta_new_minus_old_eV_per_atom": -0.004915643069479003,
+            "status": "within_tens_of_meV_after_variable_cell_relaxation"
+          },
+          "formal_energy_eV_per_atom": -4.10686831176281,
+          "formal_energy_provenance": {
+            "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "head": "Domains_SSE_PBE",
+            "source": "data/processed/sio2/tridymite_p63mmc/meta.json representative.energy_eV_per_atom.after (Domains_SSE_PBE)",
+            "structure_sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e"
+          },
+          "energy_head_policy": "Domains_SSE_PBE"
         },
         "reference_points": 1649,
         "structure_path": "data/processed/sio2/tridymite_p63mmc/structure.extxyz",
         "lattice_edge_lengths_A": [
-          5.052,
-          5.051999999999999,
-          8.27
+          5.290544094421073,
+          5.290544094421081,
+          8.660490827565866
         ],
-        "shortest_edge_A": 5.051999999999999,
-        "atom_count": 12,
-        "qh": {
-          "supercell": [
-            1,
-            1,
-            1
-          ],
-          "mesh": [
-            16,
-            16,
-            16
-          ],
-          "imaginary_fraction": 0.01455896686159844,
-          "minimum_frequency_THz": -3.554613730817086,
-          "qh_reliable": false
-        }
+        "shortest_edge_A": 5.290544094421073,
+        "atom_count": 12
       },
       "ti:hcp": {
         "system": "ti",
@@ -5053,7 +5136,14 @@
             },
             "max_displacement_A": 0.008734596485374608,
             "relaxation_log": "representative_relaxation.log",
-            "selection_basis": "MP elemental Ti hcp entry; same MP source family as Ti bcc mp-73"
+            "selection_basis": "MP elemental Ti hcp entry; same MP source family as Ti bcc mp-73",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/models/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_Alloy",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "grid_harmonization": {
             "original_points": 1528,
@@ -5137,7 +5227,14 @@
             },
             "max_displacement_A": 0.016408167525125344,
             "relaxation_log": "representative_relaxation.log",
-            "selection_basis": "MP elemental Ti bcc entry; same MP source family as Ti hcp mp-46"
+            "selection_basis": "MP elemental Ti bcc entry; same MP source family as Ti hcp mp-46",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/models/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_Alloy",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "grid_harmonization": {
             "original_points": 970,
@@ -5222,7 +5319,14 @@
             },
             "max_displacement_A": 0.020458049764399015,
             "relaxation_log": "representative_relaxation.log",
-            "selection_basis": "MP elemental Zr hcp entry; same MP source family as Zr bcc mp-41"
+            "selection_basis": "MP elemental Zr hcp entry; same MP source family as Zr bcc mp-41",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/models/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_Alloy",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "grid_harmonization": {
             "original_points": 1520,
@@ -5306,7 +5410,14 @@
             },
             "max_displacement_A": 0.006449233814773738,
             "relaxation_log": "representative_relaxation.log",
-            "selection_basis": "MP elemental Zr bcc entry; same MP source family as Zr hcp mp-131"
+            "selection_basis": "MP elemental Zr bcc entry; same MP source family as Zr hcp mp-131",
+            "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+            "energy_provenance": {
+              "checkpoint": "external/models/DPA-3.1-3M.pt",
+              "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+              "head": "Domains_Alloy",
+              "field": "representative.energy_eV_per_atom"
+            }
           },
           "grid_harmonization": {
             "original_points": 1518,

@@ -10,14 +10,14 @@ Skill is `1 − MAE_baseline / MAE_zero`, where `MAE_zero` is the mean reference
 
 | split/fold | baseline | matched pair MAE (eV/atom) | zero floor MAE (eV/atom) | skill |
 |---|---|---:|---:|---:|
-| temp_extrap/all | bartel2018 | 0.0540629 | 0.00277298 | **-18.496 (negative)** |
+| temp_extrap/all | bartel2018 | 0.0662534 | 0.00277298 | **-22.893 (negative)** |
 | temp_extrap/all | interp_const | 0.00366713 | 0.00277298 | **-0.322 (negative)** |
 | temp_extrap/all | phase_id_mlp | — | — | unavailable |
 | phase_lopo/hf:bcc | bartel2018 | 0.128374 | 0.0113998 | **-10.261 (negative)** |
 | phase_lopo/hf:hcp | bartel2018 | 0.128374 | 0.0113998 | **-10.261 (negative)** |
-| phase_lopo/sio2:cristobalite_beta | bartel2018 | 0.0175533 | 0.00173149 | **-9.138 (negative)** |
-| phase_lopo/sio2:quartz_beta | bartel2018 | 0.0324119 | 0.00317371 | **-9.213 (negative)** |
-| phase_lopo/sio2:tridymite_p63mmc | bartel2018 | 0.0166551 | 0.00169611 | **-8.820 (negative)** |
+| phase_lopo/sio2:cristobalite_beta | bartel2018 | 0.0300918 | 0.00173149 | **-16.379 (negative)** |
+| phase_lopo/sio2:quartz_beta | bartel2018 | 0.0564449 | 0.00317371 | **-16.785 (negative)** |
+| phase_lopo/sio2:tridymite_p63mmc | bartel2018 | 0.0288456 | 0.00169611 | **-16.007 (negative)** |
 | phase_lopo/hf:bcc | interp_const | — | — | unavailable |
 | phase_lopo/hf:hcp | interp_const | — | — | unavailable |
 | phase_lopo/sio2:cristobalite_beta | interp_const | — | — | unavailable |
@@ -29,7 +29,7 @@ Skill is `1 − MAE_baseline / MAE_zero`, where `MAE_zero` is the mean reference
 | phase_lopo/sio2:quartz_beta | phase_id_mlp | — | — | unavailable |
 | phase_lopo/sio2:tridymite_p63mmc | phase_id_mlp | — | — | unavailable |
 | system_loso/hf | bartel2018 | 0.128374 | 0.0113998 | **-10.261 (negative)** |
-| system_loso/sio2 | bartel2018 | 0.0222068 | 0.00220043 | **-9.092 (negative)** |
+| system_loso/sio2 | bartel2018 | 0.0384608 | 0.00220043 | **-16.479 (negative)** |
 | system_loso/hf | interp_const | — | — | unavailable |
 | system_loso/sio2 | interp_const | — | — | unavailable |
 | system_loso/hf | phase_id_mlp | — | — | unavailable |

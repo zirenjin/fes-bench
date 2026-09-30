@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-30T04:18:39.900875+00:00",
-  "git_commit": "f54bbbd48d3e0232653532d0b475cef5d5fb725c",
+  "generated_utc": "2026-09-30T16:35:16.996300+00:00",
+  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
   "inputs": [
     {
       "path": "result/experiments/imaginary_modes/quartz_soft_mode.json",
@@ -35,16 +35,16 @@
       "sha256": "3725f223e101392614dcc2607bc910a9c7e9f8e1e84bd9cdc83de25bd9b389bc"
     },
     {
-      "path": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/cristobalite_beta_imaginary_diagnosis.json",
-      "sha256": "e0b1bf58eac0e5985a2ee98df12b197a80e55c500bf6eb4cd9f7f19529b32481"
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/cristobalite_beta_imaginary_diagnosis.json",
+      "sha256": "b60b2f6df94a64c160963f36db7f576b692ca896da924b2aa6f7e141d42b4e74"
     },
     {
-      "path": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/quartz_beta_imaginary_diagnosis.json",
-      "sha256": "4c8e1b0eeb73a80c105ffb7d37b83ff4d8d95fafd8230448f7e00f7645820dee"
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/quartz_beta_imaginary_diagnosis.json",
+      "sha256": "2cdc16eeb7acecb6798ceec6813dec7fe928921189728be05174e48d412db9a9"
     },
     {
-      "path": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/tridymite_p63mmc_imaginary_diagnosis.json",
-      "sha256": "0d74aa6323ca98d9a2e7a31831d84ef3be88345c7930ae7ad95ea7ff6d0b44d5"
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/tridymite_p63mmc_imaginary_diagnosis.json",
+      "sha256": "a165d4ceab93904c6b5ee1d7d34c7de697d40d3f6ead05c007f315b9a7368fbf"
     }
   ],
   "missing": []

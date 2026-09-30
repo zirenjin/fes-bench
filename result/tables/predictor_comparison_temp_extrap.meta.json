@@ -1,46 +1,46 @@
 {
-  "generated_utc": "2026-09-30T03:46:48.502531+00:00",
-  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "generated_utc": "2026-09-30T16:36:22.385647+00:00",
+  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "d5ccd645ab0e8a700f8350bb95541a98ca795eb954366d01b9b272eb5d9cfd48"
+      "sha256": "7a9c70323fa02e7b11ef8796e4e186ed69322b455f17781bcc602182a1226205"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_delta_g/seed_none/metrics.json",
-      "sha256": "65773ead783fa9602aa9637fd5c737d473da26b0fce5178a4e536959c6d44ad3"
+      "sha256": "ad7ae091d9b71a12676e7896ce45d4b7326fafb6c57739c37563957091ebaafd"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "af3f175beda8957732d364f1c9f055873123708ce2851630031a5ca7feb2e569"
+      "sha256": "b93fdad573f871a47c9430129a3c87d8d1085a1940ec9e122fdc0b354fdfc3b4"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "b8e574cdd35c6f7c8d7708d5d6d21e4f5aae5f38f5d5d2adf14a58c92d23e488"
+      "sha256": "5f3339c44cdf416ec70283712c375065bbc52380c4f344a29a468fe37c260972"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "222675ca2a75eef9fd30ed9f0630946a67df8d0d2e758e17377bb72c010c8bf3"
+      "sha256": "889f6b9b18443bbe5da714534bd62d0d916b998f0f5879c9c879b37475b4cfd9"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "4d4e7e9bc056e308b2ea953fff305bb6468e62be0e32ec237d0c7320eba25aa5"
+      "sha256": "64eeeed8b4d0287d4746091e919fff4ce1049afbdc56da249014174039c5d20a"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
-      "sha256": "bba000f8d82ead22d58fedc85e55a84ae1d1a20248094abf4448013782d27c4a"
+      "sha256": "a29c34ba7b90bb6530595483848a415b0a407c6b5d8debd788f8e73965294d49"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "974ab808169fa337a4b3acacdb1e91d483d37ad59ff4c19f6c2d1507de0d3d88"
+      "sha256": "e5b502c9c11002c21fb1ded38b61fb60a2c4ebcd6d0efb9a07659139831dcea8"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "7cc1f07265a7169292c553c98e037295ef36c88be5c0f97c98cdc54872d48da6"
+      "sha256": "16127707e3e597c7fd279ee13caa28086dd1685505e78d197da37e63a383b978"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "9b067943729b1391be9948ccd59cdb12b8fcf96dedfc620ad1635370e13f0ea7"
+      "sha256": "383ce24fff4e7d01ce73b73d65649becb9c78d8bbbf22409450fcdd9f77535eb"
     }
   ],
   "missing": [],

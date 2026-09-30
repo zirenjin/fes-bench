@@ -14,9 +14,8 @@ def main() -> int:
     rows, inputs, missing = [], [], []
     candidates = sorted((root / "result/experiments/legacy_support/phase2").glob("**/*imaginary_diagnosis.json"))
     candidates += sorted((root / "result/experiments/quasi_harmonic/raw_runs").glob("*/seed_none/*_imaginary_diagnosis.json"))
-    candidates += sorted((root / "result/experiments/quasi_harmonic_ideal_rebuild/raw_runs").glob("*/*_imaginary_diagnosis.json"))
     candidates += sorted((root / "result/experiments/quasi_harmonic_10a/raw_runs").glob("*/*_imaginary_diagnosis.json"))
-    candidates += sorted((root / "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs").glob("*/*_imaginary_diagnosis.json"))
+    candidates += sorted((root / "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs").glob("*/*_imaginary_diagnosis.json"))
     candidates += sorted((root / "result/experiments/imaginary_modes").glob("*_soft_mode.json"))
     for path in candidates:
         inputs.append(path); payload = json.loads(path.read_text(encoding="utf-8"));

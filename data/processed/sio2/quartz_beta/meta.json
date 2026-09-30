@@ -47,7 +47,15 @@
     "max_steps": 5000,
     "source_atoms": 9,
     "relaxed_atoms": 9,
-    "archive_previous": "data/processed/sio2/_archive_md_snapshot/quartz_beta/meta.json"
+    "archive_previous": "data/processed/sio2/_archive_md_snapshot/quartz_beta/meta.json",
+    "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "energy_provenance": {
+      "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE",
+      "field": "representative.energy_eV_per_atom"
+    }
   },
   "downstream_recompute_required": [
     "result/experiments/external_baselines (Bartel and phase-level baselines)",
@@ -86,12 +94,13 @@
     "possible_physical_soft_mode": true,
     "note": "Minimum is at Gamma and strongly negative, but negative modes are not concentrated exclusively in the Gamma neighborhood. This annotation does not change the qh_reliable rule."
   },
-  "formal_energy_eV_per_atom": -2.67487901449204,
+  "formal_energy_eV_per_atom": -4.09950738814142,
   "formal_energy_provenance": {
-    "checkpoint": "<external-checkpoint>/DPA-3.1-3M.pt",
+    "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
     "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
-    "head": "Domains_Alloy",
-    "source": "result/experiments/formal_sio2_energies/energies.json",
+    "head": "Domains_SSE_PBE",
+    "source": "data/processed/sio2/quartz_beta/meta.json representative.energy_eV_per_atom.after (Domains_SSE_PBE)",
     "structure_sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc"
-  }
+  },
+  "energy_head_policy": "Domains_SSE_PBE"
 }

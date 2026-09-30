@@ -1,0 +1,6 @@
+field,old_value,new_value,reason
+sha256,e8c891c1fa52dd776aaf9541e74c866ff8bc49f1c62dd3242894eb6ef16311a4,30b680759b3ded88ccd1459413bf0914cf5a2707f43c50ad1c623a8322b08a43,metals-only folds; SHA recomputed
+hf.train,"sio2,ti,zr","ti,zr",exclude held-out Hf and SiO2
+ti.train,"sio2,hf,zr","hf,zr",exclude held-out Ti and SiO2
+zr.train,"sio2,hf,ti","hf,ti",exclude held-out Zr and SiO2
+hf.overlap_T,absent,904 frames through 1527 K,Hf test points no warmer than the maximum Ti/Zr training temperature

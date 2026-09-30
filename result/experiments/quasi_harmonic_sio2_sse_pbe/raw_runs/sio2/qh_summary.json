@@ -1,0 +1,143 @@
+{
+  "provenance": {
+    "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+    "config": "configs/qh/sio2_sse_pbe_10a.yaml",
+    "config_sha256": "99cace247b325f17ca8c42d679a89ea0607cfa99c13db86d09f6c23fe84a19d5",
+    "checkpoint_path": "external/checkpoints/DPA-3.1-3M.pt",
+    "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+    "input_structure_sha256": {
+      "quartz_beta": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc",
+      "cristobalite_beta": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a",
+      "tridymite_p63mmc": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e"
+    },
+    "evaluator": "src/lib/fes_bench/qh/run.py",
+    "protocol": "hydrostatic variable-cell representatives; every SiO2 QH supercell shortest edge >= 10 A",
+    "head": "Domains_SSE_PBE",
+    "canonical_source": "restored archived SSE [2,2,2]; input structure SHA256 matches current representatives"
+  },
+  "system": "sio2",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "head": "Domains_SSE_PBE",
+  "supercell_matrix": [
+    2,
+    2,
+    2
+  ],
+  "mesh": [
+    16,
+    16,
+    16
+  ],
+  "volume_scales": [
+    0.96,
+    0.98,
+    1.0,
+    1.02,
+    1.04
+  ],
+  "phases": {
+    "quartz_beta": {
+      "supercell_matrix": [
+        2,
+        2,
+        2
+      ],
+      "n_temperatures": 1649,
+      "minimum_frequency_THz_by_volume": {
+        "0.96": -3.794972167799613,
+        "0.98": -2.6880059630902653,
+        "1.0": -1.0540316023329863,
+        "1.02": -0.7707788296553879,
+        "1.04": -0.7251512387129014
+      },
+      "negative_mode_fraction_by_volume": {
+        "0.96": 0.07529578189300412,
+        "0.98": 0.047132201646090534,
+        "1.0": 0.0016075102880658437,
+        "1.02": 0.00051440329218107,
+        "1.04": 0.00038580246913580245
+      },
+      "negative_qpoint_fraction_by_volume": {
+        "0.96": 1.0,
+        "0.98": 0.9861111111111112,
+        "1.0": 0.03993055555555555,
+        "1.02": 0.013888888888888888,
+        "1.04": 0.010416666666666666
+      },
+      "output": "quartz_beta_fqh.csv",
+      "structure_sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc",
+      "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
+    },
+    "cristobalite_beta": {
+      "supercell_matrix": [
+        2,
+        2,
+        2
+      ],
+      "n_temperatures": 1649,
+      "minimum_frequency_THz_by_volume": {
+        "0.96": -4.7553913147484055,
+        "0.98": -3.8081948408928588,
+        "1.0": -2.646364797465613,
+        "1.02": -0.19348896252364925,
+        "1.04": 0.5352177832097952
+      },
+      "negative_mode_fraction_by_volume": {
+        "0.96": 0.10150462962962963,
+        "0.98": 0.07928240740740741,
+        "1.0": 0.047453703703703706,
+        "1.02": 0.0002314814814814815,
+        "1.04": 0.0
+      },
+      "negative_qpoint_fraction_by_volume": {
+        "0.96": 1.0,
+        "0.98": 1.0,
+        "1.0": 1.0,
+        "1.02": 0.016666666666666666,
+        "1.04": 0.0
+      },
+      "output": "cristobalite_beta_fqh.csv",
+      "structure_sha256": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a",
+      "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
+    },
+    "tridymite_p63mmc": {
+      "supercell_matrix": [
+        2,
+        2,
+        2
+      ],
+      "n_temperatures": 1649,
+      "minimum_frequency_THz_by_volume": {
+        "0.96": -4.731146360321169,
+        "0.98": -3.7891932155503127,
+        "1.0": -2.634327333218618,
+        "1.02": -0.35400319653090667,
+        "1.04": 0.4243062160029586
+      },
+      "negative_mode_fraction_by_volume": {
+        "0.96": 0.10349151234567901,
+        "0.98": 0.08203125,
+        "1.0": 0.055652006172839504,
+        "1.02": 0.0012056327160493826,
+        "1.04": 0.0
+      },
+      "negative_qpoint_fraction_by_volume": {
+        "0.96": 1.0,
+        "0.98": 1.0,
+        "1.0": 0.9600694444444444,
+        "1.02": 0.029513888888888888,
+        "1.04": 0.0
+      },
+      "output": "tridymite_p63mmc_fqh.csv",
+      "structure_sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e",
+      "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+      "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
+      "head": "Domains_SSE_PBE"
+    }
+  },
+  "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907"
+}

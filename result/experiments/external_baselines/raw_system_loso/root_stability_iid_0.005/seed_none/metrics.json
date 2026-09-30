@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "a8fcbdc2cab70b0d737f715f9d2f0538a340cb97",
+    "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
     "split": "system_loso",
     "split_sha256": "76f93b17603d75d1bea5997141671ea5cddae2a779e8a2821943d4ef5116ca93",
     "predictor_config": null,
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-23T14:33:18.850449+00:00",
+    "timestamp_utc": "2026-09-30T16:34:55.068568+00:00",
     "input_metrics": "result/experiments/legacy_support/phase3/root_stability_iid_0.005/system_loso/metrics.json",
     "input_metrics_sha256": "361aca26b51f99b979a8c478b3857b1c9fb94ea9fc4d63e77079d6e43e10f7eb",
     "missing": []

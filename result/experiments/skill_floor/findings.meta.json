@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-29T19:46:28.575225+00:00",
-  "git_commit": "34d19661f11fb0d18c035cc45df240db8cdacab4",
+  "generated_utc": "2026-09-30T16:35:09.478793+00:00",
+  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
   "inputs": [
     {
       "path": "configs/raw_runs.json",
@@ -36,139 +36,139 @@
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_11/metrics.json",
-      "sha256": "50bc981af77049b46ec2487d9ed90ccf5114a970f38dfcad0349caae1db882f5"
+      "sha256": "6f0bc0e84965d1294174d6159ed8a9cde5a2a76dc37c9fed3f387e8c5a065354"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_23/metrics.json",
-      "sha256": "fbc77d5748765fb26dc3d4dc51545d693a7d86fd485a717af2277750452f6e8c"
+      "sha256": "57923bf1132556f10ac892533745628b0dae6096055e3b46f89f9786cd64e89a"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_37/metrics.json",
-      "sha256": "3b9c05bcfb21e521d2c787f86568fc0089f976e24eb737b9ab69fc3be72a2950"
+      "sha256": "3ffb163bfa9846fbadcc47e251896efbcf84c6c7643bcf23824302929f6d72a3"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_51/metrics.json",
-      "sha256": "db62b30de937d42721634d3b3bf0d927e9e41a972a25677f94bc51954ac588e7"
+      "sha256": "ebd25442b22961ea6adc68c1af66ae4c59be2b2e5204fd68299f59d52e8951e2"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/polynomial/seed_67/metrics.json",
-      "sha256": "464a9334e975d80401717df4adf9cd51f959a5c7948a4f84c3fd4812f0499836"
+      "sha256": "8868cafcd4c4ec6ebed9cca671edeed591ccaca4a5747243d21e03f477c98f53"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_11/metrics.json",
-      "sha256": "e6fc3d660741042c20b72be3bcb998c8064c8d1fe3485aaeca5894058b183651"
+      "sha256": "804a3ce4aca544bf5e95bbc55e7851d2bb285fdcbab551451a904320e772a035"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_23/metrics.json",
-      "sha256": "cb639fb3df36539275eafc9a14d84e917ec052d6b2eb2b7db4ee623e1a4f334c"
+      "sha256": "9edc6ff2b03220a6532fba86a4347ffe57b948d70a5cc14cfafd9226f3610c7d"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_37/metrics.json",
-      "sha256": "81ba2035c2bfdcf83fd7800e317afcf0bc889132c34b0c42cfe54156a4ead65c"
+      "sha256": "7252a4d321770a476ace39899dd9b6c46007bbfe9b7aeadd6a5504977f200913"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_51/metrics.json",
-      "sha256": "38eef8a2d56a6d9c51b2d66f008fbbf05ff05ba0fe7fbd021114e90a62b03219"
+      "sha256": "354a8b4a73c0b32e00c48dc2c0568553ab872640417f5ced0a7c07853821e3b1"
     },
     {
       "path": "result/experiments/crossing_reevaluation/raw_runs/tlog_polynomial/seed_67/metrics.json",
-      "sha256": "3481e0b75208244fa4eb6fd61aaff3a9a3ba7ec7f7a13cdcd1bf67b0bf1c10fe"
+      "sha256": "6a1d87b0ba04cd96fb0a6d560c25ea52712d5ff8c38cdfaa6ae3cc912356a1dc"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "4295e9632004e5041f87ea1776881b9dfe2af34e1946fdf3177fe8fc0b3c3a65"
+      "sha256": "be5fd447d737087dad0de9d13bfcf7b3550dd363473b49a84d85dab096dc8d71"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "a062cc6f944ad40a072b3d5381efbdd3d070e8c21ffbbf614fc2c16b18588d42"
+      "sha256": "203ab34c98edcdc0acfc40fcd43533837ae245dff94fa7ebdf8a2a5be7a29b59"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "65adb47b9efeb01ab5f8bd98031af0559634da32eb4a1ff0956e21e653a46c59"
+      "sha256": "21373355e088e47cb622a899535d89512e7869c917b75f66928eb54b32213a70"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "79784cb5607bb84c6b5eaf7e5cedcc8c66ce524b7e564384b7506fa2328f322c"
+      "sha256": "a41b64ae02c87895060d6035d70a492ea46f31c49065f2004ac741ba599cd117"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
-      "sha256": "56833216edba0d3eab37acd884b13d351210dac191a79aa70c95353d3eceab5f"
+      "sha256": "dea0e1d291d1aeeff1f6b51759a4837cd5cb085585a1e6c6644905961fc089fc"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "c7040e1f661942220ee945e01e365ae943f44ac8adb4d850ee41d34fb2f78dde"
+      "sha256": "7a69c6a1d87184f8395df4239aa41f15dfc6a82cf3ab89731c33afbd1fb3e11c"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "2b73a12f1fd95d77c3e40af6cd1ba6f8ce60fbec4627115f4e708090cdd334dc"
+      "sha256": "9b9039533cd48bb55ab2223241796e6b6b1d6340a6caca8a3b4bf44e6958d1c0"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "acea4bcd242e907e5cec23ca5a7fc201d2438c62e416ad4d8c9c0ee087d3c908"
+      "sha256": "0752434e5919cfbaaf0ad721c827c752e7214b448723dfbfc4c22402231bb07e"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/bartel2018/seed_none/metrics.json",
-      "sha256": "0cc57ad116eb63d2bec9c0d69e405c85cd97fda7b5957f06e5ef7cba4efcf17e"
+      "sha256": "0ae7102dde136378de58673f55d3e3d2c4632d8f8bbf9feff786c22bda5eba4c"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "e475b2486e2c227305a6dba13b1093c1014e12364627c0a4cace887960f51a2f"
+      "sha256": "13c8914245b0a7b8207a82ce07711154df0d44983b9fa6b345574b569cde4f0e"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/interp_const/seed_none/metrics.json",
-      "sha256": "30e35bd2dd83f0fc93280511208ee06fe853a0165955b1755dbc41c2b65a23f8"
+      "sha256": "f218d1af62dd54466d8945bc204a9dec17d23556ad2c9fa483560ed8a9e532d6"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "9a15912a0326540614a399b717626fe4a865a62db28ccbf5158dd23efc9704f3"
+      "sha256": "5280febefddc4672e309d55d774f1ce6f366dec669246910281324641589a8d9"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/reference/seed_none/metrics.json",
-      "sha256": "fc66f96fb72b00a941174d16c8055fc5758653bc6ff4d8efe99d42ed945bbffc"
+      "sha256": "42f4ade21efbd388287dae40b614d4bb941911416b7152f30475f40b8b9ebcd7"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "623d6d65e805035bd9daccb245637e9e745055ea8186ce08d189bf76d190c221"
+      "sha256": "9369be5015bd18a342793d6f6ecd4a4fb9ffe48b07fdd4c4c327214dde5396ff"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "9223992252730708c96006f8bdf5b3ec33d325612b9e449411c6d91f0eb5a40e"
+      "sha256": "c5d45b81f83fd05772f9e08b9b614fcca37519e7032a9db767f85c2e63b2f326"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/zero/seed_none/metrics.json",
-      "sha256": "c48f867e139765e0e8c4d5d1f6b48ea182683fe90732de1a4e81a278ab529783"
+      "sha256": "e944086b8345794fbf5ef5e9c93bde6e7bb8949fee7ec489127034253f39b6f1"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "15b40355e444896b5be4c3e2a4bb361eacdbc1fac71d42ce18bf8aca3f9d94eb"
+      "sha256": "7a9c70323fa02e7b11ef8796e4e186ed69322b455f17781bcc602182a1226205"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "af3f175beda8957732d364f1c9f055873123708ce2851630031a5ca7feb2e569"
+      "sha256": "b93fdad573f871a47c9430129a3c87d8d1085a1940ec9e122fdc0b354fdfc3b4"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "8335e0f775f705e479317a9fd17bdd122fded2a0ff4fcf988192989e77e3ece0"
+      "sha256": "889f6b9b18443bbe5da714534bd62d0d916b998f0f5879c9c879b37475b4cfd9"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "0c7454c14a29363a23d27a4eff847c793908b2f227df8170ed83100ae970c9ee"
+      "sha256": "64eeeed8b4d0287d4746091e919fff4ce1049afbdc56da249014174039c5d20a"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
-      "sha256": "bba000f8d82ead22d58fedc85e55a84ae1d1a20248094abf4448013782d27c4a"
+      "sha256": "a29c34ba7b90bb6530595483848a415b0a407c6b5d8debd788f8e73965294d49"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "974ab808169fa337a4b3acacdb1e91d483d37ad59ff4c19f6c2d1507de0d3d88"
+      "sha256": "e5b502c9c11002c21fb1ded38b61fb60a2c4ebcd6d0efb9a07659139831dcea8"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "7cc1f07265a7169292c553c98e037295ef36c88be5c0f97c98cdc54872d48da6"
+      "sha256": "16127707e3e597c7fd279ee13caa28086dd1685505e78d197da37e63a383b978"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "c801206301909cf891723aca9c8b758b4b649b764e5ea83680fd84bc46b60bf6"
+      "sha256": "383ce24fff4e7d01ce73b73d65649becb9c78d8bbbf22409450fcdd9f77535eb"
     }
   ],
   "missing": []

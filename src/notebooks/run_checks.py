@@ -3,9 +3,47 @@
 from __future__ import annotations
 
 import builtins
+import csv
 import json
 import os
 from pathlib import Path
+
+
+def _fallback_checks(root: Path) -> list[str]:
+    """Run the notebook's consistency assertions without optional pandas/matplotlib."""
+    out: list[str] = []
+    def rows(name):
+        with (root / "result/tables" / f"{name}.csv").open(encoding="utf-8", newline="") as fh:
+            return list(csv.DictReader(fh))
+    for split in ("temp_extrap", "phase_lopo", "system_loso"):
+        rs = rows(f"predictor_comparison_{split}")
+        c = next((r for r in rs if r.get("predictor") == "constant_delta_g"), None)
+        floor_fields = {"delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "skill_score"}
+        if split in {"phase_lopo", "system_loso"} and c and any(c.get(k) not in {"n/a:no_training_phase", ""} for k in floor_fields):
+            out.append(f"⚠ {split}: constant ΔG is not marked n/a:no_training_phase")
+        else: out.append(f"✓ {split}: constant ΔG floor labels are consistent")
+        z = next((r for r in rs if r.get("predictor") == "zero"), None)
+        if z and any("Tc" in k and v not in {"", "n/a:degenerate_prediction"} for k,v in z.items()):
+            out.append(f"⚠ {split}: zero crossing fields are not degenerate_prediction")
+        else: out.append(f"✓ {split}: zero crossing fields use n/a:degenerate_prediction")
+        required={"predictor","delta_G_MAE_eV_per_atom","sign_accuracy","skill_score","floor_predictor"}
+        missing=sorted(required-set(rs[0]) if rs else required)
+        out.append(f"⚠ {split}: main table missing columns {missing}" if missing else f"✓ {split}: main table required columns present")
+        empties=[r.get("predictor") for r in rs if r.get("predictor") not in {"", "self_check_reference"} and any(v=="" for k,v in r.items() if k not in {"notes"})]
+        out.append(f"⚠ {split}: unmarked empty cells {empties}" if empties else f"✓ {split}: non-self rows have no unmarked empty cells")
+    inv={r["system"]:r for r in rows("system_inventory")}; phases=rows("phase_inventory")
+    for system, row in inv.items():
+        pr=[p for p in phases if p.get("system")==system]
+        true=sum(p.get("qh_reliable")=="True" for p in pr)
+        out.append(f"✓ {system}: qh_reliable_count={row.get('qh_reliable_count')} agrees with phase_inventory ({true})" if str(true)==str(row.get("qh_reliable_count")) else f"⚠ {system}: qh_reliable_count mismatch")
+    splitrows=rows("split_definitions")
+    bad=[r for r in splitrows if r.get("split")=="temp_extrap" and r.get("crossing_in_test") and not all(x.endswith("=test") for x in r["crossing_in_test"].split(";"))]
+    out.append("⚠ temp_extrap has crossings outside test" if bad else "✓ temp_extrap crossings all in test")
+    bad=[p.get("phase") for p in phases if p.get("qh_reliable") and not p.get("imaginary_fraction")]
+    out.append(f"⚠ phase_inventory missing imaginary_fraction {bad}" if bad else "✓ phase_inventory reliable rows have imaginary_fraction")
+    bad=[p.get("phase") for p in phases if p.get("qh_supercell_shortest_edge_A") and float(p["qh_supercell_shortest_edge_A"])<10]
+    out.append(f"⚠ QH supercell edge <10 A {bad}" if bad else "✓ QH supercell shortest edges meet 10 A")
+    return out
 
 
 def main() -> int:
@@ -23,7 +61,14 @@ def main() -> int:
         if index == 3:
             source = source.replace('TABLES = root / "result" / "tables"', f'TABLES = pathlib.Path({str(root / "result/tables")!r})')
             source = source.replace('DATA = root / "data" / "processed"', f'DATA = pathlib.Path({str(root / "data/processed")!r})')
-        exec(compile(source, f"{notebook}:cell-{index}", "exec"), namespace)
+        try:
+            exec(compile(source, f"{notebook}:cell-{index}", "exec"), namespace)
+        except ModuleNotFoundError as exc:
+            if exc.name not in {"pandas", "matplotlib", "numpy"}:
+                raise
+            checks = _fallback_checks(root)
+            (root / "result/tables/_checks.txt").write_text("\n".join(checks) + "\n", encoding="utf-8")
+            return 1 if any(line.startswith("⚠") for line in checks) else 0
         if index == 5:
             checks = "\n".join(namespace["CHECKS"]) + "\n"
             # Provenance check is kept outside the notebook so it cannot be
@@ -34,8 +79,14 @@ def main() -> int:
                 rows = list(csv.DictReader(audit.open(encoding="utf-8")))
                 bad = [r for r in rows if r.get("status") == "mismatch"]
                 checks += ("⚠ checkpoint/head mismatch: %d\n" % len(bad)) if bad else "✓ checkpoint/head provenance consistent for audited canonical rows\n"
+                try:
+                    from experiments.checkpoint_consistency import policy_warnings
+                except ModuleNotFoundError:
+                    from src.experiments.checkpoint_consistency import policy_warnings
+                policy_bad = policy_warnings(root)
+                checks += "".join(f"⚠ {item}\n" for item in policy_bad)
             (root / "result/tables/_checks.txt").write_text(checks, encoding="utf-8")
-            return 1 if any(line.startswith("⚠") for line in namespace["CHECKS"]) else 0
+            return 1 if any(line.startswith("⚠") for line in checks.splitlines()) else 0
     raise RuntimeError("notebook consistency-check cell was not executed")
 
 

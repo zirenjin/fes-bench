@@ -1,23 +1,23 @@
 basis,seed,window,reported_G_MAE_eV_per_atom,pair_delta_G_MAE_eV_per_atom,n_test_frames,pair_count,reported_over_pair_ratio,interpretation
-polynomial,11,full_range,4.125924719330497,0.012788526838885027,4947,3,322.6270524596418,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,11,temp_extrap,6.1351856980348485,0.012788526838885027,3171,3,479.74139440205823,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,23,full_range,4.156236169391487,0.012843443753285671,4947,3,323.6076125087727,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,23,temp_extrap,6.179600149247405,0.012843443753285671,3171,3,481.14822379056324,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,37,full_range,4.14544108063875,0.012868076343072202,4947,3,322.149245164413,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,37,temp_extrap,6.163721644272313,0.012868076343072202,3171,3,478.99324498417985,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,51,full_range,4.130858540558697,0.012795003783421466,4947,3,322.84934107726224,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,51,temp_extrap,6.142581821302738,0.012795003783421466,3171,3,480.0765928073975,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,67,full_range,4.124103333061844,0.012834996784261673,4947,3,321.317052304901,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,67,temp_extrap,6.132506900141759,0.012834996784261673,3171,3,477.79574885920226,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,11,full_range,1.358548668359845,0.006525123917093794,4947,3,208.2027384646091,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,11,temp_extrap,1.98139080103808,0.006525123917093794,3171,3,303.65565868373056,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,23,full_range,1.3604886419487758,0.006507676899974796,4947,3,209.05903333247,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,23,temp_extrap,1.9841932857838969,0.006507676899974796,3171,3,304.9003993716378,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,37,full_range,1.3772070604893176,0.006515814794355038,4947,3,211.36375172640848,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,37,temp_extrap,2.0083570881469237,0.006515814794355038,3171,3,308.22808068253556,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,51,full_range,1.3718198849809684,0.006517237397924493,4947,3,210.4910104115348,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,51,temp_extrap,2.00050854663662,0.006517237397924493,3171,3,306.9565253636012,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,67,full_range,1.3723880695044652,0.006506890926962845,4947,3,210.91302818949217,phase-level scalar G MAE; not the pair-level ΔG MAE
-tlog_polynomial,67,temp_extrap,2.0012981733053405,0.006506890926962845,3171,3,307.5659628798275,phase-level scalar G MAE; not the pair-level ΔG MAE
-polynomial,all,aggregate_full_range,,0.012826009500585208,,3,,equal-weight mean of three pair-level ΔG MAEs across five checkpoints; reproduces E1 aggregate
-tlog_polynomial,all,aggregate_full_range,,0.006514548787262193,,3,,equal-weight mean of three pair-level ΔG MAEs across five checkpoints; reproduces E1 aggregate
+polynomial,11,full_range,4.12592471992832,0.012788525156143657,4947,3,322.62709495834315,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,11,temp_extrap,6.135185698363408,0.012788525156143657,3171,3,479.7414575531441,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,23,full_range,4.156236169532601,0.012843444251836034,4947,3,323.60759995812236,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,23,temp_extrap,6.179600149354141,0.012843444251836034,3171,3,481.14820512190386,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,37,full_range,4.145441080726964,0.012868075904265057,4947,3,322.14925615670165,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,37,temp_extrap,6.163721644568208,0.012868075904265057,3171,3,478.99326134105837,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,51,full_range,4.130858540793493,0.012795002249294038,4947,3,322.84937980541673,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,51,temp_extrap,6.142581821572563,0.012795002249294038,3171,3,480.0766503899191,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,67,full_range,4.1241033334949035,0.01283499854694102,4947,3,321.3170082109441,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,67,temp_extrap,6.132506901215389,0.01283499854694102,3171,3,477.7956833253367,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,11,full_range,1.3585486676952112,0.006525124081748694,4947,3,208.20273310896616,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,11,temp_extrap,1.9813908004005731,0.006525124081748694,3171,3,303.6556509235871,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,23,full_range,1.3604886423290858,0.006507676548529995,4947,3,209.05904468107033,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,23,temp_extrap,1.984193286271286,0.006507676548529995,3171,3,304.90041591257193,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,37,full_range,1.3772070606874134,0.006515814818159677,4947,3,211.36375098462221,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,37,temp_extrap,2.0083570881029966,0.006515814818159677,3171,3,308.2280795497248,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,51,full_range,1.3718198850537495,0.006517237208507203,4947,3,210.49101654042295,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,51,temp_extrap,2.0005085466175894,0.006517237208507203,3171,3,306.9565342820801,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,67,full_range,1.3723880696849309,0.006506891514985048,4947,3,210.91300915719728,phase-level scalar G MAE; not the pair-level ΔG MAE
+tlog_polynomial,67,temp_extrap,2.0012981731054356,0.006506891514985048,3171,3,307.56593505463326,phase-level scalar G MAE; not the pair-level ΔG MAE
+polynomial,all,aggregate_full_range,,0.012826009221695961,,3,,equal-weight mean of three pair-level ΔG MAEs across five checkpoints; reproduces E1 aggregate
+tlog_polynomial,all,aggregate_full_range,,0.006514548834386123,,3,,equal-weight mean of three pair-level ΔG MAEs across five checkpoints; reproduces E1 aggregate

@@ -56,7 +56,11 @@ def main() -> int:
     split_configs = {}
     for config_path in sorted((root / "configs/splits").glob("*.yaml")):
         import json
-        config = json.loads(config_path.read_text(encoding="utf-8"))
+        try:
+            config = json.loads(config_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            import yaml
+            config = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
         split_configs[config.get("split", config.get("name", config_path.stem))] = config
     rows = []
     inputs = [root / "result/experiments/data_prep/raw_inventory/inventory/seed_none/metrics.json"]

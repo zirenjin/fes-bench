@@ -1,0 +1,17 @@
+split_fold,field,old_value,new_value,reason
+temp_extrap/all,G_MAE_eV_per_atom,0.39939345414559824,4.604594286732922,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+temp_extrap/all,aggregate_pair_MAE_eV_per_atom,0.01943118917418557,0.06625342410973122,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/hf:bcc,G_MAE_eV_per_atom,,7.9318323654244,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/hf:bcc,aggregate_pair_MAE_eV_per_atom,,0.1283743234537813,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/hf:hcp,G_MAE_eV_per_atom,,8.060206688878182,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/hf:hcp,aggregate_pair_MAE_eV_per_atom,,0.1283743234537813,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/sio2:cristobalite_beta,G_MAE_eV_per_atom,0.3735201499458291,3.501574529250081,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/sio2:cristobalite_beta,aggregate_pair_MAE_eV_per_atom,0.01866000028953966,0.030091849058477532,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/sio2:quartz_beta,G_MAE_eV_per_atom,0.3443733661845508,3.559265717307023,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/sio2:quartz_beta,aggregate_pair_MAE_eV_per_atom,0.025060175352377874,0.05644493302693529,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/sio2:tridymite_p63mmc,G_MAE_eV_per_atom,0.36534693312802813,3.5040670393100943,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+phase_lopo/sio2:tridymite_p63mmc,aggregate_pair_MAE_eV_per_atom,0.014573391880639178,0.02884559402847094,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+system_loso/hf,G_MAE_eV_per_atom,,7.996019527151292,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+system_loso/hf,aggregate_pair_MAE_eV_per_atom,,0.1283743234537813,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+system_loso/sio2,G_MAE_eV_per_atom,0.36108014975280267,3.5216357619557326,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2
+system_loso/sio2,aggregate_pair_MAE_eV_per_atom,0.01943118917418557,0.03846079203796125,Bartel E0 now policy-selected Domains_SSE_PBE for SiO2

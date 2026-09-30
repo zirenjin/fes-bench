@@ -1,46 +1,46 @@
 {
-  "generated_utc": "2026-09-30T03:46:50.056484+00:00",
-  "git_commit": "7ac47ddf79ebacb9fcd901abbec9eeadf4cb2b78",
+  "generated_utc": "2026-09-30T16:36:26.543068+00:00",
+  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
-      "sha256": "06a8d0b9df5ca0fca620272549c79f578d9e4ab7cdd7bf810a153e82ba146fe6"
+      "sha256": "be5fd447d737087dad0de9d13bfcf7b3550dd363473b49a84d85dab096dc8d71"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_delta_g/seed_none/metrics.json",
-      "sha256": "7085466e3d3fe1e8ea14bc94b950e65bdb6911d9e8736c2025ca791669f327e9"
+      "sha256": "3f2a08de2364ba7ae30b7e072a830e69156ab50a31c46af510cd4cbb026f5b1f"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "a062cc6f944ad40a072b3d5381efbdd3d070e8c21ffbbf614fc2c16b18588d42"
+      "sha256": "203ab34c98edcdc0acfc40fcd43533837ae245dff94fa7ebdf8a2a5be7a29b59"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "8e2da1844e4730923eea8824d4e0da3d3a43fa1b221604fabe385ef374d2725c"
+      "sha256": "ca6f4c07b567a96d401054d2285cbcf141d5a53ca263664fe574c25496d65057"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/interp_const/seed_none/metrics.json",
-      "sha256": "a926985ea95a3573e8c2cf8a122f738715979dcdfeb896dda11dba4581853c41"
+      "sha256": "21373355e088e47cb622a899535d89512e7869c917b75f66928eb54b32213a70"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "0fdbeebe78c3e549ea8098f81a7f0bc9ee2feb1ca877075647a4aee84a37addd"
+      "sha256": "a41b64ae02c87895060d6035d70a492ea46f31c49065f2004ac741ba599cd117"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
-      "sha256": "56833216edba0d3eab37acd884b13d351210dac191a79aa70c95353d3eceab5f"
+      "sha256": "dea0e1d291d1aeeff1f6b51759a4837cd5cb085585a1e6c6644905961fc089fc"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "c7040e1f661942220ee945e01e365ae943f44ac8adb4d850ee41d34fb2f78dde"
+      "sha256": "7a69c6a1d87184f8395df4239aa41f15dfc6a82cf3ab89731c33afbd1fb3e11c"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "2b73a12f1fd95d77c3e40af6cd1ba6f8ce60fbec4627115f4e708090cdd334dc"
+      "sha256": "9b9039533cd48bb55ab2223241796e6b6b1d6340a6caca8a3b4bf44e6958d1c0"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",
-      "sha256": "6916889e0de934edeb2e82cb07f05a50af1abc79a416a9dd9f0a2f0c9bfde203"
+      "sha256": "0752434e5919cfbaaf0ad721c827c752e7214b448723dfbfc4c22402231bb07e"
     }
   ],
   "missing": [],

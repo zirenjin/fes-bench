@@ -71,13 +71,12 @@ The active reference domain has 4 systems, 9 phases, and 6 within-system phase
 pairs: Hf (2/1), SiO2 (3/3), Ti (2/1), and Zr (2/1), where each parenthesis is
 phases/pairs. The tabulated reference grids span 693–1,649 points per phase.
 
-Formal Domains_Alloy SiO2 QH production has diagnostic outputs for 3 of 3
-active phases; 1 of 3 (β-quartz) passes the 1% physical reliability gate, while
-β-cristobalite and β-tridymite do not.
-Hf, Ti, and Zr have no current QH production `metrics.json` in this result
-layer, which is data/provenance unavailable here rather than a statement that
-their representative structures are missing. Ti and Zr representative
-structures are complete.
+Canonical SiO₂ QH production uses Domains_SSE_PBE for all 3 active phases;
+1 of 3 (β-quartz, 0.161% imaginary modes at equilibrium volume) passes the 1%
+physical reliability gate, while β-cristobalite (4.745%) and β-tridymite
+(5.565%) do not. Hf, Ti, and Zr use Domains_Alloy; their current 10 Å QH
+inventory has hcp reliable and bcc held for each metal. Ti and Zr
+representative structures are complete.
 
 Explicit holds are: CaSiO3 lacks a usable absolute per-phase `G(T,P)` source;
 SiO2 C2221 is excluded because no compatible DaRUS reference is available;
@@ -108,6 +107,10 @@ They are not separate generated evidence and are not used by table scripts.
 Install the optional test extra shown above before running `python -m pytest`.
 The local lightweight run passes 19 tests and skips 2 torch-dependent modules
 because the local interpreter has no usable torch. On thu-GenSi, the independent
-`/share/jzr/conda-envs/fes-bench-torch` environment uses CPU torch and both
-torch-dependent modules pass (`2 passed in 44.35s`); this repaired environment
-is the prerequisite for T3.
+`/share/jzr/conda-envs/fes-bench-torch` environment runs the full suite
+(`21 passed in 43.65s`), including both torch-dependent modules. The CUDA
+mat-agent environment is reserved for T3 training.
+
+The β-quartz equilibrium-volume soft-mode diagnostic gives −1.1533986 THz at
+Γ (`q=[0,0,0]`). It is annotated as a possible physical soft mode; the 1%
+imaginary-mode threshold may be insensitive to soft-mode-driven transitions.

@@ -1,11 +1,11 @@
 {
-  "generated_utc": "2026-09-30T04:21:17.065932+00:00",
-  "git_commit": "f54bbbd48d3e0232653532d0b475cef5d5fb725c",
+  "generated_utc": "2026-09-30T16:28:58.265023+00:00",
+  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
   "system": "sio2",
   "old_sources": "canonical data/processed/<system>/<phase>/fqh.csv and archived/current metadata",
-  "new_source": "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json",
+  "new_source": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json",
   "inputs_sha256": {
-    "result/experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json": "3e4189b707b8d94a840cc06cbe2ba5e068fc2adef7f1e6c6a3317dfb9f84472b"
+    "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json": "1d272a0088928686902ffeb3a6a9b746c2a0081f49877bd88fe4200fc94e2e24"
   },
   "missing": [
     {

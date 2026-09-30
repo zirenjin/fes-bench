@@ -94,8 +94,10 @@ silently regenerated from the new representatives.
 QH now uses the same ≥10 Å shortest-edge protocol for SiO₂ and metals: SiO₂
 uses `[2,2,2]` for all three phases, while Hf/Ti/Zr use phase-specific cells.
 The canonical SiO₂ QH outputs and imaginary fractions are in
-`experiments/quasi_harmonic_sio2_domains_alloy/`; superseded SSE-PBE versions
-are archived under `experiments/legacy_support/qh_superseded_20260930/`; metal old/new comparisons are in
+`experiments/quasi_harmonic_sio2_sse_pbe/` and use `Domains_SSE_PBE`; the
+Domains_Alloy run is archived under
+`experiments/legacy_support/qh_superseded_20260930/quasi_harmonic_sio2_domains_alloy_head_not_adopted/`
+with the explicit note `head not adopted`. Metal old/new comparisons are in
 `experiments/quasi_harmonic_10a/{hf,ti,zr}/findings.csv`. The superseded
 fixed-cell SiO₂ QH outputs are retained under the explicitly invalid
 `legacy_invalid_fixed_cell_20260929/` directory and are not used by tables.
@@ -107,12 +109,13 @@ The reliability decisions are unchanged (hcp true, bcc false).
 
 Split v2 is frozen under `data/processed/splits_v2/`: `temp_extrap.json` and
 `phase_lopo.json` include Hf/SiO₂/Ti/Zr, while `system_loso.json` is the three
-metal folds (`hf`, `ti`, `zr`) only. Its generated SHA-256 is stored in each
-JSON; v1 files under `data/processed/splits/` remain unchanged.
+metal folds (`hf`, `ti`, `zr`) only; each fold trains on the other two metals
+and excludes SiO₂. The Hf fold includes `overlap_T` through 1527 K. Its
+corrected SHA-256 is `30b680759b3ded88ccd1459413bf0914cf5a2707f43c50ad1c623a8322b08a43`;
+v1 files and the v2 temp/phase files remain unchanged.
 
-Formal SiO₂ E_DPA and F_QH provenance now uses `DPA-3.1-3M.pt` with
-`Domains_Alloy`; the non-formal `Domains_SSE_PBE` relaxation/QH diagnostic is
-retained separately. For β-quartz, the dedicated soft-mode run found a minimum
+SiO₂ structures, E_DPA, and F_QH provenance now uses `DPA-3.1-3M.pt` with
+`Domains_SSE_PBE`; Hf/Ti/Zr use `Domains_Alloy`. For β-quartz, the dedicated soft-mode run found a minimum
 of −1.153 THz at Γ (20 negative modes across 19 q points; only 1/20 negative
 modes inside the configured Γ neighborhood). It is annotated as a possible
 physical soft mode, but is not Γ-exclusive; the qh_reliable rule is unchanged.
@@ -120,19 +123,20 @@ The 1% imaginary-mode fraction threshold may be insensitive to soft-mode-driven
 phase transitions.
 
 `phase_inventory.csv` takes every SiO₂ imaginary fraction from
-`experiments/quasi_harmonic_sio2_domains_alloy/raw_runs/sio2/qh_summary.json`,
+`experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json`,
 the `1.0` equilibrium-volume entry with `[2,2,2]` supercell; the superseded
 SSE-PBE QH outputs are archived under
 `experiments/legacy_support/qh_superseded_20260930/`. The dedicated β-quartz
 soft-mode diagnostic reports a minimum of −1.1533986 THz at q = `[0,0,0]`
 (Γ), recorded in the phase table without replacing the formal fraction.
-The previously reported 0.161% / 4.75% / 5.57% values came from the
-SSE-PBE diagnostic and are now archive-only, so they no longer compete with
-the canonical table source.
+The canonical equilibrium-volume fractions are the restored SSE-PBE values
+0.161% / 4.745% / 5.565% for β-quartz / β-cristobalite / β-tridymite;
+their input structure SHA-256 values match the current representatives and the
+checkpoint SHA-256 is recorded in the QH summary. No competing source is used.
 
 Checkpoint provenance for E_DPA/F_QH artifacts is indexed by
 `experiments/checkpoint_consistency/findings.csv`. Formal fields use SHA-256
 `86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907` and
-`Domains_Alloy`; `Domains_SSE_PBE` is retained only for explicitly labelled PES
-relaxation/soft-mode diagnostics. Bartel, QH, imaginary-mode, and E4
+the head selected by `configs/models/head_policy.yaml`. Bartel, QH,
+imaginary-mode, and E4
 before/after changes are under `tables/_changes/`.

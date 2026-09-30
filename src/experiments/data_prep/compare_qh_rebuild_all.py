@@ -17,7 +17,7 @@ def main() -> int:
     args = parser.parse_args()
     root = args.repo_root.resolve(); output = args.output if args.output.is_absolute() else root / args.output
     output.mkdir(parents=True, exist_ok=True)
-    jobs = [("sio2", "result/experiments/quasi_harmonic_sio2_domains_alloy", "sio2"), ("hf", "result/experiments/quasi_harmonic_10a", "hf"), ("ti", "result/experiments/quasi_harmonic_10a", "ti"), ("zr", "result/experiments/quasi_harmonic_10a", "zr")]
+    jobs = [("sio2", "result/experiments/quasi_harmonic_sio2_sse_pbe", "sio2"), ("hf", "result/experiments/quasi_harmonic_10a", "hf"), ("ti", "result/experiments/quasi_harmonic_10a", "ti"), ("zr", "result/experiments/quasi_harmonic_10a", "zr")]
     rows = []
     for system, new_root, subdir in jobs:
         target = output / subdir
@@ -27,7 +27,7 @@ def main() -> int:
     fields = list(rows[0]) if rows else ["system", "phase"]
     with (output / "findings.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields); writer.writeheader(); writer.writerows(rows)
-    (output / "findings.meta.json").write_text(json.dumps({"git_commit": subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip(), "rows": len(rows), "sources": ["result/experiments/quasi_harmonic_sio2_domains_alloy", "result/experiments/quasi_harmonic_10a"]}, indent=2) + "\n", encoding="utf-8")
+    (output / "findings.meta.json").write_text(json.dumps({"git_commit": subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip(), "rows": len(rows), "sources": ["result/experiments/quasi_harmonic_sio2_sse_pbe", "result/experiments/quasi_harmonic_10a"]}, indent=2) + "\n", encoding="utf-8")
     return 0
 
 

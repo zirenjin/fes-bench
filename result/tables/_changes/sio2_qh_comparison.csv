@@ -1,0 +1,10 @@
+field,old_value,new_value,reason
+calibration_eV_per_atom,-5.33912039723811,-3.955996927729158,SiO2 canonical QH head changed from Domains_Alloy to Domains_SSE_PBE
+test_mae_meV_per_atom,17.617831013749544,21.865703586039405,SiO2 canonical QH head changed from Domains_Alloy to Domains_SSE_PBE
+test_max_abs_error_meV_per_atom,36.812142051863006,59.11393848169766,SiO2 canonical QH head changed from Domains_Alloy to Domains_SSE_PBE
+phases.cristobalite_beta.test_mae_meV_per_atom,15.23875138714011,8.120184887795602,same
+phases.cristobalite_beta.test_max_abs_error_meV_per_atom,25.13398219958063,20.06848100942271,same
+phases.quartz_beta.test_mae_meV_per_atom,13.442800951440248,44.247918915972754,same
+phases.quartz_beta.test_max_abs_error_meV_per_atom,21.712710121597922,59.11393848169766,same
+phases.tridymite_p63mmc.test_mae_meV_per_atom,24.171940702668277,13.229006954349849,same
+phases.tridymite_p63mmc.test_max_abs_error_meV_per_atom,36.812142051863006,28.030289379028517,same
