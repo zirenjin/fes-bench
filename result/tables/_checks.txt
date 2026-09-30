@@ -1,23 +1,19 @@
-✓ phase_lopo: constant ΔG 有数值（应为 n/a:no_training_phase）
-✓ system_loso: constant ΔG 有数值（应为 n/a:no_training_phase）
-✓ temp_extrap: zero 行 Tc 误差 = nan K（ΔG≡0 时求根退化，应为 n/a）
-✓ phase_lopo: zero 行 Tc 误差 = nan K（ΔG≡0 时求根退化，应为 n/a）
-✓ system_loso: zero 行 Tc 误差 = nan K（ΔG≡0 时求根退化，应为 n/a）
-✓ temp_extrap: 主表 CSV 缺列 []（notebook 中技能分与斜率换算会派生，其余留 —）
-✓ phase_lopo: 主表 CSV 缺列 []（notebook 中技能分与斜率换算会派生，其余留 —）
-✓ system_loso: 主表 CSV 缺列 []（notebook 中技能分与斜率换算会派生，其余留 —）
-ℹ 主表里没有任何受控消融行（E1 的 polynomial / tlog 检查点未接入主表）
-✓ hf: system_inventory 记 qh_reliable_count=1，phase_inventory 中 true=1、空=0
-✓ sio2: system_inventory 记 qh_reliable_count=1，phase_inventory 中 true=1、空=0
-✓ ti: system_inventory 记 qh_reliable_count=1，phase_inventory 中 true=1、空=0
-✓ zr: system_inventory 记 qh_reliable_count=1，phase_inventory 中 true=1、空=0
-✓ temp_extrap 交点全部落在测试区
-✓ crossing_errors_phase_lopo: meta 记录 32 处缺失 → structural N/A: pair has no reference crossing on the frozen grid×16; predictor unavailable without training phase×16
-✓ crossing_errors_system_loso: meta 记录 16 处缺失 → structural N/A: pair has no reference crossing on the frozen grid×8; predictor unavailable without training phase×8
-✓ crossing_errors_temp_extrap: meta 记录 10 处缺失 → structural N/A: pair has no reference crossing on the frozen grid×10
-✓ temp_extrap: 非自检行存在未标记空值 []
-✓ phase_lopo: 非自检行存在未标记空值 []
-✓ system_loso: 非自检行存在未标记空值 []
-✓ phase_inventory: qh_reliable 非空但 imaginary_fraction 为空 []
-✓ phase_inventory: QH 超胞最短边 < 10 Å []
-✓ checkpoint/head provenance consistent for audited canonical rows
+✓ temp_extrap: constant ΔG floor labels are consistent
+✓ temp_extrap: zero crossing fields use n/a:degenerate_prediction
+✓ temp_extrap: main table required columns present
+✓ temp_extrap: non-self rows have no unmarked empty cells
+✓ phase_lopo: constant ΔG floor labels are consistent
+✓ phase_lopo: zero crossing fields use n/a:degenerate_prediction
+✓ phase_lopo: main table required columns present
+✓ phase_lopo: non-self rows have no unmarked empty cells
+✓ system_loso: constant ΔG floor labels are consistent
+✓ system_loso: zero crossing fields use n/a:degenerate_prediction
+✓ system_loso: main table required columns present
+✓ system_loso: non-self rows have no unmarked empty cells
+✓ hf: qh_reliable_count=1 agrees with phase_inventory (1)
+✓ sio2: qh_reliable_count=1 agrees with phase_inventory (1)
+✓ ti: qh_reliable_count=1 agrees with phase_inventory (1)
+✓ zr: qh_reliable_count=1 agrees with phase_inventory (1)
+✓ temp_extrap crossings all in test
+✓ phase_inventory reliable rows have imaginary_fraction
+✓ QH supercell shortest edges meet 10 A

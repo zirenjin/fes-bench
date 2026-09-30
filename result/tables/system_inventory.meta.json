@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-30T16:35:22.651670+00:00",
-  "git_commit": "b4a4d157563d6c2280801fc9aeb9a60992724bcf",
+  "generated_utc": "2026-09-30T17:16:57.825455+00:00",
+  "git_commit": "e0306638903d1754446393908d58bcacdd95aabc",
   "inputs": [
     {
       "path": "data/processed/splits/phase_lopo.json",
@@ -36,7 +36,7 @@
     },
     {
       "path": "result/tables/phase_inventory.csv",
-      "sha256": "9dd53f50c4df6f5212ea5ec3aff25d0baf9d688bd2ae8bc265014780e5f7afc4"
+      "sha256": "628ac76788ad64f300db87c69af08b5a425aa7d222c323171337630650e5fbce"
     }
   ],
   "missing": []
