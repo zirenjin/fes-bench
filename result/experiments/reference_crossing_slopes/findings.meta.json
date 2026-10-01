@@ -1,0 +1,42 @@
+{
+  "script": "src/experiments/data_prep/refit_reference_crossing_slopes.py",
+  "generated_at_utc": "2026-10-01T22:12:08.377229+00:00",
+  "git_commit": "3b14c9346ecd69a6b254543404d03f6c3b3190c8",
+  "window_K": 25.0,
+  "fit": "ordinary least squares on reference Delta G versus temperature; window clipped to the reference grid",
+  "inputs": [
+    {
+      "path": "data/processed/hf/reference_crossings.json",
+      "sha256": "a49ef1f5f72deed3063fc9658d2570277f87a2e48c49c41aed4c59585288fe2c"
+    },
+    {
+      "path": "data/processed/sio2/reference_crossings.json",
+      "sha256": "8d87c823de88794d92b4d35f6529d0fced76fbc5f85fbe4159a51d6bcfb1b19b"
+    },
+    {
+      "path": "data/processed/ti/reference_crossings.json",
+      "sha256": "d3795ba589fdb6d55900de00af1bfba2df05e537cdbb6bbdaf490984fb65920e"
+    },
+    {
+      "path": "data/processed/zr/reference_crossings.json",
+      "sha256": "6c0633813bbb39e92c0a61ab855f4b3b691c9fcd891ac143d41967e46e1515b2"
+    }
+  ],
+  "low_r_squared": [],
+  "sio2_old_new_comparison": [
+    {
+      "system": "sio2",
+      "pair": "quartz_beta_minus_cristobalite_beta",
+      "old": 7.550971291792052e-06,
+      "new": 7.5508855248952854e-06,
+      "relative_change": -1.1358392642835517e-05
+    },
+    {
+      "system": "sio2",
+      "pair": "quartz_beta_minus_tridymite_p63mmc",
+      "old": 7.449005666515518e-06,
+      "new": 7.448948132502005e-06,
+      "relative_change": -7.723717243482194e-06
+    }
+  ]
+}

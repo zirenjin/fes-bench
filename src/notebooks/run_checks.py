@@ -55,6 +55,16 @@ def _fallback_checks(root: Path) -> list[str]:
         fold_rows = list(csv.DictReader(fold_table.open(encoding="utf-8", newline="")))
         observed = {r.get("fold", "") for r in fold_rows if r.get("eval_subset", "full") == "full" and r.get("fold", "")}
         out.append(f"⚠ {table_name} fold set is {sorted(observed)}, expected ['hf', 'ti', 'zr']" if observed != expected_folds else f"✓ {table_name} fold set is exactly {{hf, ti, zr}}")
+    bad_slopes = []
+    for crossing_path in sorted((root / "data/processed").glob("*/reference_crossings.json")):
+        payload = json.loads(crossing_path.read_text(encoding="utf-8"))
+        for pair_name, pair in payload.get("pairs", {}).items():
+            for index, crossing in enumerate(pair.get("crossings", []), start=1):
+                slope = crossing.get("slope_eV_per_atom_per_K")
+                r_squared = crossing.get("r_squared")
+                if not isinstance(slope, (int, float)) or slope <= 0 or not isinstance(r_squared, (int, float)) or r_squared < 0.95:
+                    bad_slopes.append(f"{crossing_path.parent.name}:{pair_name}#{index}")
+    out.append(f"⚠ reference crossing slope audit failed: {bad_slopes}" if bad_slopes else "✓ reference crossing slopes are positive with R²≥0.95")
     return out
 
 
@@ -83,6 +93,149 @@ def _metric_csv_empty_checks(root: Path) -> list[str]:
     return out
 
 
+def _crossing_slope_consistency_checks(root: Path) -> list[str]:
+    """Ensure figure-1 fits, reference crossings, and Table 6 use one slope."""
+    tolerance = 1e-10
+    reference: dict[tuple[str, str, int], float] = {}
+    for crossing_path in sorted((root / "data/processed").glob("*/reference_crossings.json")):
+        payload = json.loads(crossing_path.read_text(encoding="utf-8"))
+        system = str(payload.get("system", crossing_path.parent.name))
+        for pair_name, pair in payload.get("pairs", {}).items():
+            for index, crossing in enumerate(pair.get("crossings", []), start=1):
+                slope = crossing.get("slope_eV_per_atom_per_K")
+                if isinstance(slope, (int, float)):
+                    reference[(system, str(pair_name), index)] = abs(float(slope))
+
+    def lookup(system: str, pair_name: str, index: int) -> float | None:
+        value = reference.get((system, pair_name, index))
+        if value is not None:
+            return value
+        if "_minus_" in pair_name:
+            left, right = pair_name.split("_minus_", 1)
+            return reference.get((system, f"{right}_minus_{left}", index))
+        return None
+
+    warnings: list[str] = []
+    table_failures: list[str] = []
+    for path in sorted((root / "result/tables").glob("crossing_errors_*.csv")):
+        with path.open(encoding="utf-8", newline="") as handle:
+            for number, row in enumerate(csv.DictReader(handle), start=2):
+                pair = row.get("pair", "")
+                if ":" not in pair:
+                    continue
+                system, pair_name = pair.split(":", 1)
+                try:
+                    index = int(row.get("crossing_index", "1"))
+                    observed = float(row.get("crossing_slope_eV_per_atom_per_K", ""))
+                except (TypeError, ValueError):
+                    continue
+                expected = lookup(system, pair_name, index)
+                if expected is not None and abs(abs(observed) - expected) > tolerance:
+                    table_failures.append(f"{path.name}:{number}")
+    if table_failures:
+        warnings.append(f"⚠ crossing_errors slope mismatch with reference_crossings: {table_failures}")
+    else:
+        warnings.append("✓ crossing_errors slopes match reference_crossings (absolute sign convention)")
+
+    # Reconstruct the ΔG-at-crossing inputs from the raw runs and verify the
+    # table's derived Tc_err_from_dG values use the same fitted slope.
+    raw_dg: dict[tuple[str, str, str, str, str, int], float] = {}
+
+    def add_raw(split: str, predictor: str, subset: str, fold: str, metrics: dict) -> None:
+        pairs = metrics.get("pairs", {}) if isinstance(metrics, dict) else {}
+        if not isinstance(pairs, dict):
+            return
+        for pair_name, record in pairs.items():
+            values = record.get("delta_G_MAE_at_crossing_eV_per_atom", [])
+            if not isinstance(values, list):
+                continue
+            for index, value in enumerate(values, start=1):
+                if isinstance(value, (int, float)):
+                    raw_dg[(split, predictor, subset, fold, str(pair_name), index)] = float(value)
+
+    for split in ("temp_extrap", "phase_lopo", "system_loso"):
+        patterns = [f"result/experiments/external_baselines/raw_{split}/*/*/metrics.json"]
+        if split == "temp_extrap":
+            patterns.append("result/experiments/t3_temp_extrap/raw_runs/*/*/metrics.json")
+        for pattern in patterns:
+            for raw_path in sorted(root.glob(pattern)):
+                try:
+                    body = json.loads(raw_path.read_text(encoding="utf-8"))
+                    predictor = raw_path.parts[-3]
+                    metrics = body.get("metrics", {})
+                    folds = metrics.get("folds", {}) if isinstance(metrics, dict) else {}
+                    if isinstance(folds, dict) and folds:
+                        for fold_name, fold_metrics in folds.items():
+                            add_raw(split, predictor, "main", str(fold_name), fold_metrics)
+                            if isinstance(fold_metrics, dict) and isinstance(fold_metrics.get("overlap_T"), dict):
+                                add_raw(split, predictor, "overlap_T", str(fold_name), fold_metrics["overlap_T"])
+                    else:
+                        add_raw(split, predictor, "main", "all", metrics)
+                except (OSError, json.JSONDecodeError):
+                    continue
+
+    tc_failures: list[str] = []
+    for path in sorted((root / "result/tables").glob("crossing_errors_*.csv")):
+        split_name = path.name[len("crossing_errors_") : -len(".csv")]
+        subset_default = "overlap_T" if split_name.endswith("_overlap_T") else "main"
+        split = split_name.removesuffix("_overlap_T")
+        with path.open(encoding="utf-8", newline="") as handle:
+            for number, row in enumerate(csv.DictReader(handle), start=2):
+                tc_value = row.get("Tc_err_from_dG_K", "")
+                try:
+                    observed_tc = float(tc_value)
+                    index = int(row.get("crossing_index", "1"))
+                except (TypeError, ValueError):
+                    continue
+                pair = row.get("pair", "")
+                if ":" not in pair:
+                    continue
+                system, pair_name = pair.split(":", 1)
+                slope = lookup(system, pair_name, index)
+                if slope is None:
+                    continue
+                subset = row.get("subset") or subset_default
+                fold = row.get("fold") or "all"
+                dg = raw_dg.get((split, row.get("predictor", ""), subset, fold, pair_name, index))
+                if dg is None and "_minus_" in pair_name:
+                    left, right = pair_name.split("_minus_", 1)
+                    dg = raw_dg.get((split, row.get("predictor", ""), subset, fold, f"{right}_minus_{left}", index))
+                if dg is not None and abs(observed_tc - abs(dg) / slope) > tolerance:
+                    tc_failures.append(f"{path.name}:{number}")
+    if tc_failures:
+        warnings.append(f"⚠ Tc_err_from_dG mismatch with fitted slopes: {tc_failures}")
+    else:
+        warnings.append("✓ Tc_err_from_dG values match fitted reference slopes")
+
+    figure_path = root / "result/figures/figure1/panel_b.csv"
+    figure_failures: list[str] = []
+    if figure_path.exists():
+        with figure_path.open(encoding="utf-8", newline="") as handle:
+            for number, row in enumerate(csv.DictReader(handle), start=2):
+                system = row.get("system", "")
+                low = row.get("low", "")
+                high = row.get("high", "")
+                pair_name = None
+                for (candidate_system, candidate_pair, _), _value in reference.items():
+                    if candidate_system != system:
+                        continue
+                    if set(candidate_pair.split("_minus_")) == {low, high}:
+                        pair_name = candidate_pair
+                        break
+                try:
+                    observed = abs(float(row.get("slope_meV_per_atom_per_K", ""))) * 1e-3
+                except (TypeError, ValueError):
+                    continue
+                expected = lookup(system, pair_name or "", 1)
+                if expected is not None and abs(observed - expected) > tolerance:
+                    figure_failures.append(f"panel_b.csv:{number}")
+    if figure_failures:
+        warnings.append(f"⚠ figure 1 slope mismatch with reference_crossings: {figure_failures}")
+    elif figure_path.exists():
+        warnings.append("✓ figure 1 panel_b slopes match reference_crossings")
+    return warnings
+
+
 def main() -> int:
     root = Path(__file__).resolve().parents[2]
     notebook = root / "src/notebooks/fes_bench_tables.ipynb"
@@ -105,6 +258,7 @@ def main() -> int:
                 raise
             checks = _fallback_checks(root)
             checks.extend(_metric_csv_empty_checks(root))
+            checks.extend(_crossing_slope_consistency_checks(root))
             checks.extend(_non_english_checks(root))
             (root / "result/tables/_checks.txt").write_text("\n".join(checks) + "\n", encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks) else 0
@@ -126,6 +280,7 @@ def main() -> int:
                 checks += "".join(f"⚠ {item}\n" for item in policy_bad)
             checks += "".join(f"{line}\n" for line in _non_english_checks(root))
             checks += "".join(f"{line}\n" for line in _metric_csv_empty_checks(root))
+            checks += "".join(f"{line}\n" for line in _crossing_slope_consistency_checks(root))
             (root / "result/tables/_checks.txt").write_text(checks, encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks.splitlines()) else 0
     raise RuntimeError("notebook consistency-check cell was not executed")

@@ -15,7 +15,16 @@
         {
           "T_K": 1919.0,
           "slope_meV_per_atom_per_K": 0.09999999999998899,
-          "quantized_plateau": true
+          "quantized_plateau": true,
+          "previous_slope_eV_per_atom_per_K": 9.999999999998899e-05,
+          "slope_eV_per_atom_per_K": 2.730316742081386e-05,
+          "slope_stderr": 3.8880367649285923e-07,
+          "fit_window_K": [
+            1894.0,
+            1944.0
+          ],
+          "n_points": 51,
+          "r_squared": 0.990161323074032
         }
       ],
       "min_delta_eV_per_atom": -0.03200000000000003,

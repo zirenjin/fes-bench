@@ -16,9 +16,18 @@ metrics remain below its `raw_runs/` directory when an experiment has them.
 | Ideal SiO₂ representative rebuild and QH comparison | `PYTHONPATH=src/lib python src/experiments/data_prep/rebuild_sio2_representatives.py --config configs/representatives/sio2_ideal_rebuild.yaml --relax --checkpoint <external>`; `python src/experiments/data_prep/compare_qh_rebuild_all.py` | `experiments/quasi_harmonic_rebuild/` and `data/processed/sio2/_archive_md_snapshot/` |
 | Metal ≥10 Å QH comparison | `python src/experiments/data_prep/compare_qh_rebuild_all.py` (QH production commands are the three `configs/qh/*_qh_10a.yaml` configs) | `experiments/quasi_harmonic_10a/` |
 | MAE, split-sign, representative, reference, leakage audits | `python3 src/experiments/<name>.py` | matching experiment directory |
+| reference-crossing slope refit and Tc conversion audit | `python3 src/experiments/data_prep/refit_reference_crossing_slopes.py --repo-root .` | `experiments/reference_crossing_slopes/` and `tables/_changes/crossing_errors_*.csv` |
+| Figure 1 (relative-signal, crossing-sensitivity, and QH panels) | `python3 src/figures/figure1_difficulty.py --repo-root . --output result/figures/figure1` | `figures/figure1/` (panel CSVs plus figure provenance) |
 
 All paths are relative to the repository root. Rebuild the complete derived
 layer with `bash src/reproduce_all.sh`.
+
+The crossing slopes used by Figure 1 and by `crossing_errors_*` are ordinary
+least-squares fits to the reference ΔG curve in a clipped `Tc ± 25 K` window.
+The fit records its actual window, number of points, standard error, and R² in
+each `reference_crossings.json`; the slope audit found no R² below 0.95. The
+two SiO₂ slope changes relative to the quantized values were below 0.002%, so
+the five-percent stop criterion was not triggered.
 
 The Tc-error value for `interp_const` in
 `tables/crossing_errors_temp_extrap.csv` comes from

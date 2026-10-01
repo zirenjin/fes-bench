@@ -1,7 +1,23 @@
 {
-  "generated_utc": "2026-09-30T22:34:05.040778+00:00",
-  "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
+  "generated_utc": "2026-10-01T22:12:11.916303+00:00",
+  "git_commit": "3b14c9346ecd69a6b254543404d03f6c3b3190c8",
   "inputs": [
+    {
+      "path": "data/processed/hf/reference_crossings.json",
+      "sha256": "a49ef1f5f72deed3063fc9658d2570277f87a2e48c49c41aed4c59585288fe2c"
+    },
+    {
+      "path": "data/processed/sio2/reference_crossings.json",
+      "sha256": "8d87c823de88794d92b4d35f6529d0fced76fbc5f85fbe4159a51d6bcfb1b19b"
+    },
+    {
+      "path": "data/processed/ti/reference_crossings.json",
+      "sha256": "d3795ba589fdb6d55900de00af1bfba2df05e537cdbb6bbdaf490984fb65920e"
+    },
+    {
+      "path": "data/processed/zr/reference_crossings.json",
+      "sha256": "6c0633813bbb39e92c0a61ab855f4b3b691c9fcd891ac143d41967e46e1515b2"
+    },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
       "sha256": "836e9b84a311988823556f639960408aceb4b4743cc2b74bdbea1dc363b93588"

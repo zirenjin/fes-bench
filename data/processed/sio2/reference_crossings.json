@@ -14,7 +14,16 @@
       "crossings": [
         {
           "T_K": 1542.7087047758675,
-          "slope_meV_per_atom_per_K": 0.007550971291792052
+          "slope_meV_per_atom_per_K": 0.007550971291792052,
+          "previous_slope_eV_per_atom_per_K": 7.550971291792052e-06,
+          "slope_eV_per_atom_per_K": 7.5508855248952854e-06,
+          "slope_stderr": 8.124252508907477e-10,
+          "fit_window_K": [
+            1518.0,
+            1567.0
+          ],
+          "n_points": 50,
+          "r_squared": 0.9999994443362697
         }
       ],
       "min_delta_eV_per_atom": -0.0048843133660820826,
@@ -26,7 +35,16 @@
       "crossings": [
         {
           "T_K": 1582.3215510581538,
-          "slope_meV_per_atom_per_K": 0.007449005666515518
+          "slope_meV_per_atom_per_K": 0.007449005666515518,
+          "previous_slope_eV_per_atom_per_K": 7.449005666515518e-06,
+          "slope_eV_per_atom_per_K": 7.448948132502005e-06,
+          "slope_stderr": 1.2299778244999816e-09,
+          "fit_window_K": [
+            1558.0,
+            1607.0
+          ],
+          "n_points": 50,
+          "r_squared": 0.9999986912842425
         }
       ],
       "min_delta_eV_per_atom": -0.004992832653204715,

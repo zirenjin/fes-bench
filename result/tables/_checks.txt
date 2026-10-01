@@ -19,3 +19,7 @@
 ✓ QH supercell shortest edges meet 10 A
 ✓ predictor_comparison_system_loso_folds fold set is exactly {hf, ti, zr}
 ✓ crossing_errors_system_loso fold set is exactly {hf, ti, zr}
+✓ reference crossing slopes are positive with R²≥0.95
+✓ crossing_errors slopes match reference_crossings (absolute sign convention)
+✓ Tc_err_from_dG values match fitted reference slopes
+✓ figure 1 panel_b slopes match reference_crossings
