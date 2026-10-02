@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-01T22:49:48.928913+00:00",
-  "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
+  "generated_utc": "2026-10-02T02:50:30.917065+00:00",
+  "git_commit": "debe1f91273043d52ec016f46d9f25fc9fefa9f7",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
@@ -45,6 +45,18 @@
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
       "sha256": "c59a9b1fa746c3dd7b32a2a74c5c9db7c2645f4450bf83962e5ae75a4dd72fb8"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_11/metrics.json",
+      "sha256": "458a513827ee389e6e551d2d94b8c85d89f72f9172cd34d814b632ed7883ceb7"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_23/metrics.json",
+      "sha256": "498b1e18a96ea06969e352e687ba89301c211472d1205f5d6b2166ac785a4afa"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_37/metrics.json",
+      "sha256": "a144d55b2cc70beb2b8b4d9c842ef5201617d70acff102d4bdffd50d58a01d50"
     }
   ],
   "missing": [],
