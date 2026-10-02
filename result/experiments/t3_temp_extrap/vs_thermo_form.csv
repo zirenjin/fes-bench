@@ -1,0 +1,25 @@
+basis,seed,metric,train_value,test_value,thermo_form_test_value,comparison,acceptance
+polynomial,11,pair_delta_G_MAE_eV_per_atom,0.0220258502875,0.105582666718,0.000424816622846,thermo-form lower,fail
+polynomial,11,G_MAE_eV_per_atom,0.438783730305,3.29292077959,n/a,n/a,informational
+polynomial,11,sign_accuracy,0.709283880655,0.592022583868,0.994770880121,T3 lower,informational
+polynomial,11,ranking_accuracy,0.363095238095,0.534702549575,0.993271954674,T3 lower,informational
+polynomial,23,pair_delta_G_MAE_eV_per_atom,0.0227412692281,0.107503439162,0.000424816622846,thermo-form lower,fail
+polynomial,23,G_MAE_eV_per_atom,0.437955020848,3.28957123294,n/a,n/a,informational
+polynomial,23,sign_accuracy,0.705297030902,0.575781650409,0.994770880121,T3 lower,informational
+polynomial,23,ranking_accuracy,0.356547619048,0.534702549575,0.993271954674,T3 lower,informational
+polynomial,37,pair_delta_G_MAE_eV_per_atom,0.0224217629726,0.106534300956,0.000424816622846,thermo-form lower,fail
+polynomial,37,G_MAE_eV_per_atom,0.437770795931,3.29452873025,n/a,n/a,informational
+polynomial,37,sign_accuracy,0.705348493655,0.573258786959,0.994770880121,T3 lower,informational
+polynomial,37,ranking_accuracy,0.358333333333,0.534702549575,0.993271954674,T3 lower,informational
+tlog,11,pair_delta_G_MAE_eV_per_atom,0.00590132042898,0.0312778562576,0.000424816622846,thermo-form lower,pass
+tlog,11,G_MAE_eV_per_atom,0.120658831649,0.87025671811,n/a,n/a,informational
+tlog,11,sign_accuracy,0.765793010753,0.484478893864,0.994770880121,T3 lower,informational
+tlog,11,ranking_accuracy,0.577380952381,0.563385269122,0.993271954674,T3 lower,informational
+tlog,23,pair_delta_G_MAE_eV_per_atom,0.00591470647148,0.0317904688851,0.000424816622846,thermo-form lower,pass
+tlog,23,G_MAE_eV_per_atom,0.120793622752,0.870650254174,n/a,n/a,informational
+tlog,23,sign_accuracy,0.761921195389,0.484478893864,0.994770880121,T3 lower,informational
+tlog,23,ranking_accuracy,0.566666666667,0.563385269122,0.993271954674,T3 lower,informational
+tlog,37,pair_delta_G_MAE_eV_per_atom,0.00599511776804,0.0322245294866,0.000424816622846,thermo-form lower,pass
+tlog,37,G_MAE_eV_per_atom,0.120996609298,0.870815332884,n/a,n/a,informational
+tlog,37,sign_accuracy,0.761421703962,0.484478893864,0.994770880121,T3 lower,informational
+tlog,37,ranking_accuracy,0.565476190476,0.563385269122,0.993271954674,T3 lower,informational
