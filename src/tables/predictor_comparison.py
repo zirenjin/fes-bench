@@ -152,6 +152,7 @@ def e1_rows() -> list[dict[str, Any]]:
 DISPLAY = {
     "qh_only": "E + F_QH",
     "qh_residual": "E + F_QH + r_theta",
+    "thermo_form_fit": "thermo-form fit",
     "repr_regression_polynomial": "repr. regression (polynomial)",
     "repr_regression_tlog": "repr. regression (tlog)",
 }

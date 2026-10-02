@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-02T05:24:37.202253+00:00",
-  "git_commit": "abe401d76729bc8b07be119842d1c8b21dd0564d",
+  "generated_utc": "2026-10-02T05:32:23.273847+00:00",
+  "git_commit": "64cddb0cdb2fa849363ba5192d0c4a0ac94f7757",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
@@ -41,6 +41,10 @@
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/root_stability_iid_0.005/seed_none/metrics.json",
       "sha256": "cc2846e4afae87b96a844dcda9d002378ef7c4db33274b6f288c8723daecd1db"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_temp_extrap/thermo_form_fit/seed_none/metrics.json",
+      "sha256": "a0a10129be6aac639d5cc8f034f638c26e2396e8fedbfa2d9aa9dd691d9b0333"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",

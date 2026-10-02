@@ -18,6 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
+from fes_bench.baselines.thermo_form_fit import fit_predict
 from fes_bench.data.load import load
 from fes_bench.eval.run import _root
 
@@ -122,6 +123,7 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
         return {float(table[i].T_K): float(table[i].G_eV_per_atom) for i in indexes}
 
     pairs: dict[str, object] = {}
+    pair_prediction_curves: dict[tuple[str, str, str], dict[float, float]] = {}
     ranking_values: list[bool] = []
     ranking_by_system: dict[str, list[bool]] = defaultdict(list)
     ranking_unavailable = False
@@ -143,6 +145,12 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
             reference = np.array([left_eval[t] - right_eval[t] for t in temperatures])
             if method == "zero":
                 observed, fitted, constant = np.zeros_like(reference), True, 0.0
+            elif method == "thermo_form_fit" and train_shared:
+                left_train, right_train = cached_curve(system, left, train_shared), cached_curve(system, right, train_shared)
+                shared_train_t = np.array(sorted(set(left_train) & set(right_train)), dtype=float)
+                train_delta = np.array([left_train[t] - right_train[t] for t in shared_train_t])
+                observed = fit_predict(shared_train_t, train_delta, temperatures)
+                fitted, constant = True, None
             elif train_shared:
                 left_train, right_train = cached_curve(system, left, train_shared), cached_curve(system, right, train_shared)
                 shared_train_t = sorted(set(left_train) & set(right_train))
@@ -152,6 +160,9 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
                 # Keep the diagnostic zero curve and mark it unavailable; it
                 # must not enter a fitted-constant aggregate.
                 observed, fitted, constant = np.zeros_like(reference), False, None
+            pair_prediction_curves[(system, left, right)] = {
+                float(temperature): float(value) for temperature, value in zip(temperatures, observed)
+            }
             pairs[f"{system}:{left}_minus_{right}"] = _pair_metrics(reference, observed, temperatures, fitted=fitted, constant=constant)
         evaluation_temperatures = sorted({float(tables[(system, phase)][index].T_K) for (item_system, phase), indexes in test.items() if item_system == system for index in indexes})
         phase_curves = {phase: cached_curve(system, phase, all_rows[(system, phase)]) for phase in phases}
@@ -168,9 +179,10 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
                     if not train_shared:
                         ranking_unavailable = True
                         ok = False; break
-                    left_train, right_train = cached_curve(system, left, train_shared), cached_curve(system, right, train_shared)
-                    constant_value = float(np.mean([left_train[t] - right_train[t] for t in sorted(set(left_train) & set(right_train))]))
-                    observed = constant_value
+                    observed = pair_prediction_curves.get((system, left, right), {}).get(float(temperature))
+                    if observed is None:
+                        ranking_unavailable = True
+                        ok = False; break
                 if np.sign(observed) != np.sign(reference):
                     ok = False; break
             ranking_values.append(ok)
@@ -242,7 +254,7 @@ def main(argv: list[str] | None = None) -> int:
         split_path = Path(split_arg)
         split = json.loads(split_path.read_text(encoding="utf-8"))
         split_name = split_path.stem
-        all_payload[split_name] = {method: _evaluate(split, data_root, method) for method in ("zero", "constant_delta_g")}
+        all_payload[split_name] = {method: _evaluate(split, data_root, method) for method in ("zero", "constant_delta_g", "thermo_form_fit")}
     (output / "metrics.json").write_text(json.dumps(_json_safe(all_payload), indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8")
     (output / "summary.md").write_text(_markdown({name: data["zero"] for name, data in all_payload.items()}, "Zero ΔG floor") + "\n\n" + _markdown({name: data["constant_delta_g"] for name, data in all_payload.items()}, "Training-mean constant ΔG floor") + "\n", encoding="utf-8")
     print(output / "metrics.json")

@@ -170,9 +170,14 @@ def load_pairs() -> list[Pair]:
             delta_left_right = np.asarray(
                 [left_map[t] - right_map[t] for t in common], dtype=float
             )
-            below = temperature < reference_tc
-            probe = int(np.flatnonzero(below)[-1]) if below.any() else 0
-            low, high = (left, right) if delta_left_right[probe] < 0.0 else (right, left)
+            slope = float(crossing_list[0].get("slope_eV_per_atom_per_K", 0.0))
+            if slope == 0.0:
+                raise ValueError(f"zero reference crossing slope for {system}/{left}/{right}")
+            # reference_crossings stores ΔG = G_left - G_right.  The slope
+            # sign determines which phase is lower below the crossing and is
+            # more stable than probing the quantized grid point immediately
+            # below Tc, which can be exactly zero.
+            low, high = (left, right) if slope > 0.0 else (right, left)
             delta_high_low = delta_left_right if high == right else -delta_left_right
             pairs.append(
                 Pair(
@@ -498,6 +503,26 @@ def write_summary(
         "",
         "The QH CSV schema and `src/lib/fes_bench/qh/run.py` confirm that `F_QH` already includes `E_static + F_vib`; the baselines therefore use F_QH directly and do not add E_DPA again. The QH thermal properties are the quantum phonopy free energy and include zero-point energy. The QH runner records imaginary-mode diagnostics with a -0.05 THz cutoff; this script does not edit or recalculate those modes.",
         "",
+        "## Metal static-energy audit",
+        "",
+        "The reference crossing slope identifies hcp as the low-temperature phase for all three metals. The table prints the canonical E_DPA provenance used below.",
+        "",
+        "| System | Phase | E_DPA (eV/atom) | Source file | Checkpoint SHA-256 | Head |",
+        "| --- | --- | ---: | --- | --- | --- |",
+    ]
+    for system in ("hf", "ti", "zr"):
+        for phase in ("hcp", "bcc"):
+            meta = phase_meta(system, phase)
+            record = meta.get("representative", meta)
+            source = record.get("source") or record.get("source_structure") or meta.get("raw_table", "n/a")
+            _, checkpoint_sha, head = checkpoint_from_meta(meta)
+            lines.append(
+                f"| {system} | {phase} | {energy_from_meta(meta):.12f} | `{source}` | `{checkpoint_sha}` | {head} |"
+            )
+    lines += [
+        "",
+        "For the metal rows, hcp is low and bcc is high; ΔE_DPA is therefore E_DPA(bcc) − E_DPA(hcp), with the same high-minus-low direction used for ΔE_eff.",
+        "",
         "## Delta-E budget",
         "",
         "| Pair (low/high) | Delta E DPA (meV/atom) | Delta E effective median [range] (meV/atom) | DPA minus effective | Reference Delta G SD | |error| / SD |",
@@ -540,8 +565,18 @@ def write_summary(
         key = f"{pair.low}/{pair.high}"
         rows = [row for row in oracle if row["category"] == "oracle_fit" and row["residual_form"] == "R3" and row["system"] == pair.system and row["pair"] == key]
         errors = {row["baseline"]: abs(float(row["Tc_error_K"])) if row["Tc_error_K"] else math.inf for row in rows}
-        better = [name for name in ("B1", "B2") if errors[name] < errors["B0"]]
-        lines.append(f"- **{pair.system} {key}**, equal three-parameter residual form: B0 |Tc error| = {errors['B0']:.3f} K; B1 = {errors['B1']:.3f} K; B2 = {errors['B2']:.3f} K. Baseline improvement over B0: {', '.join(better) if better else 'neither B1 nor B2'}.")
+        mae = {row["baseline"]: float(row["test_MAE_meV_per_atom"]) for row in rows}
+        labels = []
+        for name in ("B1", "B2"):
+            if abs(errors[name] - errors["B0"]) < 1.0 or abs(mae[name] - mae["B0"]) < 0.1:
+                labels.append(f"{name}: no meaningful difference")
+            elif errors[name] < errors["B0"] and mae[name] < mae["B0"]:
+                labels.append(f"{name}: improvement")
+            elif errors[name] > errors["B0"] and mae[name] > mae["B0"]:
+                labels.append(f"{name}: worse")
+            else:
+                labels.append(f"{name}: mixed")
+        lines.append(f"- **{pair.system} {key}**, equal three-parameter residual form: B0 |Tc error| = {errors['B0']:.3f} K; B1 = {errors['B1']:.3f} K; B2 = {errors['B2']:.3f} K. Relative to B0: {'; '.join(labels)}.")
     lines.append("")
     baseline_controls = {(row["system"], row["pair"], row["baseline"]): row for row in oracle if row["category"] == "baseline_control"}
     for pair in pairs:
@@ -563,7 +598,6 @@ def write_summary(
         "- The cristobalite-beta/tridymite-beta pair has no reference crossing and was skipped.",
         "- The optional classical-QH variants B1c/B2c were not run because the canonical QH artifacts preserve scalar F_QH outputs and minimum-frequency diagnostics, not the full positive phonon-frequency spectrum needed for a fresh classical vibrational sum.",
         "- Canonical QH raw-run paths under `result/experiments/` were used because the current processed tree does not materialize every phase QH CSV; no legacy, archive, or invalid source was read.",
-        "",
     ]
     (OUT / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

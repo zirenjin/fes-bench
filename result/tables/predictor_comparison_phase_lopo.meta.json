@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-01T22:49:54.627128+00:00",
-  "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
+  "generated_utc": "2026-10-02T05:32:25.841104+00:00",
+  "git_commit": "64cddb0cdb2fa849363ba5192d0c4a0ac94f7757",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/bartel2018/seed_none/metrics.json",
@@ -41,6 +41,10 @@
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/root_stability_iid_0.005/seed_none/metrics.json",
       "sha256": "0a7693368547f72184c1de76e908c90fc2a3782fbde271b99bfe379e47110c32"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_phase_lopo/thermo_form_fit/seed_none/metrics.json",
+      "sha256": "d2cef9358b1e36627df091c4f94fdd1bbf42785b8b81d06887fc52875c403536"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/zero/seed_none/metrics.json",

@@ -10,13 +10,14 @@ def _canonical_pair_name(value: str) -> str:
     return value.replace("bcc_minus_hcp", "hcp_minus_bcc").replace("bcc-hcp", "hcp_minus_bcc")
 
 
-def _pair_names(path: Path) -> set[str]:
+def _pair_names(path: Path, *, canonicalize: bool = True) -> set[str]:
     with path.open(encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
         field = next((name for name in ("pair", "pair_name", "pair_id", "phase_pair") if name in (reader.fieldnames or [])), None)
         if field is None:
             return set()
-        return {_canonical_pair_name(row[field]) for row in reader if row.get(field, "").strip()}
+        values = {row[field].strip() for row in reader if row.get(field, "").strip()}
+        return {_canonical_pair_name(value) for value in values} if canonicalize else values
 
 
 def _additional_checks(root: Path) -> list[str]:
@@ -28,7 +29,7 @@ def _additional_checks(root: Path) -> list[str]:
 
     detail_files = sorted((root / "result/experiments/t1_qh").glob("**/pair_details_*.csv"))
     for path in detail_files:
-        raw_names = _pair_names(path)
+        raw_names = _pair_names(path, canonicalize=False)
         noncanonical = sorted(name for name in raw_names if "bcc_minus_hcp" in name or name == "bcc-hcp")
         checks.append(f"⚠ {path.relative_to(root)}: metal pair names are not hcp_minus_bcc: {noncanonical}" if noncanonical else f"✓ {path.relative_to(root)}: pair names use canonical direction")
 
