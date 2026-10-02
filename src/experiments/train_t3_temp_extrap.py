@@ -39,6 +39,22 @@ SOURCE_PHASES = {
     "hf": {"hcp": "Hf_hcp", "bcc": "Hf_bcc"},
 }
 
+# DPA-3.1-3M multi-head branches retain the full periodic-table type map.
+# FES data must use these checkpoint indices (O=7, Si=13), rather than a
+# compact system-local map, when the selected head is loaded by --finetune.
+DPA3_TYPE_MAP = (
+    "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg",
+    "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr",
+    "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr",
+    "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd",
+    "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd",
+    "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf",
+    "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po",
+    "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm",
+    "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs",
+    "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og",
+)
+
 
 def sha256(path: Path) -> str:
     h = hashlib.sha256()
@@ -115,6 +131,21 @@ def materialize_phase(source: Path, target: Path, indexes: list[int]) -> None:
     np.save(set_path / "free_energy.npy", energy[take])
 
 
+def scale_energy_labels_to_cell(target: Path) -> None:
+    """Convert source eV/atom labels to the cell convention required by FES.
+
+    ``FreeEnergyLoss`` divides both prediction and label by the atom count.
+    The canonical reference tables remain eV/atom; DeepMD's temporary input
+    view therefore stores ``N * G`` in ``free_energy.npy`` and provenance
+    records the conversion explicitly.
+    """
+    type_path = target / "type.raw"
+    set_path = target / "set.000"
+    natoms = sum(1 for line in type_path.read_text(encoding="utf-8").splitlines() if line.strip())
+    energy_path = set_path / "free_energy.npy"
+    np.save(energy_path, np.load(energy_path) * float(natoms))
+
+
 def index_map(rows: list[dict[str, Any]], system: str) -> dict[str, list[int]]:
     out: dict[str, list[int]] = defaultdict(list)
     for row in rows:
@@ -146,10 +177,13 @@ def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list
         if lattice is None: raise ValueError(f"missing lattice in {processed / 'structure.extxyz'}")
         cell = np.asarray([float(x) for x in lattice.group(1).split()], dtype=float)
         species = [line.split()[0] for line in lines[2:2 + natoms]]
-        type_map = ["Si", "O"] if system == "sio2" else [system.capitalize()]
+        type_map = list(DPA3_TYPE_MAP)
         type_ids = [type_map.index(symbol) for symbol in species]
         temperatures = np.asarray([[float(source_rows[i]["T_K"]), float(source_rows[i]["P_GPa"])] for i in indexes])
-        energies = np.asarray([[float(source_rows[i]["G_eV_per_atom"])] for i in indexes])
+        # Source reference values are per atom.  FESLoss converts cell labels
+        # back to per-atom values internally, so the temporary DeepMD view
+        # stores the corresponding cell energy.
+        energies = np.asarray([[float(source_rows[i]["G_eV_per_atom"]) * natoms] for i in indexes])
         coords = np.asarray([[float(x) for x in line.split()[1:4]] for line in lines[2:2 + natoms]], dtype=float).reshape(1, -1)
         target = out / phase; target.mkdir(parents=True, exist_ok=True)
         (target / "type.raw").write_text("\n".join(map(str, type_ids)) + "\n", encoding="utf-8")
@@ -338,19 +372,25 @@ def main() -> int:
                 train_selected = index_map(split_rows["train"], system)
                 for phase in sorted(train_source.iterdir() if train_source.exists() else []):
                     if phase.is_dir():
-                        materialize_phase(phase, train_data / phase.name, list(range(len(np.load(phase / "set.000" / "fparam.npy")))))
+                        target_phase = train_data / phase.name
+                        materialize_phase(phase, target_phase, list(range(len(np.load(phase / "set.000" / "fparam.npy")))))
+                        scale_energy_labels_to_cell(target_phase)
                 test_selected = materialize_canonical_dataset(root, test_data, system, split_rows["test"])
             else:
                 train_selected = materialize_dataset(root, args.dataset_root, train_data, system, split_rows["train"])
+                for phase in sorted(train_selected):
+                    scale_energy_labels_to_cell(train_data / phase)
                 test_selected = materialize_dataset(root, args.dataset_root, test_data, system, split_rows["test"])
+                for phase in sorted(test_selected):
+                    scale_energy_labels_to_cell(test_data / phase)
             for phase, indexes in train_selected.items():
                 if not set(indexes) <= {k[2] for k in train_keys if k[0] == system and k[1] == phase}:
                     raise AssertionError(f"train materialization mismatch for {system}/{phase}")
             active_phases = sorted(train_selected)
             model_cfg = configure(template, [train_data / p for p in active_phases], seed=int(seed), out=run)
-            model_cfg["model"]["type_map"] = ["Si", "O"] if system == "sio2" else [system.capitalize()]
+            model_cfg["model"]["type_map"] = list(DPA3_TYPE_MAP)
             (run / "config.json").write_text(json.dumps(model_cfg, indent=2) + "\n", encoding="utf-8")
-            provenance = {"basis": cfg["basis"], "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
+            provenance = {"basis": cfg["basis"], "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "source_label_unit": "eV/atom", "deepmd_fes_label_unit": "eV/cell (N * source G)", "deepmd_fes_label_conversion": "free_energy.npy multiplied by natoms before train/test; evaluator divides predictions and labels by natoms", "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
             if args.training_data_root:
                 generated_provenance = (args.training_data_root if args.training_data_root.is_absolute() else root / args.training_data_root) / "provenance.json"
                 if generated_provenance.exists():

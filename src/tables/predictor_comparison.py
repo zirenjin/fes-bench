@@ -150,6 +150,7 @@ def e1_rows() -> list[dict[str, Any]]:
 
 
 DISPLAY = {
+    "qh_only": "E + F_QH",
     "repr_regression_polynomial": "repr. regression (polynomial)",
     "repr_regression_tlog": "repr. regression (tlog)",
 }

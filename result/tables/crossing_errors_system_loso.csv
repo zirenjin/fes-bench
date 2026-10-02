@@ -15,6 +15,9 @@ interp_const,main,zr,zr:hcp_minus_bcc,1,n/a:no_training_phase,n/a:no_training_ph
 phase_id_mlp,main,hf,hf:hcp_minus_bcc,1,n/a:no_training_phase,n/a:no_training_phase,2.730316742081386e-05,3.8880367649285923e-07,1894.0,1944.0,51,0.990161323074032,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
 phase_id_mlp,main,ti,ti:hcp_minus_bcc,1,n/a:no_training_phase,n/a:no_training_phase,3.900452488687797e-05,3.9833553142139184e-07,987.0,1037.0,51,0.9949154751299246,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
 phase_id_mlp,main,zr,zr:hcp_minus_bcc,1,n/a:no_training_phase,n/a:no_training_phase,3.5807923169268024e-05,3.7213853268912654e-07,951.0,1000.0,50,0.9948424132025973,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase
+E + F_QH,main,hf,hf:bcc_minus_hcp,1,1919.0,n/a:missed_crossing,2.730316742081386e-05,3.8880367649285923e-07,1894.0,1944.0,51,0.990161323074032,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing
+E + F_QH,main,ti,ti:bcc_minus_hcp,1,1012.0,n/a:missed_crossing,3.900452488687797e-05,3.9833553142139184e-07,987.0,1037.0,51,0.9949154751299246,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing
+E + F_QH,main,zr,zr:bcc_minus_hcp,1,975.5,n/a:missed_crossing,3.5807923169268024e-05,3.7213853268912654e-07,951.0,1000.0,50,0.9948424132025973,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing
 reference,main,hf,hf:hcp_minus_bcc,1,1919.0,0.0,2.730316742081386e-05,3.8880367649285923e-07,1894.0,1944.0,51,0.990161323074032,0.0,0,0
 reference_noise_0.005,main,hf,hf:hcp_minus_bcc,1,1919.0,-26.41309132920901,2.730316742081386e-05,3.8880367649285923e-07,1894.0,1944.0,51,0.990161323074032,26.51441085954787,0,0
 root_stability_iid_0.005,main,hf,hf:hcp_minus_bcc,1,1919.0,-247.00280620867602,2.730316742081386e-05,3.8880367649285923e-07,1894.0,1944.0,51,0.990161323074032,90.56786022229761,41,0

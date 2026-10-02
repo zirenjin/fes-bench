@@ -1,0 +1,8 @@
+{
+  "predictor": "E + F_QH",
+  "implementation": "src/experiments/evaluate_t1_qh.py",
+  "formula": "G_T1(T) = E_DPA + F_QH(T)",
+  "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+  "qh_convention": "F_QH is the canonical QH free energy after imaginary-mode removal; no calibration or training is applied",
+  "seed_policy": "n/a:no_seed"
+}

@@ -9,6 +9,9 @@ from pathlib import Path
 from common import csv_write, meta_write, pair_records, raw_runs
 
 
+DISPLAY = {"qh_only": "E + F_QH"}
+
+
 def reference_crossing(root: Path, pair: str, index: int) -> dict[str, object]:
     """Read the fitted reference-slope record for one system pair/root."""
     if ":" not in pair:
@@ -35,7 +38,7 @@ def main() -> int:
     rows, overlap_rows, inputs, missing = [], [], [], []
     reference_inputs: set[Path] = set()
     for path, body in raw_runs(root, args.split):
-        inputs.append(path); predictor = path.parts[-3]
+        inputs.append(path); predictor = DISPLAY.get(path.parts[-3], path.parts[-3])
         records = [("main", pair, record) for pair, record in pair_records(body["metrics"])
                    if args.split != "system_loso" or record.get("fold", "") in {"hf", "ti", "zr"}]
         for fold_name, fold in body["metrics"].get("folds", {}).items() if isinstance(body["metrics"].get("folds"), dict) else []:

@@ -86,7 +86,14 @@ and the current SiO2 QH curves fail the physical reliability gate.
 
 ### 主表受控消融块现状
 
-三个冻结切分上目前没有合法的 learned predictor 结果：E1 的 polynomial 与 tlog checkpoint 均为全四相、851–2499 K 全温区训练，属于 in-sample 评测，不能接入 temp_extrap、phase_lopo 或 system_loso 主表。要填入这些行，必须分别在每个冻结切分的训练集上训练对应的 polynomial 与 tlog 模型，并只在该切分测试区重评；本轮不训练。
+`E + F_QH` 已作为不训练的受控基线接入三个 v2 主表：ΔG-MAE 为
+215.182 meV/atom（temp_extrap）、169.440 meV/atom（phase_lopo）和
+333.809 meV/atom（system_loso）；Hf overlap-T 为 412.214 meV/atom。
+E1 的 polynomial 与 tlog checkpoint 均为全四相、851–2499 K 全温区训练，
+属于 in-sample 评测，不能接入其余切分的 learned 行。T3 SiO₂ seed 11
+诊断已修正数据类型与 FES 标签尺度并达到 1.861 meV/atom 的训练区
+ΔG-MAE，但其测试区尚未完成同一标签约定下的规范化评测；因此批量 T3
+与 T2 暂停，未填 learned 主表行。
 
 无训练 predictor 在 phase_lopo 与 system_loso 上指标相同是预期的：两者的测试点并集都是全部相对的全温区，权重比例一致。
 

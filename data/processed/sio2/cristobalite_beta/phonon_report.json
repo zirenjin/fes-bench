@@ -1,0 +1,43 @@
+{
+  "base_volume_A3_per_atom": 17.50213258562047,
+  "diagnostic_only": false,
+  "imaginary_mode_fraction": null,
+  "limitations": [
+    "Materialized from a three-volume diagnostic prototype; no Vinet fit is claimed.",
+    "Imaginary-mode fraction and force-constant cache were not produced by the source run.",
+    "This curve failed the Hf QH reliability/accuracy gate and is excluded from production predictors."
+  ],
+  "minimum_frequency_THz_by_volume": {
+    "0.96": -4.7553913147484055,
+    "0.98": -3.8081948408928588,
+    "1.0": -2.646364797465613,
+    "1.02": -0.19348896252364925,
+    "1.04": 0.5352177832097952
+  },
+  "n_temperatures": 1649,
+  "qh_reliable": false,
+  "reference_pressure_inherited": true,
+  "source": {
+    "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+    "head": "Domains_SSE_PBE",
+    "mesh": [
+      16,
+      16,
+      16
+    ],
+    "prototype_csv": "../../result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/cristobalite_beta_fqh.csv",
+    "summary": "../../result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json",
+    "supercell_matrix": [
+      2,
+      2,
+      2
+    ],
+    "volume_scales": [
+      0.96,
+      0.98,
+      1.0,
+      1.02,
+      1.04
+    ]
+  }
+}

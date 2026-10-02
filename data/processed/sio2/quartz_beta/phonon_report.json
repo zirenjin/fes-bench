@@ -1,0 +1,43 @@
+{
+  "base_volume_A3_per_atom": 14.075611896931807,
+  "diagnostic_only": false,
+  "imaginary_mode_fraction": null,
+  "limitations": [
+    "Materialized from a three-volume diagnostic prototype; no Vinet fit is claimed.",
+    "Imaginary-mode fraction and force-constant cache were not produced by the source run.",
+    "Reliability is unlocked only for this hcp head after the recorded imaginary-mode and smooth-deviation gate; absolute reference agreement remains a separate limitation."
+  ],
+  "minimum_frequency_THz_by_volume": {
+    "0.96": -3.794972167799613,
+    "0.98": -2.6880059630902653,
+    "1.0": -1.0540316023329863,
+    "1.02": -0.7707788296553879,
+    "1.04": -0.7251512387129014
+  },
+  "n_temperatures": 1649,
+  "qh_reliable": true,
+  "reference_pressure_inherited": true,
+  "source": {
+    "checkpoint": "external/checkpoints/DPA-3.1-3M.pt",
+    "head": "Domains_SSE_PBE",
+    "mesh": [
+      16,
+      16,
+      16
+    ],
+    "prototype_csv": "../../result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/quartz_beta_fqh.csv",
+    "summary": "../../result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json",
+    "supercell_matrix": [
+      2,
+      2,
+      2
+    ],
+    "volume_scales": [
+      0.96,
+      0.98,
+      1.0,
+      1.02,
+      1.04
+    ]
+  }
+}

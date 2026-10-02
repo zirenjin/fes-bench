@@ -3,7 +3,10 @@
 The builder is deliberately the only path from ``data/processed`` into T3
 training directories.  It reads frozen split indices (never creates a split),
 repeats each canonical representative structure at the requested reference
-temperatures, and records hashes and head policy in a provenance file.
+temperatures, and records hashes and head policy in a provenance file.  The
+raw ``free_energy.npy`` values remain the canonical ``G_eV_per_atom`` labels;
+the T3 launcher converts its temporary DeepMD view to cell energies because
+the FES loss performs the inverse per-atom normalization.
 """
 
 from __future__ import annotations
@@ -26,6 +29,24 @@ SYSTEM_PHASES = {
     "ti": ("hcp", "bcc"),
     "zr": ("hcp", "bcc"),
 }
+
+# DPA-3.1-3M branches use the periodic-table type map, even when a
+# system contains only a subset of elements.  ``type.raw`` therefore stores
+# the checkpoint indices (O=7, Si=13), not a compact per-system
+# 0/1 map.  Keeping this map in the data builder prevents a silent
+# element-to-head mismatch when a multi-head checkpoint is fine-tuned.
+DPA3_TYPE_MAP = (
+    "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg",
+    "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr",
+    "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr",
+    "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd",
+    "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd",
+    "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf",
+    "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po",
+    "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm",
+    "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs",
+    "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og",
+)
 
 
 def sha256(path: Path) -> str:
@@ -99,12 +120,13 @@ def model_type_map(species: list[str], system: str) -> list[str]:
         expected = {"Si", "O"}
         if unique != expected:
             raise AssertionError(f"SiO2 representative must contain Si/O, got {sorted(unique)}")
-        # E1 checkpoints use this order.  system.json historically lists O,Si;
-        # type.raw is generated against the checkpoint order, not that metadata.
-        return ["Si", "O"]
+        # The checkpoint branch uses the full periodic-table map.  The
+        # canonical system.json order (O, Si) is metadata only and must not
+        # determine type.raw indices.
+        return list(DPA3_TYPE_MAP)
     if len(unique) != 1:
         raise AssertionError(f"metal phase contains unexpected species: {sorted(unique)}")
-    return sorted(unique)
+    return list(DPA3_TYPE_MAP)
 
 
 def build_phase(root: Path, output: Path, system: str, phase: str,

@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-01T22:12:11.916303+00:00",
-  "git_commit": "3b14c9346ecd69a6b254543404d03f6c3b3190c8",
+  "generated_utc": "2026-10-01T22:50:00.612659+00:00",
+  "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
   "inputs": [
     {
       "path": "data/processed/hf/reference_crossings.json",
@@ -41,6 +41,10 @@
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/phase_id_mlp/seed_none/metrics.json",
       "sha256": "b7ef6c6019a883b1b01fd9cae0cbb6667441872dc00f006e675337d88a1a907b"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_phase_lopo/qh_only/seed_none/metrics.json",
+      "sha256": "d856ecae16701bed70fbfa5a8be1ae8fd6bff95d32c3f34829e453fbda13bb36"
     },
     {
       "path": "result/experiments/external_baselines/raw_phase_lopo/reference/seed_none/metrics.json",
@@ -187,6 +191,14 @@
     {
       "field": "phase_id_mlp:zr:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "E + F_QH:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
+    },
+    {
+      "field": "E + F_QH:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
     },
     {
       "field": "reference:sio2:cristobalite_beta_minus_tridymite_p63mmc.reference_Tc_K",

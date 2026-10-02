@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-09-30T22:34:02.698803+00:00",
-  "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
+  "generated_utc": "2026-10-01T22:49:48.928913+00:00",
+  "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
@@ -25,6 +25,10 @@
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
       "sha256": "96353cd37bc898b46e12e8b407941d725b58f59745b9eea0655aee17f32bcbaa"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_temp_extrap/qh_only/seed_none/metrics.json",
+      "sha256": "a2dfbfcf65cbebda551340e0a804fdf855186e72df7509c272c36de1fed8c625"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",

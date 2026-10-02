@@ -1,4 +1,5 @@
 predictor,G_MAE_eV_per_atom,delta_G_MAE_eV_per_atom,delta_G_RMSE_eV_per_atom,sign_accuracy,ranking_accuracy,Tc_error_K,Tc_err_from_dG_K,false_crossings,missed_crossings,pairs_covered,skill_score,floor_predictor,seed_mean,seed_std
+E + F_QH,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,0,n/a:input_unavailable,zero,n/a:no_seed,n/a:no_seed
 bartel2018,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,0,n/a:input_unavailable,zero,n/a:no_seed,n/a:no_seed
 constant_delta_g,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,n/a:input_unavailable,0,n/a:input_unavailable,zero,n/a:no_seed,n/a:no_seed
 constant_offset_0.005,n/a:input_unavailable,0.0,0.0,1.0,n/a:input_unavailable,0.0,0.0,0,0,2,n/a:input_unavailable,zero,n/a:no_seed,n/a:no_seed

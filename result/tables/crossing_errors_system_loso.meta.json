@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-01T22:12:12.688082+00:00",
-  "git_commit": "3b14c9346ecd69a6b254543404d03f6c3b3190c8",
+  "generated_utc": "2026-10-01T22:50:05.165397+00:00",
+  "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
   "inputs": [
     {
       "path": "data/processed/hf/reference_crossings.json",
@@ -37,6 +37,10 @@
     {
       "path": "result/experiments/external_baselines/raw_system_loso/phase_id_mlp/seed_none/metrics.json",
       "sha256": "2a6857b37547d72eef676f17f23c5c02b55bb9bcf417392fdaf83860363bcc53"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/qh_only/seed_none/metrics.json",
+      "sha256": "461961fcaf906613f36a18da3b4cc82dd5b5e6149b7e776e98cfa5e1f0789119"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/reference/seed_none/metrics.json",
@@ -99,6 +103,10 @@
     {
       "field": "phase_id_mlp:hf:hcp_minus_bcc.reference_Tc_K",
       "reason": "predictor unavailable without training phase"
+    },
+    {
+      "field": "E + F_QH:hf:bcc_minus_hcp.reference_Tc_K",
+      "reason": "structural N/A: pair has no reference crossing on the frozen grid"
     },
     {
       "field": "zero:hf:hcp_minus_bcc.reference_Tc_K",

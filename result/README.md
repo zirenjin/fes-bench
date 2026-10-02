@@ -18,6 +18,7 @@ metrics remain below its `raw_runs/` directory when an experiment has them.
 | MAE, split-sign, representative, reference, leakage audits | `python3 src/experiments/<name>.py` | matching experiment directory |
 | reference-crossing slope refit and Tc conversion audit | `python3 src/experiments/data_prep/refit_reference_crossing_slopes.py --repo-root .` | `experiments/reference_crossing_slopes/` and `tables/_changes/crossing_errors_*.csv` |
 | Figure 1 (relative-signal, crossing-sensitivity, and QH panels) | `python3 src/figures/figure1_difficulty.py --repo-root . --output result/figures/figure1` | `figures/figure1/` (panel CSVs plus figure provenance) |
+| E + F_QH controlled-ablation baseline | `PYTHONPATH=src/lib python3 src/experiments/evaluate_t1_qh.py --repo-root .` | `experiments/t1_qh/`, `external_baselines/raw_<split>/qh_only/seed_none/` |
 
 All paths are relative to the repository root. Rebuild the complete derived
 layer with `bash src/reproduce_all.sh`.
@@ -47,6 +48,12 @@ hash; `src/tables/crossing_errors.py --split temp_extrap` performs the read.
 
 The matching `.meta.json` files retain field-specific explanations. The current
 tables have 33, 15, and 32 cells of these respective types.
+
+The T1 `E + F_QH` rows are deterministic, have `seed=n/a:no_seed`, and use
+the canonical QH curves after imaginary-mode removal.  Current aggregate
+ΔG-MAE values are 215.182 meV/atom (temp extrapolation), 169.440 meV/atom
+(phase LOPO), and 333.809 meV/atom (system LOSO); the Hf overlap-T subset is
+412.214 meV/atom.  Pair-level details are in `experiments/t1_qh/`.
 
 ## E1 reproduction tolerance
 
@@ -83,6 +90,14 @@ Bartel covers Hf from the Domains_Alloy-computed Hf E0. Its Hf error is much
 larger than its SiO₂ error; the SiO₂-only table gives 28.2 meV/atom.
 
 无训练 predictor 在 phase_lopo 与 system_loso 上指标相同是预期的：两者的测试点并集都是全部相对的全温区，权重比例一致。
+
+The T3 SiO₂ polynomial/seed-11 diagnostic first failed because compact
+`type.raw` IDs were passed to a full periodic-table DPA head and because the
+FES loss received eV/atom labels without the required cell-energy conversion.
+Both fixes are now in `src/experiments/train_t3_temp_extrap.py` and the data
+builder.  The isolated corrected run reached 1.861 meV/atom training ΔG-MAE;
+its temporary test output was not promoted.  Polynomial/tlog T3 batch training
+and T2 are therefore still held pending canonical test regeneration.
 
 temp_extrap 的无训练 predictor 只在共享的 `T>T*` 测试点评测；zero 排除 crist–trid 后为 3.4692 meV/atom（全网格为 5.4372），按测试点评测后与参考口径一致。
 

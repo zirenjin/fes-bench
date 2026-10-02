@@ -1,4 +1,5 @@
 predictor,G_MAE_eV_per_atom,delta_G_MAE_eV_per_atom,delta_G_RMSE_eV_per_atom,sign_accuracy,ranking_accuracy,Tc_error_K,Tc_err_from_dG_K,false_crossings,missed_crossings,pairs_covered,skill_score,floor_predictor,seed_mean,seed_std
+E + F_QH,13.78712958895254,0.3338086821896944,0.3373926589546454,0.4844133099824869,0.4844133099824869,n/a:missed_crossing,n/a:missed_crossing,0,3,3,-35.89900408672705,zero,n/a:no_seed,n/a:no_seed
 bartel2018,7.462733139981435,0.1002149996096293,0.10053602715488569,0.4844133099824869,0.4844133099824869,n/a:missed_crossing,n/a:missed_crossing,0,3,3,-10.077703719059299,zero,n/a:no_seed,n/a:no_seed
 constant_delta_g,n/a:input_unavailable,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,n/a:no_training_phase,0,n/a:no_training_phase,zero,n/a:no_seed,n/a:no_seed
 constant_offset_0.005,0.005000000000000496,7.038516674910252e-18,1.8443038084265943e-17,1.0,n/a:input_unavailable,0.0,0.0,0,0,3,0.9999999999999992,zero,n/a:no_seed,n/a:no_seed
