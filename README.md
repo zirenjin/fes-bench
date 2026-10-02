@@ -95,8 +95,10 @@ for the other splits. The T3 SiO2 seed-11 diagnostic was corrected for the
 type map and FES label scale and reached 1.861 meV/atom in the training region.
 The v2 temp-extrapolation T3 rows are now canonical for three seeds: polynomial
 has ΔG-MAE 86.409 meV/atom (skill −18.114), and tlog has 31.557 meV/atom
-(skill −5.981), both on the test region. The QH-residual T2 row remains
-pending its independent runs.
+(skill −5.981), both on the test region. The QH-residual T2 row is also
+complete for three seeds: ΔG-MAE 31.239 meV/atom (skill −5.910), sign
+accuracy 0.5581, ranking accuracy 0.1045, and mean T_c error 102.36 K;
+all five crossing pairs have missed predicted crossings in this test region.
 
 The no-training predictor is expected to have identical metrics on phase_lopo and system_loso: both test-point unions cover the full relative-free-energy grid with the same weighting proportions.
 

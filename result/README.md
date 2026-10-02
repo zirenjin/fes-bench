@@ -99,7 +99,10 @@ builder.  The isolated corrected run reached 1.861 meV/atom training ΔG-MAE;
 its temporary test output was not promoted.  The v2 temp-extrapolation T3 batch
 is now canonical for three seeds: polynomial ΔG-MAE is 86.409 meV/atom
 (skill −18.114) and tlog is 31.557 meV/atom (skill −5.981).  T2
-(`E + F_QH + r_theta`) remains pending its independent runs.
+(`E + F_QH + r_theta`) is complete for three seeds: ΔG-MAE is 31.239
+meV/atom (skill −5.910), sign accuracy 0.5581, ranking accuracy 0.1045,
+and mean T_c error 102.36 K; its five crossing pairs all have missed
+predicted crossings on the temp-extrapolation test region.
 
 The temp_extrap no-training predictor is evaluated only on shared `T>T*` test points; after excluding cristobalite-tridymite, zero has 3.4692 meV/atom on the test points (5.4372 on the full grid), consistent with the reference evaluation convention.
 

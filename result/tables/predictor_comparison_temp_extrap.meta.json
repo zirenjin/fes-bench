@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-02T04:07:21.371476+00:00",
-  "git_commit": "0be5e10eaf2c68f4552440883ed827ecc4b1ccef",
+  "generated_utc": "2026-10-02T05:24:37.202253+00:00",
+  "git_commit": "abe401d76729bc8b07be119842d1c8b21dd0564d",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
@@ -45,6 +45,18 @@
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
       "sha256": "c59a9b1fa746c3dd7b32a2a74c5c9db7c2645f4450bf83962e5ae75a4dd72fb8"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_11/metrics.json",
+      "sha256": "2bcbd4557102280e473213a095aa1ea7f6c861289f0ccb7928a40ee32d333e99"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_23/metrics.json",
+      "sha256": "b0d00efc990947dd22ab440029adde8f8fdf4a2eef099844fd8264bbe6ee8ff2"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_37/metrics.json",
+      "sha256": "c9b4f3f82d840c34bbff10a1d0e17bea69334a126393d4f5713cb606353b11a8"
     },
     {
       "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_11/metrics.json",

@@ -1,0 +1,242 @@
+{
+  "provenance": {
+    "git_commit": "ed6b7ec",
+    "split": "temp_extrap",
+    "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
+    "predictor_config": "configs/predictors/t2_temp_extrap.yaml",
+    "predictor_config_sha256": "d3232d4c2a0f69202baf0aa493334d3281b7b0d8082075f5f3e77d8c4d5327e7",
+    "checkpoint_path": [
+      "external/checkpoints/t3_temp_extrap_v2/t2/sio2/seed_11/model.ckpt-3000.pt",
+      "external/checkpoints/t3_temp_extrap_v2/t2/hf/seed_11/model.ckpt-3000.pt",
+      "external/checkpoints/t3_temp_extrap_v2/t2/ti/seed_11/model.ckpt-3000.pt",
+      "external/checkpoints/t3_temp_extrap_v2/t2/zr/seed_11/model.ckpt-3000.pt"
+    ],
+    "checkpoint_sha256": [
+      "a5fc1243d4cd5577d7f1403138cffaca3cd93d8f4f59c236ec76c6ab074e0ce4",
+      "120d5bde639a1862a384aefdcd033ab57301f577391524ab3b6282fdc05329b1",
+      "a8b5692597b6da8328b4df8a50f71772fd596f6c2dd827366c2d5cdc4d2b96c1",
+      "517126bfdc0cf186d894bf224ce94586eeb702b8465b1d27cbbd872adace5129"
+    ],
+    "heads": {"sio2": "Domains_SSE_PBE", "hf": "Domains_Alloy", "ti": "Domains_Alloy", "zr": "Domains_Alloy"},
+    "predictor_kind": "qh_residual",
+    "physics_baseline_column": 2,
+    "evaluator_version": "train_t3_temp_extrap.py",
+    "timestamp_utc": "2026-10-02T05:22:04.480664+00:00",
+    "calibration": "one constant per system fitted on train rows"
+  },
+  "metrics": {
+    "method": "qh_residual",
+    "folds": {
+      "all": {
+        "G_MAE_eV_per_atom": 0.07764808302635764,
+        "n_test_frames": 6705,
+        "pairs": {
+          "hf:bcc_minus_hcp": {
+            "delta_G_MAE_eV_per_atom": 0.10483223518039299,
+            "zero_floor_delta_G_MAE_eV_per_atom": 0.0042364173228346454,
+            "delta_G_RMSE_eV_per_atom": 0.1078006556907543,
+            "sign_accuracy": 0.19291338582677164,
+            "reference_Tc_K": [
+              1919.0
+            ],
+            "predicted_Tc_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
+            "false_crossings": 0,
+            "missed_crossings": 1,
+            "n_evaluation_points": 508,
+            "status": "ok"
+          },
+          "sio2:cristobalite_beta_minus_quartz_beta": {
+            "delta_G_MAE_eV_per_atom": 0.0014513879139173855,
+            "zero_floor_delta_G_MAE_eV_per_atom": 0.0033951702825564885,
+            "delta_G_RMSE_eV_per_atom": 0.0015795974931607525,
+            "sign_accuracy": 0.902554399243141,
+            "reference_Tc_K": [
+              1542.7087047758675
+            ],
+            "predicted_Tc_K": [
+              1645.0912878233416
+            ],
+            "Tc_error_K": [
+              102.3825830474741
+            ],
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1057,
+            "status": "ok"
+          },
+          "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+            "delta_G_MAE_eV_per_atom": 0.004059934982264191,
+            "zero_floor_delta_G_MAE_eV_per_atom": 0.00028582429156980737,
+            "delta_G_RMSE_eV_per_atom": 0.004282444611679207,
+            "sign_accuracy": 0.0,
+            "reference_Tc_K": [],
+            "predicted_Tc_K": [],
+            "Tc_error_K": [],
+            "false_crossings": 0,
+            "missed_crossings": 0,
+            "n_evaluation_points": 1057,
+            "status": "ok"
+          },
+          "sio2:quartz_beta_minus_tridymite_p63mmc": {
+            "delta_G_MAE_eV_per_atom": 0.0026085470683468058,
+            "zero_floor_delta_G_MAE_eV_per_atom": 0.0031744986804183254,
+            "delta_G_RMSE_eV_per_atom": 0.002711311619927225,
+            "sign_accuracy": 0.8675496688741722,
+            "reference_Tc_K": [
+              1582.3215510581538
+            ],
+            "predicted_Tc_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
+            "false_crossings": 0,
+            "missed_crossings": 1,
+            "n_evaluation_points": 1057,
+            "status": "ok"
+          },
+          "ti:bcc_minus_hcp": {
+            "delta_G_MAE_eV_per_atom": 0.05841157682934427,
+            "zero_floor_delta_G_MAE_eV_per_atom": 0.0068056910569105665,
+            "delta_G_RMSE_eV_per_atom": 0.06446845230808798,
+            "sign_accuracy": 0.15934959349593497,
+            "reference_Tc_K": [
+              1012.0
+            ],
+            "predicted_Tc_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
+            "false_crossings": 0,
+            "missed_crossings": 1,
+            "n_evaluation_points": 615,
+            "status": "ok"
+          },
+          "zr:bcc_minus_hcp": {
+            "delta_G_MAE_eV_per_atom": 0.043123073839697046,
+            "zero_floor_delta_G_MAE_eV_per_atom": 0.006619409937888199,
+            "delta_G_RMSE_eV_per_atom": 0.04689721696827865,
+            "sign_accuracy": 0.15372670807453417,
+            "reference_Tc_K": [
+              975.5
+            ],
+            "predicted_Tc_K": [],
+            "Tc_error_K": [
+              "n/a:missed_crossing"
+            ],
+            "false_crossings": 0,
+            "missed_crossings": 1,
+            "n_evaluation_points": 644,
+            "status": "ok"
+          }
+        },
+        "ranking_accuracy": 0.10446175637393768,
+        "ranking_accuracy_by_system": {
+          "hf": 0.19291338582677164,
+          "sio2": 0.0,
+          "ti": 0.15934959349593497,
+          "zr": 0.15372670807453417
+        }
+      }
+    },
+    "train_region": {
+      "G_MAE_eV_per_atom": 0.013218372567254312,
+      "n_test_frames": 3952,
+      "pairs": {
+        "hf:bcc_minus_hcp": {
+          "delta_G_MAE_eV_per_atom": 0.03011388176794975,
+          "zero_floor_delta_G_MAE_eV_per_atom": 0.016290994623655915,
+          "delta_G_RMSE_eV_per_atom": 0.034791638147813796,
+          "sign_accuracy": 0.6908602150537635,
+          "reference_Tc_K": [],
+          "predicted_Tc_K": [
+            1305.9369053580372
+          ],
+          "Tc_error_K": [],
+          "false_crossings": 1,
+          "missed_crossings": 0,
+          "n_evaluation_points": 744,
+          "status": "ok"
+        },
+        "sio2:cristobalite_beta_minus_quartz_beta": {
+          "delta_G_MAE_eV_per_atom": 0.00018570354182001781,
+          "zero_floor_delta_G_MAE_eV_per_atom": 0.002876857717483556,
+          "delta_G_RMSE_eV_per_atom": 0.00021202932770469842,
+          "sign_accuracy": 1.0,
+          "reference_Tc_K": [],
+          "predicted_Tc_K": [],
+          "Tc_error_K": [],
+          "false_crossings": 0,
+          "missed_crossings": 0,
+          "n_evaluation_points": 592,
+          "status": "ok"
+        },
+        "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
+          "delta_G_MAE_eV_per_atom": 0.0007323452188755939,
+          "zero_floor_delta_G_MAE_eV_per_atom": 0.00019687082759049828,
+          "delta_G_RMSE_eV_per_atom": 0.0008551494149992018,
+          "sign_accuracy": 0.4864864864864865,
+          "reference_Tc_K": [],
+          "predicted_Tc_K": [
+            1138.8682406702208
+          ],
+          "Tc_error_K": [],
+          "false_crossings": 1,
+          "missed_crossings": 0,
+          "n_evaluation_points": 592,
+          "status": "ok"
+        },
+        "sio2:quartz_beta_minus_tridymite_p63mmc": {
+          "delta_G_MAE_eV_per_atom": 0.0005703613176008912,
+          "zero_floor_delta_G_MAE_eV_per_atom": 0.0030737285450740544,
+          "delta_G_RMSE_eV_per_atom": 0.000665680461033166,
+          "sign_accuracy": 0.9628378378378378,
+          "reference_Tc_K": [],
+          "predicted_Tc_K": [
+            1420.557980673133
+          ],
+          "Tc_error_K": [],
+          "false_crossings": 1,
+          "missed_crossings": 0,
+          "n_evaluation_points": 592,
+          "status": "ok"
+        },
+        "ti:bcc_minus_hcp": {
+          "delta_G_MAE_eV_per_atom": 0.0049587350044495,
+          "zero_floor_delta_G_MAE_eV_per_atom": 0.005838461538461538,
+          "delta_G_RMSE_eV_per_atom": 0.005977012864957805,
+          "sign_accuracy": 1.0,
+          "reference_Tc_K": [],
+          "predicted_Tc_K": [],
+          "Tc_error_K": [],
+          "false_crossings": 0,
+          "missed_crossings": 0,
+          "n_evaluation_points": 78,
+          "status": "ok"
+        },
+        "zr:bcc_minus_hcp": {
+          "delta_G_MAE_eV_per_atom": 0.007171774703040158,
+          "zero_floor_delta_G_MAE_eV_per_atom": 0.00996804511278196,
+          "delta_G_RMSE_eV_per_atom": 0.00844129211993042,
+          "sign_accuracy": 1.0,
+          "reference_Tc_K": [],
+          "predicted_Tc_K": [],
+          "Tc_error_K": [],
+          "false_crossings": 0,
+          "missed_crossings": 0,
+          "n_evaluation_points": 266,
+          "status": "ok"
+        }
+      },
+      "ranking_accuracy": 0.6821428571428572,
+      "ranking_accuracy_by_system": {
+        "hf": 0.6908602150537635,
+        "sio2": 0.4864864864864865,
+        "ti": 1.0,
+        "zr": 1.0
+      }
+    }
+  }
+}

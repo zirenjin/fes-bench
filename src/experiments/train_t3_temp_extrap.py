@@ -150,6 +150,17 @@ def scale_energy_labels_to_cell(target: Path) -> None:
     np.save(energy_path, np.load(energy_path) * float(natoms))
 
 
+def append_qh_fparam(root: Path, target: Path, system: str, phase: str) -> None:
+    """Append canonical F_QH(T) as fparam column 2 for the T2 residual head."""
+    processed = root / "data/processed" / system / phase
+    rows = list(csv.DictReader((processed / "fqh.csv").open(encoding="utf-8", newline="")))
+    by_temperature = {round(float(row["T_K"]), 8): float(row["F_QH_eV_per_atom"]) for row in rows}
+    path = target / "set.000" / "fparam.npy"
+    values = np.load(path)
+    qh = np.asarray([by_temperature[round(float(t), 8)] for t in values[:, 0]], dtype=float)
+    np.save(path, np.column_stack([values, qh]))
+
+
 def index_map(rows: list[dict[str, Any]], system: str) -> dict[str, list[int]]:
     out: dict[str, list[int]] = defaultdict(list)
     for row in rows:
@@ -170,7 +181,7 @@ def materialize_dataset(root: Path, dataset_root: Path, out: Path, system: str, 
     return selected
 
 
-def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list[dict[str, Any]]) -> dict[str, list[int]]:
+def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list[dict[str, Any]], *, qh_residual: bool = False) -> dict[str, list[int]]:
     """Create an evaluation-only DeepMD view from canonical static representatives."""
     selected = index_map(rows, system)
     for phase, indexes in sorted(selected.items()):
@@ -196,6 +207,8 @@ def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list
         np.save(set_path / "box.npy", np.tile(cell.reshape(1, -1), (len(indexes), 1)))
         np.save(set_path / "fparam.npy", temperatures)
         np.save(set_path / "free_energy.npy", energies)
+        if qh_residual:
+            append_qh_fparam(root, target, system, phase)
     return selected
 
 
@@ -349,6 +362,7 @@ def main() -> int:
     ap.add_argument("--template-config", type=Path,
                     help="audited E1 runtime template when external config archive is available")
     args = ap.parse_args(); root = args.repo_root.resolve(); config_path = args.config if args.config.is_absolute() else root / args.config; cfg = parse_config(config_path); split_path = root / cfg["split"]; split_rows = parse_rows(split_path)
+    qh_residual = cfg.get("predictor_kind") == "qh_residual"
     seeds = args.seeds or [int(seed) for seed in cfg["seeds"]]
     systems = args.systems or list(cfg["systems"])
     train_keys = {(r["system"], r["phase"], int(r["T_index"])) for r in split_rows["train"]}; test_keys = {(r["system"], r["phase"], int(r["T_index"])) for r in split_rows["test"]}
@@ -358,7 +372,7 @@ def main() -> int:
     split_hash = sha256(split_path); cfg_hash = sha256(config_path); args.output_root.mkdir(parents=True, exist_ok=True)
     all_system_metrics: dict[str, dict[str, Any]] = {}
     for seed in seeds:
-        audit = audit_row(root, cfg["basis"], int(seed))
+        audit = audit_row(root, cfg.get("audit_basis", cfg["basis"]), int(seed))
         if args.template_config:
             template_path = args.template_config if args.template_config.is_absolute() else root / args.template_config
             template = parse_config(template_path)
@@ -378,14 +392,20 @@ def main() -> int:
                     if phase.is_dir():
                         target_phase = train_data / phase.name
                         materialize_phase(phase, target_phase, list(range(len(np.load(phase / "set.000" / "fparam.npy")))))
+                        if qh_residual:
+                            append_qh_fparam(root, target_phase, system, phase.name)
                         scale_energy_labels_to_cell(target_phase)
-                test_selected = materialize_canonical_dataset(root, test_data, system, split_rows["test"])
+                test_selected = materialize_canonical_dataset(root, test_data, system, split_rows["test"], qh_residual=qh_residual)
             else:
                 train_selected = materialize_dataset(root, args.dataset_root, train_data, system, split_rows["train"])
                 for phase in sorted(train_selected):
+                    if qh_residual:
+                        append_qh_fparam(root, train_data / phase, system, phase)
                     scale_energy_labels_to_cell(train_data / phase)
                 test_selected = materialize_dataset(root, args.dataset_root, test_data, system, split_rows["test"])
                 for phase in sorted(test_selected):
+                    if qh_residual:
+                        append_qh_fparam(root, test_data / phase, system, phase)
                     scale_energy_labels_to_cell(test_data / phase)
             for phase, indexes in train_selected.items():
                 if not set(indexes) <= {k[2] for k in train_keys if k[0] == system and k[1] == phase}:
@@ -393,8 +413,13 @@ def main() -> int:
             active_phases = sorted(train_selected)
             model_cfg = configure(template, [train_data / p for p in active_phases], seed=int(seed), out=run)
             model_cfg["model"]["type_map"] = list(DPA3_TYPE_MAP)
+            if qh_residual:
+                fitting = model_cfg["model"]["fitting_net"]
+                fitting["temperature_basis"] = "continuous_tlog_polynomial"
+                fitting["numb_state_fparam"] = 3
+                fitting["physics_baseline_column"] = 2
             (run / "config.json").write_text(json.dumps(model_cfg, indent=2) + "\n", encoding="utf-8")
-            provenance = {"basis": cfg["basis"], "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "source_label_unit": "eV/atom", "deepmd_fes_label_unit": "eV/cell (N * source G)", "deepmd_fes_label_conversion": "free_energy.npy multiplied by natoms before train/test; evaluator divides predictions and labels by natoms", "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
+            provenance = {"basis": cfg["basis"], "predictor_kind": cfg.get("predictor_kind", "repr_regression"), "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "source_label_unit": "eV/atom", "deepmd_fes_label_unit": "eV/cell (N * source G)", "deepmd_fes_label_conversion": "free_energy.npy multiplied by natoms before train/test; evaluator divides predictions and labels by natoms", "qh_baseline": "fparam column 2 = canonical F_QH_eV_per_atom" if qh_residual else None, "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
             if args.training_data_root:
                 generated_provenance = (args.training_data_root if args.training_data_root.is_absolute() else root / args.training_data_root) / "provenance.json"
                 if generated_provenance.exists():
@@ -433,14 +458,15 @@ def main() -> int:
         test_eval = evaluate_region(root, {system: data["pred"]["test"][system] for system, data in systems_data.items()})
         seed_row = {"basis": cfg["basis"], "seed": int(seed), "train": train_eval, "test": test_eval}
         all_seed_rows.append(seed_row)
-        raw_dir = args.output_root / "raw_runs" / f"repr_regression_{cfg['basis']}" / f"seed_{seed}"
+        method_name = "qh_residual" if qh_residual else f"repr_regression_{cfg['basis']}"
+        raw_dir = args.output_root / "raw_runs" / method_name / f"seed_{seed}"
         raw_dir.mkdir(parents=True, exist_ok=True)
         try:
             commit = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
         except (OSError, subprocess.CalledProcessError):
             commit = "unknown"
         provenance = {"git_commit": commit, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "checkpoint_path": [data["checkpoint"] for data in systems_data.values()], "checkpoint_sha256": [sha256(Path(data["checkpoint"])) for data in systems_data.values()], "evaluator_version": "train_t3_temp_extrap.py", "timestamp_utc": datetime.now(timezone.utc).isoformat(), "calibration": "one constant per system fitted on train rows"}
-        payload = {"provenance": provenance, "metrics": {"method": f"repr_regression_{cfg['basis']}", "folds": {"all": test_eval}, "train_region": train_eval}}
+        payload = {"provenance": provenance, "metrics": {"method": method_name, "folds": {"all": test_eval}, "train_region": train_eval}}
         (raw_dir / "metrics.json").write_text(json.dumps(payload, indent=2, default=lambda x: x.tolist() if isinstance(x, np.ndarray) else x) + "\n", encoding="utf-8")
     output_rows = []
     for row in all_seed_rows:
