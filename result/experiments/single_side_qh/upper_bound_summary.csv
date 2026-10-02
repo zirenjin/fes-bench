@@ -1,0 +1,25 @@
+system,phase,label,predictor,n_seeds,anchored_test_rmse_mean_meV,anchored_test_rmse_std_meV
+hf,hcp,Hf hcp,learned_Einstein_transplant,3,28.06678461199886,0.001214253543536304
+hf,hcp,Hf hcp,learned_QH,3,28.06914718465244,0.001214253869193922
+hf,hcp,Hf hcp,learned_absolute_G,3,421.3510574117873,0.6714684586259337
+hf,hcp,Hf hcp,thermo_Einstein_residual,3,1.8362639573383241,2.7194799110210365e-16
+hf,hcp,Hf hcp,thermo_QH_residual,3,1.8351529650113694,0.0
+hf,hcp,Hf hcp,thermo_abs_G,3,1.8410354046365554,0.0
+ti,hcp,Ti hcp,learned_Einstein_transplant,3,52.478224979795584,0.00029817712282028416
+ti,hcp,Ti hcp,learned_QH,3,52.498626227395675,0.0002981761086399058
+ti,hcp,Ti hcp,learned_absolute_G,3,214.45626174486256,0.13119899105806657
+ti,hcp,Ti hcp,thermo_Einstein_residual,3,0.9548626831175694,0.0
+ti,hcp,Ti hcp,thermo_QH_residual,3,0.9472249124324911,0.0
+ti,hcp,Ti hcp,thermo_abs_G,3,0.9910499697514835,0.0
+zr,hcp,Zr hcp,learned_Einstein_transplant,3,58.391041052325306,0.0003082885385690885
+zr,hcp,Zr hcp,learned_QH,3,58.41266122854065,0.0003082882893120192
+zr,hcp,Zr hcp,learned_absolute_G,3,118.94645891825128,0.14446018609413025
+zr,hcp,Zr hcp,thermo_Einstein_residual,3,2.1566638152361137,0.0
+zr,hcp,Zr hcp,thermo_QH_residual,3,2.143941159552351,0.0
+zr,hcp,Zr hcp,thermo_abs_G,3,2.2101029134116708,0.0
+sio2,quartz_beta,SiO2 beta-quartz,learned_Einstein_transplant,3,58.11247723132411,0.003475922025865592
+sio2,quartz_beta,SiO2 beta-quartz,learned_QH,3,59.60957185454674,0.00347581752546869
+sio2,quartz_beta,SiO2 beta-quartz,learned_absolute_G,3,1382.8005180734879,0.19216597584326855
+sio2,quartz_beta,SiO2 beta-quartz,thermo_Einstein_residual,3,0.8962099847427462,1.3597399555105182e-16
+sio2,quartz_beta,SiO2 beta-quartz,thermo_QH_residual,3,0.016321610644108187,0.0
+sio2,quartz_beta,SiO2 beta-quartz,thermo_abs_G,3,1.4962401107788648,2.7194799110210365e-16

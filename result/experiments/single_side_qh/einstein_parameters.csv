@@ -1,0 +1,5 @@
+system,phase,seed,theta_E_K,train_shape_mse_eV2_per_atom2,fit_scope,split_sha256,fqh_source
+hf,hcp,all,130.17169662669482,7.204340919349725e-13,anchored F_QH train shape only,30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845,data/processed/hf/hcp/fqh.csv
+ti,hcp,all,227.84652430305786,1.3809173790189251e-14,anchored F_QH train shape only,30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845,data/processed/ti/hcp/fqh.csv
+zr,hcp,all,162.52170145775332,1.6220539670227096e-12,anchored F_QH train shape only,30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845,data/processed/zr/hcp/fqh.csv
+sio2,quartz_beta,all,577.862780832456,2.307114041788685e-08,anchored F_QH train shape only,30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845,data/processed/sio2/quartz_beta/fqh.csv

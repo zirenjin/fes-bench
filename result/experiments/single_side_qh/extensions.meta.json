@@ -1,0 +1,373 @@
+{
+  "git_commit": "6af78657d0a123f8e1f16df786db9d78a65bb1d4",
+  "generated_at_utc": "2026-10-02T23:49:43.824513+00:00",
+  "script": {
+    "path": "src/experiments/single_side_qh_extensions.py",
+    "sha256": "5f20794f5322ac0e6a3f064029c0ae4157003c2bcb725b98921935fb687378f2"
+  },
+  "split": {
+    "path": "data/processed/splits_v2/temp_extrap.json",
+    "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845"
+  },
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "training": "no model retraining; existing canonical T3/T2 predictions only",
+  "inputs": [
+    {
+      "path": "data/processed/hf/bcc/fqh.csv",
+      "sha256": "af160fba062e24b532d7ab4cd073b2d72fa5eb8700e8deb32cfa27ccc9ff8d98"
+    },
+    {
+      "path": "data/processed/hf/bcc/reference_G.csv",
+      "sha256": "dab1b30820ef01245430504b22a1730c8956cba075104e1bb6a159a42d1a3d7d"
+    },
+    {
+      "path": "data/processed/hf/hcp/fqh.csv",
+      "sha256": "35ebfb2b52356c44584b02540f6bacaa83f81971600d8d19a9d877d561fb8881"
+    },
+    {
+      "path": "data/processed/hf/hcp/reference_G.csv",
+      "sha256": "9e53c7837b609b3ff783cc3615fa9c3a06b303dc12b860815a33871e4a9a747c"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/fqh.csv",
+      "sha256": "ce611668e0fe9cdb759d8c4cecf0b142898d7818f320ad9998905a590289e825"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/reference_G.csv",
+      "sha256": "5392e07f86d9a1f27ab0b028bea9bbabc17d13655d1a32084d62ad55b5e9f681"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/fqh.csv",
+      "sha256": "d1df7df72cc9d58bba805b4fbbed85fd0c88e5b396a1d8104c9653683f5b5824"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/reference_G.csv",
+      "sha256": "23ad5c57bc10f532adddf53a3845ee4600c70fec872b75599d6b63ecbb9be71a"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/fqh.csv",
+      "sha256": "90d3349f88cc897921bb4e3a3bee80625f77840aa3e716a376bc6887e7e96ac5"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/reference_G.csv",
+      "sha256": "d281cd3c3b818267d59329d3f0fcfb6165de01739c21c0c8083547cec7f908ce"
+    },
+    {
+      "path": "data/processed/splits_v2/temp_extrap.json",
+      "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845"
+    },
+    {
+      "path": "data/processed/ti/bcc/fqh.csv",
+      "sha256": "95972e7a8e9d941b0f3f4a40c58bffa0499b37d7fa8a7e3b627b4452ff727eb6"
+    },
+    {
+      "path": "data/processed/ti/bcc/reference_G.csv",
+      "sha256": "59e636937d87b25b494b58d0ee5782e160d050ac4c53cdd8c8c13edaaf591dc9"
+    },
+    {
+      "path": "data/processed/ti/hcp/fqh.csv",
+      "sha256": "28a1eb25b84311c91ae5338266eb9df9a2402b1d4dcfda0f53bd06fe845c4c47"
+    },
+    {
+      "path": "data/processed/ti/hcp/reference_G.csv",
+      "sha256": "c732e495b32f5c7b7870e2d9bbb535dc2fc8ebc6e581fb9f700fcaf9c9e85ff0"
+    },
+    {
+      "path": "data/processed/zr/bcc/fqh.csv",
+      "sha256": "d55041ea367bb9809140163e070440e23a846f244f7c494804bfd4228dd957ca"
+    },
+    {
+      "path": "data/processed/zr/bcc/reference_G.csv",
+      "sha256": "4b4a35c2121943716777e775f9546a23e5ac9807de06baf63fd26c6f964c482e"
+    },
+    {
+      "path": "data/processed/zr/hcp/fqh.csv",
+      "sha256": "ef4bc4c7b6a925f90e9fe1536f79dcb4747bd773af7c2ee44ae311eb4ae23ca1"
+    },
+    {
+      "path": "data/processed/zr/hcp/reference_G.csv",
+      "sha256": "943a0c434e393a54ef19ccbd24c1c0d71f88ab2fcbb8c34ab77b0782dd8e81a0"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_temp_extrap/thermo_form_fit/seed_none/metrics.json",
+      "sha256": "a0a10129be6aac639d5cc8f034f638c26e2396e8fedbfa2d9aa9dd691d9b0333"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/hf_hcp_seed11_test.csv",
+      "sha256": "55bd90ecacef4ef9cd472553a3bf491e6a027bde1121cd6fa3377a4676d4a00b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/hf_hcp_seed11_train.csv",
+      "sha256": "4d526253b145f88aca70f45352b67daae0c2163a11de99fc0bdeb9b593eed3de"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/hf_hcp_seed23_test.csv",
+      "sha256": "4003e12507db0b1ff540088730a0add1a6576f08d3214831335c0437a19aeec5"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/hf_hcp_seed23_train.csv",
+      "sha256": "fc303daa4402432fe63a90a79556b9e1dfd9e459d88db7e44d172e890e62c8c2"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/hf_hcp_seed37_test.csv",
+      "sha256": "d8cb1823081eab367ca4b3908ede8a69ce2ee938899fcf89878d7e7f1858a45f"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/hf_hcp_seed37_train.csv",
+      "sha256": "72b85d5df887f3d54dd3681ba64d1238d88e2404722730f8cf5470b1b3bf7a7a"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/sio2_quartz_beta_seed11_test.csv",
+      "sha256": "ff6f112f25d8a36be48745f2f8299cb3ca717e536f9eb2cf7b5dafa988e76bdd"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/sio2_quartz_beta_seed11_train.csv",
+      "sha256": "64b40ac0868f90873d49dd2b4b348825a446e9b8112c61955f78759e79b1a39b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/sio2_quartz_beta_seed23_test.csv",
+      "sha256": "2642c9fbda01c315b1003b05901aa5fa49e5942e6a93f5cd4b7d292f03f29df1"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/sio2_quartz_beta_seed23_train.csv",
+      "sha256": "0ac4d0b579531b320676127a10d82f624b95477ea5b945c30007a3c93714ba1b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/sio2_quartz_beta_seed37_test.csv",
+      "sha256": "60f4bdfe8b34241e6c38062e689da60afe82474757349f39b65fcc262e87d21a"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/sio2_quartz_beta_seed37_train.csv",
+      "sha256": "291fa827a597561e08f2d26ee1bb4c2223396b9beafddb3e20c0d7850d977a85"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/ti_hcp_seed11_test.csv",
+      "sha256": "d203efe50e2534f5a392f2add213d063455b2ee544d04d93865920c1c0dda81f"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/ti_hcp_seed11_train.csv",
+      "sha256": "02012f42481bc3d195088503f01725971b40cc165c6c38309a06ef3e3c7824b1"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/ti_hcp_seed23_test.csv",
+      "sha256": "62afcb9f453f5262e59766517a65c377621b613a5c4449b951596c01b49bb237"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/ti_hcp_seed23_train.csv",
+      "sha256": "fffbe8a5ecf08605f5f10f11af200a15990542cc8a0732ca9eb9cfdd80342b30"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/ti_hcp_seed37_test.csv",
+      "sha256": "09d768b87d2b8d2ec902c3019d1adc3cadb20b1e6e786e5eb40491a24b72ee5a"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/ti_hcp_seed37_train.csv",
+      "sha256": "ac5480e61f62eab09bfb83e7aab562f05ea6e9c1da4bb0eedfc773765ff1f5e0"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/zr_hcp_seed11_test.csv",
+      "sha256": "e8c0e55e0fe4ed6b273bce6baee8eb165c1057b2c38ee3b1d30ed6a78548a40d"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/zr_hcp_seed11_train.csv",
+      "sha256": "5d84765d43ad6c9e0a9d3427c66fae2efb52b4fda536fee399ea4a62df718a58"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/zr_hcp_seed23_test.csv",
+      "sha256": "43561370a0d11847743557b8fa391e747597ee4a0bec1304bb0735a4e18753d5"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/zr_hcp_seed23_train.csv",
+      "sha256": "d0a4e6be88da9863be879b02848ebfdfa964d36b2db77ab7f07984b1ee408fdf"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/zr_hcp_seed37_test.csv",
+      "sha256": "be084c91e57f7311bd03222dc2edb83aff3786b86d5faa1ba482cd5345261400"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t2_qh/zr_hcp_seed37_train.csv",
+      "sha256": "c69e322d9a8f2836d7bbee73c0ce55bab78bc2e7f5745e7228bd95bd3abc4f1c"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/hf_hcp_seed11_test.csv",
+      "sha256": "aab9cf7e9ab5acd79b72968e452458b18cf7359bd011605840b5739286158867"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/hf_hcp_seed11_train.csv",
+      "sha256": "7871b52cb80712ce30fd061e81202edc2687222a84ee302340dc8d48ed50e1a3"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/hf_hcp_seed23_test.csv",
+      "sha256": "295612f5a2eaa704268f6a98cf111969c23547114d454e5f4513e0194cbdeae8"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/hf_hcp_seed23_train.csv",
+      "sha256": "2190a1809c9744fa80c17b0dcfd2acfe5546d74f5a50f68254749db48a8e4b88"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/hf_hcp_seed37_test.csv",
+      "sha256": "86da49c2e6ce74ff3d0487976ea138d757bade5701e0a944731f2e1aa7d4d893"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/hf_hcp_seed37_train.csv",
+      "sha256": "f027f4e5e175c66e18f8a81ad6757789f77154eba5901450f28d54caaab3df76"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/sio2_quartz_beta_seed11_test.csv",
+      "sha256": "77dd0ae7b752901bcc818e907c53f40ebf4604f95cb03c45c045488adfd8b168"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/sio2_quartz_beta_seed11_train.csv",
+      "sha256": "2af795803c8105f22a416e659549c876604acb5f7f2a5f29d136e47d4691cda4"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/sio2_quartz_beta_seed23_test.csv",
+      "sha256": "4e29554e8c27cd755b50897f925a5ed8f39a74bb0cdbc7ff2e8b664bd9262d62"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/sio2_quartz_beta_seed23_train.csv",
+      "sha256": "4c7c182457b37fa5fa0e00ef864c3f187e8c22e1eb8b565514b8b0a2e20b9dba"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/sio2_quartz_beta_seed37_test.csv",
+      "sha256": "85d8ccfeb480db7ab47625c3e89759b7504cbcc9f9db536c93d7bccca4d4627c"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/sio2_quartz_beta_seed37_train.csv",
+      "sha256": "fb076a3a1e122142090311ff20fca1b0f883e2496d759811504176cc038b8009"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/ti_hcp_seed11_test.csv",
+      "sha256": "42d4f5b03c4cb130e8042f20af6b5e7d787d0c69ec3a4396259d51d08b239db5"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/ti_hcp_seed11_train.csv",
+      "sha256": "62bd334ad546814bc2b9fa4dade4a484a460d0963eeebc198593aec6f8c8cdf1"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/ti_hcp_seed23_test.csv",
+      "sha256": "20553cb8300e4ef75fb7f0b0540be4d730bd4078213c689af316159e2e15605b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/ti_hcp_seed23_train.csv",
+      "sha256": "fa2674c43982a3fc4794c8ca4a7ef3644290de16c32c79d440372b49d105f3ac"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/ti_hcp_seed37_test.csv",
+      "sha256": "4971c5d84dbafda3d421c93149c91f9b5cc42b4840a3c58dc71f99643a11b3c8"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/ti_hcp_seed37_train.csv",
+      "sha256": "f6a7a91a6dd464c6f59c949058034dd8c2e5539624d62ecb1136330411e8ab3e"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/zr_hcp_seed11_test.csv",
+      "sha256": "16c17640bfab7405fdc52e8d1e37230f1d014c59922c8093f3b5778b8b91f37b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/zr_hcp_seed11_train.csv",
+      "sha256": "da35334c9b1b16823483cf693a1d3db9f584e02571fa65bd12413566cbc3015b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/zr_hcp_seed23_test.csv",
+      "sha256": "1426cc2d7c3497ec3c50c8f28744c8d0e823f265a23c442bc6eeaf716973d3e4"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/zr_hcp_seed23_train.csv",
+      "sha256": "6d7a526e83f3fd974c76f5c88175288553a2ed0b506ab05722da2016b87e2c8c"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/zr_hcp_seed37_test.csv",
+      "sha256": "0cf74c7860cec1eba3597f27cb57003a9d11ef2aae5ca5797b2ce93e37312d79"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog/zr_hcp_seed37_train.csv",
+      "sha256": "e2539289258271cbb13c8a4c6ffdd2dc5a1b572e50161e6b0ae6d5ab77b99955"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/hf_bcc_seed11_test.csv",
+      "sha256": "1e0d44cf95f7e5696f836125d7f93475e1b88eba18f3924ad0c977c60b30704f"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/hf_bcc_seed23_test.csv",
+      "sha256": "a1f67ee962bee92dc2d82ed1c0096197e87be76476adca5e4c813abc0e46683c"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/hf_bcc_seed37_test.csv",
+      "sha256": "b0db2341027e65092f6379b54f5bbaa4b9b7f5043c587cf5b391e29f577e8d08"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/sio2_cristobalite_beta_seed11_test.csv",
+      "sha256": "d568283a8102431b76cb3773e3082e661ee58c2c0714a0b2b912fe230be5a7db"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/sio2_cristobalite_beta_seed23_test.csv",
+      "sha256": "9d798ca325369f5d6c517cbb4c010e1e4f2b6f9fbabb4400acf34c510507ece5"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/sio2_cristobalite_beta_seed37_test.csv",
+      "sha256": "1cf65839b94a30c4f03f4da76615cdf460237139f190582f4ee5ffa3e02d1167"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/sio2_tridymite_p63mmc_seed11_test.csv",
+      "sha256": "2a7d0463303768242d64b4c95e0dab60461fbbc5b5a24bb1f472fea8308c1c08"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/sio2_tridymite_p63mmc_seed23_test.csv",
+      "sha256": "8fde3b15aba219717d541b486d04f80450b5d752939ee757b58fb08d0ae4f9e5"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/sio2_tridymite_p63mmc_seed37_test.csv",
+      "sha256": "fcc92862e807a171cd697d44eb85c1f556912b25fc23437426887c9976d40dc4"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/ti_bcc_seed11_test.csv",
+      "sha256": "148c589fbb9e5924d70e11faccf85f8612667f237a8df5efd52a1037fce9e670"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/ti_bcc_seed23_test.csv",
+      "sha256": "f5477e8b5261c5543593d7d4ec42f2188c22591f5c7219058bf309386f11c7dd"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/ti_bcc_seed37_test.csv",
+      "sha256": "56f9e91808ba16fa91b62fcd3b7ff1147a17065b7243c70d9b8cc8a18daa5e0f"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/zr_bcc_seed11_test.csv",
+      "sha256": "2cf338de0d8f20abb7e5207f5196231a6bdf5b51af386c1167a5c64f1423dd9b"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/zr_bcc_seed23_test.csv",
+      "sha256": "2692abb824683005dd5f9631fe714718d459959f47b6bd0827349a3e0a2de68e"
+    },
+    {
+      "path": "result/experiments/single_side_qh/predictions/t3_tlog_high/zr_bcc_seed37_test.csv",
+      "sha256": "359d5d4c5c801b94f471ca0e82255f0b43120ffa40bf27730e1ff0b92d584abe"
+    },
+    {
+      "path": "src/experiments/single_side_qh.py",
+      "sha256": "71b9f0cb93d3e7e27b72f5cadc6fc826eb1ea32a69193367ce68b1a50544dce4"
+    },
+    {
+      "path": "src/lib/fes_bench/baselines/thermo_form_fit.py",
+      "sha256": "36bc47e215ae652195b53754a9f9841573f6ccf1812f9390df9580b57cabe287"
+    }
+  ],
+  "controls": {
+    "thermo_basis": "a + bT + cT ln(T)",
+    "einstein_formula": "3 k_B T ln(1 - exp(-theta_E/T))",
+    "einstein_fit_scope": "anchored F_QH train shape only",
+    "pair_low_side": "T2 QH learned residual",
+    "pair_high_side": "T3 absolute-G learned curve"
+  },
+  "checks": {
+    "exact_grids": true,
+    "split_hash_consistent": true,
+    "units": "eV/atom inputs; meV/atom outputs",
+    "invalid_qh_negative_controls": true
+  }
+}
