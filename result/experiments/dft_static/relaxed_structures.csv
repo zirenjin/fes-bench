@@ -1,0 +1,10 @@
+system,phase,structure,spacegroup_number,spacegroup_symbol,expected_spacegroup,spacegroup_matches,force_converged,relax_outcar_sha256
+hf,hcp,/tmp/fes-bench-dft-static/results/relax/hf/hcp/relax/k444_encut1.000/CONTCAR,194,P6_3/mmc,P6_3/mmc,yes,False,793e9dfe241670ff6995f23a59e187d25de9044e62e80342b2bf6b7600fcf6fa
+hf,bcc,/tmp/fes-bench-dft-static/results/relax/hf/bcc/relax/k444_encut1.000/CONTCAR,229,Im-3m,Im-3m,yes,True,91d0c6cf28ddb6d63bb8c04d96301c9164c00e1a9604064ec91bf34dde7c3bac
+ti,hcp,/tmp/fes-bench-dft-static/results/relax/ti/hcp/relax/k444_encut1.000/CONTCAR,194,P6_3/mmc,P6_3/mmc,yes,True,ee0a84cec8ef142508ae4f59a08667e9c88d1656b6066f9bed76d50d932857f8
+ti,bcc,/tmp/fes-bench-dft-static/results/relax/ti/bcc/relax/k444_encut1.000/CONTCAR,229,Im-3m,Im-3m,yes,True,58d7e0b0bf264888f1ddbb0af9e598d3eaf580b18dc8765408981687c34b9c90
+zr,hcp,/tmp/fes-bench-dft-static/results/relax/zr/hcp/relax/k444_encut1.000/CONTCAR,194,P6_3/mmc,P6_3/mmc,yes,True,d49a2d12ad2fa7efa138688c5f834e092b1feebe99cd2819d96b7508cbbe8466
+zr,bcc,/tmp/fes-bench-dft-static/results/relax/zr/bcc/relax/k444_encut1.000/CONTCAR,229,Im-3m,Im-3m,yes,True,159be3e3504c9fe0a86338e77f629dc3018ac4f33e1f9ef57a2b7d525ebe9612
+sio2,quartz_beta,/tmp/fes-bench-dft-static/results/sio2-relax/sio2/quartz_beta/relax/k111_encut1.000/CONTCAR,181,P6_422,P6_422,yes,True,9f18bdc355fc152a6971aed3f235ccdc3adb6612f03177e0efa417e24e96d41c
+sio2,cristobalite_beta,/tmp/fes-bench-dft-static/results/sio2-relax/sio2/cristobalite_beta/relax/k111_encut1.000/CONTCAR,227,Fd-3m,Fd-3m,yes,True,9fd317c414c0d94cf3214a3cf0ffc3fc24ce4fd724454aa31b7de86ae58b83ad
+sio2,tridymite_p63mmc,/tmp/fes-bench-dft-static/results/sio2-relax-retry/tridymite_p63mmc/relax/k111_encut1.000/CONTCAR,194,P6_3/mmc,P6_3/mmc,yes,True,f6f5a07b7d19eb83a916fee7ae458927deea79d87a4f1c1ead2cd5a3f8ee708d

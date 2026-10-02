@@ -1,0 +1,11 @@
+{
+  "hf:hcp": {"spacegroup_number": 194, "spacegroup_symbol": "P6_3/mmc", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "hf:bcc": {"spacegroup_number": 229, "spacegroup_symbol": "Im-3m", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "ti:hcp": {"spacegroup_number": 194, "spacegroup_symbol": "P6_3/mmc", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "ti:bcc": {"spacegroup_number": 229, "spacegroup_symbol": "Im-3m", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "zr:hcp": {"spacegroup_number": 194, "spacegroup_symbol": "P6_3/mmc", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "zr:bcc": {"spacegroup_number": 229, "spacegroup_symbol": "Im-3m", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "sio2:quartz_beta": {"spacegroup_number": 181, "spacegroup_symbol": "P6_422", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "sio2:cristobalite_beta": {"spacegroup_number": 227, "spacegroup_symbol": "Fd-3m", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"},
+  "sio2:tridymite_p63mmc": {"spacegroup_number": 194, "spacegroup_symbol": "P6_3/mmc", "spacegroup_matches": "yes", "source": "thu-GenSi Expanse environment read-only spglib audit"}
+}

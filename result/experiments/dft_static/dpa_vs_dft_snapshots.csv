@@ -1,0 +1,15 @@
+row_type,system,phase,phase_low,phase_high,bias_meV_per_atom,std_meV_per_atom,n_snapshots,status,head,source
+phase,hf,hcp,,,2713.579122783373,5.4246507117382485,721,ok,Domains_Alloy,data/raw/hf/Hf_hcp_PBE.tar.gz
+phase,hf,bcc,,,2711.479659482172,3.258305491631045,721,ok,Domains_Alloy,data/raw/hf/Hf_bcc_PBE.tar.gz
+phase,sio2,quartz_beta,,,3947.532820896609,4.734473328970067,239,ok,Domains_SSE_PBE,data/raw/sio2/direct_upsampling_data_rungs_1-3.zip
+phase,sio2,cristobalite_beta,,,3921.889251161404,4.704084685385405,240,ok,Domains_SSE_PBE,data/raw/sio2/direct_upsampling_data_rungs_1-3.zip
+phase,sio2,tridymite_p63mmc,,,3921.7965753067747,4.839599909194069,239,ok,Domains_SSE_PBE,data/raw/sio2/direct_upsampling_data_rungs_1-3.zip
+phase,ti,hcp,,,,,0,inference_unavailable,Domains_Alloy,data/raw/ti/Ti_hcp_PBE.tar.gz; deepmd unavailable locally and remote archive execution unavailable
+phase,ti,bcc,,,,,0,inference_unavailable,Domains_Alloy,data/raw/ti/Ti_bcc_PBE.tar.gz; deepmd unavailable locally and remote archive execution unavailable
+phase,zr,hcp,,,,,0,inference_unavailable,Domains_Alloy,data/raw/zr/Zr_hcp_PBE.tar.gz; deepmd unavailable locally and remote archive execution unavailable
+phase,zr,bcc,,,,,0,inference_unavailable,Domains_Alloy,data/raw/zr/Zr_bcc_PBE.tar.gz; deepmd unavailable locally and remote archive execution unavailable
+pair,hf,,hcp,bcc,-2.0994633012010127,,,ok,Domains_Alloy,phase bias difference
+pair,sio2,,quartz_beta,cristobalite_beta,-25.643569735204892,,,ok,Domains_SSE_PBE,phase bias difference
+pair,sio2,,quartz_beta,tridymite_p63mmc,-25.736245589834198,,,ok,Domains_SSE_PBE,phase bias difference
+pair,ti,,hcp,bcc,,,,inference_unavailable,Domains_Alloy,phase bias unavailable because both phase inferences are unavailable
+pair,zr,,hcp,bcc,,,,inference_unavailable,Domains_Alloy,phase bias unavailable because both phase inferences are unavailable
