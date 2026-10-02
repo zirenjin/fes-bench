@@ -161,6 +161,26 @@ DISPLAY = {
 FIELDS = ["predictor", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "skill_score", "floor_predictor", "seed_mean", "seed_std"]
 
 
+def t3_train_gate(body: dict[str, Any]) -> tuple[bool, str]:
+    """Apply the predeclared T3 train-region pair-MAE gate."""
+    metrics = body.get("metrics", {})
+    method = str(metrics.get("method", ""))
+    if method not in {"repr_regression_polynomial", "repr_regression_tlog"}:
+        return True, "not_t3"
+    train = metrics.get("train_region", {})
+    values = [
+        float(pair["delta_G_MAE_eV_per_atom"])
+        for pair in train.get("pairs", {}).values()
+        if isinstance(pair.get("delta_G_MAE_eV_per_atom"), (int, float))
+    ]
+    if not values:
+        return False, "n/a:missing_train_pair_mae"
+    mean_mae = sum(values) / len(values)
+    if mean_mae <= 0.020:
+        return True, f"accepted:{mean_mae:.12g}"
+    return False, f"rejected:train_pair_delta_G_MAE={mean_mae:.12g}>0.020"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--split", required=True)
@@ -168,9 +188,14 @@ def main() -> int:
     parser.add_argument("--output-root", type=Path, default=Path("result/tables"))
     args = parser.parse_args(); root = args.repo_root.resolve(); output = args.output_root if args.output_root.is_absolute() else root / args.output_root
     inputs: list[Path] = []
+    excluded: list[dict[str, str]] = []
     grouped: dict[str, list[dict[str, Any]]] = {}
     fold_rows: list[dict[str, Any]] = []
     for path, body in raw_runs(root, args.split):
+        accepted, reason = t3_train_gate(body)
+        if not accepted:
+            excluded.append({"path": str(path.relative_to(root)), "reason": reason})
+            continue
         inputs.append(path)
         predictor = DISPLAY.get(path.parts[-3], path.parts[-3])
         metrics = body["metrics"]
@@ -242,7 +267,7 @@ def main() -> int:
     overlap_rows = result_rows(overlap_summaries)
     if overlap_rows:
         csv_write(output / f"predictor_comparison_{args.split}_overlap_T.csv", FIELDS, overlap_rows)
-    meta_write(root, csv_path, inputs, [], {"aggregation": {"folded_splits": "pair metrics: per-fold test region then n_evaluation_points-weighted; G MAE: n_test_frames-weighted", "default_pairs": "exclude pairs without a reference crossing", "include_all_pairs_csv": f"predictor_comparison_{args.split}_include_all_pairs.csv", "sio2_csv": f"predictor_comparison_{args.split}_sio2.csv", "fold_detail_csv": f"predictor_comparison_{args.split}_folds.csv", "overlap_T_csv": f"predictor_comparison_{args.split}_overlap_T.csv" if overlap_rows else None}, "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."})
+    meta_write(root, csv_path, inputs, [], {"aggregation": {"folded_splits": "pair metrics: per-fold test region then n_evaluation_points-weighted; G MAE: n_test_frames-weighted", "default_pairs": "exclude pairs without a reference crossing", "include_all_pairs_csv": f"predictor_comparison_{args.split}_include_all_pairs.csv", "sio2_csv": f"predictor_comparison_{args.split}_sio2.csv", "fold_detail_csv": f"predictor_comparison_{args.split}_folds.csv", "overlap_T_csv": f"predictor_comparison_{args.split}_overlap_T.csv" if overlap_rows else None}, "t3_train_gate": "Only temp_extrap runs with train-region aggregate pair Delta-G MAE <= 0.020 eV/atom enter the main tables.", "excluded_runs": excluded, "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."})
     return 0
 
 

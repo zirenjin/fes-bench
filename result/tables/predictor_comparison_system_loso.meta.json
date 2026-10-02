@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-02T05:41:42.473569+00:00",
-  "git_commit": "c83b62cee851e37fb599cbf4f2f04f308223fcae",
+  "generated_utc": "2026-10-02T06:24:17.346203+00:00",
+  "git_commit": "355da72a5ce81e14d6b47ea23e1258ad002d6485",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_system_loso/bartel2018/seed_none/metrics.json",
@@ -60,5 +60,7 @@
     "fold_detail_csv": "predictor_comparison_system_loso_folds.csv",
     "overlap_T_csv": "predictor_comparison_system_loso_overlap_T.csv"
   },
+  "t3_train_gate": "Only temp_extrap runs with train-region aggregate pair Delta-G MAE <= 0.020 eV/atom enter the main tables.",
+  "excluded_runs": [],
   "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."
 }

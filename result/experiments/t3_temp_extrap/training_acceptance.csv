@@ -1,7 +1,7 @@
-basis,seed,train_pair_delta_G_MAE_eV_per_atom,train_G_MAE_eV_per_atom,pair_threshold_meV_per_atom,phase_energy_threshold_meV_per_atom,pair_gate,phase_energy_gate,overall_status
-polynomial,11,0.0220258502875,0.438783730305,20,20,fail,fail,fail
-polynomial,23,0.0227412692281,0.437955020848,20,20,fail,fail,fail
-polynomial,37,0.0224217629726,0.437770795931,20,20,fail,fail,fail
-tlog,11,0.00590132042898,0.120658831649,20,20,pass,fail,fail
-tlog,23,0.00591470647148,0.120793622752,20,20,pass,fail,fail
-tlog,37,0.00599511776804,0.120996609298,20,20,pass,fail,fail
+basis,seed,train_pair_delta_G_MAE_eV_per_atom,train_G_MAE_eV_per_atom,pair_threshold_meV_per_atom,pair_gate,phase_energy_train_diagnostic,main_table_status
+polynomial,11,0.0220258502875,0.438783730305,20,fail,0.438783730305_eV_per_atom,not_accepted_train_pair_gate
+polynomial,23,0.0227412692281,0.437955020848,20,fail,0.437955020848_eV_per_atom,not_accepted_train_pair_gate
+polynomial,37,0.0224217629726,0.437770795931,20,fail,0.437770795931_eV_per_atom,not_accepted_train_pair_gate
+tlog,11,0.00590132042898,0.120658831649,20,pass,0.120658831649_eV_per_atom,accepted
+tlog,23,0.00591470647148,0.120793622752,20,pass,0.120793622752_eV_per_atom,accepted
+tlog,37,0.00599511776804,0.120996609298,20,pass,0.120996609298_eV_per_atom,accepted

@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-02T05:41:38.636596+00:00",
-  "git_commit": "c83b62cee851e37fb599cbf4f2f04f308223fcae",
+  "generated_utc": "2026-10-02T06:24:12.901696+00:00",
+  "git_commit": "355da72a5ce81e14d6b47ea23e1258ad002d6485",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
@@ -63,18 +63,6 @@
       "sha256": "c9b4f3f82d840c34bbff10a1d0e17bea69334a126393d4f5713cb606353b11a8"
     },
     {
-      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_11/metrics.json",
-      "sha256": "458a513827ee389e6e551d2d94b8c85d89f72f9172cd34d814b632ed7883ceb7"
-    },
-    {
-      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_23/metrics.json",
-      "sha256": "498b1e18a96ea06969e352e687ba89301c211472d1205f5d6b2166ac785a4afa"
-    },
-    {
-      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_37/metrics.json",
-      "sha256": "a144d55b2cc70beb2b8b4d9c842ef5201617d70acff102d4bdffd50d58a01d50"
-    },
-    {
       "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_tlog/seed_11/metrics.json",
       "sha256": "730e967c52cbcfb2fe1ef265f1e9b8e7441079a329652bd519e5da43a53e69fc"
     },
@@ -96,5 +84,20 @@
     "fold_detail_csv": "predictor_comparison_temp_extrap_folds.csv",
     "overlap_T_csv": null
   },
+  "t3_train_gate": "Only temp_extrap runs with train-region aggregate pair Delta-G MAE <= 0.020 eV/atom enter the main tables.",
+  "excluded_runs": [
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_11/metrics.json",
+      "reason": "rejected:train_pair_delta_G_MAE=0.0220258502875>0.020"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_23/metrics.json",
+      "reason": "rejected:train_pair_delta_G_MAE=0.0227412692281>0.020"
+    },
+    {
+      "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_polynomial/seed_37/metrics.json",
+      "reason": "rejected:train_pair_delta_G_MAE=0.0224217629726>0.020"
+    }
+  ],
   "e1": "All E1 checkpoints trained all four SiO2 phases over the full source grid and are therefore ineligible for every frozen split."
 }
