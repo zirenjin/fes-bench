@@ -20,6 +20,14 @@
 ✓ predictor_comparison_system_loso_folds fold set is exactly {hf, ti, zr}
 ✓ crossing_errors_system_loso fold set is exactly {hf, ti, zr}
 ✓ reference crossing slopes are positive with R²≥0.95
+✓ README.md: non-English check passed
+✓ result/README.md: non-English check passed
+✓ result/experiments/t1_qh/pair_details_phase_lopo.csv: pair names use canonical direction
+✓ result/experiments/t1_qh/pair_details_system_loso.csv: pair names use canonical direction
+✓ result/experiments/t1_qh/pair_details_temp_extrap.csv: pair names use canonical direction
+✓ temp_extrap: predictor and t1 pair-name sets agree
+✓ phase_lopo: predictor and t1 pair-name sets agree
+✓ system_loso: predictor and t1 pair-name sets agree
 ✓ crossing_errors slopes match reference_crossings (absolute sign convention)
 ✓ Tc_err_from_dG values match fitted reference slopes
 ✓ figure 1 panel_b slopes match reference_crossings

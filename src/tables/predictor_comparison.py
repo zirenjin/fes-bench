@@ -146,11 +146,12 @@ def result_rows(rows: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def e1_rows() -> list[dict[str, Any]]:
-    return [{"predictor": name, **{field: NOT_TRAINED for field in FIELDS if field not in {"predictor", "pairs_covered", "floor_predictor"}}, "pairs_covered": 0, "floor_predictor": "zero"} for name in ("repr. regression (polynomial)", "repr. regression (tlog)")]
+    return [{"predictor": name, **{field: NOT_TRAINED for field in FIELDS if field not in {"predictor", "pairs_covered", "floor_predictor"}}, "pairs_covered": 0, "floor_predictor": "zero"} for name in ("E + F_QH + r_theta", "repr. regression (polynomial)", "repr. regression (tlog)")]
 
 
 DISPLAY = {
     "qh_only": "E + F_QH",
+    "qh_residual": "E + F_QH + r_theta",
     "repr_regression_polynomial": "repr. regression (polynomial)",
     "repr_regression_tlog": "repr. regression (tlog)",
 }

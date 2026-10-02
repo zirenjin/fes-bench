@@ -84,18 +84,21 @@ and the current SiO2 QH curves fail the physical reliability gate.
 
 ## Notes
 
-### 主表受控消融块现状
+### Controlled ablation status in the main tables
 
-`E + F_QH` 已作为不训练的受控基线接入三个 v2 主表：ΔG-MAE 为
-215.182 meV/atom（temp_extrap）、169.440 meV/atom（phase_lopo）和
-333.809 meV/atom（system_loso）；Hf overlap-T 为 412.214 meV/atom。
-E1 的 polynomial 与 tlog checkpoint 均为全四相、851–2499 K 全温区训练，
-属于 in-sample 评测，不能接入其余切分的 learned 行。T3 SiO₂ seed 11
-诊断已修正数据类型与 FES 标签尺度并达到 1.861 meV/atom 的训练区
-ΔG-MAE，但其测试区尚未完成同一标签约定下的规范化评测；因此批量 T3
-与 T2 暂停，未填 learned 主表行。
+`E + F_QH` is the no-training controlled baseline in the three v2 main tables:
+ΔG-MAE is 215.182 meV/atom (temp_extrap), 169.440 meV/atom (phase_lopo),
+and 333.809 meV/atom (system_loso); Hf overlap-T is 412.214 meV/atom.
+The E1 polynomial and tlog checkpoints were trained on all four phases and the
+full 851–2499 K grid, so they are in-sample and cannot populate learned rows
+for the other splits. The T3 SiO2 seed-11 diagnostic was corrected for the
+type map and FES label scale and reached 1.861 meV/atom in the training region.
+The v2 temp-extrapolation T3 rows are now canonical for three seeds: polynomial
+has ΔG-MAE 86.409 meV/atom (skill −18.114), and tlog has 31.557 meV/atom
+(skill −5.981), both on the test region. The QH-residual T2 row remains
+pending its independent runs.
 
-无训练 predictor 在 phase_lopo 与 system_loso 上指标相同是预期的：两者的测试点并集都是全部相对的全温区，权重比例一致。
+The no-training predictor is expected to have identical metrics on phase_lopo and system_loso: both test-point unions cover the full relative-free-energy grid with the same weighting proportions.
 
 CSV N/A values are explicit: `n/a:no_reference_crossing`,
 `n/a:pair_only_predictor`, `n/a:no_training_phase`,
@@ -118,6 +121,7 @@ because the local interpreter has no usable torch. On thu-GenSi, the independent
 (`21 passed in 43.65s`), including both torch-dependent modules. The CUDA
 mat-agent environment is reserved for T3 training.
 
-The β-quartz equilibrium-volume soft-mode diagnostic gives −1.1533986 THz at
-Γ (`q=[0,0,0]`). It is annotated as a possible physical soft mode; the 1%
+The β-quartz equilibrium-volume soft-mode diagnostic gives the lowest mode
+−1.15 THz at Γ; negative modes span 19 q-points, so they are not Γ-localized.
+It is annotated as a possible physical soft mode; the 1%
 imaginary-mode threshold may be insensitive to soft-mode-driven transitions.

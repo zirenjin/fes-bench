@@ -2,6 +2,55 @@
 
 from __future__ import annotations
 
+import re
+
+
+def _canonical_pair_name(value: str) -> str:
+    value = value.strip()
+    return value.replace("bcc_minus_hcp", "hcp_minus_bcc").replace("bcc-hcp", "hcp_minus_bcc")
+
+
+def _pair_names(path: Path) -> set[str]:
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        field = next((name for name in ("pair", "pair_name", "pair_id", "phase_pair") if name in (reader.fieldnames or [])), None)
+        if field is None:
+            return set()
+        return {_canonical_pair_name(row[field]) for row in reader if row.get(field, "").strip()}
+
+
+def _additional_checks(root: Path) -> list[str]:
+    checks: list[str] = []
+    for relative in ("README.md", "result/README.md"):
+        path = root / relative
+        bad = [index for index, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1) if re.search(r"[\u3400-\u9fff]", line)]
+        checks.append(f"⚠ {relative}: non-English Han characters at lines {bad}" if bad else f"✓ {relative}: non-English check passed")
+
+    detail_files = sorted((root / "result/experiments/t1_qh").glob("**/pair_details_*.csv"))
+    for path in detail_files:
+        raw_names = _pair_names(path)
+        noncanonical = sorted(name for name in raw_names if "bcc_minus_hcp" in name or name == "bcc-hcp")
+        checks.append(f"⚠ {path.relative_to(root)}: metal pair names are not hcp_minus_bcc: {noncanonical}" if noncanonical else f"✓ {path.relative_to(root)}: pair names use canonical direction")
+
+    for split in ("temp_extrap", "phase_lopo", "system_loso"):
+        predictor_files = sorted((root / "result/tables").glob(f"predictor_comparison_{split}*.csv"))
+        predictor_files += [path for path in sorted((root / "result/tables").glob(f"crossing_errors_{split}*.csv")) if "_overlap_T" not in path.name]
+        t1_files = [path for path in detail_files if split in path.name or split in str(path.parent)]
+        sets: list[tuple[str, set[str]]] = []
+        for path in predictor_files + t1_files:
+            names = _pair_names(path)
+            if names:
+                sets.append((str(path.relative_to(root)), names))
+        if not sets:
+            checks.append(f"ℹ {split}: no predictor/t1 pair-detail files found")
+            continue
+        # Crossing-error tables intentionally list only pairs with a reference
+        # crossing, while T1 detail tables also retain no-reference pairs.
+        expected = next((values for name, values in sets if "crossing_errors_" in name), sets[0][1])
+        mismatches = [name for name, values in sets[1:] if not expected.issubset(values) and not values.issubset(expected)]
+        checks.append(f"⚠ {split}: predictor and t1 pair-name sets differ: {mismatches}" if mismatches else f"✓ {split}: predictor and t1 pair-name sets agree")
+    return checks
+
 import builtins
 import csv
 import json
@@ -256,7 +305,7 @@ def main() -> int:
         except ModuleNotFoundError as exc:
             if exc.name not in {"pandas", "matplotlib", "numpy"}:
                 raise
-            checks = _fallback_checks(root)
+            checks = _fallback_checks(root) + _additional_checks(root)
             checks.extend(_metric_csv_empty_checks(root))
             checks.extend(_crossing_slope_consistency_checks(root))
             checks.extend(_non_english_checks(root))
@@ -264,6 +313,7 @@ def main() -> int:
             return 1 if any(line.startswith("⚠") for line in checks) else 0
         if index == 5:
             checks = "\n".join(namespace["CHECKS"]) + "\n"
+            checks += "\n".join(_additional_checks(root)) + "\n"
             # Provenance check is kept outside the notebook so it cannot be
             # accidentally bypassed by display/export code.
             audit = root / "result/experiments/checkpoint_consistency/findings.csv"
