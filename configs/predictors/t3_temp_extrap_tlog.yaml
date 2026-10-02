@@ -3,7 +3,7 @@
   "basis": "tlog_polynomial",
   "split": "data/processed/splits_v2/temp_extrap.json",
   "seeds": [11, 23, 37, 51, 67],
-  "systems": ["sio2", "hf"],
+  "systems": ["sio2", "hf", "ti", "zr"],
   "e1_config_audit": "result/experiments/crossing_reevaluation/training_config_audit.csv",
   "e1_config_template": "external/e1_training_configs/tlog_polynomial/seed{seed}/config.json",
   "e1_template_sha256_from_audit": true,

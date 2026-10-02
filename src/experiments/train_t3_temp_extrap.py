@@ -33,10 +33,14 @@ from fes_bench.eval.run import _root
 SYSTEM_PHASES = {
     "sio2": ("quartz_beta", "cristobalite_beta", "tridymite_p63mmc", "tridymite_c2221"),
     "hf": ("hcp", "bcc"),
+    "ti": ("hcp", "bcc"),
+    "zr": ("hcp", "bcc"),
 }
 SOURCE_PHASES = {
     "sio2": {name: name for name in SYSTEM_PHASES["sio2"]},
     "hf": {"hcp": "Hf_hcp", "bcc": "Hf_bcc"},
+    "ti": {"hcp": "Ti_hcp", "bcc": "Ti_bcc"},
+    "zr": {"hcp": "Zr_hcp", "bcc": "Zr_bcc"},
 }
 
 # DPA-3.1-3M multi-head branches retain the full periodic-table type map.
@@ -284,8 +288,8 @@ def pair_metrics(ref: np.ndarray, pred: np.ndarray, temperatures: np.ndarray) ->
 
 
 def reference_by_phase(root: Path, system: str, phase: str) -> dict[float, float]:
-    processed = {"sio2": "sio2", "hf": "hf"}[system]
-    canonical = {"hf": {"hcp": "hcp", "bcc": "bcc"}}.get(system, {}).get(phase, phase)
+    processed = {"sio2": "sio2", "hf": "hf", "ti": "ti", "zr": "zr"}[system]
+    canonical = {"hf": {"hcp": "hcp", "bcc": "bcc"}, "ti": {"hcp": "hcp", "bcc": "bcc"}, "zr": {"hcp": "hcp", "bcc": "bcc"}}.get(system, {}).get(phase, phase)
     path = root / "data/processed" / processed / canonical / "reference_G.csv"
     with path.open(encoding="utf-8", newline="") as handle:
         return {float(row["T_K"]): float(row["G_eV_per_atom"]) for row in csv.DictReader(handle)}
