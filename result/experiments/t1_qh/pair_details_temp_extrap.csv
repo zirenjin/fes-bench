@@ -1,7 +1,7 @@
 split,fold,eval_subset,pair,left_qh_reliable,right_qh_reliable,delta_G_MAE_eV_per_atom,sign_accuracy,Tc_error_K,Tc_err_from_dG_K,false_crossings,missed_crossings
-temp_extrap,all,full,hf:bcc_minus_hcp,False,True,0.5714184090171185,0.19291338582677164,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
+temp_extrap,all,full,hf:hcp_minus_bcc,False,True,0.5714184090171185,0.19291338582677164,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
 temp_extrap,all,full,sio2:cristobalite_beta_minus_quartz_beta,False,True,0.02541163603725908,0.9053926206244087,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
 temp_extrap,all,full,sio2:cristobalite_beta_minus_tridymite_p63mmc,False,False,0.004136022411589148,0.0,[],[],0,0
 temp_extrap,all,full,sio2:quartz_beta_minus_tridymite_p63mmc,True,False,0.029547658448848227,0.8675496688741722,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
-temp_extrap,all,full,ti:bcc_minus_hcp,False,True,0.26954639218600657,0.15934959349593497,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
-temp_extrap,all,full,zr:bcc_minus_hcp,False,True,0.179985521214028,0.15372670807453417,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
+temp_extrap,all,full,ti:hcp_minus_bcc,False,True,0.26954639218600657,0.15934959349593497,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1
+temp_extrap,all,full,zr:hcp_minus_bcc,False,True,0.179985521214028,0.15372670807453417,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0,1

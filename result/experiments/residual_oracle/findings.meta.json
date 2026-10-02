@@ -1,0 +1,228 @@
+{
+  "git_commit": "ed6b7ec52d3964783c6a602eeb6ee47ff59332c9",
+  "checkpoint_sha256": [
+    "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907"
+  ],
+  "heads": [
+    "Domains_Alloy",
+    "Domains_SSE_PBE"
+  ],
+  "inputs": [
+    {
+      "path": "configs/models/head_policy.yaml",
+      "sha256": "9c7a2e4d120d126458d27cad1f68d278dca27d808a952f695c50a37601e9772f"
+    },
+    {
+      "path": "data/processed/hf/bcc/meta.json",
+      "sha256": "eba0addf496099fc52ab67064e4e6f0a51a0be5e75689d523e9b5805082ff6f7"
+    },
+    {
+      "path": "data/processed/hf/bcc/reference_G.csv",
+      "sha256": "dab1b30820ef01245430504b22a1730c8956cba075104e1bb6a159a42d1a3d7d"
+    },
+    {
+      "path": "data/processed/hf/bcc/structure.extxyz",
+      "sha256": "926c117b2a022b78feba3693b844f36a90d607c7838f0a15cdd11615ebc82d57"
+    },
+    {
+      "path": "data/processed/hf/hcp/meta.json",
+      "sha256": "1cd04c744d30b669e2a7b81c7adfd52a0bcc64df80e4d2ace870f8e858ba4700"
+    },
+    {
+      "path": "data/processed/hf/hcp/reference_G.csv",
+      "sha256": "9e53c7837b609b3ff783cc3615fa9c3a06b303dc12b860815a33871e4a9a747c"
+    },
+    {
+      "path": "data/processed/hf/hcp/structure.extxyz",
+      "sha256": "80499285b4de6ac3ef304c2574b81019f6942a520297fa08eb8663f44cf20d45"
+    },
+    {
+      "path": "data/processed/hf/reference_crossings.json",
+      "sha256": "a49ef1f5f72deed3063fc9658d2570277f87a2e48c49c41aed4c59585288fe2c"
+    },
+    {
+      "path": "data/processed/hf/system.json",
+      "sha256": "361eee26980c27ee7d71ea67927918b21e3b67d4300a5791f12e199fa1097f30"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/meta.json",
+      "sha256": "4141ec8ba33dc1599f282a660ecdcf1f972d512dee60ce79a3f812fb34c62ca9"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/reference_G.csv",
+      "sha256": "5392e07f86d9a1f27ab0b028bea9bbabc17d13655d1a32084d62ad55b5e9f681"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/structure.extxyz",
+      "sha256": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/meta.json",
+      "sha256": "a1d449d774b56e800113ad18ddd87994e6e51ac5ee95cec5d2711fda5ba4c357"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/reference_G.csv",
+      "sha256": "23ad5c57bc10f532adddf53a3845ee4600c70fec872b75599d6b63ecbb9be71a"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/structure.extxyz",
+      "sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc"
+    },
+    {
+      "path": "data/processed/sio2/reference_crossings.json",
+      "sha256": "8d87c823de88794d92b4d35f6529d0fced76fbc5f85fbe4159a51d6bcfb1b19b"
+    },
+    {
+      "path": "data/processed/sio2/system.json",
+      "sha256": "c824fcca9c01d690a64c0178d7a5255f675b082f36fcb22ea64a9de2d1161b0f"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/meta.json",
+      "sha256": "eefb8dfe97b0ad377bf1a6d9d3698afaebf3b9809e3bfd281ca0bfd7895a97fb"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/reference_G.csv",
+      "sha256": "d281cd3c3b818267d59329d3f0fcfb6165de01739c21c0c8083547cec7f908ce"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/structure.extxyz",
+      "sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e"
+    },
+    {
+      "path": "data/processed/splits_v2/temp_extrap.json",
+      "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845"
+    },
+    {
+      "path": "data/processed/ti/bcc/meta.json",
+      "sha256": "07303e6758b7c169f34dd50fca41936edf307a8d3137f0470609d55b1e0d691d"
+    },
+    {
+      "path": "data/processed/ti/bcc/reference_G.csv",
+      "sha256": "59e636937d87b25b494b58d0ee5782e160d050ac4c53cdd8c8c13edaaf591dc9"
+    },
+    {
+      "path": "data/processed/ti/bcc/structure.extxyz",
+      "sha256": "c35db4e4c20d8fb3e53ebb1970abae39ad3910b044ca16e3586a3d26a942d0cd"
+    },
+    {
+      "path": "data/processed/ti/hcp/meta.json",
+      "sha256": "f9c3060993e7a39ea85a20be19b6ef5ba2b1d60b61ac0e066b6529ec89a8e7ec"
+    },
+    {
+      "path": "data/processed/ti/hcp/reference_G.csv",
+      "sha256": "c732e495b32f5c7b7870e2d9bbb535dc2fc8ebc6e581fb9f700fcaf9c9e85ff0"
+    },
+    {
+      "path": "data/processed/ti/hcp/structure.extxyz",
+      "sha256": "8ad45674d035c7951afca5fb94ac458a2a213bcb4c63fd6715b54b2a2480b498"
+    },
+    {
+      "path": "data/processed/ti/reference_crossings.json",
+      "sha256": "d3795ba589fdb6d55900de00af1bfba2df05e537cdbb6bbdaf490984fb65920e"
+    },
+    {
+      "path": "data/processed/ti/system.json",
+      "sha256": "43070c42d460b5b1d92cd9888c987c2a35f546c060df9a8304bab01e083634b8"
+    },
+    {
+      "path": "data/processed/zr/bcc/meta.json",
+      "sha256": "5bbf3b3f225aba4f4628e9c3ac5a960f11e6ff76fc22a36a441d3a3fcf3b7d9e"
+    },
+    {
+      "path": "data/processed/zr/bcc/reference_G.csv",
+      "sha256": "4b4a35c2121943716777e775f9546a23e5ac9807de06baf63fd26c6f964c482e"
+    },
+    {
+      "path": "data/processed/zr/bcc/structure.extxyz",
+      "sha256": "b130b555367f6db6fe925f6291210f832676668acb679d8f64c11577b1e55882"
+    },
+    {
+      "path": "data/processed/zr/hcp/meta.json",
+      "sha256": "1d4e199a25b11103363c29dd0a9faca536669f7107ad439464eb09659684d821"
+    },
+    {
+      "path": "data/processed/zr/hcp/reference_G.csv",
+      "sha256": "943a0c434e393a54ef19ccbd24c1c0d71f88ab2fcbb8c34ab77b0782dd8e81a0"
+    },
+    {
+      "path": "data/processed/zr/hcp/structure.extxyz",
+      "sha256": "c56c0f8e60ce25466ec6f83c7e1c4f2a8b7eb8f6d0ce6a388a9c3d7b949297ce"
+    },
+    {
+      "path": "data/processed/zr/reference_crossings.json",
+      "sha256": "6c0633813bbb39e92c0a61ab855f4b3b691c9fcd891ac143d41967e46e1515b2"
+    },
+    {
+      "path": "data/processed/zr/system.json",
+      "sha256": "dc3686b5a630273b0e2538f547f89eb913818c7dde8183ad69b2cef23d85b2d0"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/hf/bcc_fqh.csv",
+      "sha256": "38d8a7beee2dec358a0122e89b01e9d9c2f315186c0f681792125b34d280a966"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/hf/hcp_fqh.csv",
+      "sha256": "eed628155d91a2eda6782479f7a8869da4d7f6c45a3c1d64df0a43af5aec69b2"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/hf/qh_summary.json",
+      "sha256": "4eca2a8d22505c345dad5aa8735df65f648a154e7912a350716bab38f9382cf3"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/ti/bcc_fqh.csv",
+      "sha256": "758d4d0bc7039fab40fee8ef5c5d6c2a9db58891358cde01b5bc302f436e7330"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/ti/hcp_fqh.csv",
+      "sha256": "053f9d1a61f54a0474d612a7c53c0500e3934f86ae2f58666c6e77c36eb64fc2"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/ti/qh_summary.json",
+      "sha256": "f8a53978fb894657931c2037702b07fa858df286e9a6452549ffcf766b5d2b5c"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/zr/bcc_fqh.csv",
+      "sha256": "2691a00bf0a73f57bef38b8eb8ee82458d2891fcde110d0305d3169f654515aa"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/zr/hcp_fqh.csv",
+      "sha256": "f6d19a2b0af29b05f702c043c545ed473cb36f61e66cf00da5bd52d1e34abc02"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_10a/raw_runs/zr/qh_summary.json",
+      "sha256": "32dca4bff7f4baac9a1fb3e3ab932aa1e3a6644beebbad0756c9a78450ecfd51"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/cristobalite_beta_fqh.csv",
+      "sha256": "9c17efc1aae1b084592dc649d38762b81459388a412b3ec2c946a79948c39af2"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/qh_summary.json",
+      "sha256": "1d272a0088928686902ffeb3a6a9b746c2a0081f49877bd88fe4200fc94e2e24"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/quartz_beta_fqh.csv",
+      "sha256": "a7ec299b36b5a68e065612e200ce2e91a8ad2fd5d90192f6cfabde3fe4903439"
+    },
+    {
+      "path": "result/experiments/quasi_harmonic_sio2_sse_pbe/raw_runs/sio2/tridymite_p63mmc_fqh.csv",
+      "sha256": "4355b9d5c3891080af80284d4454554185287ca24a0c8549a6857c404f02a60c"
+    },
+    {
+      "path": "result/tables/phase_inventory.csv",
+      "sha256": "628ac76788ad64f300db87c69af08b5a425aa7d222c323171337630650e5fbce"
+    },
+    {
+      "path": "src/lib/fes_bench/qh/run.py",
+      "sha256": "a1405fc03c19401479b067621d9c0a0f1c8c0f0e4b9373ae98f331e9a2987ce6"
+    }
+  ],
+  "pairs": [
+    "hf:bcc/hcp",
+    "ti:bcc/hcp",
+    "zr:bcc/hcp",
+    "sio2:quartz_beta/cristobalite_beta",
+    "sio2:quartz_beta/tridymite_p63mmc"
+  ],
+  "optional_classical_qh": "not_run: full phonon spectrum unavailable in canonical artifacts"
+}
