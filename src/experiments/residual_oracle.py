@@ -27,6 +27,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "result/experiments/residual_oracle"
 DATA = ROOT / "data/processed"
+DFT_COMPARISON = ROOT / "result/experiments/dft_static/delta_E_comparison.csv"
 KB_EV_PER_K = 8.617333262145e-5
 HBAR_EV_S = 6.582119569e-16
 OMEGA0_HZ = 1.0e12
@@ -176,9 +177,18 @@ def load_pairs() -> list[Pair]:
             # reference_crossings stores ΔG = G_left - G_right.  The slope
             # sign determines which phase is lower below the crossing and is
             # more stable than probing the quantized grid point immediately
-            # below Tc, which can be exactly zero.
+            # below Tc, which can be exactly zero.  Always construct the
+            # physical high-minus-low direction explicitly.
             low, high = (left, right) if slope > 0.0 else (right, left)
-            delta_high_low = delta_left_right if high == right else -delta_left_right
+            delta_high_low = -delta_left_right if high == right else delta_left_right
+            # Exclude the quantized crossing plateau itself; the frozen
+            # split's 100 K crossing buffer defines the unambiguous low-T
+            # segment used for this sign diagnostic.
+            low_temperature = temperature <= reference_tc - 100.0
+            if not np.any(low_temperature) or not np.all(delta_high_low[low_temperature] > 0.0):
+                raise AssertionError(
+                    f"{system}/{low}/{high}: low-temperature Delta-G(high-low) must be strictly positive"
+                )
             pairs.append(
                 Pair(
                     system=system,
@@ -308,7 +318,17 @@ def make_input_audit(policy: dict[str, Any], inventory: dict[tuple[str, str], di
     return rows
 
 
-def make_delta_e_rows(pairs: list[Pair]) -> list[dict[str, Any]]:
+def load_dft_comparison() -> dict[tuple[str, str, str], dict[str, str]]:
+    rows = read_csv(DFT_COMPARISON)
+    result = {(row["system"], row["phase_low"], row["phase_high"]): row for row in rows}
+    if len(result) != 5:
+        raise ValueError(f"expected five DFT comparison pairs, found {len(result)}")
+    return result
+
+
+def make_delta_e_rows(
+    pairs: list[Pair], dft_comparison: dict[tuple[str, str, str], dict[str, str]]
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for pair in pairs:
         estimates: list[float] = []
@@ -322,6 +342,12 @@ def make_delta_e_rows(pairs: list[Pair]) -> list[dict[str, Any]]:
         dpa_high = energy_from_meta(phase_meta(pair.system, pair.high))
         dpa_delta = (dpa_high - dpa_low) * 1000.0
         effective = float(np.median(estimates))
+        if not all(value > 0.0 for value in estimates) or effective <= 0.0:
+            raise AssertionError(
+                f"{pair.system}/{pair.low}/{pair.high}: all Delta-E_eff extrapolations must be positive"
+            )
+        dft_row = dft_comparison[(pair.system, pair.low, pair.high)]
+        dft_delta = float(dft_row["delta_E_DFT_meV_per_atom"])
         reference_std = float(np.std(pair.delta_g, ddof=0))
         rows.append(
             {
@@ -330,10 +356,13 @@ def make_delta_e_rows(pairs: list[Pair]) -> list[dict[str, Any]]:
                 "low_phase": pair.low,
                 "high_phase": pair.high,
                 "delta_E_DPA_meV_per_atom": f"{dpa_delta:.12g}",
+                "delta_E_DFT_meV_per_atom": f"{dft_delta:.12g}",
                 "delta_E_eff_median_meV_per_atom": f"{effective:.12g}",
                 "delta_E_eff_min_meV_per_atom": f"{min(estimates):.12g}",
                 "delta_E_eff_max_meV_per_atom": f"{max(estimates):.12g}",
                 "delta_E_DPA_minus_eff_meV_per_atom": f"{dpa_delta - effective:.12g}",
+                "delta_E_DPA_minus_DFT_meV_per_atom": f"{dpa_delta - dft_delta:.12g}",
+                "DPA_DFT_same_sign": "yes" if np.sign(dpa_delta) == np.sign(dft_delta) else "no",
                 "reference_delta_G_std_meV_per_atom": f"{reference_std:.12g}",
                 "abs_error_over_reference_std": f"{abs(dpa_delta - effective) / reference_std:.12g}",
                 "fit_estimates_meV_per_atom": ";".join(f"{value:.12g}" for value in estimates),
@@ -521,20 +550,24 @@ def write_summary(
             )
     lines += [
         "",
-        "For the metal rows, hcp is low and bcc is high; ΔE_DPA is therefore E_DPA(bcc) − E_DPA(hcp), with the same high-minus-low direction used for ΔE_eff.",
+        "For every pair, ΔG and ΔE use the physical high-minus-low direction. For the metal rows, hcp is low and bcc is high; ΔE_DPA is therefore E_DPA(bcc) − E_DPA(hcp).",
         "",
         "## Delta-E budget",
         "",
-        "| Pair (low/high) | Delta E DPA (meV/atom) | Delta E effective median [range] (meV/atom) | DPA minus effective | Reference Delta G SD | |error| / SD |",
-        "| --- | ---: | ---: | ---: | ---: | ---: |",
+        "DFT relaxed-static ΔE is the primary baseline below. ΔE_eff is only a reference extrapolation from the canonical reference curves.",
+        "",
+        "| Pair (low/high) | Delta E DFT baseline | Delta E DPA | Delta E_eff reference [range] | DPA minus DFT | DPA/DFT sign | Reference Delta G SD |",
+        "| --- | ---: | ---: | ---: | ---: | --- | ---: |",
     ]
     for row in delta_rows:
         lines.append(
-            f"| {row['system']} {row['pair']} | {fmt(row['delta_E_DPA_meV_per_atom'])} | {fmt(row['delta_E_eff_median_meV_per_atom'])} [{fmt(row['delta_E_eff_min_meV_per_atom'])}, {fmt(row['delta_E_eff_max_meV_per_atom'])}] | {fmt(row['delta_E_DPA_minus_eff_meV_per_atom'])} | {fmt(row['reference_delta_G_std_meV_per_atom'])} | {fmt(row['abs_error_over_reference_std'])} |"
+            f"| {row['system']} {row['pair']} | {fmt(row['delta_E_DFT_meV_per_atom'])} | {fmt(row['delta_E_DPA_meV_per_atom'])} | {fmt(row['delta_E_eff_median_meV_per_atom'])} [{fmt(row['delta_E_eff_min_meV_per_atom'])}, {fmt(row['delta_E_eff_max_meV_per_atom'])}] | {fmt(row['delta_E_DPA_minus_DFT_meV_per_atom'])} | {row['DPA_DFT_same_sign']} | {fmt(row['reference_delta_G_std_meV_per_atom'])} |"
         )
     lines += [
         "",
-        "The effective Delta E range is the six extrapolations from F1-F3 and the full/lowest-300-K windows. Values are an effective classical reference extrapolation, not a zero-point-inclusive ground-state energy.",
+        "The effective Delta E range is the six positive extrapolations from F1-F3 and the full/lowest-300-K windows. Values are an effective classical reference extrapolation, not a zero-point-inclusive ground-state energy.",
+        "",
+        "The DFT baseline shows that the two SiO2 DPA static-energy differences have the wrong sign: quartz_beta → cristobalite_beta is DPA -9.996 meV/atom versus DFT +11.716 meV/atom, and quartz_beta → tridymite_p63mmc is DPA -7.361 meV/atom versus DFT +17.415 meV/atom.",
         "",
         "## R3 crossing errors in the test region",
         "",
@@ -554,11 +587,15 @@ def write_summary(
             lines.append(f"- {row['system']} {row['pair']}: {fmt(row['training_RMSE_meV_per_atom'])} meV/atom")
     lines += ["", "## Conclusions", ""]
     for row in delta_rows:
-        ratio = float(row["abs_error_over_reference_std"])
-        comparison = "larger" if ratio > 1.0 else "smaller or comparable"
-        sentence = f"- **{row['system']} {row['pair']}**: the absolute Delta-E discrepancy is {comparison} than the reference Delta G standard deviation ({ratio:.3f} times the standard deviation)."
-        if ratio > 1.0:
-            sentence += " Static energy difference is the main error source."
+        dft_delta = float(row["delta_E_DFT_meV_per_atom"])
+        dpa_delta = float(row["delta_E_DPA_meV_per_atom"])
+        static_error = abs(float(row["delta_E_DPA_minus_DFT_meV_per_atom"]))
+        sign_note = "the signs agree" if row["DPA_DFT_same_sign"] == "yes" else "the signs are opposite"
+        sentence = (
+            f"- **{row['system']} {row['pair']}**: DFT baseline ΔE = {dft_delta:.3f} meV/atom, "
+            f"DPA ΔE = {dpa_delta:.3f} meV/atom, and |DPA − DFT| = {static_error:.3f} meV/atom; {sign_note}. "
+            "The positive ΔE_eff value is reference-only."
+        )
         lines.append(sentence)
     lines.append("")
     for pair in pairs:
@@ -624,7 +661,8 @@ def main() -> int:
     if any(row["audit_status"] != "ok" for row in audit_rows):
         raise RuntimeError("input provenance consistency check failed")
 
-    delta_rows = make_delta_e_rows(pairs)
+    dft_comparison = load_dft_comparison()
+    delta_rows = make_delta_e_rows(pairs, dft_comparison)
     baselines = {pair.system: baseline_curves(pair) for pair in pairs}
     oracle, plots = oracle_rows(pairs, baselines)
 
@@ -654,6 +692,7 @@ def main() -> int:
             ROOT / "result/tables/phase_inventory.csv",
             ROOT / "data/processed/splits_v2/temp_extrap.json",
             ROOT / "src/lib/fes_bench/qh/run.py",
+            DFT_COMPARISON,
         }
     )
     manifest = {
