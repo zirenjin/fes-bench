@@ -159,6 +159,17 @@ def _crossing_slope(reference: np.ndarray, temperatures: np.ndarray, root: float
     return float(abs((reference[nearest + 1] - reference[nearest - 1]) / (temperatures[nearest + 1] - temperatures[nearest - 1])))
 
 
+def _balanced_sign_accuracy(observed: np.ndarray, reference: np.ndarray) -> float:
+    """Mean sign recall for the reference sign classes present on the grid."""
+    values: list[float] = []
+    positive, negative = reference > 0.0, reference < 0.0
+    if np.any(positive):
+        values.append(float(np.mean(observed[positive] > 0.0)))
+    if np.any(negative):
+        values.append(float(np.mean(observed[negative] < 0.0)))
+    return float(np.mean(values)) if values else 0.0
+
+
 def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.ndarray) -> dict[str, object]:
     ref_roots, pred_roots = _root(reference, temperatures), _root(observed, temperatures)
     missed = len(pred_roots) < len(ref_roots)
@@ -169,6 +180,7 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
         "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(observed - reference))),
         "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
         "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
+        "balanced_sign_accuracy": _balanced_sign_accuracy(observed, reference),
         "reference_Tc_K": ref_roots,
         "predicted_Tc_K": pred_roots,
         "Tc_error_K": ["n/a:missed_crossing"] * len(ref_roots) if missed else [float(pred - ref) for pred, ref in zip(pred_roots, ref_roots)],
@@ -190,7 +202,7 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
     for system, phase in sorted(all_rows):
         indexes = all_rows[(system, phase)]
         temperatures, reference = _reference(data_root, system, phase, indexes)
-        if method == "global_mean_delta_g":
+        if method in {"global_mean_delta_g", "constant_sign"}:
             prediction = None
         else:
             prediction_array = _phase_prediction(method, data_root, train_rows, system, phase, indexes, sorted({key[1] for key in all_rows if key[0] == system}))
@@ -210,13 +222,13 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
             for phase in phases
         }
         for temperature in evaluation_temperatures:
-            pair_only = method == "global_mean_delta_g" and global_constant is not None
+            pair_only = method in {"global_mean_delta_g", "constant_sign"}
             if not pair_only and any(predictions.get((system, phase)) is None or temperature not in predictions[(system, phase)] for phase in phases):
                 continue
             correct = True
             for left, right in _ordered_pairs(data_root, system, phases):
                 reference = reference_by_phase[left][temperature] - reference_by_phase[right][temperature]
-                observed = float(global_constant) if pair_only else float(predictions[(system, left)][temperature] - predictions[(system, right)][temperature])
+                observed = -1.0e-9 if method == "constant_sign" else (float(global_constant) if pair_only else float(predictions[(system, left)][temperature] - predictions[(system, right)][temperature]))
                 if np.sign(observed) != np.sign(reference):
                     correct = False
                     break
@@ -234,12 +246,15 @@ def _fold(data_root: Path, split: dict[str, object], method: str) -> dict[str, o
             reference = left_ref - right_ref
             if method == "global_mean_delta_g":
                 observed = None if global_constant is None else np.full_like(reference, global_constant)
+            elif method == "constant_sign":
+                observed = np.full_like(reference, -1.0e-9)
             else:
                 lp, rp = predictions[(system, left)], predictions[(system, right)]
                 observed = None if lp is None or rp is None else np.array([lp[float(t)] - rp[float(t)] for t in left_ref_t])
             pairs[f"{system}:{left}_minus_{right}"] = {"status": "ok" if observed is not None else "unavailable_without_training_phase", "global_mean_delta_g_eV_per_atom": global_constant, **(_pair_metrics(reference, observed, left_ref_t) if observed is not None else {})}
     values = [pair["delta_G_MAE_eV_per_atom"] for pair in pairs.values() if "delta_G_MAE_eV_per_atom" in pair]
-    return {"n_test_frames": len(test_rows), "G_MAE_eV_per_atom": float(np.mean(scalar_errors)) if scalar_errors else None, "ranking_accuracy": float(np.mean(ranking_values)) if ranking_values else None, "ranking_accuracy_by_system": {key: float(np.mean(values)) for key, values in ranking_by_system.items()}, "pairs": pairs, "aggregate_pair_MAE_eV_per_atom": float(np.mean(values)) if values else None, "global_mean_delta_g_eV_per_atom": global_constant}
+    balanced_values = [float(pair["balanced_sign_accuracy"]) for pair in pairs.values() if isinstance(pair, dict) and isinstance(pair.get("balanced_sign_accuracy"), (int, float))]
+    return {"n_test_frames": len(test_rows), "G_MAE_eV_per_atom": float(np.mean(scalar_errors)) if scalar_errors else None, "ranking_accuracy": float(np.mean(ranking_values)) if ranking_values else None, "ranking_accuracy_by_system": {key: float(np.mean(values)) for key, values in ranking_by_system.items()}, "balanced_sign_accuracy": float(np.mean(balanced_values)) if balanced_values else None, "pairs": pairs, "aggregate_pair_MAE_eV_per_atom": float(np.mean(values)) if values else None, "global_mean_delta_g_eV_per_atom": global_constant}
 
 
 def _evaluate(data_root: Path, split: dict[str, object], method: str) -> dict[str, object]:
@@ -258,8 +273,11 @@ def _evaluate(data_root: Path, split: dict[str, object], method: str) -> dict[st
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv); data_root = Path(args.data_root).resolve(); output = Path(args.output_root).resolve(); output.mkdir(parents=True, exist_ok=True)
     payload: dict[str, object] = {}
+    methods = ("bartel2018", "interp_const", "global_mean_delta_g", "constant_sign")
+    if not args.phase_id_metrics:
+        methods = methods + ("phase_id_mlp",)
     for split_arg in args.splits:
-        split_path = Path(split_arg); split = json.loads(split_path.read_text(encoding="utf-8")); payload[split_path.stem] = {method: _evaluate(data_root, split, method) for method in ("bartel2018", "interp_const", "phase_id_mlp", "global_mean_delta_g")}
+        split_path = Path(split_arg); split = json.loads(split_path.read_text(encoding="utf-8")); payload[split_path.stem] = {method: _evaluate(data_root, split, method) for method in methods}
     if args.phase_id_metrics:
         source = json.loads(Path(args.phase_id_metrics).read_text(encoding="utf-8"))
         for split_name in payload:

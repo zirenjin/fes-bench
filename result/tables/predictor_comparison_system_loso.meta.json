@@ -1,54 +1,58 @@
 {
-  "generated_utc": "2026-10-02T06:24:17.346203+00:00",
-  "git_commit": "355da72a5ce81e14d6b47ea23e1258ad002d6485",
+  "generated_utc": "2026-10-03T01:04:13.039349+00:00",
+  "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_system_loso/bartel2018/seed_none/metrics.json",
-      "sha256": "422ca0cdad61d726e2743775392b4526fdacd1783aae575117b52ce039a2c0b1"
+      "sha256": "941b41ca8d1463d2a5028fb8c941c46595f4f42a1a3027a6674344fe7b412205"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/constant_delta_g/seed_none/metrics.json",
-      "sha256": "ed18d76711ca88b81da6b547ce8f2baf6a013ddea2bec6d98af3e51ea363dbdb"
+      "sha256": "960a620a9b75c7840e7e99f577634413fe1dbc1ae5ed4caec817233eb74e9707"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "138aea63f1b79a4d53bce83ccd1ed1263dc85a8b1267bfddb5cf380ca1c2f5f2"
+      "sha256": "caf8618a1c0426cb9c3c818c13c60d936beea621d626462d6a10f8a040275b75"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_system_loso/constant_sign/seed_none/metrics.json",
+      "sha256": "bb1635cb002018af4e5575de72843e169dbefdc2850f95a43aaa3c93c92ce297"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "9c93049d22d06f465204c26eccfe69841460b323aa78bc64c2ad3f0917fa7c2d"
+      "sha256": "24f814338a1dd675381e2a3e079781e95da8adc13ef1cdb1ac91531106b89872"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/interp_const/seed_none/metrics.json",
-      "sha256": "85bd1e6dbd35d4f119feda438dc375d453421bfad3a28b35575aa3fe283d5ed7"
+      "sha256": "86ed1faaf670e314fd73d2afeba175b14e763049bc14f3020e4b74701bea06d6"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "2a6857b37547d72eef676f17f23c5c02b55bb9bcf417392fdaf83860363bcc53"
+      "sha256": "e4fd02cc74f74e311425dd5ac1ae36f736d5bd2d7857705e316b36aaebb18f72"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/qh_only/seed_none/metrics.json",
-      "sha256": "461961fcaf906613f36a18da3b4cc82dd5b5e6149b7e776e98cfa5e1f0789119"
+      "sha256": "a0d0e46f96b0432e10e390b601490b5b9d0c8bbb3571fa5f335da40db7be2282"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/reference/seed_none/metrics.json",
-      "sha256": "7768f4467c3fdff0c116c750b62e5a353fc5d3f7923c4e3c6dbf38bf084f28bc"
+      "sha256": "fc8437dac72360811a8fb14843c97ea58f71fbcb4dcc51fc96b8ada08b0b185d"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "93f3764af433cff206d87edb0b69340299eac4dc9d8a0cb3e603c30a39a410e1"
+      "sha256": "d22b8639dbd755730d26406d294c97dcacefa0e34d8588dfe5f1f0e69dc12e88"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "576cdff1bf1218dd1d027f7f8852799e3b02f2edd6231d0af363703e1f5ae7a9"
+      "sha256": "ad1357ad0ef4d5f17b4c758928b2b7d38c0d6c8262276049ad7c7de09b0eb97c"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/thermo_form_fit/seed_none/metrics.json",
-      "sha256": "a918fb7d65a53e6b0226fb49fc18b4b54a5368e74f0a90cd8e9bd31b07c22b35"
+      "sha256": "d71bb3ff1f9cd6d73341c24c5ef9513ad766c5234900b54e2062305bb465227b"
     },
     {
       "path": "result/experiments/external_baselines/raw_system_loso/zero/seed_none/metrics.json",
-      "sha256": "c301d53e5e52829b3a54f09ab703e24db769de196ce9efe1a0067d152f292fcf"
+      "sha256": "c8ae2f0215d94035473adc8a881489e59f89502f614f2fbbb5402c288288ef3a"
     }
   ],
   "missing": [],

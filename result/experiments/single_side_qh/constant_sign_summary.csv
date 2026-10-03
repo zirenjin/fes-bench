@@ -1,0 +1,5 @@
+split,predictor,n_pair_rows,delta_G_MAE_eV_per_atom,delta_G_RMSE_eV_per_atom,sign_accuracy,balanced_sign_accuracy,Tc_error_abs_mean_K,false_crossings,missed_crossings
+phase_lopo,constant_sign,12,0.004705645969933522,0.005661249633160415,0.5711356062548064,0.6056780312740323,,0,10
+system_loso,constant_sign,3,0.009046549943607705,0.011020301415292626,0.4844133099824869,0.5,,0,3
+system_loso_overlap_T,constant_sign,1,0.021931414929203544,0.0226393677879106,1.0,1.0,,0,1
+temp_extrap,constant_sign,6,0.0036141672993223297,0.004291603520952156,0.3223977318752531,0.6070271364925071,,0,5

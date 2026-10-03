@@ -86,7 +86,7 @@ The expected R ≥ 1 is a diagnostic expectation, not a forced acceptance criter
 |---|---:|---:|---:|---:|
 | T3_absolute_both | 18 | 31.764 ± 34.762 | 0.4845 | 36.405 |
 | single_side_QH_combo | 15 | 644.868 ± 465.591 | 0.8615 | 100.407 |
-| thermo_form_fit | 6 | 0.425 ± 0.394 | 0.9948 | n/a |
+| thermo_form_fit | 6 | 0.425 ± 0.394 | 0.9948 | 2.796 |
 
 For the mixed pair, the T2 low-side curve is shifted to the T3 low-side value at the frozen train anchor; the shift is recorded as `gauge_alignment_meV` and uses no test labels. The third SiO2 pair has no QH-reliable low side and is explicitly N/A. The pair diagnostic is the direct test of whether single-sided QH helps a phase transition. It does not change the main benchmark tables or imply that QH is valid on the high-temperature unstable side.
 
@@ -97,3 +97,37 @@ python src/experiments/single_side_qh_extensions.py --repo-root .
 ```
 
 The script validates exact frozen train/test grids, eV/atom prediction files, split hashes, QH source files, common seeds, and the no-retraining provenance of all controls.
+
+## DFT static replacement and constant-sign control
+
+### DFT static replacement
+
+The canonical QH files contain the static term: for SiO2, `F_QH − F_vib` is constant; for metal QH files the row-wise `E_static_eV_per_atom` column is used because the minimized-volume static energy can vary with temperature. The replacement therefore uses `G_corr(T) = F_QH(T) − E_static,DPA(T) + E_DFT = F_vib(T) + E_DFT`, with both phases of each pair treated identically. `E_DFT` is the relaxed static `energy without entropy` from the `final-adopted-converged` OUTCAR manifest. The DFT output status is recorded per phase; the adopted production outputs are present, while the Hf neighboring-mesh deviation remains documented in the DFT convergence report.
+
+| Split | Predictor | ΔG MAE (meV/atom) | ΔG RMSE (meV/atom) | sign accuracy | balanced sign accuracy | mean |Tc error| (K) | false | missed |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| phase_lopo | DFT_static_replaced | 122.352 | 124.594 | 0.5293 | 0.5000 | n/a | 0 | 10 |
+| phase_lopo | T1_E_plus_F_QH | 167.628 | 169.316 | 0.5293 | 0.5000 | n/a | 0 | 10 |
+| system_loso | DFT_static_replaced | 246.990 | 251.775 | 0.4844 | 0.5000 | n/a | 0 | 3 |
+| system_loso | T1_E_plus_F_QH | 333.575 | 337.181 | 0.4844 | 0.5000 | n/a | 0 | 3 |
+| system_loso_overlap_T | DFT_static_replaced | 290.342 | 291.527 | 1.0000 | 1.0000 | n/a | 0 | 1 |
+| system_loso_overlap_T | T1_E_plus_F_QH | 412.096 | 412.932 | 1.0000 | 1.0000 | n/a | 0 | 1 |
+| temp_extrap | DFT_static_replaced | 119.614 | 120.278 | 0.5589 | 0.5000 | n/a | 0 | 5 |
+| temp_extrap | T1_E_plus_F_QH | 160.504 | 161.011 | 0.5589 | 0.5000 | n/a | 0 | 5 |
+
+### Constant-sign baseline
+
+`constant_sign` predicts the oriented pair ΔG as −1×10⁻⁹ eV/atom at every point, i.e. the high-temperature/right phase is always declared stable. The tiny nonzero magnitude avoids the exact-zero degenerate-prediction marker; this is a sign-only control, not an energy baseline. Balanced accuracy is the mean recall of the positive and negative reference sign classes present on the evaluated grid; for a one-sign pair the present class is reported.
+
+| Split | ΔG MAE (meV/atom) | ordinary sign accuracy | balanced sign accuracy |
+|---|---:|---:|---:|
+| phase_lopo | 4.706 | 0.5711 | 0.6057 |
+| system_loso | 9.047 | 0.4844 | 0.5000 |
+| system_loso_overlap_T | 21.931 | 1.0000 | 1.0000 |
+| temp_extrap | 3.614 | 0.3224 | 0.6070 |
+
+Pair-level rows, including fold scope and crossing markers, are in `dft_static_replacement_pair_metrics.csv` and `constant_sign_pair_metrics.csv`. Reproduce with:
+
+```bash
+PYTHONPATH=src python src/experiments/single_side_qh_dft.py --repo-root .
+```

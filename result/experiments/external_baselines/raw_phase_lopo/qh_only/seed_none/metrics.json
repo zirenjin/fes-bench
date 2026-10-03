@@ -5,6 +5,7 @@
     "folds": {
       "hf:bcc": {
         "G_MAE_eV_per_atom": 13.843835335926439,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1252,
         "pairs": {
@@ -18,6 +19,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],
@@ -40,7 +42,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.6725239616613419,
         "seeds": [
           0
@@ -48,6 +50,7 @@
       },
       "hf:hcp": {
         "G_MAE_eV_per_atom": 14.338349069661298,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1252,
         "pairs": {
@@ -61,6 +64,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],
@@ -83,7 +87,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.6725239616613419,
         "seeds": [
           0
@@ -91,6 +95,7 @@
       },
       "sio2:cristobalite_beta": {
         "G_MAE_eV_per_atom": 0.17355169711050072,
+        "balanced_sign_accuracy": 0.3270163735597332,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1649,
         "pairs": {
@@ -104,6 +109,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               7.551407561479095e-06
             ],
@@ -129,6 +135,7 @@
             "Tc_err_from_dG_K": [],
             "Tc_error_K": [],
             "Tc_scatter_K": [],
+            "balanced_sign_accuracy": 0.15403274711946635,
             "crossing_slope_eV_per_atom_per_K": [],
             "delta_G_MAE_at_crossing_eV_per_atom": [],
             "delta_G_MAE_eV_per_atom": 0.002923482980987363,
@@ -149,7 +156,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.0,
         "seeds": [
           0
@@ -157,6 +164,7 @@
       },
       "sio2:quartz_beta": {
         "G_MAE_eV_per_atom": 0.14779619723489765,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1649,
         "pairs": {
@@ -170,6 +178,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               7.551407561479095e-06
             ],
@@ -201,6 +210,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               7.448345272997869e-06
             ],
@@ -223,7 +233,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.0,
         "seeds": [
           0
@@ -231,6 +241,7 @@
       },
       "sio2:tridymite_p63mmc": {
         "G_MAE_eV_per_atom": 0.1763411789276057,
+        "balanced_sign_accuracy": 0.3270163735597332,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1649,
         "pairs": {
@@ -238,6 +249,7 @@
             "Tc_err_from_dG_K": [],
             "Tc_error_K": [],
             "Tc_scatter_K": [],
+            "balanced_sign_accuracy": 0.15403274711946635,
             "crossing_slope_eV_per_atom_per_K": [],
             "delta_G_MAE_at_crossing_eV_per_atom": [],
             "delta_G_MAE_eV_per_atom": 0.002923482980987363,
@@ -267,6 +279,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               7.448345272997869e-06
             ],
@@ -289,7 +302,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.0,
         "seeds": [
           0
@@ -297,6 +310,7 @@
       },
       "ti:bcc": {
         "G_MAE_eV_per_atom": 12.573740998754195,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 693,
         "pairs": {
@@ -310,6 +324,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],
@@ -332,7 +347,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.25396825396825395,
         "seeds": [
           0
@@ -340,6 +355,7 @@
       },
       "ti:hcp": {
         "G_MAE_eV_per_atom": 12.837198524073004,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 693,
         "pairs": {
@@ -353,6 +369,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],
@@ -375,7 +392,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.25396825396825395,
         "seeds": [
           0
@@ -383,6 +400,7 @@
       },
       "zr:bcc": {
         "G_MAE_eV_per_atom": 14.109515087821046,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 910,
         "pairs": {
@@ -396,6 +414,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               6.666666666665932e-05
             ],
@@ -418,7 +437,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.4010989010989011,
         "seeds": [
           0
@@ -426,6 +445,7 @@
       },
       "zr:hcp": {
         "G_MAE_eV_per_atom": 14.275796986688738,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 910,
         "pairs": {
@@ -439,6 +459,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               6.666666666665932e-05
             ],
@@ -461,7 +482,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.4010989010989011,
         "seeds": [
           0
@@ -470,7 +491,7 @@
     },
     "method": "qh_only",
     "n_test_frames": 10657,
-    "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+    "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
     "seeds": [
       0
     ]
@@ -481,7 +502,7 @@
     "evaluator_version": "fes_bench.eval.run precomputed curves",
     "formula": "G_T1(T) = E_DPA + F_QH(T)",
     "fqh_imaginary_modes": "excluded by adopted QH producer",
-    "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "head_policy": "configs/models/head_policy.yaml",
     "head_policy_sha256": "9c7a2e4d120d126458d27cad1f68d278dca27d808a952f695c50a37601e9772f",
     "input_sha256": [
@@ -664,6 +685,6 @@
     "seed_policy": "n/a:no_seed",
     "split": "phase_lopo",
     "split_sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78",
-    "timestamp_utc": "2026-10-01T22:49:41.254317+00:00"
+    "timestamp_utc": "2026-10-03T01:06:08.276855+00:00"
   }
 }

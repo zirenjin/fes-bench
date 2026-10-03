@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "split": "system_loso",
     "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
     "predictor_config": "configs/predictors/interp_const.yaml",
@@ -8,22 +8,23 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T22:26:52.374330+00:00",
+    "timestamp_utc": "2026-10-03T00:55:28.140046+00:00",
     "input_metrics": "result/experiments/external_baselines/metrics.json",
-    "input_metrics_sha256": "cd3539a61311dd7684ee1cdea36969671345775d15d0de18136d58f78ceeeb1b",
-    "missing": [],
-    "pair_orientation": "data/processed/<system>/reference_crossings.json"
+    "input_metrics_sha256": "ff114ae7298c28d105f3508a8b72d89537d1cca75c1b77881120cc89ac3a067e",
+    "missing": []
   },
   "metrics": {
     "folds": {
       "hf": {
         "G_MAE_eV_per_atom": null,
         "aggregate_pair_MAE_eV_per_atom": null,
+        "balanced_sign_accuracy": null,
         "global_mean_delta_g_eV_per_atom": 0.0028442295695570792,
         "n_test_frames": 2504,
         "overlap_T": {
           "G_MAE_eV_per_atom": null,
           "aggregate_pair_MAE_eV_per_atom": null,
+          "balanced_sign_accuracy": null,
           "global_mean_delta_g_eV_per_atom": 0.0028442295695570792,
           "n_test_frames": 904,
           "pairs": {
@@ -47,6 +48,7 @@
       "ti": {
         "G_MAE_eV_per_atom": null,
         "aggregate_pair_MAE_eV_per_atom": null,
+        "balanced_sign_accuracy": null,
         "global_mean_delta_g_eV_per_atom": -0.004169287696577244,
         "n_test_frames": 1386,
         "pairs": {
@@ -61,6 +63,7 @@
       "zr": {
         "G_MAE_eV_per_atom": null,
         "aggregate_pair_MAE_eV_per_atom": null,
+        "balanced_sign_accuracy": null,
         "global_mean_delta_g_eV_per_atom": -0.003557994858611825,
         "n_test_frames": 1820,
         "pairs": {

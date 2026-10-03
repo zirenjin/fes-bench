@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "split": "phase_lopo",
     "split_sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78",
     "predictor_config": null,
@@ -8,11 +8,10 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T21:00:22.360736+00:00",
+    "timestamp_utc": "2026-10-03T00:18:40.520870+00:00",
     "input_metrics": "result/experiments/legacy_support/reference_noise_0.005/phase_lopo/metrics.json",
     "input_metrics_sha256": "1143e76ce6e236e10cec807d688b91d06ad471ca5275298a42fb4af7e32659ba",
-    "missing": [],
-    "pair_orientation": "data/processed/<system>/reference_crossings.json"
+    "missing": []
   },
   "metrics": {
     "G_MAE_eV_per_atom": 0.0027356408589656604,
@@ -23,7 +22,7 @@
         "coverage_2sigma": 1.0,
         "n_test_frames": 1252,
         "pairs": {
-          "hf:hcp_minus_bcc": {
+          "hf:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
               14.478547975251207
             ],
@@ -64,7 +63,7 @@
         "coverage_2sigma": 1.0,
         "n_test_frames": 1252,
         "pairs": {
-          "hf:hcp_minus_bcc": {
+          "hf:bcc_minus_hcp": {
             "Tc_err_from_dG_K": [
               14.478547975251207
             ],

@@ -5,6 +5,7 @@ Metric definitions:
 - delta_G_MAE | mean absolute error of pair ΔG = G(left) − G(right) | eV/atom | ↓
 - delta_G_RMSE | root mean squared error of pair ΔG | eV/atom | ↓
 - sign_accuracy | fraction of evaluation points with matching ΔG sign | fraction | ↑
+- balanced_sign_accuracy | mean of positive- and negative-reference sign recall (classes present on the evaluated grid) | fraction | ↑
 - Tc_error | predicted crossing temperature minus reference crossing temperature (signed; smaller magnitude is better) | K | ↓ (magnitude)
 - false_crossings | predicted crossings beyond the reference crossing count | count | ↓
 - missed_crossings | reference crossings not predicted | count | ↓
@@ -71,6 +72,24 @@ def _root(delta: np.ndarray, temperatures: np.ndarray, merge_within_K: float = 0
         else:
             clusters.append([value])
     return [float(np.mean(cluster)) for cluster in clusters]
+
+
+def _balanced_sign_accuracy(observed: np.ndarray, reference: np.ndarray) -> float:
+    """Return class-balanced sign accuracy without counting exact-zero labels.
+
+    A non-crossing pair has only one sign class on its frozen grid.  In that
+    structural case the mean is taken over the class that is present; this
+    keeps the metric defined while making the convention explicit in the
+    provenance and table documentation.
+    """
+    classes: list[float] = []
+    positive = reference > 0.0
+    negative = reference < 0.0
+    if np.any(positive):
+        classes.append(float(np.mean(observed[positive] > 0.0)))
+    if np.any(negative):
+        classes.append(float(np.mean(observed[negative] < 0.0)))
+    return float(np.mean(classes)) if classes else 0.0
 
 
 def _predictor(spec: str, seed: int, key: str, reference: np.ndarray) -> np.ndarray:
@@ -346,6 +365,7 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                     "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
                     "delta_G_MAE_at_crossing_eV_per_atom": crossing_mae if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
                     "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
+                    "balanced_sign_accuracy": _balanced_sign_accuracy(observed, reference),
                     "reference_Tc_K": roots_reference,
                     "predicted_Tc_K": roots_predicted if not degenerate else ["n/a:degenerate_prediction"],
                     "predicted_Tc_by_seed_K": seed_roots if not degenerate else [["n/a:degenerate_prediction"] for _ in seeds],
@@ -364,12 +384,14 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
                     "false_crossings": max(0, len(roots_predicted) - len(roots_reference)) if not degenerate else "n/a:degenerate_prediction",
                     "missed_crossings": max(0, len(roots_reference) - len(roots_predicted)) if not degenerate else "n/a:degenerate_prediction",
                 }
+    pair_values = [pair for pair in pair_metrics.values() if isinstance(pair, dict) and isinstance(pair.get("delta_G_MAE_eV_per_atom"), (int, float))]
     return {
         "predictor": spec,
         "n_test_frames": len(test),
         "seeds": seeds,
         "G_MAE_eV_per_atom": float(np.mean(point_errors)) if point_errors else math.nan,
         "ranking_accuracy": float(np.mean(ranking_values)) if ranking_values else math.nan,
+        "balanced_sign_accuracy": float(np.mean([float(pair["balanced_sign_accuracy"]) for pair in pair_values])) if pair_values else math.nan,
         "coverage_2sigma": float(np.mean(coverage_values)) if coverage_values else math.nan,
         "pairs": pair_metrics,
     }

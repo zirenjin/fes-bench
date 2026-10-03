@@ -128,7 +128,7 @@ def write_pair_details(root: Path, split_name: str, metrics: dict[str, Any], pha
     fields = [
         "split", "fold", "eval_subset", "pair", "left_qh_reliable", "right_qh_reliable",
         "delta_G_MAE_eV_per_atom", "sign_accuracy", "Tc_error_K", "Tc_err_from_dG_K",
-        "false_crossings", "missed_crossings",
+        "balanced_sign_accuracy", "false_crossings", "missed_crossings",
     ]
     rows: list[dict[str, Any]] = []
     def add(fold_name: str, subset: str, view: dict[str, Any]) -> None:
@@ -140,17 +140,23 @@ def write_pair_details(root: Path, split_name: str, metrics: dict[str, Any], pha
                 left, right = pair_name.split("_minus_", 1)
             else:
                 left, right = pair_name, ""
+            # The evaluator may expose metal pairs in the reverse direction;
+            # detail tables use the repository's canonical hcp-minus-bcc name.
+            display_left, display_right = left, right
+            if system in {"hf", "ti", "zr"} and (left, right) == ("bcc", "hcp"):
+                display_left, display_right = "hcp", "bcc"
             left_meta = phase_meta.get(f"{system}:{left}", {})
             right_meta = phase_meta.get(f"{system}:{right}", {})
             rows.append({
                 "split": split_name,
                 "fold": fold_name,
                 "eval_subset": subset,
-                "pair": pair,
-                "left_qh_reliable": left_meta.get("qh_reliable", ""),
-                "right_qh_reliable": right_meta.get("qh_reliable", ""),
+                "pair": f"{system}:{display_left}_minus_{display_right}" if right else pair,
+                "left_qh_reliable": phase_meta.get(f"{system}:{display_left}", left_meta).get("qh_reliable", ""),
+                "right_qh_reliable": phase_meta.get(f"{system}:{display_right}", right_meta).get("qh_reliable", ""),
                 "delta_G_MAE_eV_per_atom": record.get("delta_G_MAE_eV_per_atom", ""),
                 "sign_accuracy": record.get("sign_accuracy", ""),
+                "balanced_sign_accuracy": record.get("balanced_sign_accuracy", ""),
                 "Tc_error_K": _json_or_marker(record.get("Tc_error_K", "")),
                 "Tc_err_from_dG_K": _json_or_marker(record.get("Tc_err_from_dG_K", "")),
                 "false_crossings": record.get("false_crossings", ""),

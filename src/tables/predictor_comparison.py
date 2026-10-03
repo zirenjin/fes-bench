@@ -53,7 +53,7 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
 
     g_values: list[tuple[float, int]] = []
     ranking_values: list[tuple[float, int]] = []
-    pair_values: dict[str, list[tuple[float, int]]] = {key: [] for key in ("delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy")}
+    pair_values: dict[str, list[tuple[float, int]]] = {key: [] for key in ("delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "balanced_sign_accuracy")}
     tc_values: list[float] = []
     slope_values: list[float] = []
     false_values: list[int] = []
@@ -106,18 +106,19 @@ def summarize(metrics: dict[str, Any], include_all_pairs: bool, system: str | No
                     target.append(int(value))
     unavailable = marker(markers)
     tc_unavailable = (NO_REFERENCE if no_reference and not tc_values and NO_TRAINING not in markers else unavailable)
-    pair_only = str(metrics.get("method", "")) in {"zero", "constant_delta_g", "global_mean_delta_g"}
+    pair_only = str(metrics.get("method", "")) in {"zero", "constant_delta_g", "global_mean_delta_g", "constant_sign"}
     g_mae = weighted(g_values) if system is None and g_values else (PAIR_ONLY if pair_only else "n/a:input_unavailable")
     return {
         "G_MAE_eV_per_atom": g_mae,
-        "delta_G_MAE_eV_per_atom": weighted(pair_values["delta_G_MAE_eV_per_atom"]) if pair_values["delta_G_MAE_eV_per_atom"] else (unavailable or ""),
-        "delta_G_RMSE_eV_per_atom": weighted(pair_values["delta_G_RMSE_eV_per_atom"]) if pair_values["delta_G_RMSE_eV_per_atom"] else (unavailable or ""),
-        "sign_accuracy": weighted(pair_values["sign_accuracy"]) if pair_values["sign_accuracy"] else (unavailable or ""),
+        "delta_G_MAE_eV_per_atom": weighted(pair_values["delta_G_MAE_eV_per_atom"]) if pair_values["delta_G_MAE_eV_per_atom"] else (unavailable or "n/a:input_unavailable"),
+        "delta_G_RMSE_eV_per_atom": weighted(pair_values["delta_G_RMSE_eV_per_atom"]) if pair_values["delta_G_RMSE_eV_per_atom"] else (unavailable or "n/a:input_unavailable"),
+        "sign_accuracy": weighted(pair_values["sign_accuracy"]) if pair_values["sign_accuracy"] else (unavailable or "n/a:input_unavailable"),
+        "balanced_sign_accuracy": weighted(pair_values["balanced_sign_accuracy"]) if pair_values["balanced_sign_accuracy"] else (unavailable or "n/a:input_unavailable"),
         "ranking_accuracy": weighted(ranking_values) if ranking_values else (unavailable or "n/a:input_unavailable"),
-        "Tc_error_K": sum(tc_values) / len(tc_values) if tc_values else (tc_unavailable or ""),
-        "Tc_err_from_dG_K": sum(slope_values) / len(slope_values) if slope_values else (tc_unavailable or ""),
-        "false_crossings": sum(false_values) if false_values else (tc_unavailable or ""),
-        "missed_crossings": sum(missed_values) if missed_values else (tc_unavailable or ""),
+        "Tc_error_K": sum(tc_values) / len(tc_values) if tc_values else (tc_unavailable or "n/a:input_unavailable"),
+        "Tc_err_from_dG_K": sum(slope_values) / len(slope_values) if slope_values else (tc_unavailable or "n/a:input_unavailable"),
+        "false_crossings": sum(false_values) if false_values else (tc_unavailable or "n/a:input_unavailable"),
+        "missed_crossings": sum(missed_values) if missed_values else (tc_unavailable or "n/a:input_unavailable"),
         "pairs_covered": len(pairs_covered),
         "all_pairs_seen": len(all_pairs_seen),
     }
@@ -133,7 +134,7 @@ def result_rows(rows: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
     output = []
     for predictor, summary in rows.items():
         mae = numeric(summary["delta_G_MAE_eV_per_atom"])
-        values = {key: ("n/a:input_unavailable" if summary[key] == "" else summary[key]) for key in ("G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered")}
+        values = {key: ("n/a:input_unavailable" if summary[key] == "" else summary[key]) for key in ("G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "balanced_sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered")}
         output.append({
             "predictor": predictor,
             **values,
@@ -150,6 +151,7 @@ def e1_rows() -> list[dict[str, Any]]:
 
 
 DISPLAY = {
+    "constant_sign": "constant_sign",
     "qh_only": "E + F_QH",
     "qh_residual": "E + F_QH + r_theta",
     "thermo_form_fit": "thermo-form fit",
@@ -158,7 +160,7 @@ DISPLAY = {
 }
 
 
-FIELDS = ["predictor", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "skill_score", "floor_predictor", "seed_mean", "seed_std"]
+FIELDS = ["predictor", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "balanced_sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "skill_score", "floor_predictor", "seed_mean", "seed_std"]
 
 
 def t3_train_gate(body: dict[str, Any]) -> tuple[bool, str]:
@@ -254,7 +256,7 @@ def main() -> int:
     csv_write(csv_path, FIELDS, rows)
     csv_write(output / f"predictor_comparison_{args.split}_include_all_pairs.csv", FIELDS, all_rows)
     csv_write(output / f"predictor_comparison_{args.split}_sio2.csv", FIELDS, sio2_rows)
-    csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "eval_subset", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen", "skill_score", "floor_predictor"], fold_rows)
+    csv_write(output / f"predictor_comparison_{args.split}_folds.csv", ["predictor", "fold", "eval_subset", "n_test_frames", "G_MAE_eV_per_atom", "delta_G_MAE_eV_per_atom", "delta_G_RMSE_eV_per_atom", "sign_accuracy", "balanced_sign_accuracy", "ranking_accuracy", "Tc_error_K", "Tc_err_from_dG_K", "false_crossings", "missed_crossings", "pairs_covered", "all_pairs_seen", "skill_score", "floor_predictor"], fold_rows)
     overlap_summaries: dict[str, dict[str, Any]] = {}
     for predictor, metric_list in grouped.items():
         overlap_folds: dict[str, Any] = {}

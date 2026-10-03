@@ -183,3 +183,29 @@ Checkpoint provenance for E_DPA/F_QH artifacts is indexed by
 the head selected by `configs/models/head_policy.yaml`. Bartel, QH,
 imaginary-mode, and E4
 before/after changes are under `tables/_changes/`.
+
+## Single-sided QH controls
+
+`experiments/single_side_qh_dft.py` produces the DFT-static replacement and
+the sign-only `constant_sign` control without training. The replacement uses
+`G_corr = F_QH - E_DPA + E_DFT`; the manifest records the adopted
+`final-adopted-converged` DFT status and source hashes for all nine phases.
+Pair-level details and summaries are under
+`experiments/single_side_qh/`. `balanced_sign_accuracy` is the mean recall
+of the positive and negative reference-sign classes on the evaluated grid
+(for a one-sign pair, the present class is used). The `thermo_form_fit`
+crossing error follows the residual-oracle/B0-R3 convention: signed root
+displacement for `Tc_error_K` and `|ΔG(Tc)|/|slope|` for
+`Tc_err_from_dG_K`.
+
+## DFT static-energy error budget
+
+The VASP static-energy error-budget experiment is indexed by:
+
+- `experiments/dft_static/reference_settings.csv`: reference VASP settings and PAW TITEL provenance.
+- `experiments/dft_static/dpa_vs_dft_snapshots.csv`: DPA-versus-reference-DFT snapshot biases.
+- `experiments/dft_static/delta_E_comparison.csv`: five pairwise DPA/DFT energy comparisons.
+- `experiments/dft_static/convergence.csv`: k-point and ENCUT convergence evidence.
+- `experiments/dft_static/relaxed_structures.csv`: relaxed-structure space-group and force-convergence audit.
+- `experiments/dft_static/summary.md`: numeric conclusions and deviations.
+- `experiments/dft_static/findings.meta.json`: commit, executable, POTCAR, input-hash, checkpoint, head, and platform provenance.

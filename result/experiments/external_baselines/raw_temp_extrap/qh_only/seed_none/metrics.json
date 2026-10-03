@@ -1,6 +1,7 @@
 {
   "metrics": {
     "G_MAE_eV_per_atom": 7.255412985324305,
+    "balanced_sign_accuracy": 0.4166666666666667,
     "coverage_2sigma": 0.0,
     "method": "qh_only",
     "n_test_frames": 6705,
@@ -15,6 +16,7 @@
         "Tc_scatter_K": [
           NaN
         ],
+        "balanced_sign_accuracy": 0.5,
         "crossing_slope_eV_per_atom_per_K": [
           4.999999999999449e-05
         ],
@@ -46,6 +48,7 @@
         "Tc_scatter_K": [
           NaN
         ],
+        "balanced_sign_accuracy": 0.5,
         "crossing_slope_eV_per_atom_per_K": [
           7.551407561479095e-06
         ],
@@ -71,6 +74,7 @@
         "Tc_err_from_dG_K": [],
         "Tc_error_K": [],
         "Tc_scatter_K": [],
+        "balanced_sign_accuracy": 0.0,
         "crossing_slope_eV_per_atom_per_K": [],
         "delta_G_MAE_at_crossing_eV_per_atom": [],
         "delta_G_MAE_eV_per_atom": 0.004136022411589148,
@@ -96,6 +100,7 @@
         "Tc_scatter_K": [
           NaN
         ],
+        "balanced_sign_accuracy": 0.5,
         "crossing_slope_eV_per_atom_per_K": [
           7.448345272997869e-06
         ],
@@ -127,6 +132,7 @@
         "Tc_scatter_K": [
           NaN
         ],
+        "balanced_sign_accuracy": 0.5,
         "crossing_slope_eV_per_atom_per_K": [
           4.999999999999449e-05
         ],
@@ -158,6 +164,7 @@
         "Tc_scatter_K": [
           NaN
         ],
+        "balanced_sign_accuracy": 0.5,
         "crossing_slope_eV_per_atom_per_K": [
           6.666666666665932e-05
         ],
@@ -180,7 +187,7 @@
         "status": "ok"
       }
     },
-    "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+    "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
     "ranking_accuracy": 0.10446175637393768,
     "seeds": [
       0
@@ -192,7 +199,7 @@
     "evaluator_version": "fes_bench.eval.run precomputed curves",
     "formula": "G_T1(T) = E_DPA + F_QH(T)",
     "fqh_imaginary_modes": "excluded by adopted QH producer",
-    "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "head_policy": "configs/models/head_policy.yaml",
     "head_policy_sha256": "9c7a2e4d120d126458d27cad1f68d278dca27d808a952f695c50a37601e9772f",
     "input_sha256": [
@@ -375,6 +382,6 @@
     "seed_policy": "n/a:no_seed",
     "split": "temp_extrap",
     "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
-    "timestamp_utc": "2026-10-01T22:49:23.981359+00:00"
+    "timestamp_utc": "2026-10-03T01:05:34.188949+00:00"
   }
 }

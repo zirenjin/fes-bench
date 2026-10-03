@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "split": "temp_extrap",
     "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
     "predictor_config": null,
@@ -8,17 +8,17 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T22:26:53.865291+00:00",
+    "timestamp_utc": "2026-10-03T00:55:28.963202+00:00",
     "input_metrics": "result/experiments/external_baselines/metrics.json",
-    "input_metrics_sha256": "cd3539a61311dd7684ee1cdea36969671345775d15d0de18136d58f78ceeeb1b",
-    "missing": [],
-    "pair_orientation": "data/processed/<system>/reference_crossings.json"
+    "input_metrics_sha256": "ff114ae7298c28d105f3508a8b72d89537d1cca75c1b77881120cc89ac3a067e",
+    "missing": []
   },
   "metrics": {
     "folds": {
       "all": {
         "G_MAE_eV_per_atom": null,
         "aggregate_pair_MAE_eV_per_atom": 0.010245054977311477,
+        "balanced_sign_accuracy": 0.5833333333333334,
         "global_mean_delta_g_eV_per_atom": -0.006587533029807152,
         "n_test_frames": 6705,
         "pairs": {
@@ -29,6 +29,7 @@
             "Tc_error_K": [
               "n/a:missed_crossing"
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               0.0
             ],
@@ -51,6 +52,7 @@
           "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
             "Tc_err_from_dG_K": [],
             "Tc_error_K": [],
+            "balanced_sign_accuracy": 1.0,
             "crossing_slope_eV_per_atom_per_K": [],
             "delta_G_MAE_at_crossing_eV_per_atom": [],
             "delta_G_MAE_eV_per_atom": 0.006301708738237342,
@@ -71,6 +73,7 @@
             "Tc_error_K": [
               "n/a:missed_crossing"
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               7.551407561479095e-06
             ],
@@ -97,6 +100,7 @@
             "Tc_error_K": [
               "n/a:missed_crossing"
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               7.448345272997869e-06
             ],
@@ -123,6 +127,7 @@
             "Tc_error_K": [
               "n/a:missed_crossing"
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               0.0
             ],
@@ -149,6 +154,7 @@
             "Tc_error_K": [
               "n/a:missed_crossing"
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],

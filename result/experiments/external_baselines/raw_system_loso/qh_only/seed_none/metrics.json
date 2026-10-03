@@ -5,10 +5,12 @@
     "folds": {
       "hf": {
         "G_MAE_eV_per_atom": 14.091092202793869,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 2504,
         "overlap_T": {
           "G_MAE_eV_per_atom": 14.162690878953462,
+          "balanced_sign_accuracy": 1.0,
           "coverage_2sigma": 0.0,
           "n_test_frames": 904,
           "pairs": {
@@ -16,6 +18,7 @@
               "Tc_err_from_dG_K": [],
               "Tc_error_K": [],
               "Tc_scatter_K": [],
+              "balanced_sign_accuracy": 1.0,
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
               "delta_G_MAE_eV_per_atom": 0.41221375156748025,
@@ -32,7 +35,7 @@
               "status": "ok"
             }
           },
-          "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+          "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
           "ranking_accuracy": 1.0,
           "seeds": [
             0
@@ -49,6 +52,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],
@@ -71,7 +75,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.6725239616613419,
         "seeds": [
           0
@@ -79,6 +83,7 @@
       },
       "ti": {
         "G_MAE_eV_per_atom": 12.705469761413601,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1386,
         "pairs": {
@@ -92,6 +97,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               4.999999999999449e-05
             ],
@@ -114,7 +120,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.25396825396825395,
         "seeds": [
           0
@@ -122,6 +128,7 @@
       },
       "zr": {
         "G_MAE_eV_per_atom": 14.192656037254892,
+        "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1820,
         "pairs": {
@@ -135,6 +142,7 @@
             "Tc_scatter_K": [
               NaN
             ],
+            "balanced_sign_accuracy": 0.5,
             "crossing_slope_eV_per_atom_per_K": [
               6.666666666665932e-05
             ],
@@ -157,7 +165,7 @@
             "status": "ok"
           }
         },
-        "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+        "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
         "ranking_accuracy": 0.4010989010989011,
         "seeds": [
           0
@@ -166,7 +174,7 @@
     },
     "method": "qh_only",
     "n_test_frames": 5710,
-    "predictor": "precomputed:/mnt/c/users/ziren/documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
+    "predictor": "precomputed:/mnt/c/Users/ziren/Documents/dpa-adapt/fes-bench/result/experiments/t1_qh/curves.json",
     "seeds": [
       0
     ]
@@ -177,7 +185,7 @@
     "evaluator_version": "fes_bench.eval.run precomputed curves",
     "formula": "G_T1(T) = E_DPA + F_QH(T)",
     "fqh_imaginary_modes": "excluded by adopted QH producer",
-    "git_commit": "8d69cfa2b5d73fdc3b5e9fe53b0ac0a56fdbcae1",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "head_policy": "configs/models/head_policy.yaml",
     "head_policy_sha256": "9c7a2e4d120d126458d27cad1f68d278dca27d808a952f695c50a37601e9772f",
     "input_sha256": [
@@ -360,6 +368,6 @@
     "seed_policy": "n/a:no_seed",
     "split": "system_loso",
     "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
-    "timestamp_utc": "2026-10-01T22:49:45.766614+00:00"
+    "timestamp_utc": "2026-10-03T01:06:16.111977+00:00"
   }
 }

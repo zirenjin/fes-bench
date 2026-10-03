@@ -78,6 +78,7 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
             "delta_G_MAE_eV_per_atom": "n/a:no_training_phase",
             "delta_G_RMSE_eV_per_atom": "n/a:no_training_phase",
             "sign_accuracy": "n/a:no_training_phase",
+            "balanced_sign_accuracy": "n/a:no_training_phase",
             "reference_Tc_K": roots_ref,
             "predicted_Tc_K": ["n/a:no_training_phase"],
             "Tc_error_K": ["n/a:no_training_phase"] * len(roots_ref),
@@ -92,6 +93,11 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
     missed = (not degenerate) and len(roots_pred) < len(roots_ref)
     crossing_error = [float(abs(np.interp(root, temperatures, observed - reference))) for root in roots_ref]
     slopes = [_slope(reference, temperatures, root) for root in roots_ref]
+    sign_classes = []
+    if np.any(reference > 0.0):
+        sign_classes.append(float(np.mean(observed[reference > 0.0] > 0.0)))
+    if np.any(reference < 0.0):
+        sign_classes.append(float(np.mean(observed[reference < 0.0] < 0.0)))
     return {
         "status": "degenerate_prediction" if degenerate else "ok",
         "train_delta_G_mean_eV_per_atom": constant,
@@ -99,6 +105,7 @@ def _pair_metrics(reference: np.ndarray, observed: np.ndarray, temperatures: np.
         "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(observed - reference))),
         "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
         "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
+        "balanced_sign_accuracy": float(np.mean(sign_classes)) if sign_classes else 0.0,
         "reference_Tc_K": roots_ref,
         "predicted_Tc_K": roots_pred if not degenerate else ["n/a:degenerate_prediction"],
         "Tc_error_K": ["n/a:missed_crossing"] * len(roots_ref) if missed else ([float(pred - ref) for pred, ref in zip(roots_pred, roots_ref)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_ref)),
@@ -145,6 +152,8 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
             reference = np.array([left_eval[t] - right_eval[t] for t in temperatures])
             if method == "zero":
                 observed, fitted, constant = np.zeros_like(reference), True, 0.0
+            elif method == "constant_sign":
+                observed, fitted, constant = np.full_like(reference, -1.0e-9), True, -1.0e-9
             elif method == "thermo_form_fit" and train_shared:
                 left_train, right_train = cached_curve(system, left, train_shared), cached_curve(system, right, train_shared)
                 shared_train_t = np.array(sorted(set(left_train) & set(right_train)), dtype=float)
@@ -174,6 +183,8 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
                 reference = phase_curves[left][temperature] - phase_curves[right][temperature]
                 if method == "zero":
                     observed = 0.0
+                elif method == "constant_sign":
+                    observed = -1.0e-9
                 else:
                     train_shared = train.get((system, left), set()) & train.get((system, right), set())
                     if not train_shared:
@@ -195,6 +206,7 @@ def _evaluate_fold(fold: dict[str, object], data_root: Path, method: str) -> dic
         "pairs": pairs,
         "aggregate_pair_MAE_eV_per_atom": float(np.mean([v["delta_G_MAE_eV_per_atom"] for v in eligible])) if eligible else None,
         "aggregate_pair_sign_accuracy": float(np.mean([v["sign_accuracy"] for v in eligible])) if eligible else None,
+        "balanced_sign_accuracy": float(np.mean([v["balanced_sign_accuracy"] for v in eligible])) if eligible else None,
         "n_fittable_pairs": len(eligible),
         "ranking_accuracy": "n/a:no_training_phase" if ranking_unavailable else (float(np.mean(ranking_values)) if ranking_values else None),
         "ranking_accuracy_by_system": {system: ("n/a:no_training_phase" if ranking_unavailable else float(np.mean(values))) for system, values in ranking_by_system.items() if values},
@@ -254,7 +266,7 @@ def main(argv: list[str] | None = None) -> int:
         split_path = Path(split_arg)
         split = json.loads(split_path.read_text(encoding="utf-8"))
         split_name = split_path.stem
-        all_payload[split_name] = {method: _evaluate(split, data_root, method) for method in ("zero", "constant_delta_g", "thermo_form_fit")}
+        all_payload[split_name] = {method: _evaluate(split, data_root, method) for method in ("zero", "constant_delta_g", "constant_sign", "thermo_form_fit")}
     (output / "metrics.json").write_text(json.dumps(_json_safe(all_payload), indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8")
     (output / "summary.md").write_text(_markdown({name: data["zero"] for name, data in all_payload.items()}, "Zero ΔG floor") + "\n\n" + _markdown({name: data["constant_delta_g"] for name, data in all_payload.items()}, "Training-mean constant ΔG floor") + "\n", encoding="utf-8")
     print(output / "metrics.json")

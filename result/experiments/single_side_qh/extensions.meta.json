@@ -1,9 +1,9 @@
 {
-  "git_commit": "6af78657d0a123f8e1f16df786db9d78a65bb1d4",
-  "generated_at_utc": "2026-10-02T23:49:43.824513+00:00",
+  "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
+  "generated_at_utc": "2026-10-03T00:44:38.701496+00:00",
   "script": {
     "path": "src/experiments/single_side_qh_extensions.py",
-    "sha256": "5f20794f5322ac0e6a3f064029c0ae4157003c2bcb725b98921935fb687378f2"
+    "sha256": "792592c75421f9889345b1cb1d99fdf313211258e315bd7f7ca32e134ca36379"
   },
   "split": {
     "path": "data/processed/splits_v2/temp_extrap.json",

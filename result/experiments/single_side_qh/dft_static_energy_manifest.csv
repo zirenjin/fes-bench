@@ -1,0 +1,10 @@
+system,phase,E_DFT_eV_per_atom,n_atoms,source_path,source_sha256,convergence_status
+hf,hcp,-9.926452385,2,dft_static_work/results/final-adopted-converged/hf/hcp/final_static/k242424_encut2.000/OUTCAR,dd4716aad3416665590e7ba8ac94b8aa854b9fde22a747521c0075c2d2838d18,final-adopted-converged
+hf,bcc,-9.74414213,1,dft_static_work/results/final-adopted-converged/hf/bcc/final_static/k242424_encut2.000/OUTCAR,849f5b4636b1b665297514b5097c65f86b62b9f695efeeb989a0295d39375176,final-adopted-converged
+ti,hcp,-7.80412897,2,dft_static_work/results/final-adopted-converged/ti/hcp/final_static/k242424_encut2.000/OUTCAR,3636de7e9abfdd0f0b676ae20fba0014faa4dc39b955becebafd04b0228b089e,final-adopted-converged
+ti,bcc,-7.69405448,2,dft_static_work/results/final-adopted-converged/ti/bcc/final_static/k242424_encut2.000/OUTCAR,ca2995aa129b9e84481bbf41f066920122100e9ff11484bbb65bb96cda13b012,final-adopted-converged
+zr,hcp,-8.52150345,2,dft_static_work/results/final-adopted-converged/zr/hcp/final_static/k242424_encut2.000/OUTCAR,3f9d926a6a5cca693b44bd139388e13bc4f82fcd590c5995b93cff38848560d5,final-adopted-converged
+zr,bcc,-8.43685018,2,dft_static_work/results/final-adopted-converged/zr/bcc/final_static/k242424_encut2.000/OUTCAR,37331266261dd23a323d00a177c91759106b5284b1fabe96a9f367c092366fa5,final-adopted-converged
+sio2,quartz_beta,-7.904058211111111,9,dft_static_work/results/final-adopted-converged/sio2/quartz_beta/final_static/k555_encut1.000/OUTCAR,194db370878cd0daa4d9b0e721a8eba4784980f8c8386c879feb12558890314e,final-adopted-converged
+sio2,cristobalite_beta,-7.905212690833333,24,dft_static_work/results/final-adopted-converged/sio2/cristobalite_beta/final_static/k555_encut1.000/OUTCAR,ba1c67d2a467986709e23e095e6e09f1e7951caee0042d105763303ea6ae28c1,final-adopted-converged
+sio2,tridymite_p63mmc,-7.905872100833333,12,dft_static_work/results/final-adopted-converged/sio2/tridymite_p63mmc/final_static/k555_encut1.000/OUTCAR,b4e2cd8c03e4bd2635118727f5eceb8c9653c722e2819b57ce7d3e35513326ba,final-adopted-converged

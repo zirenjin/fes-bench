@@ -1,54 +1,58 @@
 {
-  "generated_utc": "2026-10-02T06:24:12.901696+00:00",
-  "git_commit": "355da72a5ce81e14d6b47ea23e1258ad002d6485",
+  "generated_utc": "2026-10-03T01:04:08.249408+00:00",
+  "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
-      "sha256": "56cf593c4dab3f650037cfc03ab8ee22905cac8fcec7b86dc405b5291a18c9df"
+      "sha256": "e04bd6ca9ebd6ced3007574f7f69fb3493f1b0a2cadcb0997766ad3702c685ae"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_delta_g/seed_none/metrics.json",
-      "sha256": "5a1302ad5782e4c0b99078b168889e380e9b8b6defe7f392fb7711a93cfd5f64"
+      "sha256": "50cb4133d5a455c5d9a0e36280e45eabbd37464ce9ccde5bd06937e183ae6f49"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/constant_offset_0.005/seed_none/metrics.json",
-      "sha256": "7e25534a5e651b0d43441abdf0858f23d745624968a1f134849e8c289050fdaf"
+      "sha256": "fd087947a2a64629eb284e2f9c3054776edb160b6cf3c1ed0d8165a359854792"
+    },
+    {
+      "path": "result/experiments/external_baselines/raw_temp_extrap/constant_sign/seed_none/metrics.json",
+      "sha256": "aabfb9488ea0f38e3d10f64b031bf77fb25bc8077b64602411de92678cf80c05"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/global_mean_delta_g/seed_none/metrics.json",
-      "sha256": "d4c47056996570ac31d58c59d4df439bb7056592077b54a1f012340f30b22921"
+      "sha256": "90aadd23b1170eacc1fb676779e73b47b79234735416bc99f73a5d80013f6cf2"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/interp_const/seed_none/metrics.json",
-      "sha256": "eac4139b366a9efbb24db8ff9ec950d146d85519e9c0e5e380d93849306b14a8"
+      "sha256": "febd70b8a5c4a332de8f1d7b4318f5a8e51d502ded5a0e3f983702eaf5c9f050"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/phase_id_mlp/seed_none/metrics.json",
-      "sha256": "96353cd37bc898b46e12e8b407941d725b58f59745b9eea0655aee17f32bcbaa"
+      "sha256": "bd3fdcf08a905b0abcfc7c3ec4a71f1e43fbc6f79b36d0ee597d149719a91b75"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/qh_only/seed_none/metrics.json",
-      "sha256": "a2dfbfcf65cbebda551340e0a804fdf855186e72df7509c272c36de1fed8c625"
+      "sha256": "9a2274a50e667437f2eb995d502a76afee20674b4d4f9adc38f7be90f8aa8ccf"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
-      "sha256": "9363d281aaf25490fd08b4c277ec10cfba5b451db02d4279e18847b0a469f6f6"
+      "sha256": "78c238a135e9c54f077bf07e1375c89b7173dea6ce822c56767b4a7aa6639b5d"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference_noise_0.005/seed_none/metrics.json",
-      "sha256": "40cf1a074196461cd0a6c2c3f3916a2193b0dd1794f3ccb19ba05ea9b87bd404"
+      "sha256": "df5bce7ca08861ef06635e36d980667379c94959d0417d953f1f5940f861bf43"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/root_stability_iid_0.005/seed_none/metrics.json",
-      "sha256": "cc2846e4afae87b96a844dcda9d002378ef7c4db33274b6f288c8723daecd1db"
+      "sha256": "92ccfb9e4ebb52582ded4ea148bd587e2cd8fdc1cdc2a8a6590eb06ecf7f45a1"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/thermo_form_fit/seed_none/metrics.json",
-      "sha256": "a0a10129be6aac639d5cc8f034f638c26e2396e8fedbfa2d9aa9dd691d9b0333"
+      "sha256": "d1bb485efed5f69f92ccb20f2aec0e8c2592306d00c33092a0e7783c9b99e588"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/zero/seed_none/metrics.json",
-      "sha256": "c59a9b1fa746c3dd7b32a2a74c5c9db7c2645f4450bf83962e5ae75a4dd72fb8"
+      "sha256": "9b953f3e61f86922c524ac27bf4c57be6bce9cefbd74bb46758fdf5de4d6fa7c"
     },
     {
       "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_11/metrics.json",

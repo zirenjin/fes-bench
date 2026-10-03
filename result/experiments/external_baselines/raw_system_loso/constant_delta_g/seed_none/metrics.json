@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "d9c00d2b05170127a3a2d0e1d56e1a680531c67e",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "split": "system_loso",
     "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
     "predictor_config": null,
@@ -8,11 +8,10 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T22:26:56.083024+00:00",
+    "timestamp_utc": "2026-10-03T01:01:18.069952+00:00",
     "input_metrics": "result/experiments/skill_floor/metrics.json",
-    "input_metrics_sha256": "bb3cb5d242dc8f3f8410f06852be0b1fa892d85a64f9e9483fd4bf8615c1cff4",
-    "missing": [],
-    "pair_orientation": "data/processed/<system>/reference_crossings.json"
+    "input_metrics_sha256": "51696f02f3fb2f21560b2ef85f54fa3909520505a46992e529e97bbc3f884e29",
+    "missing": []
   },
   "metrics": {
     "folds": {
@@ -21,6 +20,7 @@
         "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
         "aggregate_pair_MAE_eV_per_atom": null,
         "aggregate_pair_sign_accuracy": null,
+        "balanced_sign_accuracy": null,
         "n_fittable_pairs": 0,
         "n_test_frames": 2504,
         "overlap_T": {
@@ -28,12 +28,14 @@
           "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
           "aggregate_pair_MAE_eV_per_atom": null,
           "aggregate_pair_sign_accuracy": null,
+          "balanced_sign_accuracy": null,
           "n_fittable_pairs": 0,
           "n_test_frames": 904,
           "pairs": {
             "hf:hcp_minus_bcc": {
               "Tc_err_from_dG_K": [],
               "Tc_error_K": [],
+              "balanced_sign_accuracy": "n/a:no_training_phase",
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
               "delta_G_MAE_eV_per_atom": "n/a:no_training_phase",
@@ -63,6 +65,7 @@
             "Tc_error_K": [
               "n/a:no_training_phase"
             ],
+            "balanced_sign_accuracy": "n/a:no_training_phase",
             "crossing_slope_eV_per_atom_per_K": [
               "n/a:no_training_phase"
             ],
@@ -95,6 +98,7 @@
         "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
         "aggregate_pair_MAE_eV_per_atom": null,
         "aggregate_pair_sign_accuracy": null,
+        "balanced_sign_accuracy": null,
         "n_fittable_pairs": 0,
         "n_test_frames": 1386,
         "pairs": {
@@ -105,6 +109,7 @@
             "Tc_error_K": [
               "n/a:no_training_phase"
             ],
+            "balanced_sign_accuracy": "n/a:no_training_phase",
             "crossing_slope_eV_per_atom_per_K": [
               "n/a:no_training_phase"
             ],
@@ -137,6 +142,7 @@
         "G_MAE_note": "Not defined: both floors are ΔG-pair predictors, not phase-energy predictors.",
         "aggregate_pair_MAE_eV_per_atom": null,
         "aggregate_pair_sign_accuracy": null,
+        "balanced_sign_accuracy": null,
         "n_fittable_pairs": 0,
         "n_test_frames": 1820,
         "pairs": {
@@ -147,6 +153,7 @@
             "Tc_error_K": [
               "n/a:no_training_phase"
             ],
+            "balanced_sign_accuracy": "n/a:no_training_phase",
             "crossing_slope_eV_per_atom_per_K": [
               "n/a:no_training_phase"
             ],

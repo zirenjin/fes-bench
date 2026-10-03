@@ -1,0 +1,121 @@
+{
+  "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
+  "generated_at_utc": "2026-10-03T00:53:10.842463+00:00",
+  "script": {
+    "path": "src/experiments/single_side_qh_dft.py",
+    "sha256": "61327d16180177f8adf393a34beb9f5a65433270a35356a40d159526290d9a62"
+  },
+  "inputs": [
+    {
+      "path": "result/experiments/single_side_qh/dft_static_energy_manifest.csv",
+      "sha256": "82a973348cb51adc68bedb1d542b4c80c30f088cf8412a4c15a32db60320df8d"
+    },
+    {
+      "path": "data/processed/splits_v2/temp_extrap.json",
+      "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845"
+    },
+    {
+      "path": "data/processed/splits_v2/phase_lopo.json",
+      "sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78"
+    },
+    {
+      "path": "data/processed/splits_v2/system_loso.json",
+      "sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0"
+    }
+  ],
+  "phase_energy_audit": {
+    "hf:hcp": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -7.193446710705757,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -9.926452385,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/hf/hcp/final_static/k242424_encut2.000/OUTCAR",
+      "dft_source_sha256": "dd4716aad3416665590e7ba8ac94b8aa854b9fde22a747521c0075c2d2838d18",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "hf:bcc": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -7.041414201259613,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -9.74414213,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/hf/bcc/final_static/k242424_encut2.000/OUTCAR",
+      "dft_source_sha256": "849f5b4636b1b665297514b5097c65f86b62b9f695efeeb989a0295d39375176",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "ti:hcp": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -6.429423451423645,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -7.80412897,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/ti/hcp/final_static/k242424_encut2.000/OUTCAR",
+      "dft_source_sha256": "3636de7e9abfdd0f0b676ae20fba0014faa4dc39b955becebafd04b0228b089e",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "ti:bcc": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -6.336648171727275,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0022218823432922363,
+      "E_DFT_eV_per_atom": -7.69405448,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/ti/bcc/final_static/k242424_encut2.000/OUTCAR",
+      "dft_source_sha256": "ca2995aa129b9e84481bbf41f066920122100e9ff11484bbb65bb96cda13b012",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "zr:hcp": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -7.149894490838051,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -8.52150345,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/zr/hcp/final_static/k242424_encut2.000/OUTCAR",
+      "dft_source_sha256": "3f9d926a6a5cca693b44bd139388e13bc4f82fcd590c5995b93cff38848560d5",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "zr:bcc": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -7.084239602088928,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -8.43685018,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/zr/bcc/final_static/k242424_encut2.000/OUTCAR",
+      "dft_source_sha256": "37331266261dd23a323d00a177c91759106b5284b1fabe96a9f367c092366fa5",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "sio2:quartz_beta": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -4.099507447746064,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -7.904058211111111,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/sio2/quartz_beta/final_static/k555_encut1.000/OUTCAR",
+      "dft_source_sha256": "194db370878cd0daa4d9b0e721a8eba4784980f8c8386c879feb12558890314e",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "sio2:cristobalite_beta": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -4.106309541811546,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -7.905212690833333,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/sio2/cristobalite_beta/final_static/k555_encut1.000/OUTCAR",
+      "dft_source_sha256": "ba1c67d2a467986709e23e095e6e09f1e7951caee0042d105763303ea6ae28c1",
+      "dft_convergence_status": "final-adopted-converged"
+    },
+    "sio2:tridymite_p63mmc": {
+      "E_DPA_eV_per_atom_from_F_QH_minus_F_vib_or_file": -4.103704646229744,
+      "F_QH_minus_F_vib_range_eV_per_atom": 0.0,
+      "E_DFT_eV_per_atom": -7.905872100833333,
+      "formula_T1": "E_DPA + F_QH",
+      "formula_DFT_replaced": "F_QH - E_DPA + E_DFT = F_vib + E_DFT",
+      "dft_source_path": "dft_static_work/results/final-adopted-converged/sio2/tridymite_p63mmc/final_static/k555_encut1.000/OUTCAR",
+      "dft_source_sha256": "b4e2cd8c03e4bd2635118727f5eceb8c9653c722e2819b57ce7d3e35513326ba",
+      "dft_convergence_status": "final-adopted-converged"
+    }
+  },
+  "dft_convergence_summary": "final-adopted-converged outputs are present for all nine phases; Hf neighboring-mesh criterion deviation is retained in result/experiments/dft_static/summary.md",
+  "constant_sign_definition": "delta_G = -1e-9 eV/atom for every oriented pair and evaluation point",
+  "no_training": true
+}

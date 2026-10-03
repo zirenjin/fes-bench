@@ -317,6 +317,15 @@ def pair_metrics(temperature: np.ndarray, reference: np.ndarray, predicted: np.n
     }
 
 
+def _unwrap_single(value: object) -> object:
+    """Unwrap canonical one-crossing arrays while preserving markers/lists."""
+    if isinstance(value, list) and len(value) == 1:
+        return value[0]
+    if isinstance(value, list) and not value:
+        return "n/a:no_reference_crossing"
+    return value
+
+
 def pair_rows(root: Path, split: dict[str, list[dict[str, object]]], split_hash: str) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for system, low_phase, high_phase, pair_key in PAIR_DEFS:
@@ -370,8 +379,15 @@ def pair_rows(root: Path, split: dict[str, list[dict[str, object]]], split_hash:
             "delta_G_MAE_eV_per_atom": thermo.get("delta_G_MAE_eV_per_atom"),
             "delta_G_RMSE_eV_per_atom": thermo.get("delta_G_RMSE_eV_per_atom"),
             "sign_accuracy": thermo.get("sign_accuracy"), "reference_Tc_K": thermo.get("reference_Tc_K"),
-            "predicted_Tc_K": thermo.get("predicted_Tc_K"), "Tc_error_K": thermo.get("Tc_error_K"),
-            "Tc_err_from_dG_K": thermo.get("Tc_err_from_dG_K"), "false_crossings": thermo.get("false_crossings"),
+            "predicted_Tc_K": thermo.get("predicted_Tc_K"),
+            # Use the residual-oracle/B0-R3 convention: signed root
+            # displacement for Tc_error, and |ΔG(Tc)| divided by the fitted
+            # reference slope for Tc_err_from_dG.  The canonical evaluator
+            # stores each one-crossing value in a one-element list; unwrap it
+            # here so pair summaries and the main table aggregate numerically.
+            "Tc_error_K": _unwrap_single(thermo.get("Tc_error_K")),
+            "Tc_err_from_dG_K": _unwrap_single(thermo.get("Tc_err_from_dG_K")),
+            "false_crossings": thermo.get("false_crossings"),
             "missed_crossings": thermo.get("missed_crossings"),
         })
     return rows
