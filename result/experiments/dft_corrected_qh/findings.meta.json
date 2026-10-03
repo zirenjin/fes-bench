@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "training": "none",
+  "device": "cpu",
+  "formula": "F_QH - E_DPA_in_F_QH + E_DFT",
+  "dft_work_root": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results",
+  "max_F_QH_minus_F_vib_minus_E_DPA_eV_per_atom": 0.003193698823451996,
+  "splits": [
+    "temp_extrap",
+    "phase_lopo"
+  ],
+  "dft_source": "final-adopted-converged"
+}

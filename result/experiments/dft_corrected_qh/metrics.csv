@@ -1,0 +1,5 @@
+split,predictor,n_test_frames,delta_G_MAE_eV_per_atom,sign_accuracy,Tc_error_K_abs_mean,false_crossings,missed_crossings,pairs
+temp_extrap,T1_E_plus_F_QH,33525,0.14943348952911875,0.4557863953791643,n/a,0,5,5
+temp_extrap,DFT_corrected_QH,33525,0.1609811916510002,0.146609479579732,n/a,0,5,5
+phase_lopo,T1_E_plus_F_QH,12306,0.113585483749105,0.5293352836014952,n/a,0,10,10
+phase_lopo,DFT_corrected_QH,12306,0.12254590437368973,0.45620022753128553,n/a,0,10,10
