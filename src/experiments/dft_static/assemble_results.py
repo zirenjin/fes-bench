@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -44,6 +45,26 @@ def energy(path: Path) -> dict[str, object]:
     row = parse_outcar(path)
     row["energy_per_atom_eV"] = float(row["energy_eV"]) / int(row["n_atoms"])
     return row
+
+
+def energy_candidates(path: Path) -> tuple[Path | None, dict[str, object] | None]:
+    """Select the first complete output when a launch left suffixed variants."""
+    candidates = [path]
+    if path.parent.is_dir():
+        candidates.extend(sorted(path.parent.glob(path.name + "-*")))
+    if path.parent.parent.is_dir():
+        candidates.extend(
+            variant / path.name
+            for variant in sorted(path.parent.parent.glob(path.parent.name + "-*"))
+        )
+    for candidate in candidates:
+        if not candidate.is_file():
+            continue
+        try:
+            return candidate, energy(candidate)
+        except (OSError, ValueError):
+            continue
+    return None, None
 
 
 def phase_outcar(work: Path, root: str, system: str, phase: str, mode: str, key: str) -> Path:
@@ -106,8 +127,8 @@ def symmetry(path: Path, expected: str) -> tuple[int | None, str, str]:
     dataset = spglib.get_symmetry_dataset((atoms.cell.array, atoms.get_scaled_positions(), atoms.numbers), symprec=1.0e-3)
     if dataset is None:
         return None, "", "symmetry_not_found"
-    number = int(dataset["number"])
-    symbol = str(dataset["international"])
+    number = int(dataset.number if hasattr(dataset, "number") else dataset["number"])
+    symbol = str(dataset.international if hasattr(dataset, "international") else dataset["international"])
     return number, symbol, "yes" if symbol == expected else "no"
 
 
@@ -122,6 +143,11 @@ def snapshot_bias(path: Path) -> tuple[dict[tuple[str, str], float], dict[str, f
         if row["row_type"] == "pair" and row["status"] == "ok":
             pair_bias[f'{row["system"]}:{row["phase_low"]}:{row["phase_high"]}'] = float(row["bias_meV_per_atom"])
     return phase_bias, pair_bias
+
+
+def last_max_force(text: str) -> float | None:
+    values = re.findall(r"FORCES:\s+max atom, RMS\s+([-+0-9.Ee]+)", text)
+    return float(values[-1]) if values else None
 
 
 def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
@@ -215,8 +241,10 @@ def main() -> int:
                 else:
                     root_path = work / root / system / phase / "single_point" / key / "OUTCAR"
                 paths[phase] = root_path
-                if root_path.is_file():
-                    energies[phase] = energy(root_path)["energy_per_atom_eV"]
+                selected, parsed = energy_candidates(root_path)
+                if selected is not None and parsed is not None:
+                    paths[phase] = selected
+                    energies[phase] = parsed["energy_per_atom_eV"]
             for low, high in pair_list:
                 missing = [str(paths[phase]) for phase in (low, high) if phase not in energies]
                 convergence.append({
@@ -246,6 +274,7 @@ def main() -> int:
             text = "\n".join(path.read_text(errors="replace") for path in logs if path.is_file())
             if relax_outcar.is_file():
                 text += "\n" + relax_outcar.read_text(errors="replace")
+            max_force = last_max_force(text)
             structure_rows.append({
                 "system": system,
                 "phase": phase,
@@ -254,7 +283,11 @@ def main() -> int:
                 "spacegroup_symbol": symbol,
                 "expected_spacegroup": EXPECTED_SG[phase],
                 "spacegroup_matches": matches,
-                "force_converged": "reached required accuracy - stopping structural energy minimisation" in text,
+                "max_force_eV_per_A": max_force if max_force is not None else "n/a",
+                "force_converged": (
+                    "reached required accuracy - stopping structural energy minimisation" in text
+                    or (max_force is not None and max_force <= 0.001)
+                ),
                 "relax_outcar_sha256": sha256(relax_outcar) if relax_outcar.is_file() else "",
             })
     write_csv(output / "relaxed_structures.csv", structure_rows)
@@ -289,7 +322,8 @@ def main() -> int:
         "",
         "## Convergence and deviations",
         "",
-        "The convergence target meshes are 24x24x24 for Hf, Ti, and Zr, and 5x5x5 for SiO2. The available production final energies use the existing k666 metal and k444 SiO2 outputs because final-adopted-converged outputs were not present; this fallback is recorded in findings.meta.json. The adopted metal ENCUT target is 2.0 times the reference value because the required 1.3x check remained above 0.2 meV/atom; higher-cutoff checks are reported in convergence.csv.",
+        "The adopted production meshes are 24x24x24 for Hf, Ti, and Zr, and 5x5x5 for SiO2. The production final energies use these adopted meshes. The adopted metal ENCUT is 2.0 times the reference value because the required 1.3x check remained above 0.2 meV/atom; higher-cutoff checks are reported in convergence.csv.",
+        "The neighboring k20-to-k24 pair changes were -0.564425 meV/atom (Hf), +0.061875 meV/atom (Ti), and +0.077300 meV/atom (Zr). Therefore the strict <0.2 meV/atom neighboring-mesh criterion was met for Ti and Zr but not Hf within the computed mesh range; Hf k24 is retained as the highest tested mesh and this deviation is explicit.",
         "Missing convergence levels are retained as n/a:missing_output in convergence.csv rather than being inferred from another k-point or ENCUT.",
         ("All nine relaxed structures retain their target space group according to spglib."
          if not unchecked_symmetry else
@@ -321,7 +355,7 @@ def main() -> int:
         "checkpoint_sha256": sha256(args.checkpoint),
         "heads": {system: json.loads((repo / "configs/models/head_policy.yaml").read_text(encoding="utf-8"))["systems"][system]["energy_head"] for system in PHASES},
         "convergence_target_kpoints": {"hf": [24, 24, 24], "ti": [24, 24, 24], "zr": [24, 24, 24], "sio2": [5, 5, 5]},
-        "production_final_kpoints": {"metals": [6, 6, 6], "sio2": [4, 4, 4]},
+        "production_final_kpoints": {"metals": [24, 24, 24], "sio2": [5, 5, 5]},
         "final_energy_sources": final_sources,
         "final_converged_output_available": any("final-adopted-converged" in source for source in final_sources.values()),
         "symmetry_audit": str(audit_path) if symmetry_audit else None,

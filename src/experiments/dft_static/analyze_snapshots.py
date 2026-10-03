@@ -212,6 +212,11 @@ def main() -> int:
     )
     parser.add_argument("--system", choices=sorted(PHASES))
     parser.add_argument("--batch-size", type=int, default=16)
+    parser.add_argument(
+        "--isolate-batches",
+        action="store_true",
+        help="Run each inference batch in a short-lived worker to bound DeepMD memory.",
+    )
     parser.add_argument("--worker", action="store_true")
     parser.add_argument("--batch-file", type=Path)
     parser.add_argument("--head")
@@ -258,6 +263,8 @@ def main() -> int:
                 type_map = list(model.get_type_map())
                 error = evaluate_inprocess(model, records, type_map)
                 del model
+            elif args.isolate_batches:
+                error = evaluate_batched(checkpoint, head, records, args.batch_size, args.device)
             else:
                 error = evaluate_persistent_batched(checkpoint, head, records, args.batch_size, args.device)
             gc.collect()
