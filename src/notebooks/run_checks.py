@@ -143,6 +143,43 @@ def _metric_csv_empty_checks(root: Path) -> list[str]:
     return out
 
 
+def _static_energy_construction_checks(root: Path) -> list[str]:
+    """Reject adding E_DPA when the canonical F_QH already contains it."""
+    out: list[str] = []
+    fqh_files = sorted((root / "data/processed").glob("*/**/fqh.csv"))
+    contains_static = []
+    for path in fqh_files:
+        try:
+            with path.open(encoding="utf-8", newline="") as handle:
+                first = next(csv.DictReader(handle), None)
+        except (OSError, StopIteration):
+            first = None
+        if first and "F_QH_eV_per_atom" in first and ("F_vib_eV_per_atom" in first or "E_static_eV_per_atom" in first):
+            contains_static.append(str(path.relative_to(root)))
+    if not contains_static:
+        return ["⚠ static-energy construction audit could not establish whether F_QH contains a static term"]
+    formula_paths = [root / "result/experiments/t1_qh/curves.meta.json", root / "result/experiments/dft_corrected_qh/findings.meta.json"]
+    duplicate: list[str] = []
+    for path in formula_paths:
+        if not path.exists():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        formulas = " ".join(str(payload.get(key, "")) for key in ("formula", "t1_comparator_formula"))
+        if "F_QH" in formulas and "E_DPA" in formulas:
+            duplicate.append(str(path.relative_to(root)))
+    source = root / "src/experiments/evaluate_t1_qh.py"
+    if source.exists() and "E_DPA + F_QH" in source.read_text(encoding="utf-8"):
+        duplicate.append(str(source.relative_to(root)))
+    if duplicate:
+        out.append(f"⚠ static energy appears twice: F_QH contains a static term; legacy E_DPA + F_QH construction found in {duplicate}")
+    else:
+        out.append("✓ static-energy construction uses F_QH once; no E_DPA double count detected")
+    return out
+
+
 def _crossing_slope_consistency_checks(root: Path) -> list[str]:
     """Ensure figure-1 fits, reference crossings, and Table 6 use one slope."""
     tolerance = 1e-10
@@ -309,6 +346,7 @@ def main() -> int:
             checks = _fallback_checks(root) + _additional_checks(root)
             checks.extend(_metric_csv_empty_checks(root))
             checks.extend(_crossing_slope_consistency_checks(root))
+            checks.extend(_static_energy_construction_checks(root))
             checks.extend(_non_english_checks(root))
             (root / "result/tables/_checks.txt").write_text("\n".join(checks) + "\n", encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks) else 0
@@ -332,6 +370,7 @@ def main() -> int:
             checks += "".join(f"{line}\n" for line in _non_english_checks(root))
             checks += "".join(f"{line}\n" for line in _metric_csv_empty_checks(root))
             checks += "".join(f"{line}\n" for line in _crossing_slope_consistency_checks(root))
+            checks += "".join(f"{line}\n" for line in _static_energy_construction_checks(root))
             (root / "result/tables/_checks.txt").write_text(checks, encoding="utf-8")
             return 1 if any(line.startswith("⚠") for line in checks.splitlines()) else 0
     raise RuntimeError("notebook consistency-check cell was not executed")

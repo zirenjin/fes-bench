@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "legacy_commit": "16d04c5",
+  "legacy_source": "result/experiments/dft_corrected_qh/pair_metrics.csv",
+  "new_source": "result/experiments/dft_corrected_qh/pair_metrics.csv",
+  "old_formula": "G_T1 = E_DPA + F_QH",
+  "new_formula": "G_T1 = F_QH",
+  "n_rows": 15
+}

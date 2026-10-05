@@ -91,11 +91,10 @@ def curves(root: Path, work: Path) -> tuple[dict[str, object], dict[str, object]
             if float(np.ptp(static_values)) > 1.0e-8 and "E_static_eV_per_atom" not in rows[0]:
                 raise AssertionError(f"{system}/{phase}: F_QH - F_vib is not a constant static term")
             key = f"{system}:{phase}"
-            # Keep the repository's named T1 comparator exactly as defined:
-            # E_DPA + F_QH.  The static-term audit below makes the resulting
-            # duplicate-static convention explicit; DFT_corrected_QH removes
-            # the term actually contained in F_QH before adding E_DFT.
-            fqh_curves[key] = {"T_K": temperatures, "G_eV_per_atom": [e_dpa + value for value in fqh]}
+            # F_QH already contains the QH static term plus F_vib.  T1 is
+            # therefore exactly F_QH; the corrected curve removes that
+            # contained static term before adding the adopted DFT energy.
+            fqh_curves[key] = {"T_K": temperatures, "G_eV_per_atom": fqh}
             corrected[key] = {
                 "T_K": temperatures,
                 "G_eV_per_atom": [value - static_value + e_dft for value, static_value in zip(fqh, static_values)],
@@ -205,6 +204,65 @@ def aggregate(rows: list[dict[str, object]]) -> dict[str, object]:
     }
 
 
+def write_t1_definition_audit(root: Path, output: Path, current_rows: list[dict[str, object]]) -> None:
+    """Record pair-level T1 MAE changes against the pre-fix 16d04c5 output."""
+    try:
+        text = subprocess.check_output(
+            ["git", "-C", str(root), "show", "16d04c5:result/experiments/dft_corrected_qh/pair_metrics.csv"],
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise RuntimeError("cannot read the pre-fix T1 pair metrics at 16d04c5") from exc
+    old_rows = list(csv.DictReader(text.splitlines()))
+    old = {
+        (row.get("split", ""), row.get("fold", ""), row.get("pair", "")): row
+        for row in old_rows
+        if row.get("predictor") == "T1_E_plus_F_QH"
+    }
+    fields = [
+        "split", "fold", "pair", "old_delta_G_MAE_eV_per_atom",
+        "new_delta_G_MAE_eV_per_atom", "change_eV_per_atom",
+        "old_formula", "new_formula",
+    ]
+    rows: list[dict[str, object]] = []
+    for row in current_rows:
+        if row.get("predictor") != "T1_E_plus_F_QH":
+            continue
+        key = (str(row.get("split", "")), str(row.get("fold", "")), str(row.get("pair", "")))
+        previous = old.get(key)
+        if previous is None:
+            continue
+        old_value = float(previous["delta_G_MAE_eV_per_atom"])
+        new_value = float(row["delta_G_MAE_eV_per_atom"])
+        rows.append({
+            "split": key[0],
+            "fold": key[1],
+            "pair": key[2],
+            "old_delta_G_MAE_eV_per_atom": old_value,
+            "new_delta_G_MAE_eV_per_atom": new_value,
+            "change_eV_per_atom": new_value - old_value,
+            "old_formula": "E_DPA + F_QH (double static term)",
+            "new_formula": "F_QH (static term included once)",
+        })
+    path = output / "t1_definition_changes.csv"
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+    (output / "t1_definition_changes.meta.json").write_text(
+        json.dumps({
+            "status": "complete",
+            "legacy_commit": "16d04c5",
+            "legacy_source": "result/experiments/dft_corrected_qh/pair_metrics.csv",
+            "new_source": "result/experiments/dft_corrected_qh/pair_metrics.csv",
+            "old_formula": "G_T1 = E_DPA + F_QH",
+            "new_formula": "G_T1 = F_QH",
+            "n_rows": len(rows),
+        }, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, default=Path("."))
@@ -218,7 +276,7 @@ def main() -> int:
     fqh, corrected, dft_rows, mismatch = curves(root, work)
     curves_payload = {
         "predictions": fqh,
-        "definition": "T1 comparator: E_DPA + F_QH, with F_QH including the QH static term + F_vib",
+        "definition": "T1 comparator: F_QH, which already includes the QH static term + F_vib",
     }
     (output / "t1_qh_curves.json").write_text(json.dumps(curves_payload, indent=2) + "\n", encoding="utf-8")
     corrected_payload = {
@@ -250,6 +308,7 @@ def main() -> int:
         writer = csv.DictWriter(handle, fieldnames=pair_fields)
         writer.writeheader()
         writer.writerows(pair_detail_rows)
+    write_t1_definition_audit(root, output, pair_detail_rows)
     with (output / "dft_phase_energies.csv").open("w", encoding="utf-8", newline="") as handle:
         fields_dft = list(dft_rows[0])
         writer = csv.DictWriter(handle, fieldnames=fields_dft)
@@ -259,7 +318,7 @@ def main() -> int:
         "# DFT-corrected QH static-energy replacement",
         "",
         "The canonical `F_QH` static term was audited phase-by-phase before applying the correction. For SiO2 it is `F_QH - F_vib`; for metal QH files the row-wise `E_static_eV_per_atom` column is used. The correction therefore subtracts exactly the static term contained in `F_QH`, avoiding double counting.",
-        "The T1 comparator is kept exactly as requested, `G_T1(T) = E_DPA + F_QH(T)`. Because the audit confirms that F_QH already contains its static term, this named comparator has the repository's legacy double-static convention; the corrected curve instead uses `G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT`, with both sides of every pair treated identically. The five-pair summaries exclude cristobalite--tridymite because it has no reference crossing; pair-level output retains the five crossing pairs with fold provenance.",
+        "The T1 comparator is `G_T1(T) = F_QH(T)`. Because the audit confirms that F_QH already contains its static term, no separate E_DPA is added. The corrected curve uses `G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT`, with both sides of every pair treated identically. The five-pair summaries exclude cristobalite--tridymite because it has no reference crossing; pair-level output retains the five crossing pairs with fold provenance.",
         "",
         "| Split | Predictor | ΔG MAE (eV/atom) | balanced sign accuracy | Tc error | mean |Tc error| (K) | false | missed |",
         "|---|---|---:|---:|---|---:|---:|---:|",
@@ -276,7 +335,7 @@ def main() -> int:
         "training": "none",
         "device": "cpu",
         "formula": "G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT",
-        "t1_comparator_formula": "G_T1(T) = E_DPA + F_QH(T)",
+        "t1_comparator_formula": "G_T1(T) = F_QH(T); F_QH already contains the QH static term",
         "dft_work_root": "external/dft_static_work/results",
         "max_F_QH_minus_F_vib_minus_E_DPA_eV_per_atom": mismatch,
         "splits": ["temp_extrap", "phase_lopo"],

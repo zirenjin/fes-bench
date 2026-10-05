@@ -1,6 +1,6 @@
 {
   "metrics": {
-    "G_MAE_eV_per_atom": 7.255412985324305,
+    "G_MAE_eV_per_atom": 5.424663140366898,
     "balanced_sign_accuracy": 0.4166666666666667,
     "coverage_2sigma": 0.0,
     "method": "qh_only",
@@ -21,10 +21,10 @@
           4.999999999999449e-05
         ],
         "delta_G_MAE_at_crossing_eV_per_atom": [
-          0.5390736352417083
+          0.386923808953485
         ],
-        "delta_G_MAE_eV_per_atom": 0.5714184090171185,
-        "delta_G_RMSE_eV_per_atom": 0.5722426801628447,
+        "delta_G_MAE_eV_per_atom": 0.4192685827288953,
+        "delta_G_RMSE_eV_per_atom": 0.42039128356781763,
         "false_crossings": 0,
         "missed_crossings": 1,
         "pair_support": "test_and_train_partner",
@@ -53,10 +53,10 @@
           7.551407561479095e-06
         ],
         "delta_G_MAE_at_crossing_eV_per_atom": [
-          0.025997293304225972
+          0.016001440810648193
         ],
-        "delta_G_MAE_eV_per_atom": 0.02541163603725908,
-        "delta_G_RMSE_eV_per_atom": 0.02541528929942309,
+        "delta_G_MAE_eV_per_atom": 0.015415783543682013,
+        "delta_G_RMSE_eV_per_atom": 0.015421804899197197,
         "false_crossings": 0,
         "missed_crossings": 1,
         "pair_support": "test_and_train_partner",
@@ -77,8 +77,8 @@
         "balanced_sign_accuracy": 0.0,
         "crossing_slope_eV_per_atom_per_K": [],
         "delta_G_MAE_at_crossing_eV_per_atom": [],
-        "delta_G_MAE_eV_per_atom": 0.004136022411589148,
-        "delta_G_RMSE_eV_per_atom": 0.004342714329533078,
+        "delta_G_MAE_eV_per_atom": 0.0067709512837768205,
+        "delta_G_RMSE_eV_per_atom": 0.006899149777040881,
         "false_crossings": 0,
         "missed_crossings": 0,
         "pair_support": "test_and_train_partner",
@@ -105,10 +105,10 @@
           7.448345272997869e-06
         ],
         "delta_G_MAE_at_crossing_eV_per_atom": [
-          0.02838083942061064
+          0.02101991579922035
         ],
-        "delta_G_MAE_eV_per_atom": 0.029547658448848227,
-        "delta_G_RMSE_eV_per_atom": 0.029561180649027734,
+        "delta_G_MAE_eV_per_atom": 0.02218673482745883,
+        "delta_G_RMSE_eV_per_atom": 0.022204740121393774,
         "false_crossings": 0,
         "missed_crossings": 1,
         "pair_support": "test_and_train_partner",
@@ -137,10 +137,10 @@
           4.999999999999449e-05
         ],
         "delta_G_MAE_at_crossing_eV_per_atom": [
-          0.23744641775762432
+          0.1436976992574861
         ],
-        "delta_G_MAE_eV_per_atom": 0.26954639218600657,
-        "delta_G_RMSE_eV_per_atom": 0.2709505504315516,
+        "delta_G_MAE_eV_per_atom": 0.17579767368586927,
+        "delta_G_RMSE_eV_per_atom": 0.17794315191102936,
         "false_crossings": 0,
         "missed_crossings": 1,
         "pair_support": "test_and_train_partner",
@@ -169,10 +169,10 @@
           6.666666666665932e-05
         ],
         "delta_G_MAE_at_crossing_eV_per_atom": [
-          0.15743643305693578
+          0.09194958470259573
         ],
-        "delta_G_MAE_eV_per_atom": 0.179985521214028,
-        "delta_G_RMSE_eV_per_atom": 0.180967708943054,
+        "delta_G_MAE_eV_per_atom": 0.11449867285968844,
+        "delta_G_RMSE_eV_per_atom": 0.11603650253279152,
         "false_crossings": 0,
         "missed_crossings": 1,
         "pair_support": "test_and_train_partner",
@@ -197,9 +197,9 @@
     "checkpoint_path": "external/checkpoints/DPA-3.1-3M.pt",
     "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
     "evaluator_version": "fes_bench.eval.run precomputed curves",
-    "formula": "G_T1(T) = E_DPA + F_QH(T)",
+    "formula": "G_T1(T) = F_QH(T); F_QH already contains the QH static term",
     "fqh_imaginary_modes": "excluded by adopted QH producer",
-    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
+    "git_commit": "16d04c58b1b84629f636be6354d0eb23215abe0e",
     "head_policy": "configs/models/head_policy.yaml",
     "head_policy_sha256": "9c7a2e4d120d126458d27cad1f68d278dca27d808a952f695c50a37601e9772f",
     "input_sha256": [
@@ -382,6 +382,6 @@
     "seed_policy": "n/a:no_seed",
     "split": "temp_extrap",
     "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
-    "timestamp_utc": "2026-10-03T01:05:34.188949+00:00"
+    "timestamp_utc": "2026-10-05T15:16:34.294999+00:00"
   }
 }

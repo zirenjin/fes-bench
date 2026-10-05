@@ -1,7 +1,7 @@
-"""Produce the T1 E + F_QH controlled-ablation predictor — plan experiment T1.
+"""Produce the T1 F_QH controlled-ablation predictor — plan experiment T1.
 
 The script reads canonical representative energies and QH curves, constructs
-``G_T1(T) = E_DPA + F_QH(T)``, and delegates every metric (including frozen
+``G_T1(T) = F_QH(T)``, and delegates every metric (including frozen
 split filtering and crossing diagnostics) to the shared evaluator.  It never
 trains a model and writes a provenance-bearing raw run for each split.
 """
@@ -89,7 +89,7 @@ def build_curves(root: Path) -> tuple[dict[str, Any], list[Path], dict[str, dict
             report = _json(report_path) if report_path.exists() else {}
             predictions[f"{system}:{phase}"] = {
                 "T_K": [temperature for temperature in sorted(fqh)],
-                "G_eV_per_atom": [e_dpa + fqh[temperature] for temperature in sorted(fqh)],
+                "G_eV_per_atom": [fqh[temperature] for temperature in sorted(fqh)],
             }
             phase_meta[f"{system}:{phase}"] = {
                 "qh_reliable": report.get("qh_reliable", meta.get("qh_reliable")),
@@ -211,7 +211,7 @@ def run(root: Path, split_names: list[str]) -> int:
                 "evaluator_version": "fes_bench.eval.run precomputed curves",
                 "timestamp_utc": datetime.now(timezone.utc).isoformat(),
                 "seed_policy": "n/a:no_seed",
-                "formula": "G_T1(T) = E_DPA + F_QH(T)",
+                "formula": "G_T1(T) = F_QH(T); F_QH already contains the QH static term",
                 "fqh_imaginary_modes": "excluded by adopted QH producer",
                 "phase_meta": phase_meta,
                 "input_sha256": [{"path": str(path.relative_to(root)), "sha256": sha256(path)} for path in sorted(set(curve_inputs))],
@@ -223,7 +223,7 @@ def run(root: Path, split_names: list[str]) -> int:
         print(f"T1 {split_name}: {raw_path}")
         print(f"pair details: {detail_path}")
     curves_path.with_suffix(".meta.json").write_text(
-        json.dumps({"git_commit": git_commit(root), "inputs": [{"path": str(path.relative_to(root)), "sha256": sha256(path)} for path in sorted(set(curve_inputs))], "formula": "G_T1(T) = E_DPA + F_QH(T)", "checkpoint_sha256": checkpoint_sha, "head_policy": str(head_policy.relative_to(root)), "qh_imaginary_modes": "excluded by adopted QH producer"}, indent=2) + "\n",
+        json.dumps({"git_commit": git_commit(root), "inputs": [{"path": str(path.relative_to(root)), "sha256": sha256(path)} for path in sorted(set(curve_inputs))], "formula": "G_T1(T) = F_QH(T); F_QH already contains the QH static term", "checkpoint_sha256": checkpoint_sha, "head_policy": str(head_policy.relative_to(root)), "qh_imaginary_modes": "excluded by adopted QH producer"}, indent=2) + "\n",
         encoding="utf-8",
     )
     return 0

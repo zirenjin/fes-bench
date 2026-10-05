@@ -86,9 +86,11 @@ and the current SiO2 QH curves fail the physical reliability gate.
 
 ### Controlled ablation status in the main tables
 
-`E + F_QH` is the no-training controlled baseline in the three v2 main tables:
-ΔG-MAE is 215.182 meV/atom (temp_extrap), 169.440 meV/atom (phase_lopo),
-and 333.809 meV/atom (system_loso); Hf overlap-T is 412.214 meV/atom.
+`E + F_QH` is the no-training controlled baseline in the three v2 main tables.
+The corrected T1 definition is `G_T1(T) = F_QH(T)` because the canonical QH
+curve already contains its static term; no separate `E_DPA` is added.  ΔG-MAE
+is 149.433 meV/atom (temp_extrap), 113.585 meV/atom (phase_lopo), and
+223.458 meV/atom (system_loso); Hf overlap-T is 260.064 meV/atom.
 The E1 polynomial and tlog checkpoints were trained on all four phases and the
 full 851–2499 K grid, so they are in-sample and cannot populate learned rows
 for the other splits. The T3 SiO2 seed-11 diagnostic was corrected for the

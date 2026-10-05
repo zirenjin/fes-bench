@@ -31,3 +31,4 @@
 ✓ crossing_errors slopes match reference_crossings (absolute sign convention)
 ✓ Tc_err_from_dG values match fitted reference slopes
 ✓ figure 1 panel_b slopes match reference_crossings
+✓ static-energy construction uses F_QH once; no E_DPA double count detected

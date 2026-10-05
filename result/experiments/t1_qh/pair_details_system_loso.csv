@@ -1,5 +1,5 @@
 split,fold,eval_subset,pair,left_qh_reliable,right_qh_reliable,delta_G_MAE_eV_per_atom,sign_accuracy,Tc_error_K,Tc_err_from_dG_K,balanced_sign_accuracy,false_crossings,missed_crossings
-system_loso,hf,full,hf:hcp_minus_bcc,True,False,0.49451373373485624,0.6725239616613419,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0.5,0,1
-system_loso,hf,overlap_T,hf:hcp_minus_bcc,True,False,0.41221375156748025,1.0,[],[],1.0,0,0
-system_loso,ti,full,ti:hcp_minus_bcc,True,False,0.2634575253188126,0.25396825396825395,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0.5,0,1
-system_loso,zr,full,zr:hcp_minus_bcc,True,False,0.16628189886769257,0.4010989010989011,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0.5,0,1
+system_loso,hf,full,hf:hcp_minus_bcc,True,False,0.342363907446633,0.6725239616613419,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0.5,0,1
+system_loso,hf,overlap_T,hf:hcp_minus_bcc,True,False,0.260063925279257,1.0,[],[],1.0,0,0
+system_loso,ti,full,ti:hcp_minus_bcc,True,False,0.16970880681867526,0.25396825396825395,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0.5,0,1
+system_loso,zr,full,zr:hcp_minus_bcc,True,False,0.100795050513353,0.4010989010989011,"[""n/a:missed_crossing""]","[""n/a:missed_crossing""]",0.5,0,1

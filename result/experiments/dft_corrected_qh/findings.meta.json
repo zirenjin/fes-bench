@@ -3,7 +3,7 @@
   "training": "none",
   "device": "cpu",
   "formula": "G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT",
-  "t1_comparator_formula": "G_T1(T) = E_DPA + F_QH(T)",
+  "t1_comparator_formula": "G_T1(T) = F_QH(T); F_QH already contains the QH static term",
   "dft_work_root": "external/dft_static_work/results",
   "max_F_QH_minus_F_vib_minus_E_DPA_eV_per_atom": 0.003193698823451996,
   "splits": [
@@ -13,13 +13,13 @@
   "dft_source": "final-adopted-converged",
   "reference_crossing_pair_count": 5,
   "pair_metrics": "pair_metrics.csv",
-  "generated_at_utc": "2026-10-05T15:06:47.091893+00:00",
-  "git_commit": "95c4563e85fa86dfe895e01ebfd2ee99bfb3bddd",
-  "script_sha256": "2c04539cf195d045ab485bcc2f50f9f947c233420502763df951958648d464d7",
+  "generated_at_utc": "2026-10-05T15:24:39.176455+00:00",
+  "git_commit": "16d04c58b1b84629f636be6354d0eb23215abe0e",
+  "script_sha256": "2b0622efe3c8b786eb80c538ade1caf9f091bed3da79eb904aa1f5b5936d8b25",
   "input_sha256": [
     {
       "path": "src/experiments/dft_corrected_qh.py",
-      "sha256": "2c04539cf195d045ab485bcc2f50f9f947c233420502763df951958648d464d7"
+      "sha256": "2b0622efe3c8b786eb80c538ade1caf9f091bed3da79eb904aa1f5b5936d8b25"
     },
     {
       "path": "data/processed/splits_v2/temp_extrap.json",

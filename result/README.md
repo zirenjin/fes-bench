@@ -50,10 +50,14 @@ The matching `.meta.json` files retain field-specific explanations. The current
 tables have 33, 15, and 32 cells of these respective types.
 
 The T1 `E + F_QH` rows are deterministic, have `seed=n/a:no_seed`, and use
-the canonical QH curves after imaginary-mode removal.  Current aggregate
-ΔG-MAE values are 215.182 meV/atom (temp extrapolation), 169.440 meV/atom
-(phase LOPO), and 333.809 meV/atom (system LOSO); the Hf overlap-T subset is
-412.214 meV/atom.  Pair-level details are in `experiments/t1_qh/`.
+the canonical QH curves after imaginary-mode removal.  The definition is
+`G_T1(T) = F_QH(T)`: `F_QH` already contains the static term, so adding a
+separate `E_DPA` would double count it.  Current aggregate ΔG-MAE values are
+149.433 meV/atom (temp_extrap), 113.585 meV/atom (phase_lopo), and 223.458
+meV/atom (system_loso); the Hf overlap-T subset is 260.064 meV/atom.
+Pair-level details are in `experiments/t1_qh/`; the per-pair before/after
+audit against commit `16d04c5` is in
+`experiments/dft_corrected_qh/t1_definition_changes.csv`.
 
 ## E1 reproduction tolerance
 

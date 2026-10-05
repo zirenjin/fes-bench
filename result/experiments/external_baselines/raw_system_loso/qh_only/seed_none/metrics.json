@@ -1,15 +1,15 @@
 {
   "metrics": {
-    "G_MAE_eV_per_atom": 13.78712958895254,
+    "G_MAE_eV_per_atom": 6.846261868729189,
     "coverage_2sigma": 0.0,
     "folds": {
       "hf": {
-        "G_MAE_eV_per_atom": 14.091092202793869,
+        "G_MAE_eV_per_atom": 6.972664553653511,
         "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 2504,
         "overlap_T": {
-          "G_MAE_eV_per_atom": 14.162690878953462,
+          "G_MAE_eV_per_atom": 7.044263229813106,
           "balanced_sign_accuracy": 1.0,
           "coverage_2sigma": 0.0,
           "n_test_frames": 904,
@@ -21,8 +21,8 @@
               "balanced_sign_accuracy": 1.0,
               "crossing_slope_eV_per_atom_per_K": [],
               "delta_G_MAE_at_crossing_eV_per_atom": [],
-              "delta_G_MAE_eV_per_atom": 0.41221375156748025,
-              "delta_G_RMSE_eV_per_atom": 0.4130495265295718,
+              "delta_G_MAE_eV_per_atom": 0.260063925279257,
+              "delta_G_RMSE_eV_per_atom": 0.26138664773974596,
               "false_crossings": 0,
               "missed_crossings": 0,
               "pair_support": "test_and_train_partner",
@@ -57,10 +57,10 @@
               4.999999999999449e-05
             ],
             "delta_G_MAE_at_crossing_eV_per_atom": [
-              0.5390736352417083
+              0.386923808953485
             ],
-            "delta_G_MAE_eV_per_atom": 0.49451373373485624,
-            "delta_G_RMSE_eV_per_atom": 0.5001006783518289,
+            "delta_G_MAE_eV_per_atom": 0.342363907446633,
+            "delta_G_RMSE_eV_per_atom": 0.35038536036441037,
             "false_crossings": 0,
             "missed_crossings": 1,
             "pair_support": "test_and_train_partner",
@@ -82,7 +82,7 @@
         ]
       },
       "ti": {
-        "G_MAE_eV_per_atom": 12.705469761413601,
+        "G_MAE_eV_per_atom": 6.320283163708711,
         "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1386,
@@ -102,10 +102,10 @@
               4.999999999999449e-05
             ],
             "delta_G_MAE_at_crossing_eV_per_atom": [
-              0.23744641775762432
+              0.1436976992574861
             ],
-            "delta_G_MAE_eV_per_atom": 0.2634575253188126,
-            "delta_G_RMSE_eV_per_atom": 0.26528687618124536,
+            "delta_G_MAE_eV_per_atom": 0.16970880681867526,
+            "delta_G_RMSE_eV_per_atom": 0.1725350345254814,
             "false_crossings": 0,
             "missed_crossings": 1,
             "pair_support": "test_and_train_partner",
@@ -127,7 +127,7 @@
         ]
       },
       "zr": {
-        "G_MAE_eV_per_atom": 14.192656037254892,
+        "G_MAE_eV_per_atom": 7.072907012744509,
         "balanced_sign_accuracy": 0.5,
         "coverage_2sigma": 0.0,
         "n_test_frames": 1820,
@@ -147,10 +147,10 @@
               6.666666666665932e-05
             ],
             "delta_G_MAE_at_crossing_eV_per_atom": [
-              0.15743643305693578
+              0.09194958470259573
             ],
-            "delta_G_MAE_eV_per_atom": 0.16628189886769257,
-            "delta_G_RMSE_eV_per_atom": 0.16844635914881292,
+            "delta_G_MAE_eV_per_atom": 0.100795050513353,
+            "delta_G_RMSE_eV_per_atom": 0.10432712124579453,
             "false_crossings": 0,
             "missed_crossings": 1,
             "pair_support": "test_and_train_partner",
@@ -183,9 +183,9 @@
     "checkpoint_path": "external/checkpoints/DPA-3.1-3M.pt",
     "checkpoint_sha256": "86dd3a804d78ca5d203ebf98747e8f16dff9713ba8950097ceb760b161e19907",
     "evaluator_version": "fes_bench.eval.run precomputed curves",
-    "formula": "G_T1(T) = E_DPA + F_QH(T)",
+    "formula": "G_T1(T) = F_QH(T); F_QH already contains the QH static term",
     "fqh_imaginary_modes": "excluded by adopted QH producer",
-    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
+    "git_commit": "16d04c58b1b84629f636be6354d0eb23215abe0e",
     "head_policy": "configs/models/head_policy.yaml",
     "head_policy_sha256": "9c7a2e4d120d126458d27cad1f68d278dca27d808a952f695c50a37601e9772f",
     "input_sha256": [
@@ -368,6 +368,6 @@
     "seed_policy": "n/a:no_seed",
     "split": "system_loso",
     "split_sha256": "136a377ef10c77c67b8bc0657037eb8ed3146ae82ce212b6a304b569c90becc0",
-    "timestamp_utc": "2026-10-03T01:06:16.111977+00:00"
+    "timestamp_utc": "2026-10-05T15:16:50.520508+00:00"
   }
 }
