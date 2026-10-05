@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-03T01:04:08.249408+00:00",
-  "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
+  "generated_utc": "2026-10-05T19:53:00.070930+00:00",
+  "git_commit": "c8e047c791339e50a4075ad92e5dcc98db4e4139",
   "inputs": [
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/bartel2018/seed_none/metrics.json",
@@ -32,7 +32,7 @@
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/qh_only/seed_none/metrics.json",
-      "sha256": "9a2274a50e667437f2eb995d502a76afee20674b4d4f9adc38f7be90f8aa8ccf"
+      "sha256": "8995818a574378105f7d0ed9b934c963ada0185168df0dee0541f951bb26daa4"
     },
     {
       "path": "result/experiments/external_baselines/raw_temp_extrap/reference/seed_none/metrics.json",
@@ -56,15 +56,15 @@
     },
     {
       "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_11/metrics.json",
-      "sha256": "2bcbd4557102280e473213a095aa1ea7f6c861289f0ccb7928a40ee32d333e99"
+      "sha256": "06554c00cb66b2cf1167d7d60095d0dcdd265cb79ce2bc11bb78b5b527f7366e"
     },
     {
       "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_23/metrics.json",
-      "sha256": "b0d00efc990947dd22ab440029adde8f8fdf4a2eef099844fd8264bbe6ee8ff2"
+      "sha256": "3743964b62ba2ded3b1e27bc3ea11cf89adb93a6dacddfadbbe28b336a2d1e0c"
     },
     {
       "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_37/metrics.json",
-      "sha256": "c9b4f3f82d840c34bbff10a1d0e17bea69334a126393d4f5713cb606353b11a8"
+      "sha256": "3add171a99113522fe09df4a6f3585154476a3f3c1bcb6801680e2ce7ecd96a9"
     },
     {
       "path": "result/experiments/t3_temp_extrap/raw_runs/repr_regression_tlog/seed_11/metrics.json",

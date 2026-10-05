@@ -104,8 +104,9 @@ Both fixes are now in `src/experiments/train_t3_temp_extrap.py` and the data
 builder.  The isolated corrected run reached 1.861 meV/atom training ΔG-MAE;
 its temporary test output was not promoted.  The v2 temp-extrapolation T3 batch
 is now canonical for three seeds: polynomial ΔG-MAE is 86.409 meV/atom
-(skill −18.114) and tlog is 31.557 meV/atom (skill −5.981).  T2
-(`E + F_QH + r_theta`) is complete for three seeds: ΔG-MAE is 31.239
+(skill −18.114) and tlog is 31.557 meV/atom (skill −5.981). Corrected T2
+(`F_QH + r_theta`; the former `E_DPA + F_QH` declaration was invalid) is
+complete for three seeds: ΔG-MAE is 31.239
 meV/atom (skill −5.910), sign accuracy 0.5581, ranking accuracy 0.1045,
 and mean T_c error 102.36 K; its five crossing pairs all have missed
 predicted crossings on the temp-extrapolation test region.

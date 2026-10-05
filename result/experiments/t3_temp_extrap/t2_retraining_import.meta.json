@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "experiment": "T2 corrected F_QH-only baseline",
+  "source_host": "thu-GenSi",
+  "source_workspace": "/dev/shm/codex_t2_qh_fix_20261005",
+  "source_git_commit": "unavailable (workspace was not a Git checkout)",
+  "repository_commit_at_import": "6ab7a14",
+  "split": "data/processed/splits_v2/temp_extrap.json",
+  "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
+  "predictor_config": "configs/predictors/t2_temp_extrap.yaml",
+  "predictor_config_sha256": "fc88ee22383571a114e8590a56f057827cc136d8ca94ffaf99954cdd896e52c9",
+  "baseline_formula": "F_QH + r_theta(z, T) + c_system; F_QH static term included once",
+  "seeds": [11, 23, 37],
+  "raw_metrics": ["raw_runs/qh_residual/seed_11/metrics.json", "raw_runs/qh_residual/seed_23/metrics.json", "raw_runs/qh_residual/seed_37/metrics.json"],
+  "legacy_metrics": ["raw_runs/qh_residual/seed_11/metrics.invalid_legacy.json", "raw_runs/qh_residual/seed_23/metrics.invalid_legacy.json", "raw_runs/qh_residual/seed_37/metrics.invalid_legacy.json"]
+}

@@ -1,37 +1,42 @@
 {
   "provenance": {
-    "git_commit": "unknown",
+    "status": "invalid",
+    "invalid_reason": "Legacy T2 formula declared E_DPA + F_QH although F_QH already contains the static term; retrain required with F_QH-only baseline.",
+    "git_commit": "ed6b7ec",
     "split": "temp_extrap",
     "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",
     "predictor_config": "configs/predictors/t2_temp_extrap.yaml",
-    "predictor_config_sha256": "fc88ee22383571a114e8590a56f057827cc136d8ca94ffaf99954cdd896e52c9",
+    "predictor_config_sha256": "d3232d4c2a0f69202baf0aa493334d3281b7b0d8082075f5f3e77d8c4d5327e7",
     "checkpoint_path": [
-      "external/checkpoints/t3_temp_extrap_v2/t2/sio2/seed_37/model.ckpt-3000.pt",
-      "external/checkpoints/t3_temp_extrap_v2/t2/hf/seed_37/model.ckpt-3000.pt",
-      "external/checkpoints/t3_temp_extrap_v2/t2/ti/seed_37/model.ckpt-3000.pt",
-      "external/checkpoints/t3_temp_extrap_v2/t2/zr/seed_37/model.ckpt-3000.pt"
+      "external/checkpoints/t3_temp_extrap_v2/t2/sio2/seed_23/model.ckpt-3000.pt",
+      "external/checkpoints/t3_temp_extrap_v2/t2/hf/seed_23/model.ckpt-3000.pt",
+      "external/checkpoints/t3_temp_extrap_v2/t2/ti/seed_23/model.ckpt-3000.pt",
+      "external/checkpoints/t3_temp_extrap_v2/t2/zr/seed_23/model.ckpt-3000.pt"
     ],
     "checkpoint_sha256": [
-      "f467020cb1a4287d2b71c7c815fc57e4bbab41284f38f5d0ba4cd5ad23a8cfbc",
-      "acc5003db678585b96c47cfcc12fd05ea4d12d5f583408dac2d42e53c6e4ddb0",
-      "251a5b9b1bde601b550fcf61d9acaa3976c815766957de1ed2f5008624a1a3b3",
-      "47c403edc8aab38b96da4dfb82a21ef01932a884c7eaea74812c131c0e700e26"
+      "22dd42e8cbf819168aa4b1e020ad2d5f61b5fccaa3a41aeff546485e1fae1048",
+      "082f277e6043dbff5602fa4c1ad38c1efbb12d00577acf01986d6cf44620aadc",
+      "513cf2d2368af098576f8afdbf8c49cff515c5aab920abde6e8488394037e695",
+      "f939a933b03609d2af385f35e53a28ea3626b27dffc79965ab9c580aa4b01c9a"
     ],
+    "heads": {"sio2": "Domains_SSE_PBE", "hf": "Domains_Alloy", "ti": "Domains_Alloy", "zr": "Domains_Alloy"},
+    "predictor_kind": "qh_residual",
+    "physics_baseline_column": 2,
     "evaluator_version": "train_t3_temp_extrap.py",
-    "timestamp_utc": "2026-10-05T17:28:26.384155+00:00",
+    "timestamp_utc": "2026-10-02T05:22:04.759742+00:00",
     "calibration": "one constant per system fitted on train rows"
   },
   "metrics": {
     "method": "qh_residual",
     "folds": {
       "all": {
-        "G_MAE_eV_per_atom": 0.0776541256625315,
+        "G_MAE_eV_per_atom": 0.07765206299693728,
         "n_test_frames": 6705,
         "pairs": {
           "hf:bcc_minus_hcp": {
-            "delta_G_MAE_eV_per_atom": 0.10483215222668461,
+            "delta_G_MAE_eV_per_atom": 0.10483226920666658,
             "zero_floor_delta_G_MAE_eV_per_atom": 0.0042364173228346454,
-            "delta_G_RMSE_eV_per_atom": 0.10780057432752917,
+            "delta_G_RMSE_eV_per_atom": 0.10780068945574287,
             "sign_accuracy": 0.19291338582677164,
             "reference_Tc_K": [
               1919.0
@@ -46,18 +51,18 @@
             "status": "ok"
           },
           "sio2:cristobalite_beta_minus_quartz_beta": {
-            "delta_G_MAE_eV_per_atom": 0.0014513184217655388,
+            "delta_G_MAE_eV_per_atom": 0.0014513384438792818,
             "zero_floor_delta_G_MAE_eV_per_atom": 0.0033951702825564885,
-            "delta_G_RMSE_eV_per_atom": 0.0015795234822402093,
+            "delta_G_RMSE_eV_per_atom": 0.0015795341724367212,
             "sign_accuracy": 0.902554399243141,
             "reference_Tc_K": [
               1542.7087047758675
             ],
             "predicted_Tc_K": [
-              1645.0957477169193
+              1645.069331473996
             ],
             "Tc_error_K": [
-              102.38704294105173
+              102.3606266981285
             ],
             "false_crossings": 0,
             "missed_crossings": 0,
@@ -65,9 +70,9 @@
             "status": "ok"
           },
           "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
-            "delta_G_MAE_eV_per_atom": 0.004059934995187013,
+            "delta_G_MAE_eV_per_atom": 0.004059922827785075,
             "zero_floor_delta_G_MAE_eV_per_atom": 0.00028582429156980737,
-            "delta_G_RMSE_eV_per_atom": 0.0042824463437818976,
+            "delta_G_RMSE_eV_per_atom": 0.004282431824105391,
             "sign_accuracy": 0.0,
             "reference_Tc_K": [],
             "predicted_Tc_K": [],
@@ -78,9 +83,9 @@
             "status": "ok"
           },
           "sio2:quartz_beta_minus_tridymite_p63mmc": {
-            "delta_G_MAE_eV_per_atom": 0.0026086165734214737,
+            "delta_G_MAE_eV_per_atom": 0.0026085843839057936,
             "zero_floor_delta_G_MAE_eV_per_atom": 0.0031744986804183254,
-            "delta_G_RMSE_eV_per_atom": 0.002711386967093795,
+            "delta_G_RMSE_eV_per_atom": 0.0027113587184386207,
             "sign_accuracy": 0.8675496688741722,
             "reference_Tc_K": [
               1582.3215510581538
@@ -95,9 +100,9 @@
             "status": "ok"
           },
           "ti:bcc_minus_hcp": {
-            "delta_G_MAE_eV_per_atom": 0.05841157888885435,
+            "delta_G_MAE_eV_per_atom": 0.05841160590478074,
             "zero_floor_delta_G_MAE_eV_per_atom": 0.0068056910569105665,
-            "delta_G_RMSE_eV_per_atom": 0.06446845040586677,
+            "delta_G_RMSE_eV_per_atom": 0.06446848313121427,
             "sign_accuracy": 0.15934959349593497,
             "reference_Tc_K": [
               1012.0
@@ -112,9 +117,9 @@
             "status": "ok"
           },
           "zr:bcc_minus_hcp": {
-            "delta_G_MAE_eV_per_atom": 0.04312307018382209,
+            "delta_G_MAE_eV_per_atom": 0.04312304028894591,
             "zero_floor_delta_G_MAE_eV_per_atom": 0.006619409937888199,
-            "delta_G_RMSE_eV_per_atom": 0.04689720947899123,
+            "delta_G_RMSE_eV_per_atom": 0.046897183665625196,
             "sign_accuracy": 0.15372670807453417,
             "reference_Tc_K": [
               975.5
@@ -139,17 +144,17 @@
       }
     },
     "train_region": {
-      "G_MAE_eV_per_atom": 0.013219836324895021,
+      "G_MAE_eV_per_atom": 0.013219337375041365,
       "n_test_frames": 3952,
       "pairs": {
         "hf:bcc_minus_hcp": {
-          "delta_G_MAE_eV_per_atom": 0.030113868388950187,
+          "delta_G_MAE_eV_per_atom": 0.03011387355628834,
           "zero_floor_delta_G_MAE_eV_per_atom": 0.016290994623655915,
-          "delta_G_RMSE_eV_per_atom": 0.034791631541141115,
+          "delta_G_RMSE_eV_per_atom": 0.03479163007338703,
           "sign_accuracy": 0.6908602150537635,
           "reference_Tc_K": [],
           "predicted_Tc_K": [
-            1305.937937937938
+            1305.9390120967741
           ],
           "Tc_error_K": [],
           "false_crossings": 1,
@@ -158,9 +163,9 @@
           "status": "ok"
         },
         "sio2:cristobalite_beta_minus_quartz_beta": {
-          "delta_G_MAE_eV_per_atom": 0.0001857022979589796,
+          "delta_G_MAE_eV_per_atom": 0.000185700425525147,
           "zero_floor_delta_G_MAE_eV_per_atom": 0.002876857717483556,
-          "delta_G_RMSE_eV_per_atom": 0.0002120298608545804,
+          "delta_G_RMSE_eV_per_atom": 0.00021202783420748265,
           "sign_accuracy": 1.0,
           "reference_Tc_K": [],
           "predicted_Tc_K": [],
@@ -171,13 +176,13 @@
           "status": "ok"
         },
         "sio2:cristobalite_beta_minus_tridymite_p63mmc": {
-          "delta_G_MAE_eV_per_atom": 0.0007323481407952702,
+          "delta_G_MAE_eV_per_atom": 0.0007323529022867985,
           "zero_floor_delta_G_MAE_eV_per_atom": 0.00019687082759049828,
-          "delta_G_RMSE_eV_per_atom": 0.0008551504497501234,
+          "delta_G_RMSE_eV_per_atom": 0.0008551543415230182,
           "sign_accuracy": 0.4864864864864865,
           "reference_Tc_K": [],
           "predicted_Tc_K": [
-            1138.8944965763064
+            1138.8720988900254
           ],
           "Tc_error_K": [],
           "false_crossings": 1,
@@ -186,13 +191,13 @@
           "status": "ok"
         },
         "sio2:quartz_beta_minus_tridymite_p63mmc": {
-          "delta_G_MAE_eV_per_atom": 0.0005703694491936567,
+          "delta_G_MAE_eV_per_atom": 0.0005703575895138539,
           "zero_floor_delta_G_MAE_eV_per_atom": 0.0030737285450740544,
-          "delta_G_RMSE_eV_per_atom": 0.0006656880123570577,
+          "delta_G_RMSE_eV_per_atom": 0.0006656700560546954,
           "sign_accuracy": 0.9628378378378378,
           "reference_Tc_K": [],
           "predicted_Tc_K": [
-            1420.5427160494417
+            1420.5627887788828
           ],
           "Tc_error_K": [],
           "false_crossings": 1,
@@ -201,9 +206,9 @@
           "status": "ok"
         },
         "ti:bcc_minus_hcp": {
-          "delta_G_MAE_eV_per_atom": 0.004958803587999098,
+          "delta_G_MAE_eV_per_atom": 0.004958794609094276,
           "zero_floor_delta_G_MAE_eV_per_atom": 0.005838461538461538,
-          "delta_G_RMSE_eV_per_atom": 0.005977075815298807,
+          "delta_G_RMSE_eV_per_atom": 0.0059770610348050535,
           "sign_accuracy": 1.0,
           "reference_Tc_K": [],
           "predicted_Tc_K": [],
@@ -214,9 +219,9 @@
           "status": "ok"
         },
         "zr:bcc_minus_hcp": {
-          "delta_G_MAE_eV_per_atom": 0.007171766972362546,
+          "delta_G_MAE_eV_per_atom": 0.00717176461954762,
           "zero_floor_delta_G_MAE_eV_per_atom": 0.00996804511278196,
-          "delta_G_RMSE_eV_per_atom": 0.00844130249179841,
+          "delta_G_RMSE_eV_per_atom": 0.00844129511289748,
           "sign_accuracy": 1.0,
           "reference_Tc_K": [],
           "predicted_Tc_K": [],
