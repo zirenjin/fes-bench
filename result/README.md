@@ -20,6 +20,7 @@ metrics remain below its `raw_runs/` directory when an experiment has them.
 | Figure 1 (relative-signal, crossing-sensitivity, and QH panels) | `python3 src/figures/figure1_difficulty.py --repo-root . --output result/figures/figure1` | `figures/figure1/` (panel CSVs plus figure provenance) |
 | E + F_QH controlled-ablation baseline | `PYTHONPATH=src/lib python3 src/experiments/evaluate_t1_qh.py --repo-root .` | `experiments/t1_qh/`, `external_baselines/raw_<split>/qh_only/seed_none/` |
 | Analytic SiO₂ PBE-D3(BJ) dispersion check | `/tmp/fes_dftd3_env/bin/python src/experiments/pes_dispersion_check.py --repo-root . --dft-work-root <dft-static-results>` | `experiments/pes_dispersion_check/` |
+| PES fine-tuning DFT archive manifest | `python3 src/experiments/pes_finetune/prepare_data.py --repo-root . --manifest-only` | `data/processed/pes_finetune_v1/manifest.json` |
 
 All paths are relative to the repository root. Rebuild the complete derived
 layer with `bash src/reproduce_all.sh`.
