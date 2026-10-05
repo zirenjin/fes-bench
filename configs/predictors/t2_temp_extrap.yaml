@@ -1,6 +1,6 @@
 {
   "experiment": "T2_temp_extrap",
-  "predictor": "E + F_QH + r_theta",
+  "predictor": "F_QH + r_theta",
   "predictor_kind": "qh_residual",
   "basis": "continuous_tlog_polynomial",
   "audit_basis": "tlog_polynomial",

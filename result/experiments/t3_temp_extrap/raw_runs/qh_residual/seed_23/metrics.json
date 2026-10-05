@@ -1,5 +1,7 @@
 {
   "provenance": {
+    "status": "invalid",
+    "invalid_reason": "Legacy T2 formula declared E_DPA + F_QH although F_QH already contains the static term; retrain required with F_QH-only baseline.",
     "git_commit": "ed6b7ec",
     "split": "temp_extrap",
     "split_sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845",

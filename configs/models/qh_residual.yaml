@@ -2,7 +2,7 @@
   "base": "model_base.yaml",
   "predictor_kind": "qh_residual",
   "uses_fes_head": true,
-  "formula": "E_DPA + F_QH + r_theta(z, T) + c_system",
+  "formula": "F_QH + r_theta(z, T) + c_system",
   "fitting_net": {
     "numb_state_fparam": 3,
     "physics_baseline_column": 2

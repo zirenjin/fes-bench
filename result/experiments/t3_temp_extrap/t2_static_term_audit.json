@@ -1,0 +1,151 @@
+{
+  "status": "invalid_existing_results",
+  "reason": "F_QH includes the static term, while the T2 plan formula also adds E_DPA",
+  "observed_config_formula": "legacy run provenance predates corrected F_QH-only formula",
+  "required_formula": "F_QH + r_theta(z, T) + c_system",
+  "physical_baseline": "fparam column 2 = canonical F_QH_eV_per_atom",
+  "retraining_required": true,
+  "retraining_scope": "tlog seed 11/23/37 after correcting the T2 formula",
+  "phase_static_term_audit": [
+    {
+      "system": "sio2",
+      "phase": "quartz_beta",
+      "source": "F_QH_eV_per_atom - F_vib_eV_per_atom",
+      "static_min_eV_per_atom": -4.099507447746065,
+      "static_max_eV_per_atom": -4.099507447746065,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -4.09950738814142,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": true,
+      "fqh_sha256": "d1df7df72cc9d58bba805b4fbbed85fd0c88e5b396a1d8104c9653683f5b5824"
+    },
+    {
+      "system": "sio2",
+      "phase": "cristobalite_beta",
+      "source": "F_QH_eV_per_atom - F_vib_eV_per_atom",
+      "static_min_eV_per_atom": -4.106309541811545,
+      "static_max_eV_per_atom": -4.106309541811545,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -4.109503240634997,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "ce611668e0fe9cdb759d8c4cecf0b142898d7818f320ad9998905a590289e825"
+    },
+    {
+      "system": "sio2",
+      "phase": "tridymite_p63mmc",
+      "source": "F_QH_eV_per_atom - F_vib_eV_per_atom",
+      "static_min_eV_per_atom": -4.103704646229744,
+      "static_max_eV_per_atom": -4.103704646229744,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -4.10686831176281,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "90d3349f88cc897921bb4e3a3bee80625f77840aa3e716a376bc6887e7e96ac5"
+    },
+    {
+      "system": "hf",
+      "phase": "hcp",
+      "source": "F_QH_eV_per_atom - F_vib_eV_per_atom",
+      "static_min_eV_per_atom": -7.193446710705757,
+      "static_max_eV_per_atom": -7.193446710705757,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -7.19450256228447,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "35ebfb2b52356c44584b02540f6bacaa83f81971600d8d19a9d877d561fb8881"
+    },
+    {
+      "system": "hf",
+      "phase": "bcc",
+      "source": "F_QH_eV_per_atom - F_vib_eV_per_atom",
+      "static_min_eV_per_atom": -7.041414201259613,
+      "static_max_eV_per_atom": -7.041414201259613,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -7.042352735996246,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "af160fba062e24b532d7ab4cd073b2d72fa5eb8700e8deb32cfa27ccc9ff8d98"
+    },
+    {
+      "system": "ti",
+      "phase": "hcp",
+      "source": "E_static_eV_per_atom",
+      "static_min_eV_per_atom": -6.429423451423645,
+      "static_max_eV_per_atom": -6.429423451423645,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -6.432060956954956,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "28a1eb25b84311c91ae5338266eb9df9a2402b1d4dcfda0f53bd06fe845c4c47"
+    },
+    {
+      "system": "ti",
+      "phase": "bcc",
+      "source": "E_static_eV_per_atom",
+      "static_min_eV_per_atom": -6.338312178850174,
+      "static_max_eV_per_atom": -6.336090296506882,
+      "static_range_eV_per_atom": 0.0022218823432922363,
+      "E_DPA_metadata_eV_per_atom": -6.338312238454819,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "95972e7a8e9d941b0f3f4a40c58bffa0499b37d7fa8a7e3b627b4452ff727eb6"
+    },
+    {
+      "system": "zr",
+      "phase": "hcp",
+      "source": "E_static_eV_per_atom",
+      "static_min_eV_per_atom": -7.149894490838051,
+      "static_max_eV_per_atom": -7.149894490838051,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -7.152492448687553,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "ef4bc4c7b6a925f90e9fe1536f79dcb4747bd773af7c2ee44ae311eb4ae23ca1"
+    },
+    {
+      "system": "zr",
+      "phase": "bcc",
+      "source": "E_static_eV_per_atom",
+      "static_min_eV_per_atom": -7.084239602088928,
+      "static_max_eV_per_atom": -7.084239602088928,
+      "static_range_eV_per_atom": 0.0,
+      "E_DPA_metadata_eV_per_atom": -7.087005600333214,
+      "static_term_present": true,
+      "static_matches_metadata_E_DPA_within_1e-5": false,
+      "fqh_sha256": "d55041ea367bb9809140163e070440e23a846f244f7c494804bfd4228dd957ca"
+    }
+  ],
+  "existing_runs": [
+    {
+      "seed": 11,
+      "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_11/metrics.json",
+      "sha256": "2bcbd4557102280e473213a095aa1ea7f6c861289f0ccb7928a40ee32d333e99",
+      "predictor_config_sha256": "d3232d4c2a0f69202baf0aa493334d3281b7b0d8082075f5f3e77d8c4d5327e7",
+      "physics_baseline_column": 2,
+      "qh_baseline": null
+    },
+    {
+      "seed": 23,
+      "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_23/metrics.json",
+      "sha256": "b0d00efc990947dd22ab440029adde8f8fdf4a2eef099844fd8264bbe6ee8ff2",
+      "predictor_config_sha256": "d3232d4c2a0f69202baf0aa493334d3281b7b0d8082075f5f3e77d8c4d5327e7",
+      "physics_baseline_column": 2,
+      "qh_baseline": null
+    },
+    {
+      "seed": 37,
+      "path": "result/experiments/t3_temp_extrap/raw_runs/qh_residual/seed_37/metrics.json",
+      "sha256": "c9b4f3f82d840c34bbff10a1d0e17bea69334a126393d4f5713cb606353b11a8",
+      "predictor_config_sha256": "d3232d4c2a0f69202baf0aa493334d3281b7b0d8082075f5f3e77d8c4d5327e7",
+      "physics_baseline_column": 2,
+      "qh_baseline": null
+    }
+  ],
+  "generated_at_utc": "2026-10-05T15:31:33.217695+00:00",
+  "git_commit": "2711c1332f30983cc3339110e414af5b82b40480",
+  "input_sha256": {
+    "configs/predictors/t2_temp_extrap.yaml": "fc88ee22383571a114e8590a56f057827cc136d8ca94ffaf99954cdd896e52c9",
+    "configs/models/qh_residual.yaml": "ec741143493ae1d60cf38da2f04ae9fc522f2a1d77363ae7cd03f6bf703e0fec"
+  }
+}
