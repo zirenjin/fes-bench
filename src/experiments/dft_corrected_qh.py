@@ -91,7 +91,11 @@ def curves(root: Path, work: Path) -> tuple[dict[str, object], dict[str, object]
             if float(np.ptp(static_values)) > 1.0e-8 and "E_static_eV_per_atom" not in rows[0]:
                 raise AssertionError(f"{system}/{phase}: F_QH - F_vib is not a constant static term")
             key = f"{system}:{phase}"
-            fqh_curves[key] = {"T_K": temperatures, "G_eV_per_atom": fqh}
+            # Keep the repository's named T1 comparator exactly as defined:
+            # E_DPA + F_QH.  The static-term audit below makes the resulting
+            # duplicate-static convention explicit; DFT_corrected_QH removes
+            # the term actually contained in F_QH before adding E_DFT.
+            fqh_curves[key] = {"T_K": temperatures, "G_eV_per_atom": [e_dpa + value for value in fqh]}
             corrected[key] = {
                 "T_K": temperatures,
                 "G_eV_per_atom": [value - static_value + e_dft for value, static_value in zip(fqh, static_values)],
@@ -214,7 +218,7 @@ def main() -> int:
     fqh, corrected, dft_rows, mismatch = curves(root, work)
     curves_payload = {
         "predictions": fqh,
-        "definition": "T1: canonical F_QH; F_QH includes the QH static term + F_vib",
+        "definition": "T1 comparator: E_DPA + F_QH, with F_QH including the QH static term + F_vib",
     }
     (output / "t1_qh_curves.json").write_text(json.dumps(curves_payload, indent=2) + "\n", encoding="utf-8")
     corrected_payload = {
@@ -255,7 +259,7 @@ def main() -> int:
         "# DFT-corrected QH static-energy replacement",
         "",
         "The canonical `F_QH` static term was audited phase-by-phase before applying the correction. For SiO2 it is `F_QH - F_vib`; for metal QH files the row-wise `E_static_eV_per_atom` column is used. The correction therefore subtracts exactly the static term contained in `F_QH`, avoiding double counting.",
-        "The corrected curve is `G_corr(T) = F_QH(T) - E_DPA + E_DFT`, with both sides of every pair treated identically. The five-pair summaries exclude cristobalite--tridymite because it has no reference crossing; pair-level output retains the five crossing pairs with fold provenance.",
+        "The T1 comparator is kept exactly as requested, `G_T1(T) = E_DPA + F_QH(T)`. Because the audit confirms that F_QH already contains its static term, this named comparator has the repository's legacy double-static convention; the corrected curve instead uses `G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT`, with both sides of every pair treated identically. The five-pair summaries exclude cristobalite--tridymite because it has no reference crossing; pair-level output retains the five crossing pairs with fold provenance.",
         "",
         "| Split | Predictor | ΔG MAE (eV/atom) | balanced sign accuracy | Tc error | mean |Tc error| (K) | false | missed |",
         "|---|---|---:|---:|---|---:|---:|---:|",
@@ -272,6 +276,7 @@ def main() -> int:
         "training": "none",
         "device": "cpu",
         "formula": "G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT",
+        "t1_comparator_formula": "G_T1(T) = E_DPA + F_QH(T)",
         "dft_work_root": "external/dft_static_work/results",
         "max_F_QH_minus_F_vib_minus_E_DPA_eV_per_atom": mismatch,
         "splits": ["temp_extrap", "phase_lopo"],

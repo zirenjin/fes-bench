@@ -1,5 +1,5 @@
 split,predictor,n_evaluation_points,n_pair_rows,delta_G_MAE_eV_per_atom,delta_G_RMSE_eV_per_atom,sign_accuracy,balanced_sign_accuracy,Tc_error_K,Tc_error_K_abs_mean,Tc_err_from_dG_K,false_crossings,missed_crossings
-temp_extrap,T1_E_plus_F_QH,33525,5,0.14943348952911875,0.1503994966064459,0.4557863953791643,0.5,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing,0,5
+temp_extrap,T1_E_plus_F_QH,33525,5,0.21518192338065206,0.2158274818971802,0.4557863953791643,0.5,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing,0,5
 temp_extrap,DFT_corrected_QH,33525,5,0.1609811916510002,0.16184187257258795,0.146609479579732,0.5,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing,0,5
-phase_lopo,T1_E_plus_F_QH,12306,10,0.113585483749105,0.11607687791902105,0.5293352836014952,0.5,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing,0,10
+phase_lopo,T1_E_plus_F_QH,12306,10,0.16944015630712214,0.17111650346114127,0.5293352836014952,0.5,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing,0,10
 phase_lopo,DFT_corrected_QH,12306,10,0.12254590437368973,0.12480042701824931,0.45620022753128553,0.5,n/a:missed_crossing,n/a:missed_crossing,n/a:missed_crossing,0,10
