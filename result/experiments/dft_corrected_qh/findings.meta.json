@@ -2,12 +2,42 @@
   "status": "complete",
   "training": "none",
   "device": "cpu",
-  "formula": "F_QH - E_DPA_in_F_QH + E_DFT",
-  "dft_work_root": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results",
+  "formula": "G_corr(T) = F_QH(T) - static_term_contained_in_F_QH(T) + E_DFT",
+  "dft_work_root": "external/dft_static_work/results",
   "max_F_QH_minus_F_vib_minus_E_DPA_eV_per_atom": 0.003193698823451996,
   "splits": [
     "temp_extrap",
     "phase_lopo"
   ],
-  "dft_source": "final-adopted-converged"
+  "dft_source": "final-adopted-converged",
+  "reference_crossing_pair_count": 5,
+  "pair_metrics": "pair_metrics.csv",
+  "generated_at_utc": "2026-10-05T15:03:01.772431+00:00",
+  "git_commit": "723392deeed4879d9557d0af0d6884c4d84a0e07",
+  "script_sha256": "978e4f4642b457a0e42b577480efd047bd9350f00795120ceec9ffe5f00c046f",
+  "input_sha256": [
+    {
+      "path": "src/experiments/dft_corrected_qh.py",
+      "sha256": "978e4f4642b457a0e42b577480efd047bd9350f00795120ceec9ffe5f00c046f"
+    },
+    {
+      "path": "data/processed/splits_v2/temp_extrap.json",
+      "sha256": "30ede38197139d5e2e7aebb33580f2e050c71d1062b68dbe807abdeba9c9d845"
+    },
+    {
+      "path": "data/processed/splits_v2/phase_lopo.json",
+      "sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78"
+    }
+  ],
+  "dft_source_sha256": {
+    "hf:hcp": "dd4716aad3416665590e7ba8ac94b8aa854b9fde22a747521c0075c2d2838d18",
+    "hf:bcc": "849f5b4636b1b665297514b5097c65f86b62b9f695efeeb989a0295d39375176",
+    "ti:hcp": "3636de7e9abfdd0f0b676ae20fba0014faa4dc39b955becebafd04b0228b089e",
+    "ti:bcc": "ca2995aa129b9e84481bbf41f066920122100e9ff11484bbb65bb96cda13b012",
+    "zr:hcp": "3f9d926a6a5cca693b44bd139388e13bc4f82fcd590c5995b93cff38848560d5",
+    "zr:bcc": "37331266261dd23a323d00a177c91759106b5284b1fabe96a9f367c092366fa5",
+    "sio2:quartz_beta": "194db370878cd0daa4d9b0e721a8eba4784980f8c8386c879feb12558890314e",
+    "sio2:cristobalite_beta": "ba1c67d2a467986709e23e095e6e09f1e7951caee0042d105763303ea6ae28c1",
+    "sio2:tridymite_p63mmc": "b4e2cd8c03e4bd2635118727f5eceb8c9653c722e2819b57ce7d3e35513326ba"
+  }
 }

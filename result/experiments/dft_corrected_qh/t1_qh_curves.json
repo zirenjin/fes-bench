@@ -21369,5 +21369,5 @@
       ]
     }
   },
-  "definition": "T1: canonical F_QH; F_QH includes E_DPA + F_vib"
+  "definition": "T1: canonical F_QH; F_QH includes the QH static term + F_vib"
 }

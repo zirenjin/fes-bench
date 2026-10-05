@@ -21369,5 +21369,5 @@
       ]
     }
   },
-  "definition": "DFT-corrected QH: F_QH - E_DPA_in_F_QH + E_DFT"
+  "definition": "DFT-corrected QH: F_QH - (static term contained in F_QH) + E_DFT"
 }
