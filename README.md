@@ -12,6 +12,12 @@ python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install -e '.[test]'
 bash src/reproduce_all.sh
+
+The PES dispersion diagnostic is in `result/experiments/pes_dispersion_check/`.
+It evaluates analytic PBE-D3(BJ) corrections on current DPA, final-converged
+DFT, and archived SiO₂ structures without reading any `reference_G.csv` file.
+The direct pure-PBE comparison for Expanse job 54600945 remains pending because
+that job/output is not accessible from this environment.
 ```
 
 The reproduction command re-normalizes imported historical runs, regenerates

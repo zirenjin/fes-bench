@@ -1,0 +1,3 @@
+pair,delta_E_DPA_plus_D3_eV_per_atom,delta_E_DFT_final_eV_per_atom,model_minus_DFT_meV_per_atom,delta_E_DFT_snapshot_eV_per_atom,model_minus_snapshot_meV_per_atom
+quartz_minus_cristobalite,0.0034840512923590694,-0.02828616416666563,31.770215459024698,0.03824561000064364,-34.76155870828457
+quartz_minus_tridymite,0.0008693018732568447,-0.02729379833333212,28.163100206588965,0.03305306393004148,-32.18376205678464

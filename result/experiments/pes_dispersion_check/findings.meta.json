@@ -1,0 +1,80 @@
+{
+  "status": "complete_partial_expanse_pending",
+  "functional": "PBE-D3(BJ)",
+  "d3_parameters": {
+    "s6": 1.0,
+    "s8": 0.7875,
+    "s9": 0.0,
+    "a1": 0.4289,
+    "a2": 4.4407
+  },
+  "git_commit": "6ab7a146c5c7a8346599421c0b2b627941a2fcc9",
+  "generated_at_utc": "2026-10-05T15:51:47.218952+00:00",
+  "inputs": [
+    {
+      "path": "data/processed/sio2/quartz_beta/meta.json",
+      "sha256": "a1d449d774b56e800113ad18ddd87994e6e51ac5ee95cec5d2711fda5ba4c357"
+    },
+    {
+      "path": "data/processed/sio2/quartz_beta/structure.extxyz",
+      "sha256": "ae701adbd81c2bb9a05c911dc749f2004888f355e8895139448005aec9e5c1cc"
+    },
+    {
+      "path": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results/final-adopted-converged/sio2/quartz_beta/final_static/k555_encut1.000/CONTCAR",
+      "sha256": "9f30997dcb8d680a22c406779a3989a2b536f5bbb31df4862ed613b0d73457a1"
+    },
+    {
+      "path": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results/final-adopted-converged/sio2/quartz_beta/final_static/k555_encut1.000/OUTCAR",
+      "sha256": "194db370878cd0daa4d9b0e721a8eba4784980f8c8386c879feb12558890314e"
+    },
+    {
+      "path": "data/processed/sio2/_archive_md_snapshot/quartz_beta/structure.source.extxyz",
+      "sha256": "8ab2a1d4bef7aea1de57325454672f793d81e93e074c407266e9e8efeafe3388"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/meta.json",
+      "sha256": "4141ec8ba33dc1599f282a660ecdcf1f972d512dee60ce79a3f812fb34c62ca9"
+    },
+    {
+      "path": "data/processed/sio2/cristobalite_beta/structure.extxyz",
+      "sha256": "f8a9c268d68c6bc7e01a45f0285a4a60d380207abe25f32fb304892759329c9a"
+    },
+    {
+      "path": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results/final-adopted-converged/sio2/cristobalite_beta/final_static/k555_encut1.000/CONTCAR",
+      "sha256": "bea703ed6afde226003f13b0912979c11574165b694478c4475eb9a47a58a10a"
+    },
+    {
+      "path": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results/final-adopted-converged/sio2/cristobalite_beta/final_static/k555_encut1.000/OUTCAR",
+      "sha256": "ba1c67d2a467986709e23e095e6e09f1e7951caee0042d105763303ea6ae28c1"
+    },
+    {
+      "path": "data/processed/sio2/_archive_md_snapshot/cristobalite_beta/structure.source.extxyz",
+      "sha256": "3b4ee6232735ba568e5c91293bbd27e43369738059790d068dfe001270fd674a"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/meta.json",
+      "sha256": "eefb8dfe97b0ad377bf1a6d9d3698afaebf3b9809e3bfd281ca0bfd7895a97fb"
+    },
+    {
+      "path": "data/processed/sio2/tridymite_p63mmc/structure.extxyz",
+      "sha256": "dd666ae7ed1e6186bd9381886913c61e564ab559758d79bde1362c339df4757e"
+    },
+    {
+      "path": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results/final-adopted-converged/sio2/tridymite_p63mmc/final_static/k555_encut1.000/CONTCAR",
+      "sha256": "c39b0f0b6db9b397d65e3502abfbe7d67da58c567131a4316bbc6c390983e768"
+    },
+    {
+      "path": "/mnt/c/users/ziren/documents/dpa-adapt/dft_static_work/results/final-adopted-converged/sio2/tridymite_p63mmc/final_static/k555_encut1.000/OUTCAR",
+      "sha256": "b4e2cd8c03e4bd2635118727f5eceb8c9653c722e2819b57ce7d3e35513326ba"
+    },
+    {
+      "path": "data/processed/sio2/_archive_md_snapshot/tridymite_p63mmc/structure.source.extxyz",
+      "sha256": "a25c2641bdf755da587eea8c4a397d41c12537d764096be0e98195b67129ee42"
+    }
+  ],
+  "free_energy_inputs": [],
+  "expanse_job": {
+    "job_id": "54600945",
+    "status": "not_available_from_current_environment"
+  }
+}

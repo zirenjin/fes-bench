@@ -19,6 +19,7 @@ metrics remain below its `raw_runs/` directory when an experiment has them.
 | reference-crossing slope refit and Tc conversion audit | `python3 src/experiments/data_prep/refit_reference_crossing_slopes.py --repo-root .` | `experiments/reference_crossing_slopes/` and `tables/_changes/crossing_errors_*.csv` |
 | Figure 1 (relative-signal, crossing-sensitivity, and QH panels) | `python3 src/figures/figure1_difficulty.py --repo-root . --output result/figures/figure1` | `figures/figure1/` (panel CSVs plus figure provenance) |
 | E + F_QH controlled-ablation baseline | `PYTHONPATH=src/lib python3 src/experiments/evaluate_t1_qh.py --repo-root .` | `experiments/t1_qh/`, `external_baselines/raw_<split>/qh_only/seed_none/` |
+| Analytic SiO₂ PBE-D3(BJ) dispersion check | `/tmp/fes_dftd3_env/bin/python src/experiments/pes_dispersion_check.py --repo-root . --dft-work-root <dft-static-results>` | `experiments/pes_dispersion_check/` |
 
 All paths are relative to the repository root. Rebuild the complete derived
 layer with `bash src/reproduce_all.sh`.
