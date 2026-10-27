@@ -1,0 +1,33 @@
+{
+  "counts": {
+    "systems": 8,
+    "phases": 19,
+    "rows": 25
+  },
+  "systems": {
+    "SiO2": 4,
+    "Ti": 3,
+    "Zr": 2,
+    "Hf": 2,
+    "CaSiO3": 2,
+    "MgSiO3": 4,
+    "Fe": 3,
+    "C": 5
+  },
+  "scopedThermal": 5,
+  "blocked": 3,
+  "c2221": 1,
+  "downloads": [
+    "data/PROBE_LABEL_AVAILABILITY.csv",
+    "data/probe_label_availability.json",
+    "PROBE_LABEL_AVAILABILITY.md",
+    "postprocess/build_probe_matrix.py"
+  ],
+  "mobile": {
+    "width": 390,
+    "body": 390,
+    "table": 322
+  },
+  "errors": [],
+  "missing": []
+}

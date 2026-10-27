@@ -1,5 +1,6 @@
 {
   "edition": "public review",
+  "probe_label_matrix_revision": "20261027-v1",
   "transfer_score_revision": "v2_phase_order_and_ties_20261027",
   "original_snapshot_sha256": "88cac0646d49ecc4a0ce68f27fa76af1e9bcfbd61c01170755112d17db4a871c",
   "figure_variants": 83,

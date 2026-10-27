@@ -22,10 +22,10 @@
       "section": "claims",
       "width_mm": 183,
       "height_mm": 96.52,
-      "svg": "figures/evidence_map.svg?v=d43566632d5e",
-      "pdf": "figures/evidence_map.pdf?v=d43566632d5e",
-      "png": "figures/evidence_map.png?v=d43566632d5e",
-      "csv": "figures/source_data/evidence_map.csv?v=d43566632d5e",
+      "svg": "figures/evidence_map.svg?v=19f8f840d99d",
+      "pdf": "figures/evidence_map.pdf?v=19f8f840d99d",
+      "png": "figures/evidence_map.png?v=19f8f840d99d",
+      "csv": "figures/source_data/evidence_map.csv?v=19f8f840d99d",
       "rows": 19
     },
     {
@@ -35,10 +35,10 @@
       "section": "coverage",
       "width_mm": 183,
       "height_mm": 109.22,
-      "svg": "figures/reference_inventory.svg?v=d43566632d5e",
-      "pdf": "figures/reference_inventory.pdf?v=d43566632d5e",
-      "png": "figures/reference_inventory.png?v=d43566632d5e",
-      "csv": "figures/source_data/reference_inventory.csv?v=d43566632d5e",
+      "svg": "figures/reference_inventory.svg?v=19f8f840d99d",
+      "pdf": "figures/reference_inventory.pdf?v=19f8f840d99d",
+      "png": "figures/reference_inventory.png?v=19f8f840d99d",
+      "csv": "figures/source_data/reference_inventory.csv?v=19f8f840d99d",
       "rows": 8
     },
     {
@@ -48,10 +48,10 @@
       "section": "coverage",
       "width_mm": 183,
       "height_mm": 78.74,
-      "svg": "figures/coverage_targets.svg?v=d43566632d5e",
-      "pdf": "figures/coverage_targets.pdf?v=d43566632d5e",
-      "png": "figures/coverage_targets.png?v=d43566632d5e",
-      "csv": "figures/source_data/coverage_targets.csv?v=d43566632d5e",
+      "svg": "figures/coverage_targets.svg?v=19f8f840d99d",
+      "pdf": "figures/coverage_targets.pdf?v=19f8f840d99d",
+      "png": "figures/coverage_targets.png?v=19f8f840d99d",
+      "csv": "figures/source_data/coverage_targets.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -61,10 +61,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 105.92,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_ti_test.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_ti_test.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_ti_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_ti_test.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_ti_test.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_ti_test.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_ti_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_ti_test.csv?v=19f8f840d99d",
       "rows": 11
     },
     {
@@ -74,10 +74,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 105.92,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_ti_train.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_ti_train.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_ti_train.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_ti_train.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_ti_train.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_ti_train.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_ti_train.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_ti_train.csv?v=19f8f840d99d",
       "rows": 11
     },
     {
@@ -87,10 +87,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 105.92,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_ti_validation.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_ti_validation.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_ti_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_ti_validation.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_ti_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_ti_validation.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_ti_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_ti_validation.csv?v=19f8f840d99d",
       "rows": 11
     },
     {
@@ -100,10 +100,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 105.92,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_zr_test.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_zr_test.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_zr_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_zr_test.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_zr_test.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_zr_test.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_zr_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_zr_test.csv?v=19f8f840d99d",
       "rows": 11
     },
     {
@@ -113,10 +113,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 105.92,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_zr_train.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_zr_train.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_zr_train.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_zr_train.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_zr_train.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_zr_train.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_zr_train.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_zr_train.csv?v=19f8f840d99d",
       "rows": 11
     },
     {
@@ -126,10 +126,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 105.92,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_zr_validation.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_zr_validation.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_zr_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_zr_validation.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_zr_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_zr_validation.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_zr_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_zr_validation.csv?v=19f8f840d99d",
       "rows": 11
     },
     {
@@ -139,10 +139,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_test.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_test.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_sio2_test.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_test.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_test.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_sio2_test.csv?v=19f8f840d99d",
       "rows": 6
     },
     {
@@ -152,10 +152,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_train.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_train.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_train.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_sio2_train.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_train.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_train.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_train.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_sio2_train.csv?v=19f8f840d99d",
       "rows": 6
     },
     {
@@ -165,10 +165,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_validation.svg?v=d43566632d5e",
-      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_validation.pdf?v=d43566632d5e",
-      "png": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_sio2_validation.csv?v=d43566632d5e",
+      "svg": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_validation.pdf?v=19f8f840d99d",
+      "png": "figures/tail_cross_system_60_20_20_batch8_3000_sio2_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_cross_system_60_20_20_batch8_3000_sio2_validation.csv?v=19f8f840d99d",
       "rows": 6
     },
     {
@@ -178,10 +178,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_hf_60_20_20_batch2_3000_hf_train.svg?v=d43566632d5e",
-      "pdf": "figures/tail_hf_60_20_20_batch2_3000_hf_train.pdf?v=d43566632d5e",
-      "png": "figures/tail_hf_60_20_20_batch2_3000_hf_train.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_hf_60_20_20_batch2_3000_hf_train.csv?v=d43566632d5e",
+      "svg": "figures/tail_hf_60_20_20_batch2_3000_hf_train.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_hf_60_20_20_batch2_3000_hf_train.pdf?v=19f8f840d99d",
+      "png": "figures/tail_hf_60_20_20_batch2_3000_hf_train.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_hf_60_20_20_batch2_3000_hf_train.csv?v=19f8f840d99d",
       "rows": 8
     },
     {
@@ -191,10 +191,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_hf_60_20_20_batch2_3000_hf_validation.svg?v=d43566632d5e",
-      "pdf": "figures/tail_hf_60_20_20_batch2_3000_hf_validation.pdf?v=d43566632d5e",
-      "png": "figures/tail_hf_60_20_20_batch2_3000_hf_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_hf_60_20_20_batch2_3000_hf_validation.csv?v=d43566632d5e",
+      "svg": "figures/tail_hf_60_20_20_batch2_3000_hf_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_hf_60_20_20_batch2_3000_hf_validation.pdf?v=19f8f840d99d",
+      "png": "figures/tail_hf_60_20_20_batch2_3000_hf_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_hf_60_20_20_batch2_3000_hf_validation.csv?v=19f8f840d99d",
       "rows": 8
     },
     {
@@ -204,10 +204,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_hf_60_20_20_batch2_3000_hf_test.svg?v=d43566632d5e",
-      "pdf": "figures/tail_hf_60_20_20_batch2_3000_hf_test.pdf?v=d43566632d5e",
-      "png": "figures/tail_hf_60_20_20_batch2_3000_hf_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_hf_60_20_20_batch2_3000_hf_test.csv?v=d43566632d5e",
+      "svg": "figures/tail_hf_60_20_20_batch2_3000_hf_test.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_hf_60_20_20_batch2_3000_hf_test.pdf?v=19f8f840d99d",
+      "png": "figures/tail_hf_60_20_20_batch2_3000_hf_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_hf_60_20_20_batch2_3000_hf_test.csv?v=19f8f840d99d",
       "rows": 8
     },
     {
@@ -217,10 +217,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.svg?v=d43566632d5e",
-      "pdf": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.pdf?v=d43566632d5e",
-      "png": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.csv?v=d43566632d5e",
+      "svg": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.pdf?v=19f8f840d99d",
+      "png": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_hf_60_20_20_batch8_10000_selected8000_hf_train.csv?v=19f8f840d99d",
       "rows": 1
     },
     {
@@ -230,10 +230,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.svg?v=d43566632d5e",
-      "pdf": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.pdf?v=d43566632d5e",
-      "png": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.csv?v=d43566632d5e",
+      "svg": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.pdf?v=19f8f840d99d",
+      "png": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_hf_60_20_20_batch8_10000_selected8000_hf_validation.csv?v=19f8f840d99d",
       "rows": 1
     },
     {
@@ -243,10 +243,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 83.82,
-      "svg": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.svg?v=d43566632d5e",
-      "pdf": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.pdf?v=d43566632d5e",
-      "png": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.csv?v=d43566632d5e",
+      "svg": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.pdf?v=19f8f840d99d",
+      "png": "figures/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_hf_60_20_20_batch8_10000_selected8000_hf_test.csv?v=19f8f840d99d",
       "rows": 1
     },
     {
@@ -256,10 +256,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 106.68,
-      "svg": "figures/tail_overview.svg?v=d43566632d5e",
-      "pdf": "figures/tail_overview.pdf?v=d43566632d5e",
-      "png": "figures/tail_overview.png?v=d43566632d5e",
-      "csv": "figures/source_data/tail_overview.csv?v=d43566632d5e",
+      "svg": "figures/tail_overview.svg?v=19f8f840d99d",
+      "pdf": "figures/tail_overview.pdf?v=19f8f840d99d",
+      "png": "figures/tail_overview.png?v=19f8f840d99d",
+      "csv": "figures/source_data/tail_overview.csv?v=19f8f840d99d",
       "rows": 28
     },
     {
@@ -269,10 +269,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 93.98,
-      "svg": "figures/transfer_overview.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_overview.pdf?v=d43566632d5e",
-      "png": "figures/transfer_overview.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_overview.csv?v=d43566632d5e",
+      "svg": "figures/transfer_overview.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_overview.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_overview.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_overview.csv?v=19f8f840d99d",
       "rows": 6
     },
     {
@@ -282,10 +282,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_fit.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_fit.pdf?v=d43566632d5e",
-      "png": "figures/transfer_sio2_lopo_cristobalite_beta_fit.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_fit.csv?v=d43566632d5e",
+      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_fit.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_fit.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_sio2_lopo_cristobalite_beta_fit.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_fit.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -295,10 +295,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_source_validation.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_source_validation.pdf?v=d43566632d5e",
-      "png": "figures/transfer_sio2_lopo_cristobalite_beta_source_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_source_validation.csv?v=d43566632d5e",
+      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_source_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_source_validation.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_sio2_lopo_cristobalite_beta_source_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_source_validation.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -308,10 +308,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_source_id_test.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_source_id_test.pdf?v=d43566632d5e",
-      "png": "figures/transfer_sio2_lopo_cristobalite_beta_source_id_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_source_id_test.csv?v=d43566632d5e",
+      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_source_id_test.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_source_id_test.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_sio2_lopo_cristobalite_beta_source_id_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_source_id_test.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -321,10 +321,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 121.92,
-      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_outer_test.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_outer_test.pdf?v=d43566632d5e",
-      "png": "figures/transfer_sio2_lopo_cristobalite_beta_outer_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_outer_test.csv?v=d43566632d5e",
+      "svg": "figures/transfer_sio2_lopo_cristobalite_beta_outer_test.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_sio2_lopo_cristobalite_beta_outer_test.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_sio2_lopo_cristobalite_beta_outer_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_sio2_lopo_cristobalite_beta_outer_test.csv?v=19f8f840d99d",
       "rows": 12
     },
     {
@@ -334,10 +334,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 109.22,
-      "svg": "figures/transfer_metals_loso_ti_fit.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_metals_loso_ti_fit.pdf?v=d43566632d5e",
-      "png": "figures/transfer_metals_loso_ti_fit.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_metals_loso_ti_fit.csv?v=d43566632d5e",
+      "svg": "figures/transfer_metals_loso_ti_fit.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_metals_loso_ti_fit.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_metals_loso_ti_fit.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_metals_loso_ti_fit.csv?v=19f8f840d99d",
       "rows": 10
     },
     {
@@ -347,10 +347,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 109.22,
-      "svg": "figures/transfer_metals_loso_ti_source_validation.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_metals_loso_ti_source_validation.pdf?v=d43566632d5e",
-      "png": "figures/transfer_metals_loso_ti_source_validation.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_metals_loso_ti_source_validation.csv?v=d43566632d5e",
+      "svg": "figures/transfer_metals_loso_ti_source_validation.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_metals_loso_ti_source_validation.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_metals_loso_ti_source_validation.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_metals_loso_ti_source_validation.csv?v=19f8f840d99d",
       "rows": 10
     },
     {
@@ -360,10 +360,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 109.22,
-      "svg": "figures/transfer_metals_loso_ti_source_id_test.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_metals_loso_ti_source_id_test.pdf?v=d43566632d5e",
-      "png": "figures/transfer_metals_loso_ti_source_id_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_metals_loso_ti_source_id_test.csv?v=d43566632d5e",
+      "svg": "figures/transfer_metals_loso_ti_source_id_test.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_metals_loso_ti_source_id_test.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_metals_loso_ti_source_id_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_metals_loso_ti_source_id_test.csv?v=19f8f840d99d",
       "rows": 10
     },
     {
@@ -373,10 +373,10 @@
       "section": "models",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/transfer_metals_loso_ti_outer_test.svg?v=d43566632d5e",
-      "pdf": "figures/transfer_metals_loso_ti_outer_test.pdf?v=d43566632d5e",
-      "png": "figures/transfer_metals_loso_ti_outer_test.png?v=d43566632d5e",
-      "csv": "figures/source_data/transfer_metals_loso_ti_outer_test.csv?v=d43566632d5e",
+      "svg": "figures/transfer_metals_loso_ti_outer_test.svg?v=19f8f840d99d",
+      "pdf": "figures/transfer_metals_loso_ti_outer_test.pdf?v=19f8f840d99d",
+      "png": "figures/transfer_metals_loso_ti_outer_test.png?v=19f8f840d99d",
+      "csv": "figures/source_data/transfer_metals_loso_ti_outer_test.csv?v=19f8f840d99d",
       "rows": 5
     },
     {
@@ -386,10 +386,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 96.52,
-      "svg": "figures/carbon_pt_grid.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_pt_grid.pdf?v=d43566632d5e",
-      "png": "figures/carbon_pt_grid.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_pt_grid.csv?v=d43566632d5e",
+      "svg": "figures/carbon_pt_grid.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_pt_grid.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_pt_grid.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_pt_grid.csv?v=19f8f840d99d",
       "rows": 16
     },
     {
@@ -399,10 +399,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_0_0_1.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_0_0_1.pdf?v=d43566632d5e",
-      "png": "figures/carbon_0_0_1.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_0_0_1.csv?v=d43566632d5e",
+      "svg": "figures/carbon_0_0_1.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_0_0_1.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_0_0_1.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_0_0_1.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -412,10 +412,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_0_0_0.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_0_0_0.pdf?v=d43566632d5e",
-      "png": "figures/carbon_0_0_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_0_0_0.csv?v=d43566632d5e",
+      "svg": "figures/carbon_0_0_0.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_0_0_0.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_0_0_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_0_0_0.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -425,10 +425,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_5_0_1.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_5_0_1.pdf?v=d43566632d5e",
-      "png": "figures/carbon_5_0_1.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_5_0_1.csv?v=d43566632d5e",
+      "svg": "figures/carbon_5_0_1.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_5_0_1.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_5_0_1.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_5_0_1.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -438,10 +438,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_5_0_0.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_5_0_0.pdf?v=d43566632d5e",
-      "png": "figures/carbon_5_0_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_5_0_0.csv?v=d43566632d5e",
+      "svg": "figures/carbon_5_0_0.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_5_0_0.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_5_0_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_5_0_0.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -451,10 +451,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_10_0_1.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_10_0_1.pdf?v=d43566632d5e",
-      "png": "figures/carbon_10_0_1.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_10_0_1.csv?v=d43566632d5e",
+      "svg": "figures/carbon_10_0_1.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_10_0_1.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_10_0_1.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_10_0_1.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -464,10 +464,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_10_0_0.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_10_0_0.pdf?v=d43566632d5e",
-      "png": "figures/carbon_10_0_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_10_0_0.csv?v=d43566632d5e",
+      "svg": "figures/carbon_10_0_0.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_10_0_0.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_10_0_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_10_0_0.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -477,10 +477,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_15_0_1.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_15_0_1.pdf?v=d43566632d5e",
-      "png": "figures/carbon_15_0_1.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_15_0_1.csv?v=d43566632d5e",
+      "svg": "figures/carbon_15_0_1.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_15_0_1.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_15_0_1.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_15_0_1.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -490,10 +490,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/carbon_15_0_0.svg?v=d43566632d5e",
-      "pdf": "figures/carbon_15_0_0.pdf?v=d43566632d5e",
-      "png": "figures/carbon_15_0_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/carbon_15_0_0.csv?v=d43566632d5e",
+      "svg": "figures/carbon_15_0_0.svg?v=19f8f840d99d",
+      "pdf": "figures/carbon_15_0_0.pdf?v=19f8f840d99d",
+      "png": "figures/carbon_15_0_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/carbon_15_0_0.csv?v=19f8f840d99d",
       "rows": 4
     },
     {
@@ -503,10 +503,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/ti_all.svg?v=d43566632d5e",
-      "pdf": "figures/ti_all.pdf?v=d43566632d5e",
-      "png": "figures/ti_all.png?v=d43566632d5e",
-      "csv": "figures/source_data/ti_all.csv?v=d43566632d5e",
+      "svg": "figures/ti_all.svg?v=19f8f840d99d",
+      "pdf": "figures/ti_all.pdf?v=19f8f840d99d",
+      "png": "figures/ti_all.png?v=19f8f840d99d",
+      "csv": "figures/source_data/ti_all.csv?v=19f8f840d99d",
       "rows": 155
     },
     {
@@ -516,10 +516,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/ti_0_0.svg?v=d43566632d5e",
-      "pdf": "figures/ti_0_0.pdf?v=d43566632d5e",
-      "png": "figures/ti_0_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/ti_0_0.csv?v=d43566632d5e",
+      "svg": "figures/ti_0_0.svg?v=19f8f840d99d",
+      "pdf": "figures/ti_0_0.pdf?v=19f8f840d99d",
+      "png": "figures/ti_0_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/ti_0_0.csv?v=19f8f840d99d",
       "rows": 31
     },
     {
@@ -529,10 +529,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/ti_1_0.svg?v=d43566632d5e",
-      "pdf": "figures/ti_1_0.pdf?v=d43566632d5e",
-      "png": "figures/ti_1_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/ti_1_0.csv?v=d43566632d5e",
+      "svg": "figures/ti_1_0.svg?v=19f8f840d99d",
+      "pdf": "figures/ti_1_0.pdf?v=19f8f840d99d",
+      "png": "figures/ti_1_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/ti_1_0.csv?v=19f8f840d99d",
       "rows": 31
     },
     {
@@ -542,10 +542,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/ti_2_0.svg?v=d43566632d5e",
-      "pdf": "figures/ti_2_0.pdf?v=d43566632d5e",
-      "png": "figures/ti_2_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/ti_2_0.csv?v=d43566632d5e",
+      "svg": "figures/ti_2_0.svg?v=19f8f840d99d",
+      "pdf": "figures/ti_2_0.pdf?v=19f8f840d99d",
+      "png": "figures/ti_2_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/ti_2_0.csv?v=19f8f840d99d",
       "rows": 31
     },
     {
@@ -555,10 +555,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/ti_3_0.svg?v=d43566632d5e",
-      "pdf": "figures/ti_3_0.pdf?v=d43566632d5e",
-      "png": "figures/ti_3_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/ti_3_0.csv?v=d43566632d5e",
+      "svg": "figures/ti_3_0.svg?v=19f8f840d99d",
+      "pdf": "figures/ti_3_0.pdf?v=19f8f840d99d",
+      "png": "figures/ti_3_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/ti_3_0.csv?v=19f8f840d99d",
       "rows": 31
     },
     {
@@ -568,10 +568,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 88.9,
-      "svg": "figures/ti_4_0.svg?v=d43566632d5e",
-      "pdf": "figures/ti_4_0.pdf?v=d43566632d5e",
-      "png": "figures/ti_4_0.png?v=d43566632d5e",
-      "csv": "figures/source_data/ti_4_0.csv?v=d43566632d5e",
+      "svg": "figures/ti_4_0.svg?v=19f8f840d99d",
+      "pdf": "figures/ti_4_0.pdf?v=19f8f840d99d",
+      "png": "figures/ti_4_0.png?v=19f8f840d99d",
+      "csv": "figures/source_data/ti_4_0.csv?v=19f8f840d99d",
       "rows": 31
     },
     {
@@ -581,10 +581,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 101.6,
-      "svg": "figures/hf_prediction.svg?v=d43566632d5e",
-      "pdf": "figures/hf_prediction.pdf?v=d43566632d5e",
-      "png": "figures/hf_prediction.png?v=d43566632d5e",
-      "csv": "figures/source_data/hf_prediction.csv?v=d43566632d5e",
+      "svg": "figures/hf_prediction.svg?v=19f8f840d99d",
+      "pdf": "figures/hf_prediction.pdf?v=19f8f840d99d",
+      "png": "figures/hf_prediction.png?v=19f8f840d99d",
+      "csv": "figures/source_data/hf_prediction.csv?v=19f8f840d99d",
       "rows": 1252
     },
     {
@@ -594,10 +594,10 @@
       "section": "physics",
       "width_mm": 183,
       "height_mm": 101.6,
-      "svg": "figures/hf_components.svg?v=d43566632d5e",
-      "pdf": "figures/hf_components.pdf?v=d43566632d5e",
-      "png": "figures/hf_components.png?v=d43566632d5e",
-      "csv": "figures/source_data/hf_components.csv?v=d43566632d5e",
+      "svg": "figures/hf_components.svg?v=19f8f840d99d",
+      "pdf": "figures/hf_components.pdf?v=19f8f840d99d",
+      "png": "figures/hf_components.png?v=19f8f840d99d",
+      "csv": "figures/source_data/hf_components.csv?v=19f8f840d99d",
       "rows": 1252
     },
     {
@@ -607,10 +607,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_01.svg?v=d43566632d5e",
-      "pdf": "figures/shape_01.pdf?v=d43566632d5e",
-      "png": "figures/shape_01.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_01.csv?v=d43566632d5e",
+      "svg": "figures/shape_01.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_01.pdf?v=19f8f840d99d",
+      "png": "figures/shape_01.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_01.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -620,10 +620,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_02.svg?v=d43566632d5e",
-      "pdf": "figures/shape_02.pdf?v=d43566632d5e",
-      "png": "figures/shape_02.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_02.csv?v=d43566632d5e",
+      "svg": "figures/shape_02.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_02.pdf?v=19f8f840d99d",
+      "png": "figures/shape_02.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_02.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -633,10 +633,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_03.svg?v=d43566632d5e",
-      "pdf": "figures/shape_03.pdf?v=d43566632d5e",
-      "png": "figures/shape_03.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_03.csv?v=d43566632d5e",
+      "svg": "figures/shape_03.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_03.pdf?v=19f8f840d99d",
+      "png": "figures/shape_03.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_03.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -646,10 +646,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_04.svg?v=d43566632d5e",
-      "pdf": "figures/shape_04.pdf?v=d43566632d5e",
-      "png": "figures/shape_04.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_04.csv?v=d43566632d5e",
+      "svg": "figures/shape_04.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_04.pdf?v=19f8f840d99d",
+      "png": "figures/shape_04.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_04.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -659,10 +659,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_05.svg?v=d43566632d5e",
-      "pdf": "figures/shape_05.pdf?v=d43566632d5e",
-      "png": "figures/shape_05.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_05.csv?v=d43566632d5e",
+      "svg": "figures/shape_05.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_05.pdf?v=19f8f840d99d",
+      "png": "figures/shape_05.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_05.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -672,10 +672,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_06.svg?v=d43566632d5e",
-      "pdf": "figures/shape_06.pdf?v=d43566632d5e",
-      "png": "figures/shape_06.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_06.csv?v=d43566632d5e",
+      "svg": "figures/shape_06.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_06.pdf?v=19f8f840d99d",
+      "png": "figures/shape_06.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_06.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -685,10 +685,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_07.svg?v=d43566632d5e",
-      "pdf": "figures/shape_07.pdf?v=d43566632d5e",
-      "png": "figures/shape_07.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_07.csv?v=d43566632d5e",
+      "svg": "figures/shape_07.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_07.pdf?v=19f8f840d99d",
+      "png": "figures/shape_07.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_07.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -698,10 +698,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_08.svg?v=d43566632d5e",
-      "pdf": "figures/shape_08.pdf?v=d43566632d5e",
-      "png": "figures/shape_08.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_08.csv?v=d43566632d5e",
+      "svg": "figures/shape_08.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_08.pdf?v=19f8f840d99d",
+      "png": "figures/shape_08.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_08.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -711,10 +711,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_09.svg?v=d43566632d5e",
-      "pdf": "figures/shape_09.pdf?v=d43566632d5e",
-      "png": "figures/shape_09.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_09.csv?v=d43566632d5e",
+      "svg": "figures/shape_09.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_09.pdf?v=19f8f840d99d",
+      "png": "figures/shape_09.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_09.csv?v=19f8f840d99d",
       "rows": 24
     },
     {
@@ -724,10 +724,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_10.svg?v=d43566632d5e",
-      "pdf": "figures/shape_10.pdf?v=d43566632d5e",
-      "png": "figures/shape_10.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_10.csv?v=d43566632d5e",
+      "svg": "figures/shape_10.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_10.pdf?v=19f8f840d99d",
+      "png": "figures/shape_10.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_10.csv?v=19f8f840d99d",
       "rows": 21
     },
     {
@@ -737,10 +737,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_11.svg?v=d43566632d5e",
-      "pdf": "figures/shape_11.pdf?v=d43566632d5e",
-      "png": "figures/shape_11.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_11.csv?v=d43566632d5e",
+      "svg": "figures/shape_11.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_11.pdf?v=19f8f840d99d",
+      "png": "figures/shape_11.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_11.csv?v=19f8f840d99d",
       "rows": 21
     },
     {
@@ -750,10 +750,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_12.svg?v=d43566632d5e",
-      "pdf": "figures/shape_12.pdf?v=d43566632d5e",
-      "png": "figures/shape_12.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_12.csv?v=d43566632d5e",
+      "svg": "figures/shape_12.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_12.pdf?v=19f8f840d99d",
+      "png": "figures/shape_12.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_12.csv?v=19f8f840d99d",
       "rows": 21
     },
     {
@@ -763,10 +763,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_13.svg?v=d43566632d5e",
-      "pdf": "figures/shape_13.pdf?v=d43566632d5e",
-      "png": "figures/shape_13.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_13.csv?v=d43566632d5e",
+      "svg": "figures/shape_13.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_13.pdf?v=19f8f840d99d",
+      "png": "figures/shape_13.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_13.csv?v=19f8f840d99d",
       "rows": 21
     },
     {
@@ -776,10 +776,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_14.svg?v=d43566632d5e",
-      "pdf": "figures/shape_14.pdf?v=d43566632d5e",
-      "png": "figures/shape_14.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_14.csv?v=d43566632d5e",
+      "svg": "figures/shape_14.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_14.pdf?v=19f8f840d99d",
+      "png": "figures/shape_14.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_14.csv?v=19f8f840d99d",
       "rows": 21
     },
     {
@@ -789,10 +789,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_15.svg?v=d43566632d5e",
-      "pdf": "figures/shape_15.pdf?v=d43566632d5e",
-      "png": "figures/shape_15.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_15.csv?v=d43566632d5e",
+      "svg": "figures/shape_15.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_15.pdf?v=19f8f840d99d",
+      "png": "figures/shape_15.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_15.csv?v=19f8f840d99d",
       "rows": 21
     },
     {
@@ -802,10 +802,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_16.svg?v=d43566632d5e",
-      "pdf": "figures/shape_16.pdf?v=d43566632d5e",
-      "png": "figures/shape_16.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_16.csv?v=d43566632d5e",
+      "svg": "figures/shape_16.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_16.pdf?v=19f8f840d99d",
+      "png": "figures/shape_16.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_16.csv?v=19f8f840d99d",
       "rows": 18
     },
     {
@@ -815,10 +815,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_17.svg?v=d43566632d5e",
-      "pdf": "figures/shape_17.pdf?v=d43566632d5e",
-      "png": "figures/shape_17.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_17.csv?v=d43566632d5e",
+      "svg": "figures/shape_17.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_17.pdf?v=19f8f840d99d",
+      "png": "figures/shape_17.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_17.csv?v=19f8f840d99d",
       "rows": 18
     },
     {
@@ -828,10 +828,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_18.svg?v=d43566632d5e",
-      "pdf": "figures/shape_18.pdf?v=d43566632d5e",
-      "png": "figures/shape_18.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_18.csv?v=d43566632d5e",
+      "svg": "figures/shape_18.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_18.pdf?v=19f8f840d99d",
+      "png": "figures/shape_18.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_18.csv?v=19f8f840d99d",
       "rows": 18
     },
     {
@@ -841,10 +841,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_22.svg?v=d43566632d5e",
-      "pdf": "figures/shape_22.pdf?v=d43566632d5e",
-      "png": "figures/shape_22.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_22.csv?v=d43566632d5e",
+      "svg": "figures/shape_22.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_22.pdf?v=19f8f840d99d",
+      "png": "figures/shape_22.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_22.csv?v=19f8f840d99d",
       "rows": 3
     },
     {
@@ -854,10 +854,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_23.svg?v=d43566632d5e",
-      "pdf": "figures/shape_23.pdf?v=d43566632d5e",
-      "png": "figures/shape_23.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_23.csv?v=d43566632d5e",
+      "svg": "figures/shape_23.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_23.pdf?v=19f8f840d99d",
+      "png": "figures/shape_23.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_23.csv?v=19f8f840d99d",
       "rows": 3
     },
     {
@@ -867,10 +867,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 99.06,
-      "svg": "figures/shape_24.svg?v=d43566632d5e",
-      "pdf": "figures/shape_24.pdf?v=d43566632d5e",
-      "png": "figures/shape_24.png?v=d43566632d5e",
-      "csv": "figures/source_data/shape_24.csv?v=d43566632d5e",
+      "svg": "figures/shape_24.svg?v=19f8f840d99d",
+      "pdf": "figures/shape_24.pdf?v=19f8f840d99d",
+      "png": "figures/shape_24.png?v=19f8f840d99d",
+      "csv": "figures/source_data/shape_24.csv?v=19f8f840d99d",
       "rows": 3
     },
     {
@@ -880,10 +880,10 @@
       "section": "jobs",
       "width_mm": 183,
       "height_mm": 111.76,
-      "svg": "figures/compute_outcomes.svg?v=d43566632d5e",
-      "pdf": "figures/compute_outcomes.pdf?v=d43566632d5e",
-      "png": "figures/compute_outcomes.png?v=d43566632d5e",
-      "csv": "figures/source_data/compute_outcomes.csv?v=d43566632d5e",
+      "svg": "figures/compute_outcomes.svg?v=19f8f840d99d",
+      "pdf": "figures/compute_outcomes.pdf?v=19f8f840d99d",
+      "png": "figures/compute_outcomes.png?v=19f8f840d99d",
+      "csv": "figures/source_data/compute_outcomes.csv?v=19f8f840d99d",
       "rows": 253
     },
     {
@@ -893,10 +893,10 @@
       "section": "paper",
       "width_mm": 183,
       "height_mm": 109.22,
-      "svg": "figures/manuscript_gaps.svg?v=d43566632d5e",
-      "pdf": "figures/manuscript_gaps.pdf?v=d43566632d5e",
-      "png": "figures/manuscript_gaps.png?v=d43566632d5e",
-      "csv": "figures/source_data/manuscript_gaps.csv?v=d43566632d5e",
+      "svg": "figures/manuscript_gaps.svg?v=19f8f840d99d",
+      "pdf": "figures/manuscript_gaps.pdf?v=19f8f840d99d",
+      "png": "figures/manuscript_gaps.png?v=19f8f840d99d",
+      "csv": "figures/source_data/manuscript_gaps.csv?v=19f8f840d99d",
       "rows": 11
     }
   ],

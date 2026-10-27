@@ -3,7 +3,7 @@
   "title": "FES-Bench · where methods fail, what information is lost, and why",
   "headerWidth": 1440,
   "sidebarCount": 0,
-  "sections": 7,
+  "sections": 8,
   "experiments": 19,
   "cards": 4,
   "bodyWidth": 1440,
@@ -12,7 +12,8 @@
     "Result I · Where",
     "Result II · What",
     "Result III · Why",
-    "Result IV · Applicability and transfer limits"
+    "Result IV · Applicability and transfer limits",
+    "Reference inventory · What can we probe?"
   ],
   "landscapeEvents": "failure_landscape_events",
   "referenceBlocked": "CaSiO₃ · new paired grid · T3\n\nInput budget: Compatible target grid not closed\n\nCompatible new reference grid missing\n\nSingle-volume candidates and MD do not close the new two-phase reference.\n\nScope: Single-volume candidates and MD do not close the new two-phase reference.\n\nE017 · Ca volume brackets and phase identity",

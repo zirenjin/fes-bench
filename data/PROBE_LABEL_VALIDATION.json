@@ -1,0 +1,12 @@
+{
+  "version": "20261027-v1",
+  "counts": {
+    "systems": 8,
+    "phases": 19,
+    "rows": 25
+  },
+  "source_hash_checks": "pass",
+  "snapshot_sha256": "18b94ea472c6829ae0b9e3b44c694d5d52cd6c8f8215558f37233f95b20438f3",
+  "matrix_rows_unique": true,
+  "curation_sha256": "a8998acfe55c4b02d121e671d103025fcd531aff9d7153044c570520ae090c81"
+}

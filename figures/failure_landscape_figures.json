@@ -7,10 +7,10 @@
       "section": "failure-landscape",
       "width_mm": 183,
       "height_mm": 129.54,
-      "svg": "figures/failure_landscape_accuracy.svg?v=d43566632d5e",
-      "pdf": "figures/failure_landscape_accuracy.pdf?v=d43566632d5e",
-      "png": "figures/failure_landscape_accuracy.png?v=d43566632d5e",
-      "csv": "figures/source_data/failure_landscape_accuracy.csv?v=d43566632d5e",
+      "svg": "figures/failure_landscape_accuracy.svg?v=19f8f840d99d",
+      "pdf": "figures/failure_landscape_accuracy.pdf?v=19f8f840d99d",
+      "png": "figures/failure_landscape_accuracy.png?v=19f8f840d99d",
+      "csv": "figures/source_data/failure_landscape_accuracy.csv?v=19f8f840d99d",
       "rows": 90
     },
     {
@@ -20,10 +20,10 @@
       "section": "failure-landscape",
       "width_mm": 183,
       "height_mm": 129.54,
-      "svg": "figures/failure_landscape_mae.svg?v=d43566632d5e",
-      "pdf": "figures/failure_landscape_mae.pdf?v=d43566632d5e",
-      "png": "figures/failure_landscape_mae.png?v=d43566632d5e",
-      "csv": "figures/source_data/failure_landscape_mae.csv?v=d43566632d5e",
+      "svg": "figures/failure_landscape_mae.svg?v=19f8f840d99d",
+      "pdf": "figures/failure_landscape_mae.pdf?v=19f8f840d99d",
+      "png": "figures/failure_landscape_mae.png?v=19f8f840d99d",
+      "csv": "figures/source_data/failure_landscape_mae.csv?v=19f8f840d99d",
       "rows": 90
     },
     {
@@ -33,10 +33,10 @@
       "section": "failure-landscape",
       "width_mm": 183,
       "height_mm": 129.54,
-      "svg": "figures/failure_landscape_events.svg?v=d43566632d5e",
-      "pdf": "figures/failure_landscape_events.pdf?v=d43566632d5e",
-      "png": "figures/failure_landscape_events.png?v=d43566632d5e",
-      "csv": "figures/source_data/failure_landscape_events.csv?v=d43566632d5e",
+      "svg": "figures/failure_landscape_events.svg?v=19f8f840d99d",
+      "pdf": "figures/failure_landscape_events.pdf?v=19f8f840d99d",
+      "png": "figures/failure_landscape_events.png?v=19f8f840d99d",
+      "csv": "figures/source_data/failure_landscape_events.csv?v=19f8f840d99d",
       "rows": 90
     }
   ],
