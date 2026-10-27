@@ -1,0 +1,13 @@
+{
+  "edition": "public review",
+  "original_snapshot_sha256": "88cac0646d49ecc4a0ce68f27fa76af1e9bcfbd61c01170755112d17db4a871c",
+  "figure_variants": 74,
+  "source_records": 2463,
+  "excluded": [
+    "raw source archive",
+    "operational logs",
+    "archive backups",
+    "local machine paths"
+  ],
+  "numerical_policy": "Scientific values retained; path metadata redacted."
+}

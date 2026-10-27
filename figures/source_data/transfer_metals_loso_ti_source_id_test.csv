@@ -1,0 +1,11 @@
+condition,method,region,system,phase_a,phase_b,pair_role,n_temperature_points,delta_G_MAE_eV_atom,delta_G_RMSE_eV_atom,sign_accuracy,temperature_points_are_independent_samples,n_reference_events,n_predicted_events,n_matched_events,missed_events,false_events,hit_conditioned_Tc_MAE_K,reference_roots_K,predicted_roots_K,matched_Tc_abs_errors_K
+metals_loso_ti,C-DPA,source_id_test,hf,hcp,bcc,source_pair,125,3.369977962851617e-05,4.1669240905879836e-05,1.0,False,1,1,1,0,0,1.1040607951690617,1920.000000,1918.895939,1.104061
+metals_loso_ti,C-simple,source_id_test,hf,hcp,bcc,source_pair,125,0.008582808272862497,0.012598476317166362,0.976,False,1,1,1,0,0,30.384261142433388,1920.000000,1950.384261,30.384261
+metals_loso_ti,QH_like_numerical,source_id_test,hf,hcp,bcc,source_pair,125,0.3430776290349694,0.3510596118803213,0.672,False,1,0,0,1,0,,1920.000000,,
+metals_loso_ti,zero_delta_G,source_id_test,hf,hcp,bcc,source_pair,125,0.011320800000000006,0.014405573921229247,,False,1,0,0,1,0,,1920.000000,,
+metals_loso_ti,source_only_family_mean,source_id_test,hf,hcp,bcc,source_pair,125,0.010149716256181928,0.011237677745387567,0.68,False,1,1,0,1,1,,1920.000000,1520.591638,
+metals_loso_ti,C-DPA,source_id_test,zr,hcp,bcc,source_pair,91,3.678686647970806e-05,4.4071467318134194e-05,1.0,False,1,1,1,0,0,0.29253803437222814,975.666667,975.959205,0.292538
+metals_loso_ti,C-simple,source_id_test,zr,hcp,bcc,source_pair,91,0.006545821139388581,0.008621925671443296,0.3956043956043956,False,1,0,0,1,0,,975.666667,,
+metals_loso_ti,QH_like_numerical,source_id_test,zr,hcp,bcc,source_pair,91,0.10125005856416969,0.10476423479307059,0.3956043956043956,False,1,0,0,1,0,,975.666667,,
+metals_loso_ti,zero_delta_G,source_id_test,zr,hcp,bcc,source_pair,91,0.007581318681318683,0.008656275116994542,,False,1,0,0,1,0,,975.666667,,
+metals_loso_ti,source_only_family_mean,source_id_test,zr,hcp,bcc,source_pair,91,0.01743015650235408,0.017581769286241142,0.3956043956043956,False,1,0,0,1,0,,975.666667,,

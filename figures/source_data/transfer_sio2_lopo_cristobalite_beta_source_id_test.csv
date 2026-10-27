@@ -1,0 +1,5 @@
+condition,method,region,system,phase_a,phase_b,pair_role,n_temperature_points,delta_G_MAE_eV_atom,delta_G_RMSE_eV_atom,sign_accuracy,temperature_points_are_independent_samples,n_reference_events,n_predicted_events,n_matched_events,missed_events,false_events,hit_conditioned_Tc_MAE_K,reference_roots_K,predicted_roots_K,matched_Tc_abs_errors_K
+sio2_lopo_cristobalite_beta,C-DPA,source_id_test,sio2,quartz_beta,tridymite_p63mmc,source_pair,164,1.1359882244711782e-06,1.3296753350951527e-06,1.0,False,1,1,1,0,0,0.20166824972943687,1582.319992,1582.521660,0.201668
+sio2_lopo_cristobalite_beta,C-simple,source_id_test,sio2,quartz_beta,tridymite_p63mmc,source_pair,164,1.1362004852661348e-06,1.3297139425298305e-06,1.0,False,1,1,1,0,0,0.20175216653478856,1582.319992,1582.521744,0.201752
+sio2_lopo_cristobalite_beta,QH_like_numerical,source_id_test,sio2,quartz_beta,tridymite_p63mmc,source_pair,164,0.021185685475116792,0.021243457183671755,0.5548780487804879,False,1,0,0,1,0,,1582.319992,,
+sio2_lopo_cristobalite_beta,zero_delta_G,source_id_test,sio2,quartz_beta,tridymite_p63mmc,source_pair,164,0.0031218420418953102,0.003655433692487511,,False,1,0,0,1,0,,1582.319992,,

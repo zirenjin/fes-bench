@@ -1,0 +1,36 @@
+{
+  "source": {
+    "id": "S00018",
+    "name": "RELATIVE_SHAPE_WINDOW_SENSITIVITY_20261020.csv",
+    "path": "[local archive path]",
+    "href": "assets/sources/fc484515a87b1e_RELATIVE_SHAPE_WINDOW_SENSITIVITY_20261020.csv",
+    "sha256": "fc484515a87b1ef4f6fbb9eac4426031ee8cc4a6c3fe3a1eec4f1c9fe57cddc7",
+    "bytes": 133867,
+    "group": "相对斜率与曲率窗口敏感性",
+    "scope": "evidence",
+    "historical": false,
+    "ext": ".csv"
+  },
+  "rows": 405,
+  "duplicate_canonical_metric_keys": 0,
+  "systems": 4,
+  "system_pairs": 6,
+  "protocol_system_pairs": 7,
+  "domain_views": 21,
+  "pointwise_reference_checks": [
+    {
+      "model": "same_form_4term_analytic",
+      "matched_points": 1252,
+      "max_reference_difference_eV_atom": 8.881784197001252e-16
+    },
+    {
+      "model": "thermo_form_3term",
+      "matched_points": 1252,
+      "max_reference_difference_eV_atom": 8.881784197001252e-16
+    }
+  ],
+  "underlying_files": {
+    "[local archive path]": "fba87db8155b051ac4e780b08af2ed1501b498e35255a78b358dabc16f9ad8b5",
+    "[local archive path]": "e6c9ed168d00b8c0e14e86a7f8dbc2538a68c1cf4bc8d18556fdc8bd187e2428"
+  }
+}

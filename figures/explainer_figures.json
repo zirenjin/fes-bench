@@ -1,0 +1,44 @@
+{
+  "figures": [
+    {
+      "key": "explainer_fit_controls",
+      "title": "The same temperature function, with or without QH",
+      "caption": "Each pair uses its own target labels and frozen temperature split. Hf (*) has a separate protocol. Values retain report precision. These deterministic fits do not define a cross-system uncertainty interval.",
+      "section": "fitting",
+      "width_mm": 183,
+      "height_mm": 90.17,
+      "svg": "figures/explainer_fit_controls.svg",
+      "pdf": "figures/explainer_fit_controls.pdf",
+      "png": "figures/explainer_fit_controls.png",
+      "csv": "figures/source_data/explainer_fit_controls.csv",
+      "rows": 4
+    },
+    {
+      "key": "explainer_decision_example",
+      "title": "Lower mean error can still select the wrong phase",
+      "caption": "Actual SiO₂ test-tail results, seeds 11 and 23. Each seed has a lower mean pair MAE for Phase-ID, but T3 selects the correct stable phase. The 330 temperatures are correlated evaluation points. This tail has no reference transition.",
+      "section": "decisions",
+      "width_mm": 183,
+      "height_mm": 91.44,
+      "svg": "figures/explainer_decision_example.svg",
+      "pdf": "figures/explainer_decision_example.pdf",
+      "png": "figures/explainer_decision_example.png",
+      "csv": "figures/source_data/explainer_decision_example.csv",
+      "rows": 4
+    },
+    {
+      "key": "hf_qh_sign_audit",
+      "title": "Hf: phase-order and residual audit",
+      "caption": "All 1252 paired temperatures. Historical seed 11 / step 1500. QH denotes the legacy diagnostic curve, not validated QHA. R− reverses the baseline only as a counterfactual. No reference alignment or parameters are fitted.",
+      "section": "diagnostics",
+      "width_mm": 183,
+      "height_mm": 185.42,
+      "svg": "figures/hf_qh_sign_audit.svg",
+      "pdf": "figures/hf_qh_sign_audit.pdf",
+      "png": "figures/hf_qh_sign_audit.png",
+      "csv": "figures/source_data/hf_qh_sign_audit.csv",
+      "rows": 1252
+    }
+  ],
+  "source": "Frozen evidence snapshot and directly linked diagnostic reports"
+}

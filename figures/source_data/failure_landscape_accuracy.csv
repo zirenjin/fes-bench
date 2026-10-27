@@ -1,0 +1,91 @@
+case,method,state,sources,note,accuracy_min,accuracy_max,mae_min,mae_max,reference_events_min,reference_events_max,missed_events_min,missed_events_max,false_events_min,false_events_max,n_records,display_metric,display_state,display_value,colour_value
+ti_tail,thermo4,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.0353341307,0.0353341307,0,0,,,0,0,1,accuracy,OBS,100,1.0
+ti_tail,residual4,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.265035012,0.265035012,0,0,,,0,0,1,accuracy,OBS,100,1.0
+ti_tail,pid,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,1.41518041,2.38253021,0,0,,,0,0,2,accuracy,OBS,100,1.0
+ti_tail,t3,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,4.1871907,4.7324149,0,0,,,0,0,2,accuracy,OBS,100,1.0
+ti_tail,t2,OBS,S00003,Observed score. The row retains its own task and information budget.,0.0,0.6594202898550725,11.3548377,27.5338818,0,0,,,0,1,2,accuracy,OBS,0–65.9,0.0
+ti_tail,simple,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+ti_tail,dpa,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+ti_tail,qh,OBS,S00003,Observed score. The row retains its own task and information budget.,0.0,0.0,212.799457,212.799457,0,0,,,0,0,1,accuracy,OBS,0,0.0
+ti_tail,family,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+zr_tail,thermo4,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.193547248,0.193547248,0,0,,,0,0,1,accuracy,OBS,100,1.0
+zr_tail,residual4,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.187986826,0.187986826,0,0,,,0,0,1,accuracy,OBS,100,1.0
+zr_tail,pid,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.519810415,1.60880795,0,0,,,0,0,2,accuracy,OBS,100,1.0
+zr_tail,t3,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,1.20283851,1.64074122,0,0,,,0,0,2,accuracy,OBS,100,1.0
+zr_tail,t2,OBS,S00003,Observed score. The row retains its own task and information budget.,0.0,0.0,24.8914645,34.8097553,0,0,,,0,0,2,accuracy,OBS,0,0.0
+zr_tail,simple,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+zr_tail,dpa,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+zr_tail,qh,OBS,S00003,Observed score. The row retains its own task and information budget.,0.0,0.0,137.787219,137.787219,0,0,,,0,0,1,accuracy,OBS,0,0.0
+zr_tail,family,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+sio2_tail,thermo4,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.0373214738,0.0373214738,0,0,,,0,0,1,accuracy,OBS,100,1.0
+sio2_tail,residual4,OBS,S00585,Observed score. The row retains its own task and information budget.,1.0,1.0,0.0373639459407934,0.0373639459407934,0,0,,,0,0,1,accuracy,OBS,100,1.0
+sio2_tail,pid,OBS,S00003,Observed score. The row retains its own task and information budget.,0.0,0.0,0.591082593,1.11193241,0,0,,,0,0,2,accuracy,OBS,0,0.0
+sio2_tail,t3,OBS,S00003,Observed score. The row retains its own task and information budget.,1.0,1.0,0.867346779,1.50843379,0,0,,,0,0,2,accuracy,OBS,100,1.0
+sio2_tail,t2,OBS,S00611,Observed score. The row retains its own task and information budget.,0.0,0.0,1.6923389699375595,1.8123489377597009,0,0,,,0,0,2,accuracy,OBS,0,0.0
+sio2_tail,simple,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+sio2_tail,dpa,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+sio2_tail,qh,OBS,S00808,Observed score. The row retains its own task and information budget.,0.0,0.0,15.483630213637198,15.483630213637198,0,0,,,0,0,1,accuracy,OBS,0,0.0
+sio2_tail,family,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+hf_tail,thermo4,OBS,S00003;S00013,Observed score. The row retains its own task and information budget.,1.0,1.0,0.23532317994500748,0.23532317994500748,0,0,,,0,0,1,accuracy,OBS,100,1.0
+hf_tail,residual4,OBS,S00013,Observed score. The row retains its own task and information budget.,1.0,1.0,0.234,0.234,0,0,,,0,0,1,accuracy,OBS,100,1.0
+hf_tail,pid,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+hf_tail,t3,OBS,S00003;S00013,Observed score. The row retains its own task and information budget.,0.1394422310756972,0.6175298804780877,6.533584783181728,7.224529424416593,0,0,,,1,1,3,accuracy,OBS,13.9–61.8,0.1394422310756972
+hf_tail,t2,OBS,S00003;S00013,Observed score. The row retains its own task and information budget.,0.0,0.0,58.90044825126706,63.59207529111943,0,0,,,0,0,3,accuracy,OBS,0,0.0
+hf_tail,simple,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+hf_tail,dpa,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+hf_tail,qh,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+hf_tail,family,NR,,Frozen 60/20/20 tail; test has no reference event.,,,,,,,,,,,0,accuracy,NR,NR,
+sio2_lopo,thermo4,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,accuracy,NA,NA,
+sio2_lopo,residual4,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,accuracy,NA,NA,
+sio2_lopo,pid,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,accuracy,NA,NA,
+sio2_lopo,t3,NR,,One cristobalite outer fold; source-only selection.,,,,,,,,,,,0,accuracy,NR,NR,
+sio2_lopo,t2,NR,,One cristobalite outer fold; source-only selection.,,,,,,,,,,,0,accuracy,NR,NR,
+sio2_lopo,simple,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.9757428744693754,0.9757428744693754,0.439593828280335,0.439593828280335,1,1,0,0,0,0,1,accuracy,OBS,97.6,0.9757428744693754
+sio2_lopo,dpa,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.9757428744693754,0.9757428744693754,1.1817400232201574,1.1817400232201574,1,1,0,0,0,0,1,accuracy,OBS,97.6,0.9757428744693754
+sio2_lopo,qh,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.0,0.0,10.592029035659323,10.592029035659323,1,1,1,1,0,0,1,accuracy,OBS,0,0.0
+sio2_lopo,family,NR,,One cristobalite outer fold; source-only selection.,,,,,,,,,,,0,accuracy,NR,NR,
+ti_loso,thermo4,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,accuracy,NA,NA,
+ti_loso,residual4,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,accuracy,NA,NA,
+ti_loso,pid,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,accuracy,NA,NA,
+ti_loso,t3,NR,,One family outer fold; source-only selection.,,,,,,,,,,,0,accuracy,NR,NR,
+ti_loso,t2,NR,,One family outer fold; source-only selection.,,,,,,,,,,,0,accuracy,NR,NR,
+ti_loso,simple,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.25396825396825395,0.25396825396825395,7.026457319518085,7.026457319518085,1,1,1,1,0,0,1,accuracy,OBS,25.4,0.25396825396825395
+ti_loso,dpa,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.5093795093795094,0.5093795093795094,9.139168513690773,9.139168513690773,1,1,1,1,1,1,1,accuracy,OBS,50.9,0.5093795093795094
+ti_loso,qh,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.25396825396825395,0.25396825396825395,169.70880681867524,169.70880681867524,1,1,1,1,0,0,1,accuracy,OBS,25.4,0.25396825396825395
+ti_loso,family,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.26406926406926406,0.26406926406926406,12.016961397435205,12.016961397435205,1,1,1,1,1,1,1,accuracy,OBS,26.4,0.26406926406926406
+c_pressure,thermo4,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,residual4,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,pid,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,t3,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,t2,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,simple,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,dpa,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,qh,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+c_pressure,family,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,accuracy,NR,NR,
+ca_new,thermo4,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,residual4,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,pid,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,t3,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,t2,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,simple,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,dpa,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,qh,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+ca_new,family,RF,,Single-volume candidates and MD do not close the new two-phase reference.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,thermo4,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,residual4,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,pid,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,t3,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,t2,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,simple,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,dpa,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,qh,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+mg_new,family,RF,,The new Pv/PPv paired grid remains open.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,thermo4,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,residual4,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,pid,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,t3,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,t2,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,simple,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,dpa,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,qh,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,
+fe_new,family,RF,,This row is the new full grid. It does not reject the twelve admitted source fcc/hcp pairs.,,,,,,,,,,,0,accuracy,RF,RF,

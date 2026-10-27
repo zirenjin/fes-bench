@@ -1,0 +1,45 @@
+{
+  "figures": [
+    {
+      "key": "failure_landscape_accuracy",
+      "title": "Failure landscape · Stable-envelope accuracy (%)",
+      "caption": "Each row keeps its own task, label budget and reference layer. Text shows seed extrema, not an uncertainty interval. Colour uses the worst reported seed. NR is no matched reported evaluation, NA is an input restriction, RF is a missing compatible new grid, and NE is no reference event. Reference limits are not model prediction errors. QH columns describe the declared numerical baselines, not certified QHA.",
+      "section": "failure-landscape",
+      "width_mm": 183,
+      "height_mm": 129.54,
+      "svg": "figures/failure_landscape_accuracy.svg",
+      "pdf": "figures/failure_landscape_accuracy.pdf",
+      "png": "figures/failure_landscape_accuracy.png",
+      "csv": "figures/source_data/failure_landscape_accuracy.csv",
+      "rows": 90
+    },
+    {
+      "key": "failure_landscape_mae",
+      "title": "Failure landscape · Mean pair ΔG MAE (meV/atom)",
+      "caption": "Each row keeps its own task, label budget and reference layer. Text shows seed extrema, not an uncertainty interval. Colour uses the worst reported seed. NR is no matched reported evaluation, NA is an input restriction, RF is a missing compatible new grid, and NE is no reference event. Reference limits are not model prediction errors. QH columns describe the declared numerical baselines, not certified QHA.",
+      "section": "failure-landscape",
+      "width_mm": 183,
+      "height_mm": 129.54,
+      "svg": "figures/failure_landscape_mae.svg",
+      "pdf": "figures/failure_landscape_mae.pdf",
+      "png": "figures/failure_landscape_mae.png",
+      "csv": "figures/source_data/failure_landscape_mae.csv",
+      "rows": 90
+    },
+    {
+      "key": "failure_landscape_events",
+      "title": "Failure landscape · Missed / reference envelope events",
+      "caption": "Each row keeps its own task, label budget and reference layer. Text shows seed extrema, not an uncertainty interval. Colour uses the worst reported seed. NR is no matched reported evaluation, NA is an input restriction, RF is a missing compatible new grid, and NE is no reference event. Reference limits are not model prediction errors. QH columns describe the declared numerical baselines, not certified QHA.",
+      "section": "failure-landscape",
+      "width_mm": 183,
+      "height_mm": 129.54,
+      "svg": "figures/failure_landscape_events.svg",
+      "pdf": "figures/failure_landscape_events.pdf",
+      "png": "figures/failure_landscape_events.png",
+      "csv": "figures/source_data/failure_landscape_events.csv",
+      "rows": 90
+    }
+  ],
+  "source": "data/failure_logic.json",
+  "schema": "Explicit observed and unscored states; no implicit model-failure labels."
+}

@@ -1,0 +1,103 @@
+{
+  "n_paired_temperatures": 1252,
+  "checks_max_abs_eV_atom": {
+    "pair_QH_vs_archive": 0,
+    "pair_ref_vs_archive": 0,
+    "target_identity": 8.881784197001252e-16,
+    "QH_static_plus_vib": 8.881784197001252e-16,
+    "learned_reconstruction": 0,
+    "canonical_vs_raw_QH": 0,
+    "reference_vs_raw_table": 2.220446049250313e-16
+  },
+  "at_1400_K": {
+    "T_K": 1400.0,
+    "domain": "train",
+    "F_QH_bcc_eV_atom": -7.755544374930702,
+    "F_QH_hcp_eV_atom": -8.05297323426245,
+    "delta_G_ref_eV_atom": 0.017599999999999838,
+    "delta_F_QH_eV_atom": 0.2974288593317471,
+    "negative_delta_F_QH_eV_atom": -0.2974288593317471,
+    "R_plus_eV_atom": -0.2798288593317473,
+    "R_minus_eV_atom": 0.31502885933174696,
+    "delta_static_eV_atom": 0.1520325094461441,
+    "delta_F_vib_eV_atom": 0.14539634988560302,
+    "learned_correction_eV_atom": -0.15481656789779663
+  },
+  "static_gap_meV_atom": 152.0325094461441,
+  "MAE_gap_meV_atom": 342.363907446633,
+  "counterfactual_reversed_MAE_meV_atom": 358.7325975424797,
+  "input_provenance": {
+    "bcc_fqh.csv": {
+      "original": "[local archive path]",
+      "sha256": "af160fba062e24b532d7ab4cd073b2d72fa5eb8700e8deb32cfa27ccc9ff8d98"
+    },
+    "bcc_reference_G.csv": {
+      "original": "[local archive path]",
+      "sha256": "dab1b30820ef01245430504b22a1730c8956cba075104e1bb6a159a42d1a3d7d"
+    },
+    "bcc_structure.extxyz": {
+      "original": "[local archive path]",
+      "sha256": "926c117b2a022b78feba3693b844f36a90d607c7838f0a15cdd11615ebc82d57"
+    },
+    "bcc_meta.json": {
+      "original": "[local archive path]",
+      "sha256": "eba0addf496099fc52ab67064e4e6f0a51a0be5e75689d523e9b5805082ff6f7"
+    },
+    "bcc_phonon_report.json": {
+      "original": "[local archive path]",
+      "sha256": "d6ffa79ee677854e85d8bd3c9d9c018855aadc0021b1b240fb41f4abce1272b4"
+    },
+    "bcc_raw_fqh.csv": {
+      "original": "[local archive path]",
+      "sha256": "647a88bc141a84840ffed483f3984f8ee2fa3e80b7ac03e2598b0dcea5ff3348"
+    },
+    "bcc_raw_reference.tab": {
+      "original": "[local archive path]",
+      "sha256": "77a4f7636a215ef2d07d4f01edb93b1696b0cbcc75c40d8cacdb17a133078d65"
+    },
+    "hcp_fqh.csv": {
+      "original": "[local archive path]",
+      "sha256": "35ebfb2b52356c44584b02540f6bacaa83f81971600d8d19a9d877d561fb8881"
+    },
+    "hcp_reference_G.csv": {
+      "original": "[local archive path]",
+      "sha256": "9e53c7837b609b3ff783cc3615fa9c3a06b303dc12b860815a33871e4a9a747c"
+    },
+    "hcp_structure.extxyz": {
+      "original": "[local archive path]",
+      "sha256": "80499285b4de6ac3ef304c2574b81019f6942a520297fa08eb8663f44cf20d45"
+    },
+    "hcp_meta.json": {
+      "original": "[local archive path]",
+      "sha256": "1cd04c744d30b669e2a7b81c7adfd52a0bcc64df80e4d2ace870f8e858ba4700"
+    },
+    "hcp_phonon_report.json": {
+      "original": "[local archive path]",
+      "sha256": "ebf236472ab6588e87ac715534ed70e5305b9d0bb9b7cdfb255cd15eda9bb0aa"
+    },
+    "hcp_raw_fqh.csv": {
+      "original": "[local archive path]",
+      "sha256": "8f8405dd620641d5cc9a9c1185324a5fb137f83cfaed6ff2845c5cebc14b454e"
+    },
+    "hcp_raw_reference.tab": {
+      "original": "[local archive path]",
+      "sha256": "0d7d25ba9bef41919fddb6dfb04f64045a3e0d669b6b226f48aedbd2e0ad7b80"
+    },
+    "qh_run.py": {
+      "original": "[local archive path]",
+      "sha256": "a1405fc03c19401479b067621d9c0a0f1c8c0f0e4b9373ae98f331e9a2987ce6"
+    },
+    "qh_materialize.py": {
+      "original": "[local archive path]",
+      "sha256": "14ad20ee48e708bae1dc626bbce1ffbd2b7d3001a67311bdc134ea47a454014a"
+    },
+    "import_thermo.py": {
+      "original": "[local archive path]",
+      "sha256": "b6f10b03898b09d7ff658d29d816a218de194755f20752c9f39d3510a1b2b30e"
+    },
+    "raw_qh_summary.json": {
+      "original": "[local archive path]",
+      "sha256": "2cc2ae2bec551f05022d05833b9f4390290597d7f5db25c33e318a1635123a64"
+    }
+  }
+}
