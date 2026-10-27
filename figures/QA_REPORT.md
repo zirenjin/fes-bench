@@ -103,6 +103,8 @@ The source heuristic reports four non-blocking advisories: PNG rather than TIFF,
 
 
 
+
+
 ## English first-principles additions
 
 Two additional Python figures use archived observations. `explainer_fit_controls` keeps rounded report values and marks Hf as a separate protocol. `explainer_decision_example` retains all four selected SiO₂ method/seed observations. Neither figure invents data or a confidence interval. Both passed the final PDF collision and 5 pt glyph-floor checks; minimum observed size is 8 pt. The two-panel decision figure passed the measured alignment gate.
@@ -120,3 +122,11 @@ The Hf batch-2 pair aliases now share three domain figures. All six complementar
 ## Hf phase-order audit
 
 The four-panel Hf audit retains all 1,252 temperature pairs and independently compares phase exports, pair differences, sign-counterfactual residuals and static/vibrational terms. It passed measured panel alignment, final PDF collision and glyph checks (minimum 7 pt). This verifies arithmetic and provenance, not physical QHA validity.
+
+## Optimization Sanity Check additions
+
+Seven new source-fit/test distribution figures retain all matched paired points and separate seeds. The horizontal limits match between panels. No new fitting, target alignment, convergence threshold or layer probe is introduced. All final PDFs passed collision, glyph-floor and measured panel-alignment checks. See OPTIMIZATION_AND_PROBING.md for source roles and matrix ranks.
+
+## Transfer score revision V2
+
+The target-phase envelope audit and all nine transfer figure variants passed final PDF collision, glyph and measured alignment gates. Current scores align the Ti family coefficient order and exclude reference ties from decision denominators. All 37 two-phase case/domain/model checks have identical pair-sign and envelope accuracy. Original frozen evidence remains unchanged; derived V2 tables retain original-value columns.

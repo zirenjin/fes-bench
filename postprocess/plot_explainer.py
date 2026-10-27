@@ -47,6 +47,6 @@ for ax in axes:p.clean(ax)
 p.panel(axes[0],'a','Average pair error');p.panel(axes[1],'b','Stable-phase decision')
 export('explainer_decision_example','Lower mean error can still select the wrong phase',fig,rs,'Actual SiO₂ test-tail results, seeds 11 and 23. Each seed has a lower mean pair MAE for Phase-ID, but T3 selects the correct stable phase. The 330 temperatures are correlated evaluation points. This tail has no reference transition.','decisions')
 existing=R/'figures/explainer_figures.json'
-if existing.exists():p.FIGS.extend(x for x in json.loads(existing.read_text())['figures'] if x['key']=='hf_qh_sign_audit')
+if existing.exists():p.FIGS.extend(x for x in json.loads(existing.read_text())['figures'] if x['key']=='hf_qh_sign_audit' or x['key'].startswith('sio2_envelope_audit') or x['key'].startswith('optimization_'))
 result={'figures':p.FIGS,'source':'Frozen evidence snapshot and directly linked diagnostic reports'}
 (R/'figures/explainer_figures.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));(R/'figures/explainer_figures.js').write_text('window.FES_EXPLAINER_FIGURES='+json.dumps(result,ensure_ascii=False)+';\n')

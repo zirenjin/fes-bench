@@ -1552,7 +1552,7 @@
       "records": [
         {
           "seed": "one frozen readout",
-          "accuracy": 0.25396825396825395,
+          "accuracy": 0.25507246376811593,
           "mae": 7.026457319518085,
           "reference_events": 1,
           "missed_events": 1,
@@ -1564,8 +1564,8 @@
         "S00006"
       ],
       "note": "Observed score. The row retains its own task and information budget.",
-      "accuracy_min": 0.25396825396825395,
-      "accuracy_max": 0.25396825396825395,
+      "accuracy_min": 0.25507246376811593,
+      "accuracy_max": 0.25507246376811593,
       "mae_min": 7.026457319518085,
       "mae_max": 7.026457319518085,
       "reference_events_min": 1,
@@ -1583,7 +1583,7 @@
       "records": [
         {
           "seed": "one frozen readout",
-          "accuracy": 0.5093795093795094,
+          "accuracy": 0.5115942028985507,
           "mae": 9.139168513690773,
           "reference_events": 1,
           "missed_events": 1,
@@ -1595,8 +1595,8 @@
         "S00006"
       ],
       "note": "Observed score. The row retains its own task and information budget.",
-      "accuracy_min": 0.5093795093795094,
-      "accuracy_max": 0.5093795093795094,
+      "accuracy_min": 0.5115942028985507,
+      "accuracy_max": 0.5115942028985507,
       "mae_min": 9.139168513690773,
       "mae_max": 9.139168513690773,
       "reference_events_min": 1,
@@ -1614,7 +1614,7 @@
       "records": [
         {
           "seed": "one frozen readout",
-          "accuracy": 0.25396825396825395,
+          "accuracy": 0.25507246376811593,
           "mae": 169.70880681867524,
           "reference_events": 1,
           "missed_events": 1,
@@ -1626,8 +1626,8 @@
         "S00006"
       ],
       "note": "Observed score. The row retains its own task and information budget.",
-      "accuracy_min": 0.25396825396825395,
-      "accuracy_max": 0.25396825396825395,
+      "accuracy_min": 0.25507246376811593,
+      "accuracy_max": 0.25507246376811593,
       "mae_min": 169.70880681867524,
       "mae_max": 169.70880681867524,
       "reference_events_min": 1,
@@ -1645,8 +1645,8 @@
       "records": [
         {
           "seed": "one frozen readout",
-          "accuracy": 0.26406926406926406,
-          "mae": 12.016961397435205,
+          "accuracy": 0.26521739130434785,
+          "mae": 15.870798218874175,
           "reference_events": 1,
           "missed_events": 1,
           "false_events": 1
@@ -1657,10 +1657,10 @@
         "S00006"
       ],
       "note": "Observed score. The row retains its own task and information budget.",
-      "accuracy_min": 0.26406926406926406,
-      "accuracy_max": 0.26406926406926406,
-      "mae_min": 12.016961397435205,
-      "mae_max": 12.016961397435205,
+      "accuracy_min": 0.26521739130434785,
+      "accuracy_max": 0.26521739130434785,
+      "mae_min": 15.870798218874175,
+      "mae_max": 15.870798218874175,
       "reference_events_min": 1,
       "reference_events_max": 1,
       "missed_events_min": 1,

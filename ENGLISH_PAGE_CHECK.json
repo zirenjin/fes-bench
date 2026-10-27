@@ -54,7 +54,21 @@
   "filteredExperiments": 2,
   "experiment": "E003",
   "sourceDialog": true,
-  "figureExports": 74,
+  "transferAudit": {
+    "revision": "v2_phase_order_and_ties_20261027",
+    "correctedRows": 693,
+    "maxDecisionMismatch": 0,
+    "targetCounts": [
+      917,
+      917
+    ],
+    "skillRows": 9
+  },
+  "envelopeAuditFigure": "sio2_envelope_audit_zoom",
+  "optimizationCases": 7,
+  "cFitRows": 4,
+  "optimizationDefault": "optimization_06",
+  "figureExports": 83,
   "filteredSources": 20,
   "visibleChinese": [],
   "mobile": {

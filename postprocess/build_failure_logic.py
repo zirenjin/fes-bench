@@ -9,6 +9,10 @@ from pathlib import Path
 from collections import defaultdict
 import json,csv,hashlib
 R=Path(__file__).resolve().parents[1];D=json.loads((R/'data/review_data.json').read_text());S={s['id']:s for s in D['sources']}
+# Current score layer; the original snapshot and source hashes remain unchanged.
+transfer_audit=R/'data/transfer_score_audit.json'
+if transfer_audit.exists():
+ current=json.loads(transfer_audit.read_text());D['transferPair']=current['pair_metrics'];D['transferEnvelope']=current['envelope_metrics']
 def source_rows(ident):
  with (R/S[ident]['href']).open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
 methods=[('thermo4','Direct\nThermo4'),('residual4','QH +\nThermo4'),('pid','Phase-ID'),('t3','T3'),('t2','T2'),('simple','C-simple'),('dpa','C-DPA'),('qh','QH-like'),('family','Family\nmean')]

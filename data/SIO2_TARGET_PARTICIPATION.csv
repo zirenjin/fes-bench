@@ -1,0 +1,4 @@
+method,n_states,reference_target_stable_states,predicted_target_stable_states,decisions_changed_by_target,source_only_accuracy_against_full_reference,full_envelope_accuracy,target_stable_recall,target_phase_precision,false_target_stable_states,missed_target_stable_states
+C-DPA,1649,957,917,917,0.41964827167980595,0.9757428744693754,0.9582027168234065,1.0,0,40
+C-simple,1649,957,917,917,0.41964827167980595,0.9757428744693754,0.9582027168234065,1.0,0,40
+QH_like_numerical,1649,957,0,0,0.0,0.0,0.0,,0,957

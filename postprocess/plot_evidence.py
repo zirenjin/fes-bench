@@ -20,6 +20,10 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'figures'; QA=OUT/'qa'; DATA=OUT/'source_data'
 for p in [OUT,QA,DATA]:p.mkdir(parents=True,exist_ok=True)
 D=json.loads((ROOT/'data/review_data.json').read_text())
+# Current score layer; the original snapshot and source hashes remain unchanged.
+transfer_audit=ROOT/'data/transfer_score_audit.json'
+if transfer_audit.exists():
+ current=json.loads(transfer_audit.read_text());D['transferPair']=current['pair_metrics'];D['transferEnvelope']=current['envelope_metrics']
 W=183/25.4
 mpl.rcParams.update({'font.family':'sans-serif','font.sans-serif':['DejaVu Sans'],
  'font.size':8,'axes.labelsize':8,'axes.titlesize':9,'xtick.labelsize':8,'ytick.labelsize':8,

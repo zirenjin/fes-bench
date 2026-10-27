@@ -1,6 +1,6 @@
 # FES-Bench: reliability limits and controlled failure diagnosis
 
-The benchmark contribution is to compare reliability under stated task and input conditions. The scientific contribution still to establish is a controlled link from observed errors to relative thermodynamic information and physical assumptions.
+FES-Bench separates source-fit quality, transfer of phase-relative information and thermodynamic decisions. Two findings anchor the narrative: lower mean ΔG error can select the wrong phase; high envelope accuracy can coexist with incorrect pair-crossing topology. Source-fit distributions and the audited target-phase participation explain what these scores measure.
 
 ## Where -> What -> Why
 

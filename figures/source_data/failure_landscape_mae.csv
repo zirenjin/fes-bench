@@ -60,10 +60,10 @@ ti_loso,residual4,NA,,This named control needs labels or a phase ID for the held
 ti_loso,pid,NA,,This named control needs labels or a phase ID for the held-out target. Those inputs are not allowed in this zero-target-label fold.,,,,,,,,,,,0,mae,NA,NA,
 ti_loso,t3,NR,,One family outer fold; source-only selection.,,,,,,,,,,,0,mae,NR,NR,
 ti_loso,t2,NR,,One family outer fold; source-only selection.,,,,,,,,,,,0,mae,NR,NR,
-ti_loso,simple,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.25396825396825395,0.25396825396825395,7.026457319518085,7.026457319518085,1,1,1,1,0,0,1,mae,OBS,7.03,7.026457319518085
-ti_loso,dpa,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.5093795093795094,0.5093795093795094,9.139168513690773,9.139168513690773,1,1,1,1,1,1,1,mae,OBS,9.14,9.139168513690773
-ti_loso,qh,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.25396825396825395,0.25396825396825395,169.70880681867524,169.70880681867524,1,1,1,1,0,0,1,mae,OBS,170,169.70880681867524
-ti_loso,family,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.26406926406926406,0.26406926406926406,12.016961397435205,12.016961397435205,1,1,1,1,1,1,1,mae,OBS,12,12.016961397435205
+ti_loso,simple,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.25507246376811593,0.25507246376811593,7.026457319518085,7.026457319518085,1,1,1,1,0,0,1,mae,OBS,7.03,7.026457319518085
+ti_loso,dpa,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.5115942028985507,0.5115942028985507,9.139168513690773,9.139168513690773,1,1,1,1,1,1,1,mae,OBS,9.14,9.139168513690773
+ti_loso,qh,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.25507246376811593,0.25507246376811593,169.70880681867524,169.70880681867524,1,1,1,1,0,0,1,mae,OBS,170,169.70880681867524
+ti_loso,family,OBS,S00005;S00006,Observed score. The row retains its own task and information budget.,0.26521739130434785,0.26521739130434785,15.870798218874175,15.870798218874175,1,1,1,1,1,1,1,mae,OBS,15.9,15.870798218874175
 c_pressure,thermo4,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,mae,NR,NR,
 c_pressure,residual4,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,mae,NR,NR,
 c_pressure,pid,NR,,Paired QHA references exist. No matched pressure-transfer model score is recorded.,,,,,,,,,,,0,mae,NR,NR,

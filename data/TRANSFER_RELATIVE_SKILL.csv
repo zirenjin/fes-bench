@@ -1,0 +1,10 @@
+condition,method,n_pair_temperature_points,MAE_meV_atom,zero_gap_MAE_meV_atom,relative_skill,stable_envelope_accuracy,decision_status
+sio2_lopo_cristobalite_beta,C-DPA,3298,1.1817400232201574,1.7314913776638372,0.3175016413800543,0.9757428744693754,reference ties excluded
+sio2_lopo_cristobalite_beta,C-simple,3298,0.439593828280335,1.7314913776638372,0.7461183844452961,0.9757428744693754,reference ties excluded
+sio2_lopo_cristobalite_beta,QH_like_numerical,3298,10.592029035659323,1.7314913776638372,-5.117286619093824,0.0,reference ties excluded
+sio2_lopo_cristobalite_beta,zero_delta_G,3298,1.7314913776638372,1.7314913776638372,0.0,,NA: fully degenerate predictor
+metals_loso_ti,C-DPA,693,9.139168513690771,6.696825396825395,-0.3647016268369725,0.5115942028985507,reference ties excluded
+metals_loso_ti,C-simple,693,7.026457319518085,6.696825396825395,-0.049222116922587045,0.25507246376811593,reference ties excluded
+metals_loso_ti,QH_like_numerical,693,169.70880681867527,6.696825396825395,-24.34168008906505,0.25507246376811593,reference ties excluded
+metals_loso_ti,source_only_family_mean,693,15.870798218874175,6.696825396825395,-1.369898762240041,0.26521739130434785,reference ties excluded
+metals_loso_ti,zero_delta_G,693,6.696825396825395,6.696825396825395,0.0,,NA: fully degenerate predictor
