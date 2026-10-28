@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-27",
+  "scope": "First-pass archived code and source-output audit; no new DFT, training or full phonon recomputation.",
+  "lineage": [
+    {
+      "system": "ti",
+      "phase": "hcp",
+      "legacy_qh_reliable": true,
+      "diagnostic_only": null,
+      "sampled_min_THz": 0.44850312435508555,
+      "sampled_max_of_min_THz": 0.4565279091312703,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment"
+    },
+    {
+      "system": "ti",
+      "phase": "bcc",
+      "legacy_qh_reliable": false,
+      "diagnostic_only": null,
+      "sampled_min_THz": -4.459023098983701,
+      "sampled_max_of_min_THz": -4.23604165310277,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment"
+    },
+    {
+      "system": "zr",
+      "phase": "hcp",
+      "legacy_qh_reliable": true,
+      "diagnostic_only": null,
+      "sampled_min_THz": 0.2800828440276399,
+      "sampled_max_of_min_THz": 0.2865177470281524,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment"
+    },
+    {
+      "system": "zr",
+      "phase": "bcc",
+      "legacy_qh_reliable": false,
+      "diagnostic_only": null,
+      "sampled_min_THz": -2.3568962518096126,
+      "sampled_max_of_min_THz": -1.9566374355780562,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment"
+    },
+    {
+      "system": "hf",
+      "phase": "hcp",
+      "legacy_qh_reliable": true,
+      "diagnostic_only": true,
+      "sampled_min_THz": 0.23001396244784772,
+      "sampled_max_of_min_THz": 0.2416547709729325,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment"
+    },
+    {
+      "system": "hf",
+      "phase": "bcc",
+      "legacy_qh_reliable": false,
+      "diagnostic_only": true,
+      "sampled_min_THz": -1.9892884723029756,
+      "sampled_max_of_min_THz": -1.905659042946225,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment"
+    },
+    {
+      "system": "sio2",
+      "phase": "quartz_beta",
+      "legacy_qh_reliable": true,
+      "diagnostic_only": false,
+      "sampled_min_THz": -3.794972167799613,
+      "sampled_max_of_min_THz": -0.7251512387129014,
+      "flag_conflicts_with_all_volume_frequency_gate": true,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment",
+      "selected_scales": "1",
+      "selected_min_frequency_THz": -1.05403160233,
+      "selected_negative_rows": 1649,
+      "n_rows": 1649,
+      "raw_to_canonical_max_abs_eV_atom": 0.0
+    },
+    {
+      "system": "sio2",
+      "phase": "cristobalite_beta",
+      "legacy_qh_reliable": false,
+      "diagnostic_only": false,
+      "sampled_min_THz": -4.7553913147484055,
+      "sampled_max_of_min_THz": 0.5352177832097952,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment",
+      "selected_scales": "1.02",
+      "selected_min_frequency_THz": -0.193488962524,
+      "selected_negative_rows": 1649,
+      "n_rows": 1649,
+      "raw_to_canonical_max_abs_eV_atom": 0.0
+    },
+    {
+      "system": "sio2",
+      "phase": "tridymite_p63mmc",
+      "legacy_qh_reliable": false,
+      "diagnostic_only": false,
+      "sampled_min_THz": -4.731146360321169,
+      "sampled_max_of_min_THz": 0.4243062160029586,
+      "flag_conflicts_with_all_volume_frequency_gate": false,
+      "frequency_gate_limit": "-0.05 THz is a diagnostic threshold; stability needs mode-resolved acoustic treatment",
+      "selected_scales": "1.02",
+      "selected_min_frequency_THz": -0.354003196531,
+      "selected_negative_rows": 1649,
+      "n_rows": 1649,
+      "raw_to_canonical_max_abs_eV_atom": 0.0
+    }
+  ],
+  "control_flow": {
+    "scope": "Archived function control-flow tests with synthetic fixtures; no raw phonon, force, MLIP or DFT recomputation.",
+    "qh_run_sha256": "a1405fc03c19401479b067621d9c0a0f1c8c0f0e4b9373ae98f331e9a2987ce6",
+    "imaginary_mode_rejection": {
+      "negative_frequency_THz": -1.96,
+      "negative_threshold_THz": -0.05,
+      "finite_thermal_returned": true,
+      "thermal_call_arguments": {
+        "t_min": 1000.0,
+        "t_max": 1000.0,
+        "t_step": 1.0
+      },
+      "finding": "Threshold is diagnostic only; no invalid-mode rejection in this function."
+    },
+    "volume_selection": {
+      "selected_scale": 1.02,
+      "selected_minimum_frequency_THz": -1.96,
+      "finding": "Exact archived min() expression selects the unstable candidate when its reported energy is lower."
+    },
+    "historical_ti_boundary_counterexample": {
+      "polynomial": "x^2-x^3, x in [-1,2]",
+      "archived_selection": 0.0,
+      "actual_bounded_minimum": 2.0,
+      "archived_value": 0.0,
+      "actual_value": -4.0,
+      "already_fixed_elsewhere": true,
+      "impact_on_actual_155_rows": "Prior archived-table reconstruction found no changes; this fixture does not establish a new change to production values."
+    }
+  }
+}
