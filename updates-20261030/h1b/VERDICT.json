@@ -1,0 +1,111 @@
+{
+ "set": "primary",
+ "verdict_governing": true,
+ "selection_sha256": "4cc64cd0de508b41065d61dfad8693489355b3263e5197a4934fa8cf096ce499",
+ "gates": {
+  "E1": true,
+  "E2": true,
+  "R1_R2": true
+ },
+ "tests": {
+  "primary_3GPa": {
+   "criteria": {
+    "R1b": false,
+    "R2b": false,
+    "R3b": true
+   },
+   "verdict": "PATTERN_ABSENT",
+   "two_source": {
+    "gap_MAE_meV_atom": 6.2789740727120105,
+    "zero_gap_skill": -1.6836408179799975,
+    "relative_entropy_MAE_ueV_atom_K": 4.755106084864695,
+    "stable_accuracy": 0.46235842771485675,
+    "stable_accuracy_sigma_filtered": 0.45716342692584594,
+    "hits": 0,
+    "missed": 1,
+    "false": 0,
+    "Tc_MAE_K": ""
+   },
+   "three_source": {
+    "gap_MAE_meV_atom": 8.707435241840022,
+    "zero_gap_skill": -2.7215679447496877,
+    "relative_entropy_MAE_ueV_atom_K": 6.522927265227625,
+    "stable_accuracy": 0.5376415722851432,
+    "stable_accuracy_sigma_filtered": 0.5428365730741541,
+    "hits": 0,
+    "missed": 1,
+    "false": 0,
+    "Tc_MAE_K": ""
+   },
+   "three_source_anchor": {
+    "test": "primary_3GPa",
+    "configuration": "three_q+trd+crst",
+    "sources": "q;trd;crst",
+    "scaling": "coordinate",
+    "arm": "B",
+    "T0_K": 1193.3465040384576,
+    "anchor_error_T0_meV_atom": 9.775800969066744,
+    "dS_ref_T0_ueV_atom_K": -4.435983520069896,
+    "first_order_shift_K": -2203.7505154917053,
+    "R3b_anchor_dominated": true,
+    "error_500K_meV_atom": 12.368725126414336,
+    "entropy_integral_500K_meV_atom": 2.592924157347593,
+    "error_2000K_meV_atom": 2.5846713501564578,
+    "entropy_integral_2000K_meV_atom": -7.191129618910285
+   },
+   "configs_recovering_reference_event_primary_pool": [],
+   "reference_T0_K": 1193.3465040384576,
+   "reference_Tc_uncertainty_K_2sigma": 56.16027127633387
+  },
+  "secondary_10GPa": {
+   "criteria": {
+    "R1b": true,
+    "R2b": false,
+    "R3b": true
+   },
+   "verdict": "PATTERN_ABSENT",
+   "two_source": {
+    "gap_MAE_meV_atom": 716.5386174200457,
+    "zero_gap_skill": -21.320156694839795,
+    "relative_entropy_MAE_ueV_atom_K": 55.14743967037175,
+    "stable_accuracy": 0.1698867421718854,
+    "stable_accuracy_sigma_filtered": 0.1504237288135593,
+    "hits": 0,
+    "missed": 1,
+    "false": 0,
+    "Tc_MAE_K": ""
+   },
+   "three_source": {
+    "gap_MAE_meV_atom": 22.941402599273882,
+    "zero_gap_skill": 0.2853759890026649,
+    "relative_entropy_MAE_ueV_atom_K": 5.865221134888178,
+    "stable_accuracy": 0.7388407728181212,
+    "stable_accuracy_sigma_filtered": 0.7535310734463276,
+    "hits": 0,
+    "missed": 1,
+    "false": 1,
+    "Tc_MAE_K": ""
+   },
+   "three_source_anchor": {
+    "test": "secondary_10GPa",
+    "configuration": "three_q+trd+coe",
+    "sources": "q;trd;coe",
+    "scaling": "coordinate",
+    "arm": "B",
+    "T0_K": 1745.3818065828543,
+    "anchor_error_T0_meV_atom": 20.34944917934524,
+    "dS_ref_T0_ueV_atom_K": -61.878406931838164,
+    "first_order_shift_K": -328.8618791004278,
+    "R3b_anchor_dominated": true,
+    "error_500K_meV_atom": 24.474087222354093,
+    "entropy_integral_500K_meV_atom": 4.124638043008853,
+    "error_2000K_meV_atom": 16.431208096188506,
+    "entropy_integral_2000K_meV_atom": -3.9182410831567345
+   },
+   "configs_recovering_reference_event_primary_pool": [],
+   "reference_T0_K": 1745.3818065828543,
+   "reference_Tc_uncertainty_K_2sigma": 42.63704350295817
+  }
+ },
+ "evidence_tier": "ds62 assessed-tier external stress test (H1b); not an independent DFT-level confirmation of H1"
+}

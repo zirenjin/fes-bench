@@ -1,0 +1,12 @@
+{
+  "model": "Frozen task checkpoint; energy/force trained configuration, no direct Hessian or free-energy loss preference; cristobalite structure exposure present.",
+  "query": "Gamma-point mass-weighted Hessian from central differences of model forces at both predeclared displacements, 0.005 and 0.01 A.",
+  "features": "Five quantiles of sign(lambda)*log10(1+abs(lambda)) plus negative-mode fraction; three translations projected out; all other modes retained.",
+  "thermodynamics": "No vibrational entropy or free-energy conversion; independent DFT Hessian/phonon accuracy not validated.",
+  "compute": {
+    "force_frames": 4892,
+    "batch_calls": 620,
+    "wall_seconds": 212.52463697642088,
+    "gpu_peak_bytes": 30261205504
+  }
+}

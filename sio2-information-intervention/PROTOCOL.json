@@ -1,0 +1,65 @@
+{
+  "protocol_id": "SIO2_INFORMATION_INTERVENTION_V1",
+  "freeze_time_utc": "2026-10-27T16:56:45.595409+00:00",
+  "status": "frozen_before_S2_intervention_scoring",
+  "system": "SiO2",
+  "outer_fold": "LOPO cristobalite_beta; source phases quartz_beta and tridymite_p63mmc",
+  "physical_reference_layer": "frozen archived processed reference_G; fixed pressure and shared quartz gauge; do not refit target labels",
+  "temperature_support": "Intersection of frozen reference and C prediction support: 1649 integer temperatures, 851\u20132499 K; preserve all original rows.",
+  "temperature_coordinates": {
+    "T0_rule": "middle support index floor((n-1)/2)",
+    "T0_K": 1675.0,
+    "few_shot_rule": "support indices floor(0.25*(n-1)) and floor(0.75*(n-1)); temperature-only, fixed without reference or roots",
+    "few_shot_temperatures_K": [
+      1263.0,
+      2087.0
+    ]
+  },
+  "information_conditions": [
+    {
+      "name": "zero_shot",
+      "target_labels_consumed": 0,
+      "rule": "frozen raw C prediction"
+    },
+    {
+      "name": "oracle_gap",
+      "target_labels_consumed": "oracle diagnostic only",
+      "rule": "subtract target-relative error e(T0) as a phase-level constant from cristobalite"
+    },
+    {
+      "name": "oracle_gap_slope",
+      "target_labels_consumed": "oracle diagnostic only",
+      "rule": "subtract e(T0)+e_prime(T0)*(T-T0); e_prime from fixed 11-point centered least-squares slope over T0\u00b15 K"
+    },
+    {
+      "name": "few_shot_1_label",
+      "target_labels_consumed": 1,
+      "rule": "fit a constant error correction from e at 1263 K"
+    },
+    {
+      "name": "few_shot_2_label",
+      "target_labels_consumed": 2,
+      "rule": "fit an affine error correction to e at 1263 and 2087 K"
+    }
+  ],
+  "fair_support": "For all primary condition comparisons, remove both predeclared few-shot coordinates (1263 and 2087 K); additionally exclude actually consumed labels when reporting few-shot metrics. Report full-support descriptive zero-shot/oracle separately.",
+  "error_definition": "e_tq(T)=(Ghat_cristobalite-Ghat_quartz)-(Gref_cristobalite-Gref_quartz), in eV/atom.",
+  "reference_slope": "Fixed centered least-squares linear slope over 11 consecutive points, T0-5 through T0+5 K. Sensitivity: 7-point and 21-point windows, reported without selection. Model slopes use the same fixed numerical operator for comparability; analytic/readout derivative may be retained as separate diagnostic.",
+  "phase_consistency": "Apply each learned correction only to the held-out cristobalite phase in the shared quartz gauge; derive all pairs from phase-level energies to preserve cycle closure.",
+  "scoring": "Reimplement and cross-check frozen P V2 tie/pair/envelope/event conventions. Keep all pairs, including no-root cases. Event matching tolerance 100 K; report exact roots and errors separately.",
+  "selection": "No outer-target selection, calibration-coordinate selection, or tuning. C-simple and C-DPA archived checkpoints/configurations are frozen. No new training in S2.",
+  "seeds": "Archived deterministic C readouts; seed not applicable.",
+  "units": "Pair gaps: meV/atom; slopes: meV/atom/K; event temperatures: K.",
+  "figure_contract": {
+    "core_claim": "Separate the effect of phase-relative gap information from local relative-slope information on unseen-phase curve and boundary errors.",
+    "archetype": "quantitative grid",
+    "backend": "Python (saved nature-figure preference)",
+    "required_exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "source_data": "CSV in data/ and figures/source_data/"
+  },
+  "extension_rule": "S1\u2013S5 not part of S2 condition scoring. Keep C2221 admission independent; no new source phase is admitted without structure/reference contract closure."
+}

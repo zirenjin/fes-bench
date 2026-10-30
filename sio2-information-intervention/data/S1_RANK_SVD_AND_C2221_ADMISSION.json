@@ -1,0 +1,418 @@
+{
+  "protocol": {
+    "gauge": "shared quartz_beta at each T",
+    "basis": "[1,x,x ln x,x\u00b2], x=T/1000 K",
+    "feature_standardization": "source structures only, archived means/scales",
+    "effective_rank_threshold_relative": 0.0001,
+    "exact_ridge_rank_argument": "With one independent source feature contrast and positive ridge, the exact solution W has rank at most one; preserve observed numerical singular values."
+  },
+  "methods": {
+    "C-simple": {
+      "feature_name": "standardized 7D volume/mass/composition",
+      "independent_source_phase_contrasts": 1,
+      "feature_contrast_design_all_three_phases": {
+        "shape": [
+          3,
+          7
+        ],
+        "singular_values": [
+          3.0505817526574805,
+          4.61059948529656e-15,
+          0.0
+        ],
+        "effective_rank_threshold_relative": 0.0001,
+        "effective_rank": 1,
+        "numpy_matrix_rank_default": 1
+      },
+      "source_supervised_feature_design": {
+        "shape": [
+          1,
+          7
+        ],
+        "singular_values": [
+          2.0
+        ],
+        "effective_rank_threshold_relative": 0.0001,
+        "effective_rank": 1,
+        "numpy_matrix_rank_default": 1
+      },
+      "source_label_coefficient_contrast": {
+        "matrix": [
+          [
+            -0.008110491360769245,
+            0.004146947736326345,
+            0.002488149447784943,
+            -0.0001036461211230133
+          ]
+        ],
+        "svd": {
+          "shape": [
+            1,
+            4
+          ],
+          "singular_values": [
+            0.009443456773548081
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 1,
+          "numpy_matrix_rank_default": 1
+        }
+      },
+      "W": {
+        "svd": {
+          "shape": [
+            7,
+            4
+          ],
+          "singular_values": [
+            0.004721650455268559,
+            9.332370514884793e-26,
+            0.0,
+            0.0
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 1,
+          "numpy_matrix_rank_default": 1
+        },
+        "shape": [
+          7,
+          4
+        ],
+        "exact_linear_ridge_rank_ceiling_from_one_source_contrast": 1
+      },
+      "predicted_all_pair_coefficient_contrasts": {
+        "pair_order": [
+          [
+            "quartz_beta",
+            "tridymite_p63mmc"
+          ],
+          [
+            "cristobalite_beta",
+            "quartz_beta"
+          ],
+          [
+            "cristobalite_beta",
+            "tridymite_p63mmc"
+          ]
+        ],
+        "matrix": [
+          [
+            -0.008110291583164222,
+            0.0041468271977380365,
+            0.0024884067033156838,
+            -0.00010372460653292601
+          ],
+          [
+            0.009268846774966184,
+            -0.004739201482950922,
+            -0.0028438756128954315,
+            0.00011854166707681496
+          ],
+          [
+            0.0011585551918019635,
+            -0.0005923742852128858,
+            -0.00035546890957974795,
+            1.4817060543888956e-05
+          ]
+        ],
+        "svd": {
+          "shape": [
+            3,
+            4
+          ],
+          "singular_values": [
+            0.014403780721269148,
+            6.401823566879253e-19,
+            4.820009190714263e-20
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 1,
+          "numpy_matrix_rank_default": 1
+        }
+      },
+      "reference_all_pair_coefficient_contrasts_diagnostic_only": {
+        "temperature_basis": "[1,x,x ln x,x\u00b2], x=T/1000 K",
+        "fit_support": "full 1649-point archived reference curves; outer labels consumed only for this diagnostic after the archived readout was frozen",
+        "matrix": [
+          [
+            -0.008110949962706115,
+            0.004147269498295275,
+            0.0024876530875968805,
+            -0.00010352067563695888
+          ],
+          [
+            0.00789368136271662,
+            -0.004609171155633307,
+            -0.00340187064300565,
+            0.0006280166719077607
+          ],
+          [
+            -0.00021726859998949521,
+            -0.0004619016573380319,
+            -0.0009142175554087695,
+            0.0005244959962708018
+          ]
+        ],
+        "svd": {
+          "shape": [
+            3,
+            4
+          ],
+          "singular_values": [
+            0.013571581854890267,
+            0.0013754619383373598,
+            2.7266472736900704e-19
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 2,
+          "numpy_matrix_rank_default": 2
+        }
+      },
+      "source_phase_feature_names": "C-simple: [volume/atom, mean atomic mass, fractions Hf,Zr,Ti,O,Si]; C-DPA: descriptor columns d000..d127"
+    },
+    "C-DPA": {
+      "feature_name": "standardized frozen DPA descriptor mean (128D)",
+      "independent_source_phase_contrasts": 1,
+      "feature_contrast_design_all_three_phases": {
+        "shape": [
+          3,
+          128
+        ],
+        "singular_values": [
+          120.06466222760378,
+          26.87556468572897,
+          3.3021418692081605e-14
+        ],
+        "effective_rank_threshold_relative": 0.0001,
+        "effective_rank": 2,
+        "numpy_matrix_rank_default": 2
+      },
+      "source_supervised_feature_design": {
+        "shape": [
+          1,
+          128
+        ],
+        "singular_values": [
+          22.627416997969522
+        ],
+        "effective_rank_threshold_relative": 0.0001,
+        "effective_rank": 1,
+        "numpy_matrix_rank_default": 1
+      },
+      "source_label_coefficient_contrast": {
+        "matrix": [
+          [
+            -0.008110491360769245,
+            0.004146947736326345,
+            0.002488149447784943,
+            -0.0001036461211230133
+          ]
+        ],
+        "svd": {
+          "shape": [
+            1,
+            4
+          ],
+          "singular_values": [
+            0.009443456773548081
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 1,
+          "numpy_matrix_rank_default": 1
+        }
+      },
+      "W": {
+        "svd": {
+          "shape": [
+            128,
+            4
+          ],
+          "singular_values": [
+            0.0004173453935466465,
+            6.3329954687481385e-09,
+            3.677794529982773e-10,
+            2.2328707440299435e-10
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 1,
+          "numpy_matrix_rank_default": 4
+        },
+        "shape": [
+          128,
+          4
+        ],
+        "exact_linear_ridge_rank_ceiling_from_one_source_contrast": 1
+      },
+      "predicted_all_pair_coefficient_contrasts": {
+        "pair_order": [
+          [
+            "quartz_beta",
+            "tridymite_p63mmc"
+          ],
+          [
+            "cristobalite_beta",
+            "quartz_beta"
+          ],
+          [
+            "cristobalite_beta",
+            "tridymite_p63mmc"
+          ]
+        ],
+        "matrix": [
+          [
+            -0.008110480434618747,
+            0.0041469411438889115,
+            0.0024881635175069295,
+            -0.00010365041362119215
+          ],
+          [
+            0.011278264013108434,
+            -0.005766659314340453,
+            -0.003459993329577088,
+            0.00014413438349212017
+          ],
+          [
+            0.00316778357848968,
+            -0.0016197181704515463,
+            -0.0009718298120701645,
+            4.0483969870928014e-05
+          ]
+        ],
+        "svd": {
+          "shape": [
+            3,
+            4
+          ],
+          "singular_values": [
+            0.016590029357260675,
+            9.540310952341592e-09,
+            2.0167579771508766e-18
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 1,
+          "numpy_matrix_rank_default": 2
+        }
+      },
+      "reference_all_pair_coefficient_contrasts_diagnostic_only": {
+        "temperature_basis": "[1,x,x ln x,x\u00b2], x=T/1000 K",
+        "fit_support": "full 1649-point archived reference curves; outer labels consumed only for this diagnostic after the archived readout was frozen",
+        "matrix": [
+          [
+            -0.008110949962706115,
+            0.004147269498295275,
+            0.0024876530875968805,
+            -0.00010352067563695888
+          ],
+          [
+            0.00789368136271662,
+            -0.004609171155633307,
+            -0.00340187064300565,
+            0.0006280166719077607
+          ],
+          [
+            -0.00021726859998949521,
+            -0.0004619016573380319,
+            -0.0009142175554087695,
+            0.0005244959962708018
+          ]
+        ],
+        "svd": {
+          "shape": [
+            3,
+            4
+          ],
+          "singular_values": [
+            0.013571581854890267,
+            0.0013754619383373598,
+            2.7266472736900704e-19
+          ],
+          "effective_rank_threshold_relative": 0.0001,
+          "effective_rank": 2,
+          "numpy_matrix_rank_default": 2
+        }
+      },
+      "source_phase_feature_names": "C-simple: [volume/atom, mean atomic mass, fractions Hf,Zr,Ti,O,Si]; C-DPA: descriptor columns d000..d127"
+    }
+  },
+  "c2221_admission": {
+    "experiment": "S1 independent source contrast admission",
+    "source_G_table_status": "ADMITTED for same-source thermodynamic G and phase-pair baseline evaluation at exact common state nodes; uncertainty remains unknown, not zero.",
+    "structure_migration_status": "NOT ADMITTED as a C2221 structure-to-G training pair: source-row geometry is not mapped to a unique structure.",
+    "evidence": {
+      "raw_table_reproduction": "1649 common G rows reproduced exactly from publisher-verified source archive; table phase identity/historical source level support thermodynamic-only comparisons.",
+      "FCP": "A 12-atom O8Si4 C2221 PBE-D3(BJ) FCP reference exists; no evidence ties every thermodynamic row to this exact reference geometry.",
+      "COD_candidate": "COD 8104538 conventional cell is not identical to the FCP-derived cell: aligned axis mismatch up to 4.53%; mapped-site RMS 0.384 \u00c5; max displacement 0.558 \u00c5. Do not attach the original G labels to COD geometry.",
+      "pressure": "Published raw P is approximately 0.0001 GPa (0.1 MPa); processed P coordinate is rounded to 0. Quantified pair P\u0394V shifts are in S1_PRESSURE_ROUNDING_IMPACT.csv.",
+      "uncertainty": "Per-row uncertainty/covariance are not supplied; processed size_error=0 is a placeholder.",
+      "vibration": "Corrected C2221 harmonic free energy is a fixed-cell harmonic candidate, not complete QHA; source output had a factor-24 per-cell/per-atom error and includes unstable Gamma modes."
+    },
+    "minimum_missing_for_source_migration": "Original source geometry associated with the table/FCP, or an explicitly separate newly computed reference layer on an explicitly selected structure and compatible protocol. The COD candidate cannot inherit the existing G table.",
+    "decision": "S1-B/D additional-source contrast experiment blocked; proceed on the original three-phase S1-A/C baseline and S2/S3."
+  },
+  "source_pressure_pair_effects": [
+    {
+      "phase_a": "quartz_beta",
+      "phase_b": "cristobalite_beta",
+      "n_common_states": 1649,
+      "pressure_GPa": 0.0001,
+      "max_abs_delta_G_for_GPa_rounding_meV_atom": 0.0012785923876506664,
+      "min_delta_meV_atom": -0.0012785923876506664,
+      "max_delta_meV_atom": -0.0011821471885586515
+    },
+    {
+      "phase_a": "quartz_beta",
+      "phase_b": "tridymite_p63mmc",
+      "n_common_states": 1649,
+      "pressure_GPa": 0.0001,
+      "max_abs_delta_G_for_GPa_rounding_meV_atom": 0.0013308485297326663,
+      "min_delta_meV_atom": -0.0013308485297326663,
+      "max_delta_meV_atom": -0.0012135666104073394
+    },
+    {
+      "phase_a": "quartz_beta",
+      "phase_b": "tridymite_c2221",
+      "n_common_states": 1649,
+      "pressure_GPa": 0.0001,
+      "max_abs_delta_G_for_GPa_rounding_meV_atom": 0.0012760936440396392,
+      "min_delta_meV_atom": -0.0012760936440396392,
+      "max_delta_meV_atom": -0.001094339400646742
+    },
+    {
+      "phase_a": "cristobalite_beta",
+      "phase_b": "tridymite_p63mmc",
+      "n_common_states": 1649,
+      "pressure_GPa": 0.0001,
+      "max_abs_delta_G_for_GPa_rounding_meV_atom": 5.2256142081999956e-05,
+      "min_delta_meV_atom": -5.2256142081999956e-05,
+      "max_delta_meV_atom": -2.5909606551701022e-05
+    },
+    {
+      "phase_a": "cristobalite_beta",
+      "phase_b": "tridymite_c2221",
+      "n_common_states": 1649,
+      "pressure_GPa": 0.0001,
+      "max_abs_delta_G_for_GPa_rounding_meV_atom": 9.00822518482316e-05,
+      "min_delta_meV_atom": 2.4987436110272675e-06,
+      "max_delta_meV_atom": 9.00822518482316e-05
+    },
+    {
+      "phase_a": "tridymite_p63mmc",
+      "phase_b": "tridymite_c2221",
+      "n_common_states": 1649,
+      "pressure_GPa": 0.0001,
+      "max_abs_delta_G_for_GPa_rounding_meV_atom": 0.00011922720976059716,
+      "min_delta_meV_atom": 5.475488569302722e-05,
+      "max_delta_meV_atom": 0.00011922720976059716
+    }
+  ],
+  "provenance": {
+    "C_DPA_npz_sha256": "525fcc91ec52f3a4896f27f674a8954145e82dafd71fa65362dd0f2d6280e9f3",
+    "C_simple_npz_sha256": "a190f6efc24b8b620824a5307bdb8f85e870bdcaf5a5a5875a2a32907827a94f",
+    "descriptor_sha256": "ea5b6f4f36a354eec4c932a09a39b3e491557e360064c0c94e818f00f84b5b9b",
+    "phase_lopo_archive_sha256": "027d80739bfa20fe4e70ba4e225ba068cf09b2a76f194067d0328e4c07054df8",
+    "C2221_review_sha256": "9c5acf9b435f02da21a09081bc8386806746db98edfe0a96bc052055d8cb7d44",
+    "C2221_contract_sha256": "4e82bfe5bec2b059813624499b4a7ed57c644bdc9ba3420ca42e34e659f0ddc9",
+    "C2221_reaudit_sha256": "eacb903402801e3f3479aeedcc87ea436270c77c167e5cb4b4db1d0b3162b257",
+    "corrected_vib_sha256": "b23523aadd3475153a476ee6b404b534eb67b4dcee5ef1bb0d50254da59c8125"
+  }
+}

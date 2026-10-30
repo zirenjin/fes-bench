@@ -1,0 +1,36 @@
+{
+ "model": "held-out cristobalite; sources quartz, P6_3/mmc tridymite, C222_1 tridymite; equal-block scaling; Si/O task checkpoint",
+ "gap": "cristobalite_beta - quartz_beta",
+ "T0_K": 1542.7087047758675,
+ "archived_values_meV_atom": {
+  "DPA": {
+   "anchor_error_at_T0_meV_atom": 0.41394233078441733,
+   "deltaG_error_MAE_meV_atom": 0.31488029718891214,
+   "deltaS_error_MAE_micro_eV_atom_K": 0.36338609539176897,
+   "at_2499K_deltaG_error_meV_atom": -0.12602988254088388,
+   "at_2499K_integrated_entropy_contribution_meV_atom": -0.5399722717296512
+  },
+  "DPA + volume (equal-block)": {
+   "anchor_error_at_T0_meV_atom": 0.44335573022207986,
+   "deltaG_error_MAE_meV_atom": 0.4081658052694756,
+   "deltaS_error_MAE_micro_eV_atom_K": 0.2512654900850864,
+   "at_2499K_deltaG_error_meV_atom": 0.41809542837248337,
+   "at_2499K_integrated_entropy_contribution_meV_atom": -0.02526035598379689
+  }
+ },
+ "checks": {
+  "B": {
+   "regen_max_abs_dev_meV": 1.0431023520496296e-06,
+   "rule_label_mismatches": 1,
+   "first_stable_T_K": 1824.0,
+   "max_abs_margin_error_minus_gap_error_meV": 0.003189608827196544
+  },
+  "C": {
+   "regen_max_abs_dev_meV": 1.982393555977069e-07,
+   "rule_label_mismatches": 0,
+   "first_stable_T_K": null,
+   "max_abs_margin_error_minus_gap_error_meV": 0.003250080957284407
+  }
+ },
+ "note": "Post-fit error diagnostic based on a thermodynamic identity; not an independently established causal mechanism."
+}

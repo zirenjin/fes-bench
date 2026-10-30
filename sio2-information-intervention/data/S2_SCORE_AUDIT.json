@@ -1,0 +1,20 @@
+{
+  "protocol_id": "SIO2_INFORMATION_INTERVENTION_V1",
+  "scoring_version": "V2-compatible reproduction of frozen pair/envelope tie and event conventions",
+  "source_csv_sha256": "1a854278caea00be9d1c8733a2ffa520d950a5c1ad1facc1ef8162de96e59509",
+  "T0_K": 1675.0,
+  "few_shot_temperatures_K": [
+    1263.0,
+    2087.0
+  ],
+  "derivative_operator": "centered least-squares slope, fixed 11 points T0\u00b15 K; slope summaries only where the full window exists",
+  "fair_support_points": 1647,
+  "condition_count": 10,
+  "point_count": 16490,
+  "phase_consistent_corrections": true,
+  "validation_checks": {
+    "curve_rows_1649_per_C_method": true,
+    "phase_cycle_closure_by_construction": true,
+    "T0_and_shot_coordinates_match_frozen_protocol": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+ "primary_3GPa": {
+  "n_curves": 24,
+  "T0_K": 1193.3465040384576,
+  "crossing": {}
+ },
+ "secondary_10GPa": {
+  "n_curves": 48,
+  "T0_K": 1745.3818065828543,
+  "crossing": {
+   "three_q+trd+coe__coordinate__B": [
+    1353.5355673691818
+   ],
+   "three_q+trd+coe__coordinate__C": [
+    1368.2443839960058
+   ],
+   "three_q+trd+coe__equal_block__B": [
+    1353.5355673691831
+   ]
+  }
+ }
+}

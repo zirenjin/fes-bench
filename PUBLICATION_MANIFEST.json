@@ -1,9 +1,11 @@
 {
   "edition": "public review",
   "probe_label_matrix_revision": "20261027-v1",
+  "sio2_information_intervention_revision": "20261027-S1-S2-v1",
+  "sio2_followup_revision": "20261029-identity-curvature-value-v1",
   "transfer_score_revision": "v2_phase_order_and_ties_20261027",
   "original_snapshot_sha256": "88cac0646d49ecc4a0ce68f27fa76af1e9bcfbd61c01170755112d17db4a871c",
-  "figure_variants": 83,
+  "figure_variants": 89,
   "source_records": 2463,
   "excluded": [
     "raw source archive",
@@ -11,5 +13,14 @@
     "archive backups",
     "local machine paths"
   ],
-  "numerical_policy": "Scientific values retained; path metadata redacted."
+  "numerical_policy": "Scientific values retained; path metadata redacted.",
+  "sio2_s1_s2_scope": "one cristobalite_beta LOPO; oracle arms use target reference information.",
+  "sio2_followup_scope": "identity/direction-aware envelope scoring and task-checkpoint-derived curvature-query input-value test; independent Hessian/phonon accuracy not validated.",
+  "dft_explorer_revision": "20261030-dft-phonon-qha-with-expanse-refresh",
+  "dft_explorer_records": {
+    "workflow": 435,
+    "distinct_XML": 303,
+    "force_constant_datasets": 31,
+    "carbon_paired_QHA_points": 16
+  }
 }

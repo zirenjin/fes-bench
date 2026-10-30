@@ -1,0 +1,10 @@
+{
+  "pdf": "outputs/fes-bench-sio2-information-intervention-20261027/figures/S1_RANK_SVD.pdf",
+  "auditable": true,
+  "minimum_required_pt": 5.0,
+  "minimum_found_pt": 5.25,
+  "text_run_count": 46,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}

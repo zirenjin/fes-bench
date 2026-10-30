@@ -7,10 +7,10 @@
       "section": "fitting",
       "width_mm": 183,
       "height_mm": 90.17,
-      "svg": "figures/explainer_fit_controls.svg?v=19f8f840d99d",
-      "pdf": "figures/explainer_fit_controls.pdf?v=19f8f840d99d",
-      "png": "figures/explainer_fit_controls.png?v=19f8f840d99d",
-      "csv": "figures/source_data/explainer_fit_controls.csv?v=19f8f840d99d",
+      "svg": "figures/explainer_fit_controls.svg?v=cabe631d8549",
+      "pdf": "figures/explainer_fit_controls.pdf?v=cabe631d8549",
+      "png": "figures/explainer_fit_controls.png?v=cabe631d8549",
+      "csv": "figures/source_data/explainer_fit_controls.csv?v=cabe631d8549",
       "rows": 4
     },
     {
@@ -20,10 +20,10 @@
       "section": "decisions",
       "width_mm": 183,
       "height_mm": 91.44,
-      "svg": "figures/explainer_decision_example.svg?v=19f8f840d99d",
-      "pdf": "figures/explainer_decision_example.pdf?v=19f8f840d99d",
-      "png": "figures/explainer_decision_example.png?v=19f8f840d99d",
-      "csv": "figures/source_data/explainer_decision_example.csv?v=19f8f840d99d",
+      "svg": "figures/explainer_decision_example.svg?v=cabe631d8549",
+      "pdf": "figures/explainer_decision_example.pdf?v=cabe631d8549",
+      "png": "figures/explainer_decision_example.png?v=cabe631d8549",
+      "csv": "figures/source_data/explainer_decision_example.csv?v=cabe631d8549",
       "rows": 4
     },
     {
@@ -33,10 +33,10 @@
       "section": "diagnostics",
       "width_mm": 183,
       "height_mm": 185.42,
-      "svg": "figures/hf_qh_sign_audit.svg?v=19f8f840d99d",
-      "pdf": "figures/hf_qh_sign_audit.pdf?v=19f8f840d99d",
-      "png": "figures/hf_qh_sign_audit.png?v=19f8f840d99d",
-      "csv": "figures/source_data/hf_qh_sign_audit.csv?v=19f8f840d99d",
+      "svg": "figures/hf_qh_sign_audit.svg?v=cabe631d8549",
+      "pdf": "figures/hf_qh_sign_audit.pdf?v=cabe631d8549",
+      "png": "figures/hf_qh_sign_audit.png?v=cabe631d8549",
+      "csv": "figures/source_data/hf_qh_sign_audit.csv?v=cabe631d8549",
       "rows": 1252
     },
     {
@@ -46,10 +46,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 130.81,
-      "svg": "figures/optimization_01.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_01.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_01.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_01.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_01.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_01.pdf?v=cabe631d8549",
+      "png": "figures/optimization_01.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_01.csv?v=cabe631d8549",
       "rows": 43527
     },
     {
@@ -59,10 +59,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 130.81,
-      "svg": "figures/optimization_02.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_02.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_02.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_02.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_02.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_02.pdf?v=cabe631d8549",
+      "png": "figures/optimization_02.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_02.csv?v=cabe631d8549",
       "rows": 5540
     },
     {
@@ -72,10 +72,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 130.81,
-      "svg": "figures/optimization_03.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_03.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_03.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_03.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_03.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_03.pdf?v=cabe631d8549",
+      "png": "figures/optimization_03.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_03.csv?v=cabe631d8549",
       "rows": 7280
     },
     {
@@ -85,10 +85,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 130.81,
-      "svg": "figures/optimization_04.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_04.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_04.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_04.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_04.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_04.pdf?v=cabe631d8549",
+      "png": "figures/optimization_04.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_04.csv?v=cabe631d8549",
       "rows": 10020
     },
     {
@@ -98,10 +98,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 119.38,
-      "svg": "figures/optimization_05.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_05.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_05.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_05.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_05.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_05.pdf?v=cabe631d8549",
+      "png": "figures/optimization_05.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_05.csv?v=cabe631d8549",
       "rows": 1002
     },
     {
@@ -111,10 +111,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 123.19,
-      "svg": "figures/optimization_06.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_06.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_06.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_06.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_06.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_06.pdf?v=cabe631d8549",
+      "png": "figures/optimization_06.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_06.csv?v=cabe631d8549",
       "rows": 18472
     },
     {
@@ -124,10 +124,10 @@
       "section": "optimization",
       "width_mm": 183,
       "height_mm": 123.19,
-      "svg": "figures/optimization_07.svg?v=19f8f840d99d",
-      "pdf": "figures/optimization_07.pdf?v=19f8f840d99d",
-      "png": "figures/optimization_07.png?v=19f8f840d99d",
-      "csv": "figures/source_data/optimization_07.csv?v=19f8f840d99d",
+      "svg": "figures/optimization_07.svg?v=cabe631d8549",
+      "pdf": "figures/optimization_07.pdf?v=cabe631d8549",
+      "png": "figures/optimization_07.png?v=cabe631d8549",
+      "csv": "figures/source_data/optimization_07.csv?v=cabe631d8549",
       "rows": 12115
     },
     {
@@ -137,10 +137,10 @@
       "section": "transfer-audit",
       "width_mm": 183,
       "height_mm": 105.41,
-      "svg": "figures/sio2_envelope_audit.svg?v=19f8f840d99d",
-      "pdf": "figures/sio2_envelope_audit.pdf?v=19f8f840d99d",
-      "png": "figures/sio2_envelope_audit.png?v=19f8f840d99d",
-      "csv": "figures/source_data/sio2_envelope_audit.csv?v=19f8f840d99d",
+      "svg": "figures/sio2_envelope_audit.svg?v=cabe631d8549",
+      "pdf": "figures/sio2_envelope_audit.pdf?v=cabe631d8549",
+      "png": "figures/sio2_envelope_audit.png?v=cabe631d8549",
+      "csv": "figures/source_data/sio2_envelope_audit.csv?v=cabe631d8549",
       "rows": 4947
     },
     {
@@ -150,10 +150,10 @@
       "section": "transfer-audit",
       "width_mm": 183,
       "height_mm": 105.41,
-      "svg": "figures/sio2_envelope_audit_zoom.svg?v=19f8f840d99d",
-      "pdf": "figures/sio2_envelope_audit_zoom.pdf?v=19f8f840d99d",
-      "png": "figures/sio2_envelope_audit_zoom.png?v=19f8f840d99d",
-      "csv": "figures/source_data/sio2_envelope_audit_zoom.csv?v=19f8f840d99d",
+      "svg": "figures/sio2_envelope_audit_zoom.svg?v=cabe631d8549",
+      "pdf": "figures/sio2_envelope_audit_zoom.pdf?v=cabe631d8549",
+      "png": "figures/sio2_envelope_audit_zoom.png?v=cabe631d8549",
+      "csv": "figures/source_data/sio2_envelope_audit_zoom.csv?v=cabe631d8549",
       "rows": 4947
     }
   ],

@@ -1,0 +1,10 @@
+experiment_id,scope,status,blocker_evidence_or_result
+S1,C2221 admission / source contrast,blocked,structure-to-table rowwise identity and source pressure/size-error contract unresolved
+S1,C-simple / C-DPA existing LOPO,complete_existing,archived R readouts crosschecked under S2 V2 scorer; no new C2221 data admitted
+S2,C-simple / C-DPA information ladder,complete,frozen fair-support protocol scored; archived V2 crosscheck passed
+S3,C-simple / C-DPA,complete_existing,same target-phase LOPO readouts reused and rescored
+S3,T2 corrected / T3 LOPO,blocked_training,historical T2 duplicates static term; T3 artifacts are temperature-split; no LOPO checkpoint/runtime/remote connection
+S3,source-only SiO2 LOPO,not_available,frozen R artifact has only Ti LOSO source-only control
+S4,static-thermal decomposition,blocked_reference_contract,matched same-branch static H0 and source geometry identity absent
+S5,M0–M3 vibrational ablation,blocked_applicability,cristobalite/tridymite QH unreliable; C2221 fixed-cell harmonic has unstable modes and no matched static term
+Publication,English portal / gh-pages release,installed_local_gh_pages_worktree,new section/data/scripts copied to the existing clean gh-pages worktree; not committed or pushed; browser visual QA unavailable in this WSL runtime

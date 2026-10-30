@@ -1,0 +1,13 @@
+representation,pair_id,source_pair,arm,target_gap_MAE_meV_atom,stable_phase_accuracy_percent,slope_abs_error_meV_atom_K,identity_matched_Tc_MAE_K,identity_matched_events_100K,identity_missed_events,identity_false_events,legacy_time_only_Tc_MAE_K
+C-simple,0,quartz_beta+tridymite_p63mmc,two-source,0.2762433687398002,41.964827167980594,0.0004742087567892,nan,0,1,1,39.815275044972395
+C-simple,0,quartz_beta+tridymite_p63mmc,three-source,1.4347934308723027,41.964827167980594,0.0019546792711569653,nan,0,1,1,nan
+C-simple,1,quartz_beta+tridymite_c2221,two-source,3.439618248709769,41.964827167980594,0.004528854129997934,nan,0,1,1,nan
+C-simple,1,quartz_beta+tridymite_c2221,three-source,3.1814823120957856,41.964827167980594,0.004199669895577814,nan,0,1,1,nan
+C-simple,2,tridymite_p63mmc+tridymite_c2221,two-source,0.08279574803665934,100.0,3.731425499919739e-05,nan,0,0,0,nan
+C-simple,2,tridymite_p63mmc+tridymite_c2221,three-source,1.9602312754554725,70.70952092177077,0.0026464695819362694,nan,0,0,1,nan
+C-DPA task checkpoint,0,quartz_beta+tridymite_p63mmc,two-source,0.8525404752684358,97.57428744693753,0.001512930831302672,39.81807850888276,1,0,0,39.81807850888276
+C-DPA task checkpoint,0,quartz_beta+tridymite_p63mmc,three-source,0.31499677124415404,82.95936931473621,8.169518887310844e-06,nan,0,1,2,39.814795644113474
+C-DPA task checkpoint,1,quartz_beta+tridymite_c2221,two-source,2.9110087857767857,41.964827167980594,0.006010877049217006,nan,0,1,1,nan
+C-DPA task checkpoint,1,quartz_beta+tridymite_c2221,three-source,0.3151758261321141,96.78593086719223,2.0357797607742916e-05,52.81395196783228,1,0,0,52.81395196783228
+C-DPA task checkpoint,2,tridymite_p63mmc+tridymite_c2221,two-source,0.35284734039444166,0.0,0.0004144673585817622,nan,0,0,0,nan
+C-DPA task checkpoint,2,tridymite_p63mmc+tridymite_c2221,three-source,0.315292300187359,40.994542146755606,1.4859314055878884e-05,nan,0,0,1,nan

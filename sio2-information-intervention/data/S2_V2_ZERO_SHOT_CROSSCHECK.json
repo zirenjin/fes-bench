@@ -1,0 +1,29 @@
+{
+  "purpose": "Cross-check frozen C curves and zero-shot full-support scores against archived outer point predictions and P V2 metrics",
+  "max_scalar_curve_difference_eV_atom": 3.469446951953614e-17,
+  "curve_comparisons": 13192,
+  "full_support_checks": [
+    {
+      "method": "C-simple",
+      "n_points": 1649,
+      "envelope_accuracy_full_support": 0.9757428744693754,
+      "identifiable_points": 1649,
+      "predicted_abstentions": 0,
+      "archived_V2_envelope_accuracy": 0.9757428744693754,
+      "target_quartz_gap_MAE_full_support_eV_atom": 0.0004397561810555001,
+      "archived_V2_pair_MAE_eV_atom": 0.0004397561810555001
+    },
+    {
+      "method": "C-DPA",
+      "n_points": 1649,
+      "envelope_accuracy_full_support": 0.9757428744693754,
+      "identifiable_points": 1649,
+      "predicted_abstentions": 0,
+      "archived_V2_envelope_accuracy": 0.9757428744693754,
+      "target_quartz_gap_MAE_full_support_eV_atom": 0.001181822090284261,
+      "archived_V2_pair_MAE_eV_atom": 0.001181822090284261
+    }
+  ],
+  "fair_scoring_support": "1647 points after removing the two fixed few-shot coordinates",
+  "conclusion": "PASS: frozen envelope curves reproduce the archived pair predictions and corrected V2 full-support MAE/envelope scores"
+}

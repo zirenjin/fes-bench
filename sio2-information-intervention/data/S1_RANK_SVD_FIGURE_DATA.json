@@ -1,0 +1,85 @@
+{
+  "figure": "outputs/fes-bench-sio2-information-intervention-20261027/figures/S1_RANK_SVD",
+  "threshold_relative": 0.0001,
+  "spectra": {
+    "C-simple": {
+      "W": {
+        "singular_values": [
+          0.004721650455268559,
+          9.332370514884793e-26,
+          0.0,
+          0.0
+        ],
+        "effective_rank": 1,
+        "cutoff": 4.721650455268559e-07,
+        "numpy_matrix_rank_default": 1
+      },
+      "predicted_all_pair_coefficient_contrasts": {
+        "singular_values": [
+          0.014403780721269148,
+          6.401823566879253e-19,
+          4.820009190714263e-20
+        ],
+        "effective_rank": 1,
+        "cutoff": 1.4403780721269148e-06,
+        "numpy_matrix_rank_default": 1
+      },
+      "reference_all_pair_coefficient_contrasts_diagnostic_only": {
+        "singular_values": [
+          0.013571581854890267,
+          0.0013754619383373598,
+          2.7266472736900704e-19
+        ],
+        "effective_rank": 2,
+        "cutoff": 1.3571581854890268e-06,
+        "numpy_matrix_rank_default": 2
+      }
+    },
+    "C-DPA": {
+      "W": {
+        "singular_values": [
+          0.0004173453935466465,
+          6.3329954687481385e-09,
+          3.677794529982773e-10,
+          2.2328707440299435e-10
+        ],
+        "effective_rank": 1,
+        "cutoff": 4.173453935466465e-08,
+        "numpy_matrix_rank_default": 4
+      },
+      "predicted_all_pair_coefficient_contrasts": {
+        "singular_values": [
+          0.016590029357260675,
+          9.540310952341592e-09,
+          2.0167579771508766e-18
+        ],
+        "effective_rank": 1,
+        "cutoff": 1.6590029357260676e-06,
+        "numpy_matrix_rank_default": 2
+      },
+      "reference_all_pair_coefficient_contrasts_diagnostic_only": {
+        "singular_values": [
+          0.013571581854890267,
+          0.0013754619383373598,
+          2.7266472736900704e-19
+        ],
+        "effective_rank": 2,
+        "cutoff": 1.3571581854890268e-06,
+        "numpy_matrix_rank_default": 2
+      }
+    }
+  },
+  "scope": "existing saved readouts only; no retraining or target selection",
+  "rank_summary": {
+    "C-simple": {
+      "W": 1,
+      "predicted_all_pair_coefficient_contrasts": 1,
+      "reference_all_pair_coefficient_contrasts_diagnostic_only": 2
+    },
+    "C-DPA": {
+      "W": 1,
+      "predicted_all_pair_coefficient_contrasts": 1,
+      "reference_all_pair_coefficient_contrasts_diagnostic_only": 2
+    }
+  }
+}

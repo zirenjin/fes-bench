@@ -1,0 +1,43 @@
+{
+  "tool": "nature-figure/scripts/audit_figure_collisions.py",
+  "result": "BLOCKED_DEPENDENCY",
+  "dependency": "PyMuPDF (fitz)",
+  "figures": [
+    {
+      "figure": "S1_RANK_SVD",
+      "exit_code": 2,
+      "status": "blocked_dependency",
+      "stderr": "error: PyMuPDF is required for rendered collision QA. Install it with: python -m pip install -r skills/nature-figure/requirements.txt",
+      "stdout": ""
+    },
+    {
+      "figure": "S2_INFORMATION_LADDER",
+      "exit_code": 2,
+      "status": "blocked_dependency",
+      "stderr": "error: PyMuPDF is required for rendered collision QA. Install it with: python -m pip install -r skills/nature-figure/requirements.txt",
+      "stdout": ""
+    },
+    {
+      "figure": "S2_PAIR_CURVES_C_simple",
+      "exit_code": 2,
+      "status": "blocked_dependency",
+      "stderr": "error: PyMuPDF is required for rendered collision QA. Install it with: python -m pip install -r skills/nature-figure/requirements.txt",
+      "stdout": ""
+    },
+    {
+      "figure": "S2_PAIR_CURVES_C_DPA",
+      "exit_code": 2,
+      "status": "blocked_dependency",
+      "stderr": "error: PyMuPDF is required for rendered collision QA. Install it with: python -m pip install -r skills/nature-figure/requirements.txt",
+      "stdout": ""
+    },
+    {
+      "figure": "S2_ENVELOPE_AND_BOUNDARIES",
+      "exit_code": 2,
+      "status": "blocked_dependency",
+      "stderr": "error: PyMuPDF is required for rendered collision QA. Install it with: python -m pip install -r skills/nature-figure/requirements.txt",
+      "stdout": ""
+    }
+  ],
+  "alternative_check": "MuPDF structured-text line bounding boxes: all 5 PDFs had zero overlapping text-line pairs; this does not check text-path intersections or page clipping."
+}

@@ -1,0 +1,13 @@
+source_subset,display_label,trained_source_count,condition,gap_MAE_meV_atom,slope_error_at_1000K_micro_eV_atom_K,stable_phase_accuracy_percent,identity_transition_hits,identity_transition_missed,identity_transition_false
+quartz_beta;tridymite_p63mmc,quartz + P6₃/mmc,2,2-source DPA,0.8525404752684358,1.5129308313026721,97.57428744693753,1,0,0
+quartz_beta;tridymite_p63mmc,quartz + P6₃/mmc,2,2-source + curvature,0.7927007341059576,1.3860580631444577,97.57428744693753,1,0,0
+quartz_beta;tridymite_p63mmc,quartz + P6₃/mmc,3,3-source DPA,0.31499677124415404,0.008169518887310845,82.95936931473621,0,1,2
+quartz_beta;tridymite_p63mmc,quartz + P6₃/mmc,3,3-source + curvature,0.34862896232094603,0.07337225948693882,73.80230442692542,0,1,2
+quartz_beta;tridymite_c2221,quartz + C2221,2,2-source DPA,2.9110087857767857,6.010877049217006,41.964827167980594,0,1,1
+quartz_beta;tridymite_c2221,quartz + C2221,2,2-source + curvature,2.899326435834174,5.957565709691329,41.964827167980594,0,1,1
+quartz_beta;tridymite_c2221,quartz + C2221,3,3-source DPA,0.3151758261321141,0.02035779760774292,96.78593086719223,1,0,0
+quartz_beta;tridymite_c2221,quartz + C2221,3,3-source + curvature,0.3487194556189744,0.08555865545638869,96.48271679805943,1,0,0
+tridymite_p63mmc;tridymite_c2221,P6₃/mmc + C2221,2,2-source DPA,0.35284734039444166,0.4144673585817622,0.0,0,0,0
+tridymite_p63mmc;tridymite_c2221,P6₃/mmc + C2221,2,2-source + curvature,0.3517485706802459,0.4187037046082151,0.0,0,0,0
+tridymite_p63mmc;tridymite_c2221,P6₃/mmc + C2221,3,3-source DPA,0.315292300187359,0.014859314055878885,40.994542146755606,0,0,1
+tridymite_p63mmc;tridymite_c2221,P6₃/mmc + C2221,3,3-source + curvature,0.34877206187472726,0.09372994969122188,31.837477258944812,0,0,1

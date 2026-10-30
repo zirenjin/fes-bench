@@ -47,8 +47,8 @@ function showFigure(id,key){const box=typeof id==='string'?$(id):id;box.replaceC
 const view=(...parts)=>N.views[parts.join('|')];
 window.FES_EXPLAINER_REVIEW={data:D,content:E,figures:allFigures,showSource,showFigure};
 
-for(const [value,label,note] of [['4','transfer task types','Temperature · phase · system · pressure'],['8','systems in scope','Different physical and reference conditions'],['2','completed outer folds','One phase OOD · one system OOD'],[String(D.validation.required_G_rows_still_explicitly_open),'new phase-G states open','Reference limits remain explicit']]){const c=el('div',undefined,'card');c.append(el('b',value),el('span',label),el('small',note));$('cards').append(c);}
-$('snapshot-note').textContent=`Evidence snapshot: ${D.meta.generated}. Reference validation: ${D.meta.validationAt}. The manifest hash ${D.meta.validationShaMatches?'matches':'does not match'} the archived validator. This is a local snapshot, not a live compute status.`;
+for(const [value,label,note] of [['8','systems in scope','Different physical and reference conditions'],['4','transfer task types','Temperature · phase · system · pressure'],['3','held-out transfer settings scored','SiO₂ LOPO (development) · Ti LOSO · H1b ds62 stress test'],[String(D.validation.required_G_rows_still_explicitly_open),'new phase-G states open','As of the core snapshot; reference limits remain explicit']]){const c=el('div',undefined,'card');c.append(el('b',value),el('span',label),el('small',note));$('cards').append(c);}
+$('snapshot-note').textContent=`Page updated 30 October 2026. Core evidence snapshot: ${D.meta.generated}; reference validation: ${D.meta.validationAt}; the manifest hash ${D.meta.validationShaMatches?'matches':'does not match'} the archived validator. Results added after that snapshot (SiO₂ follow-ups, Carbon, H1b and the decision-metric audit) are separately versioned packages; their figures open this page and their files are listed under Methods & Reproducibility. This is a local snapshot, not a live compute status.`;
 $('footer-date').textContent=D.meta.generated.slice(0,10);
 $('bundle-summary').textContent=`The bundle indexes ${D.sources.length.toLocaleString('en-US')} source records, ${D.groups.length} archive groups and ${D.jobs.length} ledger rows. Numerical figure tables are included. Original documents and logs remain in the offline archive. Scientific scores are unchanged.`;
 
@@ -134,7 +134,7 @@ function drawSources(page=0){const q=$('source-search').value.toLowerCase(),ext=
 $('source-search').oninput=()=>drawSources();$('source-extension').onchange=()=>drawSources();drawSources();
 
 // The primary narrative follows Where -> What -> Why, with applicability separate.
-for(const q of L.questions){const x=el('div');x.append(el('b',q.title),el('span',q.text));x.append(link(q.result,'#'+q.anchor));$('question-path').append(x);}
+for(const q of L.questions){const x=el('div');x.append(el('b',q.title),el('span',q.text));x.append(link(q.result,'#'+q.anchor));$('question-path')?.append(x);}
 select('landscape-case',L.cases.map(c=>c.id),'sio2_tail',id=>L.cases.find(c=>c.id===id).label);
 select('landscape-method',L.methods.map(m=>m.id),'pid',id=>L.methods.find(m=>m.id===id).label);
 function rangeText(lo,hi,d=3){if(lo===null||hi===null)return 'Not reported';return lo===hi?fmt(lo,d):fmt(lo,d)+'–'+fmt(hi,d);}

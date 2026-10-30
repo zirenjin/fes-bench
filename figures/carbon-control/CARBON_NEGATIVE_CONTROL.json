@@ -1,0 +1,10 @@
+{
+ "task": "graphite/diamond fixed-volume harmonic Svib(300 K), within-phase leave-one-volume-out, n = 7 per phase",
+ "mae_ueV_atom_K": {
+  "graphite_DPA": 0.007430383621690494,
+  "diamond_DPA": 0.009201441039617666,
+  "graphite_quadratic": 0.004673080993266053,
+  "diamond_quadratic": 0.0037237763896906173
+ },
+ "note": "Development-only negative control; does not test or confirm the SiO2 decision mechanism."
+}

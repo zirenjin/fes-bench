@@ -1,0 +1,7 @@
+tier,stratum,unique_event_rows,distinct_reference_events,hits,misses,AUC_pair_gap_MAE,AUC_abs_gap_error_at_Tref,AUC_abs_linearized_shift,acc_crit_MAE,acc_crit_linear,acc_crit_decision,acc_crit_anchor_response_posthoc,acc_crit_anchor_response_competitor_posthoc,rows_with_pred_root,spearman_lin_shift_vs_actual_root_shift,spearman_MAE_vs_abs_root_shift,median_abs(lin-actual)_K
+DFT PBE (DaRUS-3582),"Hf temperature tail, validation-region event",8,1,2,6,1.0,1.0,1.0,0.625,0.625,0.625,1.0,1.0,2,,,2.6599999999999997
+DFT PBE (DaRUS-3582),Ti LOSO (R export),3,1,0,3,,,,1.0,0.6666666666666666,0.6666666666666666,1.0,1.0,1,,,170.47
+DFT PBE-D3(BJ) (DaRUS-4999),"SiO2 LOPO (R export, cristobalite)",3,1,2,1,1.0,1.0,1.0,0.6666666666666666,1.0,1.0,1.0,1.0,2,,,9.754999999999995
+DFT PBE-D3(BJ) (DaRUS-4999),SiO2 LOPO development folds,242,13,45,197,0.7705019740552735,0.7624929498025945,0.7744500846023689,0.71900826446281,0.6487603305785123,0.7024793388429752,0.756198347107438,0.8801652892561983,151,0.964214011850819,0.9714186127570581,0.5
+ds62 assessed (Holland-Powell 2011),H1b 10GPa,64,2,0,64,,,,1.0,0.875,0.9375,1.0,1.0,4,1.0,1.0,61.13499999999999
+ds62 assessed (Holland-Powell 2011),H1b 3GPa,32,2,0,32,,,,1.0,1.0,1.0,1.0,1.0,0,,,

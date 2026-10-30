@@ -1,0 +1,5 @@
+# Reproducing the SiO2 information intervention
+
+The scripts use Python, NumPy and Matplotlib. Set `FES_PORTAL_ARCHIVE` to the archived evidence portal directory, `FES_TRANSFER_ARCHIVE` to the frozen C-LOPO results directory, and `FES_BENCH_ROOT` to the FES-Bench source repository before running the S1 audit. `run_s2_information_ladder.py` reads only the frozen C predictions and protocol, then writes tables into the selected run directory. `plot_s2_information_ladder.py` renders figures from those scored tables and the reference curves. The archived input hashes are listed in `INPUT_HASHES.txt` under neutral artifact labels. `plot_s1_rank_svd.py` uses only saved SVD outputs; set `NATURE_FIGURE_SKILL` to the local skill directory to also emit the measured panel-alignment report. The S1 and S2 plot scripts reproduce their figures from the audited JSON/CSV outputs. The S1 and S2 plot scripts reproduce their figures from the audited JSON/CSV outputs.
+
+The PDF collision audit requires PyMuPDF and is recorded separately in `RESULTS.md`; the public generation script does not claim that audit passed.

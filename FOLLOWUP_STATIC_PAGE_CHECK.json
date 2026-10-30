@@ -1,0 +1,11 @@
+{
+  "page": "index.html",
+  "lang_en": true,
+  "sio2_section_present": true,
+  "new_section_present": true,
+  "duplicate_ids": [],
+  "local_link_count": 109,
+  "missing_local_links": [],
+  "updated_figures_exist": true,
+  "browser_qa": "not run: available Node.js runtime is below Playwright minimum"
+}

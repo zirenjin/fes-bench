@@ -1,0 +1,19 @@
+figure,row,T_start_K,T_end_K,predicted_phase,reference_phase
+FIG_A_STABLE_PHASE_MAIN,Volume-only,1543.0,2016.0,quartz_beta,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,Volume-only,2017.0,2499.0,tridymite_p63mmc,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,DPA,1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,DPA,1583.0,1823.0,tridymite_p63mmc,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,DPA + volume,1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,DPA + volume,1583.0,1832.0,tridymite_p63mmc,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,DPA + volume (equal-block),1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_A_STABLE_PHASE_MAIN,DPA + volume (equal-block),1583.0,2499.0,tridymite_p63mmc,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,Volume-only (2 sources),1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,Volume-only (2 sources),1583.0,2499.0,tridymite_p63mmc,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,DPA (2 sources),1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,DPA + volume (2 sources),1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,Volume-only (3 sources),1543.0,2016.0,quartz_beta,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,Volume-only (3 sources),2017.0,2499.0,tridymite_p63mmc,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,DPA (3 sources),1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,DPA (3 sources),1583.0,1823.0,tridymite_p63mmc,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,DPA + volume (3 sources),1543.0,1582.0,quartz_beta,cristobalite_beta
+FIG_B_SOURCE_SUPERVISION,DPA + volume (3 sources),1583.0,1832.0,tridymite_p63mmc,cristobalite_beta

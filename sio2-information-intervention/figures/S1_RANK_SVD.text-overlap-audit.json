@@ -1,0 +1,14 @@
+{
+  "pdf": "outputs/fes-bench-sio2-information-intervention-20261027/figures/S1_RANK_SVD.pdf",
+  "method": "MuPDF structured text line bbox intersection only",
+  "collision_verdict": "NO_TEXT_LINE_OVERLAPS",
+  "threshold_pt": 0.5,
+  "pages": [
+    {
+      "page": "page1",
+      "lines": 41
+    }
+  ],
+  "candidate_pairs": [],
+  "scope_limit": "Does not inspect text-path intersections, clipping or image/fill overlap; official PyMuPDF audit remains required."
+}

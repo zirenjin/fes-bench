@@ -1,0 +1,66 @@
+{
+  "data": {
+    "status": "PASS",
+    "calculation_records": 306,
+    "distinct_parsed_XML": 303,
+    "ionic_frames_preserved": 3707,
+    "SCF_records_preserved": 9451,
+    "phonon_records": 31,
+    "gamma_frequency_checks": 28,
+    "max_gamma_error_THz": 1.3126067337470927e-06,
+    "carbon_paired_grid_points": 16,
+    "missing_local_links": [],
+    "historical_superseded_phonons": [
+      "phonon-f38d3e3a0be05c33"
+    ],
+    "raw_XML_issues": 5
+  },
+  "browser": {
+    "initial": {
+      "cards": "435\nArchived workflow records\n303\nDistinct parsed VASP XML files\n31\nPlayable force-constant datasets\n16\nScoped carbon \u0394G grid points",
+      "frame": "1 / 3",
+      "mode": "Archived force-constant dataset; thermodynamic admission is separate. Derived \u0393 frequencies match the archived \u0393 table to 8.10e-7 THz. The full mesh has 1 q-weighted modes below \u22120.001 THz.",
+      "phonons": 31,
+      "ledgerRows": 435,
+      "labels": "746 / 746 local computation/requirement records. Published source-only rows are excluded from this slice.",
+      "overflow": false,
+      "surfaceXTitle": "V (\u00c5\u00b3/atom)",
+      "volumeXTitle": "Volume (\u00c5\u00b3/atom)"
+    },
+    "ca": "CaSiO3 \u00b7 cubic candidate\n40 atoms \u00b7 DFT MD trajectory \u00b7 step 801 \u00b7 800.0 fs",
+    "caFrameAfter": "804 / 1600",
+    "caBound": {
+      "force": "Recorded volume\n318.673 \u00c5\u00b3\nVolume per atom\n7.9668 \u00c5\u00b3\nMaximum force\n6.05322 eV/\u00c5\nOutput footer\nPresent",
+      "energyPoints": 1600,
+      "forcePoints": 1600
+    },
+    "missingOutput": "No parsed raw Fe output in this export. Inspect the workflow register.",
+    "mgAvailable": 139,
+    "filtered": "18 / 435 archived workflow records. States are archive values, not a live queue.",
+    "phaseRows": 4,
+    "mobileOverflow": {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "errors": [],
+    "failed": []
+  },
+  "scope": "Existing calculations only; no DFT/MD/model jobs submitted. Read-only Expanse export included.",
+  "visual_review": {
+    "atomic": "Reviewed with bound energy/forces",
+    "phonon": "Reviewed real Gamma eigenvector playback",
+    "thermal": "Reviewed surface and fixed-volume traces; explicit axis-unit titles verified"
+  },
+  "latest_main_page": {
+    "title": "FES-Bench \u00b7 where methods fail, what information is lost, and why",
+    "heading": "Free-energy accuracy, transfer and phase decisions",
+    "explorerLink": true,
+    "h1b": true,
+    "carbonControl": true,
+    "brokenImages": [],
+    "overflow": false,
+    "errors": [],
+    "mobileOverflow": false
+  },
+  "integration_policy": "Latest user main page and assets retained; only DFT navigation and publication metadata added. Machine-specific DFT path prefixes redacted."
+}

@@ -1,0 +1,150 @@
+{
+ "reference_events": [
+  [
+   "quartz_beta",
+   "cristobalite_beta",
+   1542.7087047758675
+  ]
+ ],
+ "scaling_note": "per-dimension = frozen-run 'coordinate' scaling",
+ "rows": {
+  "2src:Volume only": {
+   "gap_MAE_meV_atom": 0.276243368741318,
+   "acc_percent": 41.964827167980594,
+   "events": [
+    [
+     "quartz_beta",
+     "tridymite_p63mmc",
+     1582.523979821228
+    ]
+   ],
+   "hits_missed_false": [
+    0,
+    1,
+    1
+   ]
+  },
+  "2src:DPA": {
+   "gap_MAE_meV_atom": 0.852538173986945,
+   "acc_percent": 97.57428744693753,
+   "events": [
+    [
+     "quartz_beta",
+     "cristobalite_beta",
+     1582.5233631991618
+    ]
+   ],
+   "hits_missed_false": [
+    1,
+    0,
+    0
+   ]
+  },
+  "2src:DPA + volume (per-dimension)": {
+   "gap_MAE_meV_atom": 0.8452564274300625,
+   "acc_percent": 97.57428744693753,
+   "events": [
+    [
+     "quartz_beta",
+     "cristobalite_beta",
+     1582.5233631615076
+    ]
+   ],
+   "hits_missed_false": [
+    1,
+    0,
+    0
+   ]
+  },
+  "2src:DPA + volume (equal-block)": {
+   "gap_MAE_meV_atom": 0.40119982953960515,
+   "acc_percent": 97.57428744693753,
+   "events": [
+    [
+     "quartz_beta",
+     "cristobalite_beta",
+     1582.523363161508
+    ]
+   ],
+   "hits_missed_false": [
+    1,
+    0,
+    0
+   ]
+  },
+  "3src:Volume only": {
+   "gap_MAE_meV_atom": 1.4347934308728916,
+   "acc_percent": 41.964827167980594,
+   "events": [
+    [
+     "quartz_beta",
+     "tridymite_p63mmc",
+     2016.2833870980837
+    ]
+   ],
+   "hits_missed_false": [
+    0,
+    1,
+    1
+   ]
+  },
+  "3src:DPA": {
+   "gap_MAE_meV_atom": 0.3149959651921858,
+   "acc_percent": 82.95936931473621,
+   "events": [
+    [
+     "quartz_beta",
+     "tridymite_p63mmc",
+     1582.5235004203898
+    ],
+    [
+     "tridymite_p63mmc",
+     "cristobalite_beta",
+     1823.6584863234125
+    ]
+   ],
+   "hits_missed_false": [
+    0,
+    1,
+    2
+   ]
+  },
+  "3src:DPA + volume (per-dimension)": {
+   "gap_MAE_meV_atom": 0.3153051671176716,
+   "acc_percent": 82.41358399029714,
+   "events": [
+    [
+     "quartz_beta",
+     "tridymite_p63mmc",
+     1582.5234994278571
+    ],
+    [
+     "tridymite_p63mmc",
+     "cristobalite_beta",
+     1832.4605920104032
+    ]
+   ],
+   "hits_missed_false": [
+    0,
+    1,
+    2
+   ]
+  },
+  "3src:DPA + volume (equal-block)": {
+   "gap_MAE_meV_atom": 0.4081672884149924,
+   "acc_percent": 41.964827167980594,
+   "events": [
+    [
+     "quartz_beta",
+     "tridymite_p63mmc",
+     1582.5252553061027
+    ]
+   ],
+   "hits_missed_false": [
+    0,
+    1,
+    1
+   ]
+  }
+ }
+}
