@@ -34,12 +34,23 @@
     "F2_F3": "not run"
   },
   "thermodynamic_diagnosis_page": "updates-20261101/",
-  "thermodynamic_map_revision": "20261101-capability-diagnosis-intervention-v1",
+  "thermodynamic_map_revision": "single-map-v3",
   "thermodynamic_map_contracts": 8,
   "thermodynamic_map_scope": "Matched contract-specific capability and diagnostic records; paired interventions; distinct missing states; no overall score.",
   "aggregation_label_correction": "Alexandria RMS is pair-weighted; single-phase RMS is phase-weighted; ordering/cancellation use formula-weighted summaries.",
   "method_appendix": "methods/",
   "method_registry_entries": 28,
   "display_policy": "Descriptive method names; concise figure-led body; longer explanations and provenance in expandable details. Archive identifiers retained in source records.",
-  "figure_led_revision": "20261101-method-formulas-readable-names-compact"
+  "figure_led_revision": "20261101-method-formulas-readable-names-compact",
+  "unified_map_task_rows": 22,
+  "unified_map_method_columns": 17,
+  "unified_map_metric_views": 17,
+  "active_map_policy": "One task-by-method matrix. Accuracy uses 0\u2013100; error colours normalize within rows. Row-specific references, denominators and MAE/RMS remain distinct.",
+  "method_equation_rendering": "Self-hosted KaTeX 0.19.1; 29 rendered LaTeX displays; downloadable formulas.tex",
+  "method_categories": [
+    "Baselines and reference calculations",
+    "MLIP methods in project sequence",
+    "Shared objectives and diagnostics",
+    "Not run"
+  ]
 }

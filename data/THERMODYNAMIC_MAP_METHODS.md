@@ -1,6 +1,6 @@
 # Thermodynamic map — comparison and aggregation policy
 
-This map combines navigation over different experiments, not their statistical scores. Each contract retains its reference, task, sample and input budget. Numerical colours normalize each eligible metric column only within the displayed contract and temperature. Neutral diagnostic cells are not a ranking. Paired intervention colours show direction, not significance. No overall score is computed.
+This map combines navigation over different experiments, not their statistical scores. Each contract retains its reference, task, sample and input budget. The active overview is one task-by-method matrix. Percentage accuracy uses a 0–100 colour scale. Error colours normalize only within each task row; diagnostic values use neutral colours. MAE, RMS, samples and reference levels remain distinct. Older detailed contract records remain downloadable but no longer form separate displayed heatmaps. No overall score is computed.
 
 ## Aggregation correction
 

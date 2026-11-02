@@ -1,0 +1,1 @@
+"use strict";window.FES_MATH_ERRORS=[];document.querySelectorAll('.math-display').forEach(el=>{try{katex.render(el.textContent,el,{displayMode:true,throwOnError:true,strict:'error',trust:false,output:'htmlAndMathml',fleqn:true});el.dataset.mathRendered='true'}catch(e){window.FES_MATH_ERRORS.push(e.message);el.classList.add('math-error');console.error(e)}});

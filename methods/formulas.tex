@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\subsection*{Harmonic vibrational reference}
+\[\begin{aligned}\mathbf D(\mathbf q)&=\mathbf M^{-1/2}\boldsymbol\Phi(\mathbf q)\mathbf M^{-1/2},\\\mathbf D(\mathbf q)\mathbf e_{\mathbf q\nu}&=\omega_{\mathbf q\nu}^2\mathbf e_{\mathbf q\nu},\\f_{\mathrm{vib}}(T)&=\frac{1}{N_{\mathrm{prim}}}\sum_{\mathbf q\nu}w_{\mathbf q}\!\left[\frac{\hbar\omega_{\mathbf q\nu}}2+k_BT\ln\!\left(1-e^{-\hbar\omega_{\mathbf q\nu}/k_BT}\right)\right],\\f_{\mathrm{th}}(T)&=f_{\mathrm{vib}}(T)-f_{\mathrm{vib}}(0).\end{aligned}\]
+\subsection*{Verified quasi-harmonic reference}
+\[G_{\mathrm{QHA}}(T,P)=\min_v\!\left[e_0(v)+f_{\mathrm{vib}}(T,v)+Pv\right].\]
+\subsection*{Thermodynamic integration and DFT correction}
+\[\begin{aligned}\Delta f_{A\to B}&=\frac1N\int_0^1\!\left\langle U_B-U_A\right\rangle_\lambda\,\mathrm d\lambda,\\\Delta f_{\mathrm{ML}\to\mathrm{DFT}}&=-\frac{k_BT}{N}\ln\!\left\langle e^{-\beta(U_{\mathrm{DFT}}-U_{\mathrm{ML}})}\right\rangle_{\mathrm{ML}}.\end{aligned}\]
+\subsection*{Analytic temperature fit · Thermo4}
+\[\begin{aligned}x&=T/T_s,\qquad \boldsymbol\phi(T)=\begin{bmatrix}1&x&x\ln x&x^2\end{bmatrix}^{\!\mathsf T},\\ \hat y(T)&=\boldsymbol\phi(T)^{\mathsf T}\mathbf c.\end{aligned}\]
+\subsection*{QH + analytic residual}
+\[\begin{aligned}r^{\mathrm{ref}}(T)&=y^{\mathrm{ref}}(T)-B(T),\\\hat y(T)&=B(T)+\boldsymbol\phi(T)^{\mathsf T}\mathbf c_r.\end{aligned}\]
+\subsection*{Phase-ID temperature regression}
+\[\widehat G_i(T,P)=f_\theta\!\left(\operatorname{onehot}(i),T,P\right).\]
+\subsection*{Volume readout}
+\[\begin{aligned}v_i&=V_i/N_i,\qquad \widetilde v_i=(v_i-\mu_v)/\sigma_v,\\\widehat{\mathbf c}_i&=\mathbf b+\mathbf W^{\mathsf T}\widetilde v_i,\\\widehat G_i(T)&=\boldsymbol\phi(T)^{\mathsf T}\widehat{\mathbf c}_i.\end{aligned}\]
+\subsection*{Quadratic-volume control}
+\[\hat y(v)=a+bv+dv^2,\qquad v=V/V_0.\]
+\subsection*{Carbon kernel-ridge control}
+\[\begin{aligned}k(v,v^\prime)&=\exp\!\left[-\gamma(v-v^\prime)^2\right],\\\hat y(v_*)&=\mathbf k_*^{\mathsf T}(\mathbf K+\lambda\mathbf I)^{-1}\mathbf y.\end{aligned}\]
+\subsection*{Nearest-volume and source-mean controls}
+\[\begin{aligned}j_*&=\underset{j\in\mathrm{source}}{\operatorname{argmin}}\,|v_j-v_*|,\qquad \hat y(v_*)=y_{j_*},\\\hat y_{\mathrm{mean}}&=\frac{1}{n_{\mathrm{source}}}\sum_{j\in\mathrm{source}}y_j.\end{aligned}\]
+\subsection*{Family-mean relative-curve control}
+\[\Delta\widehat G_{\mathrm{target}}(T)=\frac{1}{|\mathcal S|}\sum_{s\in\mathcal S}\Delta G_s(T).\]
+\subsection*{Pretrained potential}
+\[\widehat U=U_{\theta_0}(\mathbf R),\qquad \widehat{\mathbf F}=-\nabla_{\mathbf R}U_{\theta_0},\qquad \widehat{\mathbf H}=\nabla_{\mathbf R}^2U_{\theta_0}.\]
+\subsection*{QH + learned residual}
+\[\begin{aligned}\widehat G_i(T)&=B_i(T)+r_\theta(\mathbf z_i,T)+c_{\mathrm{train}},\\r_{\theta,i}&=f_{\theta,i}^{\mathrm{cell}}/N_i\quad\text{(audited cell output).}\end{aligned}\]
+\subsection*{Direct structure–temperature regression}
+\[\widehat G_i(T,P)=f_\theta(\mathbf z_i,T,P).\]
+\subsection*{DPA readout}
+\[\begin{aligned}\mathbf z_i&=\operatorname{pool}\!\left(\operatorname{DPA}_{\theta_0}(\mathbf R_i)\right),\\\widehat{\mathbf c}_i&=\mathbf b+\mathbf W^{\mathsf T}\operatorname{standardize}(\mathbf z_i),\\\widehat G_i(T)&=\boldsymbol\phi(T)^{\mathsf T}\widehat{\mathbf c}_i.\end{aligned}\]
+\subsection*{Curvature-summary readouts}
+\[\begin{aligned}\mathbf q_i&=\operatorname{summarize}\!\left(\Gamma\text{-curvature queries}\right),\\\mathbf h_i&\in\{\mathbf q_i,\,[v_i,\mathbf q_i],\,[\mathbf z_i,\mathbf q_i]\},\\\widehat{\mathbf c}_i&=\mathbf b+\mathbf W^{\mathsf T}\mathbf h_i.\end{aligned}\]
+\subsection*{DPA + volume readout}
+\[\begin{aligned}\mathbf h_i&=\begin{bmatrix}\operatorname{standardize}(\mathbf z_i)\\\operatorname{standardize}(V_i/N_i)\end{bmatrix},\\\widehat{\mathbf c}_i&=\mathbf b+\mathbf W^{\mathsf T}\mathbf h_i.\end{aligned}\]
+\subsection*{Fixed-temperature entropy readout}
+\[\begin{aligned}\widehat S_{\mathrm{vib}}(300\,\mathrm K)&=b+\mathbf w^{\mathsf T}\mathbf h,\\\mathbf h&\in\{v,\,\mathbf z_{\mathrm{DPA}},\,[\mathbf z_{\mathrm{DPA}},v]\}.\end{aligned}\]
+\subsection*{Raw-force fine-tuning}
+\[\mathcal L_{\mathrm{raw}}(\theta)=\left\langle\left\lVert\mathbf F_\theta(\mathbf R)-\mathbf F_{\mathrm{DFT}}(\mathbf R)\right\rVert^2\right\rangle_{\mathrm{frames}}.\]
+\subsection*{Model-relaxed harmonic workflow}
+\[\begin{aligned}\mathbf R_*&=\operatorname{relax}[U_\theta],\\\widehat f_{\mathrm{pipeline}}(T)&=\frac{U_\theta(\mathbf R_*)}{N}+f_{\mathrm{vib}}\!\left[\widehat{\mathbf D}(\mathbf R_*),T\right].\end{aligned}\]
+\subsection*{Fixed-offset force fine-tuning}
+\[\begin{aligned}\boldsymbol\rho_i^0&=\mathbf F_{\theta_0}(\mathbf R_i^0),\\\mathbf y_i(\mathbf u)&=\mathbf F_{\mathrm{DFT}}(\mathbf R_i^0+\mathbf u)+\boldsymbol\rho_i^0,\\\mathcal L_{\mathrm{offset}}&=\left\langle\left\lVert\mathbf F_\theta(\mathbf R_i^0+\mathbf u)-\mathbf y_i(\mathbf u)\right\rVert^2\right\rangle.\end{aligned}\]
+\subsection*{Coefficient-readout training}
+\[\begin{aligned}\mathbf W^*&=\underset{\mathbf W}{\operatorname{argmin}}\;\left\{\frac{\operatorname{tr}\!\left[(\mathbf X\mathbf W-\mathbf Y)\mathbf M_T(\mathbf X\mathbf W-\mathbf Y)^{\mathsf T}\right]}{n}+\lambda\lVert\mathbf W\rVert_F^2\right\},\\\mathbf M_T&=\left\langle\boldsymbol\phi(T)\boldsymbol\phi(T)^{\mathsf T}\right\rangle_{\mathrm{train}}.\end{aligned}\]
+\subsection*{Displacement-response diagnostic}
+\[\begin{aligned}\mathbf D_\theta(\mathbf u)&=\mathbf F_\theta(\mathbf R^0+\mathbf u)-\mathbf F_\theta(\mathbf R^0),\\\mathbf e_{\mathrm{response}}(\mathbf u)&=\mathbf D_\theta(\mathbf u)-\mathbf D_{\mathrm{DFT}}(\mathbf u).\end{aligned}\]
+\subsection*{Reference-component replacement}
+\[\begin{aligned}a&=\delta\Delta(E_0+E_{\mathrm{ZP}}),\qquad b(T)=\delta\Delta F_{\mathrm{th}}(T),\\e(T)&=a+b(T),\\e_{\mathrm{anchor\ replaced}}&=b(T),\qquad e_{\mathrm{thermal\ replaced}}=a.\end{aligned}\]
+\subsection*{Coupling and shrinkage corrections}
+\[\begin{aligned}\Delta\widehat F_{\mathrm{corr}}&=\Delta\widehat F_{\mathrm{raw}}-\widehat e,\\\widehat e&=\mathbf X\mathbf k_{\mathrm{LOFO}}.\end{aligned}\]
+\subsection*{Target-label offset / slope calibration}
+\[\Delta\widehat G_{\mathrm{corr}}(T)=\Delta\widehat G_{\mathrm{raw}}(T)+a+b(T-T_0).\]
+\subsection*{Risk–coverage decision rule}
+\[\begin{aligned}\tau_{-f}&=Q_{1-\alpha}\!\left(|e_{\mathrm{other\ formulas}}|\right),\\\text{decide}&\iff |\Delta\widehat F|>\tau_{-f},\\\mathrm{risk}&=P(\mathrm{wrong}\mid\mathrm{decided}),\\\mathrm{coverage}&=P(\mathrm{decided}).\end{aligned}\]
+\subsection*{Unrun response-aware objectives}
+\[\begin{aligned}\mathcal L_{\mathrm{response}}&=\left\langle\left\lVert\mathbf D_\theta(\mathbf u)-\mathbf D_{\mathrm{DFT}}(\mathbf u)\right\rVert^2\right\rangle,\\\mathcal L_{\mathrm{HVP}}&=\left\langle\left\lVert(\mathbf H_\theta-\mathbf H_{\mathrm{ref}})\mathbf v\right\rVert^2\right\rangle.\end{aligned}\]
+\section*{Temperature response}
+\[
+\begin{aligned}
+x&=T/T_s,\\
+S(T)&=-\frac{\partial G}{\partial T}=-\frac{c_1+c_2(1+\ln x)+2c_3x}{T_s},\\
+\Delta\widehat G_{ij}(T)&=\boldsymbol\phi(T)^{\mathsf T}(\widehat{\mathbf c}_i-\widehat{\mathbf c}_j).
+\end{aligned}
+\]
+\end{document}
