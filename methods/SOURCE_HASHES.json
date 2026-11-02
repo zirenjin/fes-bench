@@ -1,0 +1,12 @@
+[
+  {
+    "file": "sources/readout-solver.py",
+    "archive_sha256": "d48796df9f59452bb453c9fe1729cf806836b1bfbe31f9a057b3f651df685323",
+    "public_sha256": "fbcb83e3efe737ecdf14caaa901cad7ca8990c62aaf4e45c772819ba7f40008e"
+  },
+  {
+    "file": "sources/coupled-correction.py",
+    "archive_sha256": "91d43857b32590e153aa2b62f7d96cd319429e703e04e8c896b87d06990cd481",
+    "public_sha256": "91d43857b32590e153aa2b62f7d96cd319429e703e04e8c896b87d06990cd481"
+  }
+]

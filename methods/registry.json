@@ -1,0 +1,282 @@
+[
+  {
+    "id": "thermo4",
+    "name": "Analytic temperature fit \u00b7 Thermo4",
+    "formula": "x = T/T\u209b;  \u03c6(T) = [1, x, x ln x, x\u00b2];  \u0177(T) = \u03c6(T)\u1d40c",
+    "inputs": "Training temperatures of the SAME phase or pair",
+    "status": "Evaluated",
+    "archive_code": "thermo4",
+    "source": "../#fitting",
+    "note": "For the SiO\u2082 coefficient readouts T\u209b = 1000 K. y is the declared G or \u0394G label. Other archives use equivalent rescaled bases; their coefficient numbers are not interchangeable."
+  },
+  {
+    "id": "qh-analytic",
+    "name": "QH + analytic residual",
+    "formula": "r(T) = yref(T) \u2212 B(T);  \u0177(T) = B(T) + \u03c6(T)\u1d40c\u1d63",
+    "inputs": "Declared baseline plus training thermodynamic labels",
+    "status": "Evaluated",
+    "archive_code": "residual4",
+    "source": "../#fit-controls",
+    "note": "B is the exact archived baseline. A fit against a legacy unstable-mode baseline is a numerical control, not certified QHA."
+  },
+  {
+    "id": "direct",
+    "name": "Direct structure\u2013temperature regression",
+    "formula": "\u011c\u1d62(T,P) = f\u03b8(z\u1d62,T,P)",
+    "inputs": "Frozen structural representation plus allowed thermal labels",
+    "status": "Evaluated",
+    "archive_code": "T3",
+    "source": "../#optimization-check",
+    "note": "Pressure is included only where the archived model uses it. Pair-trained runs constrain differences f\u03b8(i)\u2212f\u03b8(j); they do not independently fix absolute phase gauges."
+  },
+  {
+    "id": "learned-residual",
+    "name": "QH + learned residual",
+    "formula": "\u011c\u1d62(T) = B\u1d62(T) + r\u03b8(z\u1d62,T) + ctrain",
+    "inputs": "Frozen representation, declared baseline and allowed residual labels",
+    "status": "Evaluated",
+    "archive_code": "T2",
+    "source": "../#hf-figure",
+    "note": "Shown reconstruction is the audited Hf convention. The cell output is divided by atom count before addition. B already includes static energy where declared; never add it twice. A shared calibration constant cancels in a phase difference."
+  },
+  {
+    "id": "phase-id",
+    "name": "Phase-ID temperature regression",
+    "formula": "\u011c\u1d62(T,P) = f\u03b8(onehot(i),T,P)",
+    "inputs": "Phase identity and training labels",
+    "status": "Evaluated",
+    "archive_code": "pid",
+    "source": "../#decisions",
+    "note": "Known-phase control. An unseen phase has no learned identity-specific thermodynamic relation."
+  },
+  {
+    "id": "volume",
+    "name": "Volume readout",
+    "formula": "u\u1d62 = standardize(V\u1d62/N\u1d62);  \u0109\u1d62 = b + W\u1d40u\u1d62;  \u011c\u1d62(T) = \u03c6(T)\u1d40\u0109\u1d62",
+    "inputs": "One equilibrium structure; source thermodynamic labels",
+    "status": "Evaluated",
+    "archive_code": "C-simple / A",
+    "source": "../#transfer-audit",
+    "note": "V/N is volume per atom. Source-only scaling. Phase coefficient contrasts, not cross-system absolute coefficients, provide gauge-compatible supervision."
+  },
+  {
+    "id": "dpa",
+    "name": "DPA readout",
+    "formula": "z\u1d62 = pool(DPA\u03b8\u2080(R\u1d62));  \u0109\u1d62 = b + W\u1d40 standardize(z\u1d62);  \u011c\u1d62(T) = \u03c6(T)\u1d40\u0109\u1d62",
+    "inputs": "Frozen checkpoint and equilibrium structure; source thermal labels",
+    "status": "Evaluated",
+    "archive_code": "C-DPA / B",
+    "source": "../#transfer-audit",
+    "note": "Checkpoint, branch, pooling and structure exposure are experiment-specific. Thermal-label holdout does not automatically mean structure-zero-shot."
+  },
+  {
+    "id": "dpa-volume",
+    "name": "DPA + volume readout",
+    "formula": "h\u1d62 = [standardize(z\u1d62), standardize(V\u1d62/N\u1d62)];  \u0109\u1d62 = b + W\u1d40h\u1d62",
+    "inputs": "Same source labels, frozen DPA and explicit volume",
+    "status": "Evaluated",
+    "archive_code": "C / DPA+V",
+    "source": "../updates-20261030/error-decomposition/ANCHOR_ENTROPY_DECOMPOSITION.md",
+    "note": "Coordinate scaling is primary. Equal-block sensitivity divides each standardized block by \u221a(block dimension), including the 128D DPA block. The scaling changes ridge geometry; it adds no independent source-phase contrast."
+  },
+  {
+    "id": "ridge",
+    "name": "Coefficient-readout training",
+    "formula": "W* = argminW { tr[(XW \u2212 Y) H (XW \u2212 Y)\u1d40]/n + \u03bb\u2016W\u2016\u00b2F };  H = meantrain[\u03c6\u03c6\u1d40]",
+    "inputs": "Source-pair feature differences X and source coefficient differences Y",
+    "status": "Evaluated",
+    "archive_code": "shared ridge solve",
+    "source": "sources/readout-solver.py",
+    "note": "This is the checked SiO\u2082 A/B/C objective. Features, temperature metric and regularization are fitted/selected on source data. Phase-level predictions preserve \u0394GAB + \u0394GBC + \u0394GCA = 0."
+  },
+  {
+    "id": "quadratic-volume",
+    "name": "Quadratic-volume control",
+    "formula": "\u0177 = a + b v + d v\u00b2;  v = V/V\u2080",
+    "inputs": "Source volume states and fixed-temperature labels",
+    "status": "Evaluated",
+    "archive_code": "quadratic_VV0",
+    "source": "../updates-20261030/carbon/VOLUME_BASELINE_METRICS.csv",
+    "note": "Carbon follow-up: y = Svib(300 K), not a Thermo4 coefficient. This is distinct from the original linear-volume baseline."
+  },
+  {
+    "id": "carbon-ridge",
+    "name": "Fixed-temperature entropy readout",
+    "formula": "\u015cvib(300 K) = b + w\u1d40h;  h \u2208 {v, zDPA, [zDPA,v]}",
+    "inputs": "Fixed-volume harmonic entropy labels on source structures",
+    "status": "Evaluated",
+    "archive_code": "carbon A/B/C",
+    "source": "../updates-20261030/carbon/RESULTS.md",
+    "note": "A scalar readout, not a fitted G(T) curve. LOOV and whole-phase holdout have different source supports."
+  },
+  {
+    "id": "curvature-query",
+    "name": "Curvature-summary readouts",
+    "formula": "q\u1d62 = summarize(\u0393-curvature queries);  \u0109\u1d62 = b + W\u1d40h\u1d62;  h\u1d62 \u2208 {q\u1d62, [v\u1d62,q\u1d62], [z\u1d62,q\u1d62]}",
+    "inputs": "Archived six-component \u0393 summaries; source thermal labels",
+    "status": "Evaluated",
+    "archive_code": "query-only / simple+query / DPA+query",
+    "source": "../sio2-information-intervention/data/FOLLOWUP_CURVATURE_QUERY_METHODS.json",
+    "note": "These are model-derived summaries, not an independently verified DFT Hessian or a full phonon free energy. Imaginary-mode information was retained as input."
+  },
+  {
+    "id": "kernel",
+    "name": "Carbon kernel-ridge control",
+    "formula": "k(v,v\u2032) = exp[\u2212\u03b3(v\u2212v\u2032)\u00b2];  \u0177(v*) = k*\u1d40(K + \u03bbI)\u207b\u00b9y",
+    "inputs": "Source volume and entropy labels",
+    "status": "Evaluated \u00b7 carbon follow-up",
+    "archive_code": "rbf_krr_nested",
+    "source": "../updates-20261030/carbon/FOLLOWUP_RESULTS.md",
+    "note": "Kernel and penalty selection follow the archived nested source-fold protocol. A DPA-kernel readout discussed elsewhere remains a separate unrun proposal."
+  },
+  {
+    "id": "nearest",
+    "name": "Nearest-volume and source-mean controls",
+    "formula": "\u0177(v*) = yargmin|v\u2212v*|;  \u0177mean = meansource(y)",
+    "inputs": "Source volume states / scalar labels",
+    "status": "Evaluated",
+    "archive_code": "nearest_volume / source_phase_mean",
+    "source": "../updates-20261030/carbon/VOLUME_BASELINE_METRICS.csv",
+    "note": "Carbon controls. Separately, the metal family-mean control averages legal source-system relative curves with matched phase order and reference conventions."
+  },
+  {
+    "id": "family",
+    "name": "Family-mean relative-curve control",
+    "formula": "\u0394\u011ctarget(T) = meanlegal source systems[\u0394Gsource(T)]",
+    "inputs": "Source-family paired curves; no target thermal labels",
+    "status": "Evaluated",
+    "archive_code": "family",
+    "source": "../#legacy-failure-landscape",
+    "note": "Eligibility depends on the source-family transfer contract. A zero-gap null predicts \u0394\u011c = 0; ties are not a correct stable-phase prediction by default."
+  },
+  {
+    "id": "frozen-potential",
+    "name": "Pretrained potential",
+    "formula": "\u00db = U\u03b8\u2080(R);  F\u0302 = \u2212\u2207R U\u03b8\u2080;  H\u0302 = \u2207\u00b2R U\u03b8\u2080",
+    "inputs": "Frozen pretrained checkpoint",
+    "status": "Evaluated",
+    "archive_code": "F0",
+    "source": "../updates-20261101/sources/f1-protocol.md",
+    "note": "The main intervention uses the MP_traj branch. The Omat24 sensitivity is a different pretrained branch, not a fine-tuning step."
+  },
+  {
+    "id": "raw-force",
+    "name": "Raw-force fine-tuning",
+    "formula": "Lraw(\u03b8) = meanframes \u2016F\u03b8(R) \u2212 FDFT(R)\u2016\u00b2",
+    "inputs": "Existing DFT forces on displaced supercells",
+    "status": "Completed \u00b7 endpoint failed",
+    "archive_code": "F1",
+    "source": "../updates-20261101/sources/f1-protocol.md",
+    "note": "Forces-only training; energy and virial loss weights are zero. Lower validation raw-force RMSE did not improve the held-out thermal endpoint."
+  },
+  {
+    "id": "offset-force",
+    "name": "Fixed-offset force fine-tuning",
+    "formula": "\u03c1\u1d62\u2070 = F\u03b8\u2080(R\u1d62\u2070);  y\u1d62(u) = FDFT(R\u1d62\u2070+u) + \u03c1\u1d62\u2070;  Loffset = mean \u2016F\u03b8(R\u1d62\u2070+u) \u2212 y\u1d62(u)\u2016\u00b2",
+    "inputs": "Same force data plus fixed pretrained equilibrium-force offset",
+    "status": "Pending result",
+    "archive_code": "F1b",
+    "source": "../updates-20261101/sources/f1b-protocol.md",
+    "note": "Second attempt on the same test split. It isolates response at initialization when the DFT residual is negligible. It is not a pure response loss throughout training: F\u03b8(R\u1d62\u2070) can change."
+  },
+  {
+    "id": "response-definition",
+    "name": "Displacement-response diagnostic",
+    "formula": "D\u03b8(u) = F\u03b8(R\u2070+u) \u2212 F\u03b8(R\u2070);  eresponse = D\u03b8(u) \u2212 DDFT(u)",
+    "inputs": "Equilibrium and displaced forces",
+    "status": "Evaluated \u00b7 four-entry diagnosis",
+    "archive_code": "force response diagnostic",
+    "source": "../updates-20261101/sources/force-diagnosis.py",
+    "note": "A measured diagnostic. Explicitly minimizing \u2016eresponse\u2016\u00b2 throughout training is different from fixed-offset label training and was not run in this snapshot."
+  },
+  {
+    "id": "relaxed",
+    "name": "Model-relaxed harmonic workflow",
+    "formula": "R* = relax[U\u03b8];  F\u0302pipeline(T) = U\u03b8(R*) + Fvib[H\u03b8(R*),T]",
+    "inputs": "Model relaxation, force constants and stable harmonic modes",
+    "status": "Evaluated",
+    "archive_code": "relaxation channel",
+    "source": "../updates-20261101/sources/relaxation-protocol.md",
+    "note": "Score the same successful subset and separately report failures over the original pool. This is not QHA, thermal expansion or an anharmonic phase diagram."
+  },
+  {
+    "id": "harmonic",
+    "name": "Harmonic vibrational reference",
+    "formula": "\u03c9\u00b2 = eig(M\u207b\u00b9\u141f\u00b2 H M\u207b\u00b9\u141f\u00b2);  Fvib = \u03a3q\u03bd wq {\u210f\u03c9\u03bd/2 + kBT ln[1 \u2212 exp(\u2212\u210f\u03c9\u03bd/kBT)]};  Fth = Fvib(T) \u2212 Fvib(0)",
+    "inputs": "Stable phonon spectrum, masses and q weights",
+    "status": "Used reference / model workflow",
+    "archive_code": "harmonic phonons",
+    "source": "../dft-explorer/",
+    "note": "Normalize per atom consistently. Remove only the appropriate translational zero-mode treatment; do not delete imaginary branches to claim a valid conventional harmonic free energy."
+  },
+  {
+    "id": "qha",
+    "name": "Verified quasi-harmonic reference",
+    "formula": "GQHA(T,P) = minV [E\u2080(V) + Fvib(T,V) + PV]",
+    "inputs": "Several admissible volumes; compatible static and phonon references",
+    "status": "Used where admitted",
+    "archive_code": "DFT QHA",
+    "source": "../#probe-labels",
+    "note": "Static energy is included once. The admitted carbon QHA layer is separate from legacy \u201cQH-like\u201d numerical baselines and from finite-temperature effective-harmonic source tables."
+  },
+  {
+    "id": "ti-fep",
+    "name": "Thermodynamic integration and DFT correction",
+    "formula": "\u0394FA\u2192B = \u222b\u2080\u00b9 \u27e8UB \u2212 UA\u27e9\u03bb d\u03bb;  \u0394FML\u2192DFT = \u2212kBT ln\u27e8exp[\u2212\u03b2(UDFT\u2212UML)]\u27e9ML",
+    "inputs": "Equilibrated path sampling and overlapping energy distributions",
+    "status": "Source-reference methods / new Fe route incomplete",
+    "archive_code": "TI / FEP",
+    "source": "../#references",
+    "note": "Equations describe canonical classical configurational paths. State quantum/classical nuclear treatment, electronic temperature and Hamiltonian separately. A runnable trajectory is not an accepted free-energy label."
+  },
+  {
+    "id": "oracle-components",
+    "name": "Reference-component replacement",
+    "formula": "a = \u03b4\u0394(E\u2080+EZP);  b(T) = \u03b4\u0394Fth(T);  e = a+b;  eanchor-replaced = b;  ethermal-replaced = a",
+    "inputs": "Target reference component",
+    "status": "Evaluated \u00b7 oracle diagnosis",
+    "archive_code": "anchor / thermal replacement",
+    "source": "../updates-20261101/sources/alexandria-primary.json",
+    "note": "An anchor including ZPE requires phonons. Static-DFT-only correction leaves \u03b4\u0394ZPE + b, not b."
+  },
+  {
+    "id": "coupled",
+    "name": "Coupling and shrinkage corrections",
+    "formula": "\u0394F\u0302corr = \u0394F\u0302raw \u2212 \u00ea;  \u00ea = X kLOFO",
+    "inputs": "Leave-one-formula-out linear error prediction",
+    "status": "Evaluated \u00b7 exploratory",
+    "archive_code": "M3s / M3z / M3sz",
+    "source": "sources/coupled-correction.py",
+    "note": "M3s: correct static \u0394E\u2080, then regress residual \u03b4\u0394ZPE+\u03b4\u0394Fth on \u03b4\u0394E\u2080. M3z: predict total error from model \u0394ZPE and \u0394Fth. M3sz: correct static \u0394E\u2080, then predict remaining error from those model features. No intercept. These are distinct information budgets; shrinkage is not established physical scale repair."
+  },
+  {
+    "id": "target-calibration",
+    "name": "Target-label offset / slope calibration",
+    "formula": "\u0394\u011ccorr(T) = \u0394\u011craw(T) + a + b(T\u2212T\u2080)",
+    "inputs": "Declared target thermal labels or oracle crossing-region labels",
+    "status": "Evaluated \u00b7 development diagnosis",
+    "archive_code": "S2 calibration arms",
+    "source": "../sio2-information-intervention/data/S2_INFORMATION_LADDER_SUMMARY.csv",
+    "note": "One-label offset sets b=0; two-label linear correction fits a,b. Oracle gap+slope uses 11 target temperatures around its diagnostic T\u2080 and is not a cheap zero-shot method."
+  },
+  {
+    "id": "abstention",
+    "name": "Risk\u2013coverage decision rule",
+    "formula": "\u03c4\u2212f = quantile1\u2212\u03b1(|eother formulas|);  decide if |\u0394F\u0302| > \u03c4\u2212f;  risk = P(wrong | decided);  coverage = P(decided)",
+    "inputs": "Other-formula reference errors for threshold calibration",
+    "status": "Evaluated \u00b7 exploratory",
+    "archive_code": "abstention",
+    "source": "../updates-20261101/sources/abstention-primary.json",
+    "note": "Report thresholds, eligible pairs and weighting. \u03b1 is not a universal guarantee on selective risk."
+  },
+  {
+    "id": "future",
+    "name": "Unrun response-aware objectives",
+    "formula": "Lresponse = mean \u2016[F\u03b8(R+u)\u2212F\u03b8(R)] \u2212 [FDFT(R+u)\u2212FDFT(R)]\u2016\u00b2;  LHVP = mean \u2016H\u03b8v \u2212 Hrefv\u2016\u00b2",
+    "inputs": "Independent responses / Hessian-vector products",
+    "status": "Not run in this project snapshot",
+    "archive_code": "F1c-related ideas / HVP / spectral",
+    "source": "../updates-20261101/#status",
+    "note": "Frequency weighting remains unspecified. No 1/\u03c9\u00b2 training rule is established. Large MLP, DPA-kernel and the proposed volume-plus-DPA-residual head are not reported as completed experiments. F2/F3 were deferred, with no executed method to summarize."
+  }
+]

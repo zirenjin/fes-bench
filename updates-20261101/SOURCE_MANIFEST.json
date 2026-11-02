@@ -132,6 +132,12 @@
       "archive": "outputs/fes-relaxation-channel-20261101/results/RELAX_COVERAGE.json",
       "archive_sha256": "0c38b6f3cc50b85bd34835d97afde055c285acac74c3511dbcaae663a7fab823",
       "public_sha256": "0c38b6f3cc50b85bd34835d97afde055c285acac74c3511dbcaae663a7fab823"
+    },
+    {
+      "file": "sources/aggregation-analysis.py",
+      "archive": "outputs/fes-alexandria-polymorph-audit-20261030/scripts/analyze_covariance.py",
+      "archive_sha256": "f9b25d8e471923430e06623024548f7ecf1d5df4ac0f39f9dfb5a3f1e2e8bab9",
+      "public_sha256": "f9b25d8e471923430e06623024548f7ecf1d5df4ac0f39f9dfb5a3f1e2e8bab9"
     }
   ]
 }

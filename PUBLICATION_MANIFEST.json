@@ -33,5 +33,13 @@
     "F1c": "not started",
     "F2_F3": "not run"
   },
-  "thermodynamic_diagnosis_page": "updates-20261101/"
+  "thermodynamic_diagnosis_page": "updates-20261101/",
+  "thermodynamic_map_revision": "20261101-capability-diagnosis-intervention-v1",
+  "thermodynamic_map_contracts": 8,
+  "thermodynamic_map_scope": "Matched contract-specific capability and diagnostic records; paired interventions; distinct missing states; no overall score.",
+  "aggregation_label_correction": "Alexandria RMS is pair-weighted; single-phase RMS is phase-weighted; ordering/cancellation use formula-weighted summaries.",
+  "method_appendix": "methods/",
+  "method_registry_entries": 28,
+  "display_policy": "Descriptive method names; concise figure-led body; longer explanations and provenance in expandable details. Archive identifiers retained in source records.",
+  "figure_led_revision": "20261101-method-formulas-readable-names-compact"
 }
