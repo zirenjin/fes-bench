@@ -1,0 +1,729 @@
+{
+ "note": "exploratory post-hoc check; not a protocol analysis",
+ "n_pairs": 351,
+ "n_formulas": 239,
+ "A_residual_structure": {
+  "T300": {
+   "thermal": {
+    "pearson_eps_D": -0.002432238361792737,
+    "spearman_abs_eps_abs_D": 0.2936835386835387,
+    "rms_eps_by_absD_tertile": [
+     1.562962314072398,
+     1.8582111299306527,
+     1.869501867611162
+    ],
+    "absD_tertile_edges": [
+     0.3925852724405511,
+     2.054003332076448
+    ],
+    "between_formula_share_of_eps2": 0.8138980058321443
+   },
+   "total": {
+    "pearson_eps_D": 0.061796084585702356,
+    "spearman_abs_eps_abs_D": 0.3359909534909535,
+    "rms_eps_by_absD_tertile": [
+     4.06849270282283,
+     7.114429931836151,
+     9.33267014316614
+    ],
+    "absD_tertile_edges": [
+     2.9778407876206936,
+     13.335132859568498
+    ],
+    "between_formula_share_of_eps2": 0.6428513818772535
+   }
+  },
+  "T600": {
+   "thermal": {
+    "pearson_eps_D": -0.023320361665796686,
+    "spearman_abs_eps_abs_D": 0.3198010323010323,
+    "rms_eps_by_absD_tertile": [
+     3.619045133263685,
+     4.011906190274802,
+     4.342664697698316
+    ],
+    "absD_tertile_edges": [
+     1.0600618162938151,
+     4.45779289940886
+    ],
+    "between_formula_share_of_eps2": 0.8303240607251348
+   },
+   "total": {
+    "pearson_eps_D": 0.07427632934893585,
+    "spearman_abs_eps_abs_D": 0.2666050616050616,
+    "rms_eps_by_absD_tertile": [
+     5.794249834594725,
+     6.893078913639112,
+     10.247541856300158
+    ],
+    "absD_tertile_edges": [
+     2.7788098085323107,
+     12.9581101318328
+    ],
+    "between_formula_share_of_eps2": 0.6509254876673324
+   }
+  },
+  "T1000": {
+   "thermal": {
+    "pearson_eps_D": -0.035434455441215436,
+    "spearman_abs_eps_abs_D": 0.3235003885003885,
+    "rms_eps_by_absD_tertile": [
+     7.785911281879447,
+     5.733969961316135,
+     7.7268874447873435
+    ],
+    "absD_tertile_edges": [
+     1.840076674682772,
+     7.550435395341575
+    ],
+    "between_formula_share_of_eps2": 0.8466563143794487
+   },
+   "total": {
+    "pearson_eps_D": 0.06731946420310886,
+    "spearman_abs_eps_abs_D": 0.2965473415473415,
+    "rms_eps_by_absD_tertile": [
+     5.178916845239665,
+     9.70652372076873,
+     12.72473415566048
+    ],
+    "absD_tertile_edges": [
+     3.232422369301398,
+     13.41721445661537
+    ],
+    "between_formula_share_of_eps2": 0.7003717252191808
+   }
+  },
+  "T1500": {
+   "thermal": {
+    "pearson_eps_D": -0.04341239018548213,
+    "spearman_abs_eps_abs_D": 0.32330891330891326,
+    "rms_eps_by_absD_tertile": [
+     12.198829095471774,
+     9.07679064865726,
+     12.190637662498466
+    ],
+    "absD_tertile_edges": [
+     2.8728624591472376,
+     11.67743599831658
+    ],
+    "between_formula_share_of_eps2": 0.8613005126328435
+   },
+   "total": {
+    "pearson_eps_D": 0.042444673284431585,
+    "spearman_abs_eps_abs_D": 0.32264818514818516,
+    "rms_eps_by_absD_tertile": [
+     5.836556893528791,
+     13.379587494968572,
+     16.937153620612296
+    ],
+    "absD_tertile_edges": [
+     4.304664453947939,
+     15.587305647937246
+    ],
+    "between_formula_share_of_eps2": 0.761394433061964
+   }
+  },
+  "thermal_eps_corr_across_T": {
+   "300-600": 0.98807736248985,
+   "300-1000": 0.9669865494638142,
+   "300-1500": 0.9444263207987256,
+   "600-1000": 0.9945175526312469,
+   "600-1500": 0.9831491159413976,
+   "1000-1500": 0.9968433546918812
+  }
+ },
+ "B_abstention": {
+  "M0_T300": {
+   "no_abstention": {
+    "wrong_rate": 0.13028169014084506,
+    "n": 284
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.528169014084507,
+    "joint_wrong_and_decided": 0.017605633802816902,
+    "selective_risk": 0.03333333333333333,
+    "selective_risk_ci95": [
+     0.006802721088435374,
+     0.06716417910447761
+    ],
+    "mean_threshold_meV": 10.380982928460705
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.43661971830985913,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.008064516129032258,
+    "selective_risk_ci95": [
+     0.0,
+     0.027522935779816515
+    ],
+    "mean_threshold_meV": 13.031849164181294
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.3415492957746479,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.010309278350515464,
+    "selective_risk_ci95": [
+     0.0,
+     0.03333333333333333
+    ],
+    "mean_threshold_meV": 19.328878450049366
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.47183098591549294,
+    "joint_wrong_and_decided": 0.007042253521126761,
+    "selective_risk": 0.014925373134328358,
+    "selective_risk_ci95": [
+     0.0,
+     0.0390625
+    ],
+    "mean_threshold_meV": 12.059240665364543
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.38028169014084506,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.009259259259259259,
+    "selective_risk_ci95": [
+     0.0,
+     0.03126662234042544
+    ],
+    "mean_threshold_meV": 16.958440508488533
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.1619718309859155,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 29.66210848097755
+   },
+   "AURC": 0.03556350007185599,
+   "AURC_oracle_true_gap_order": 0.03333096023536667,
+   "risk_at_coverage": {
+    "0.5": 0.02112676056338028,
+    "0.7": 0.06060606060606061,
+    "0.9": 0.10196078431372549,
+    "1.0": 0.13028169014084506
+   }
+  },
+  "M0_T600": {
+   "no_abstention": {
+    "wrong_rate": 0.11151079136690648,
+    "n": 278
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.5503597122302158,
+    "joint_wrong_and_decided": 0.007194244604316547,
+    "selective_risk": 0.013071895424836602,
+    "selective_risk_ci95": [
+     0.0,
+     0.03378952932524358
+    ],
+    "mean_threshold_meV": 10.059226675086085
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.4352517985611511,
+    "joint_wrong_and_decided": 0.0035971223021582736,
+    "selective_risk": 0.008264462809917356,
+    "selective_risk_ci95": [
+     0.0,
+     0.027522935779816515
+    ],
+    "mean_threshold_meV": 14.094024133388634
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.22661870503597123,
+    "joint_wrong_and_decided": 0.0035971223021582736,
+    "selective_risk": 0.015873015873015872,
+    "selective_risk_ci95": [
+     0.0,
+     0.05454545454545454
+    ],
+    "mean_threshold_meV": 24.428861705324774
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.49280575539568344,
+    "joint_wrong_and_decided": 0.0035971223021582736,
+    "selective_risk": 0.0072992700729927005,
+    "selective_risk_ci95": [
+     0.0,
+     0.023809523809523808
+    ],
+    "mean_threshold_meV": 12.059240665364543
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.3776978417266187,
+    "joint_wrong_and_decided": 0.0035971223021582736,
+    "selective_risk": 0.009523809523809525,
+    "selective_risk_ci95": [
+     0.0,
+     0.03261765408504534
+    ],
+    "mean_threshold_meV": 16.958440508488533
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.17266187050359713,
+    "joint_wrong_and_decided": 0.0035971223021582736,
+    "selective_risk": 0.020833333333333332,
+    "selective_risk_ci95": [
+     0.0,
+     0.06818181818181818
+    ],
+    "mean_threshold_meV": 29.66210848097755
+   },
+   "AURC": 0.030097254812858864,
+   "AURC_oracle_true_gap_order": 0.026143340865717672,
+   "risk_at_coverage": {
+    "0.5": 0.007194244604316547,
+    "0.7": 0.03608247422680412,
+    "0.9": 0.076,
+    "1.0": 0.11151079136690648
+   }
+  },
+  "M0_T1000": {
+   "no_abstention": {
+    "wrong_rate": 0.1056338028169014,
+    "n": 284
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.5211267605633803,
+    "joint_wrong_and_decided": 0.017605633802816902,
+    "selective_risk": 0.033783783783783786,
+    "selective_risk_ci95": [
+     0.0071929599177800625,
+     0.06897749042145587
+    ],
+    "mean_threshold_meV": 11.808433076602032
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.38380281690140844,
+    "joint_wrong_and_decided": 0.007042253521126761,
+    "selective_risk": 0.01834862385321101,
+    "selective_risk_ci95": [
+     0.0,
+     0.04854368932038835
+    ],
+    "mean_threshold_meV": 17.227642484312813
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.22535211267605634,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.015625,
+    "selective_risk_ci95": [
+     0.0,
+     0.05357142857142857
+    ],
+    "mean_threshold_meV": 25.518410266236245
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.5105633802816901,
+    "joint_wrong_and_decided": 0.014084507042253521,
+    "selective_risk": 0.027586206896551724,
+    "selective_risk_ci95": [
+     0.006288325471698114,
+     0.05755395683453238
+    ],
+    "mean_threshold_meV": 12.059240665364543
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.38380281690140844,
+    "joint_wrong_and_decided": 0.007042253521126761,
+    "selective_risk": 0.01834862385321101,
+    "selective_risk_ci95": [
+     0.0,
+     0.04854368932038835
+    ],
+    "mean_threshold_meV": 16.958440508488533
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.176056338028169,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.02,
+    "selective_risk_ci95": [
+     0.0,
+     0.06818181818181818
+    ],
+    "mean_threshold_meV": 29.66210848097755
+   },
+   "AURC": 0.04080520829997365,
+   "AURC_oracle_true_gap_order": 0.03198735970530424,
+   "risk_at_coverage": {
+    "0.5": 0.02112676056338028,
+    "0.7": 0.05555555555555555,
+    "0.9": 0.07450980392156863,
+    "1.0": 0.1056338028169014
+   }
+  },
+  "M0_T1500": {
+   "no_abstention": {
+    "wrong_rate": 0.10774410774410774,
+    "n": 297
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.44107744107744107,
+    "joint_wrong_and_decided": 0.016835016835016835,
+    "selective_risk": 0.03816793893129771,
+    "selective_risk_ci95": [
+     0.007934945631796026,
+     0.07477689550980247
+    ],
+    "mean_threshold_meV": 15.927932416428074
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.2996632996632997,
+    "joint_wrong_and_decided": 0.003367003367003367,
+    "selective_risk": 0.011235955056179775,
+    "selective_risk_ci95": [
+     0.0,
+     0.035725043029259836
+    ],
+    "mean_threshold_meV": 22.695490069283775
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.12121212121212122,
+    "joint_wrong_and_decided": 0.003367003367003367,
+    "selective_risk": 0.027777777777777776,
+    "selective_risk_ci95": [
+     0.0,
+     0.08823529411764706
+    ],
+    "mean_threshold_meV": 37.35853959496639
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.5387205387205387,
+    "joint_wrong_and_decided": 0.020202020202020204,
+    "selective_risk": 0.0375,
+    "selective_risk_ci95": [
+     0.011762985896112832,
+     0.07194244604316546
+    ],
+    "mean_threshold_meV": 12.059240665364543
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.42424242424242425,
+    "joint_wrong_and_decided": 0.013468013468013467,
+    "selective_risk": 0.031746031746031744,
+    "selective_risk_ci95": [
+     0.007246376811594203,
+     0.06666666666666667
+    ],
+    "mean_threshold_meV": 16.958440508488533
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.2053872053872054,
+    "joint_wrong_and_decided": 0.003367003367003367,
+    "selective_risk": 0.01639344262295082,
+    "selective_risk_ci95": [
+     0.0,
+     0.05555555555555555
+    ],
+    "mean_threshold_meV": 29.66210848097755
+   },
+   "AURC": 0.044422417291727474,
+   "AURC_oracle_true_gap_order": 0.04338583348526966,
+   "risk_at_coverage": {
+    "0.5": 0.04054054054054054,
+    "0.7": 0.043478260869565216,
+    "0.9": 0.07865168539325842,
+    "1.0": 0.10774410774410774
+   }
+  },
+  "M1s_T300": {
+   "no_abstention": {
+    "wrong_rate": 0.035211267605633804,
+    "n": 284
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.7852112676056338,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.004484304932735426,
+    "selective_risk_ci95": [
+     0.0,
+     0.014287423103212567
+    ],
+    "mean_threshold_meV": 3.4609314251910126
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.7007042253521126,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 4.778332341153049
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.6091549295774648,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 6.9109441921392785
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.5492957746478874,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 8.6652609293744
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.4119718309859155,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 13.80753757627304
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.25704225352112675,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 22.13137118832161
+   },
+   "AURC": 0.00336534769314689,
+   "AURC_oracle_true_gap_order": 0.004550661724233806,
+   "risk_at_coverage": {
+    "0.5": 0.0,
+    "0.7": 0.0,
+    "0.9": 0.01568627450980392,
+    "1.0": 0.035211267605633804
+   }
+  },
+  "M1s_T600": {
+   "no_abstention": {
+    "wrong_rate": 0.0539568345323741,
+    "n": 278
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.6654676258992805,
+    "joint_wrong_and_decided": 0.007194244604316547,
+    "selective_risk": 0.010810810810810811,
+    "selective_risk_ci95": [
+     0.0,
+     0.0273224043715847
+    ],
+    "mean_threshold_meV": 6.399757735184488
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.5575539568345323,
+    "joint_wrong_and_decided": 0.007194244604316547,
+    "selective_risk": 0.012903225806451613,
+    "selective_risk_ci95": [
+     0.0,
+     0.03496503496503497
+    ],
+    "mean_threshold_meV": 8.919334961707364
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.3776978417266187,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 13.419428153110744
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.5683453237410072,
+    "joint_wrong_and_decided": 0.007194244604316547,
+    "selective_risk": 0.012658227848101266,
+    "selective_risk_ci95": [
+     0.0,
+     0.033338926174496616
+    ],
+    "mean_threshold_meV": 8.6652609293744
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.37410071942446044,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 13.80753757627304
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.2733812949640288,
+    "joint_wrong_and_decided": 0.0,
+    "selective_risk": 0.0,
+    "selective_risk_ci95": [
+     0.0,
+     0.0
+    ],
+    "mean_threshold_meV": 22.13137118832161
+   },
+   "AURC": 0.011618693003416062,
+   "AURC_oracle_true_gap_order": 0.00868072514608017,
+   "risk_at_coverage": {
+    "0.5": 0.0,
+    "0.7": 0.010309278350515464,
+    "0.9": 0.032,
+    "1.0": 0.0539568345323741
+   }
+  },
+  "M1s_T1000": {
+   "no_abstention": {
+    "wrong_rate": 0.07042253521126761,
+    "n": 284
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.528169014084507,
+    "joint_wrong_and_decided": 0.007042253521126761,
+    "selective_risk": 0.013333333333333334,
+    "selective_risk_ci95": [
+     0.0,
+     0.03597122302158273
+    ],
+    "mean_threshold_meV": 10.612030649553452
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.40492957746478875,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.008695652173913044,
+    "selective_risk_ci95": [
+     0.0,
+     0.029133352370074205
+    ],
+    "mean_threshold_meV": 14.950366295312639
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.27816901408450706,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.012658227848101266,
+    "selective_risk_ci95": [
+     0.0,
+     0.041666666666666664
+    ],
+    "mean_threshold_meV": 22.475876779445244
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.6056338028169014,
+    "joint_wrong_and_decided": 0.014084507042253521,
+    "selective_risk": 0.023255813953488372,
+    "selective_risk_ci95": [
+     0.005405405405405406,
+     0.049689440993788817
+    ],
+    "mean_threshold_meV": 8.6652609293744
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.44366197183098594,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.007936507936507936,
+    "selective_risk_ci95": [
+     0.0,
+     0.0256465517241379
+    ],
+    "mean_threshold_meV": 13.80753757627304
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.2852112676056338,
+    "joint_wrong_and_decided": 0.0035211267605633804,
+    "selective_risk": 0.012345679012345678,
+    "selective_risk_ci95": [
+     0.0,
+     0.04168133802816893
+    ],
+    "mean_threshold_meV": 22.13137118832161
+   },
+   "AURC": 0.025835381978144046,
+   "AURC_oracle_true_gap_order": 0.03152172606969623,
+   "risk_at_coverage": {
+    "0.5": 0.014084507042253521,
+    "0.7": 0.045454545454545456,
+    "0.9": 0.06666666666666667,
+    "1.0": 0.07042253521126761
+   }
+  },
+  "M1s_T1500": {
+   "no_abstention": {
+    "wrong_rate": 0.09764309764309764,
+    "n": 297
+   },
+   "T-aware_alpha0.1": {
+    "coverage": 0.43434343434343436,
+    "joint_wrong_and_decided": 0.013468013468013467,
+    "selective_risk": 0.031007751937984496,
+    "selective_risk_ci95": [
+     0.007246376811594203,
+     0.06666666666666667
+    ],
+    "mean_threshold_meV": 16.127024092354795
+   },
+   "T-aware_alpha0.05": {
+    "coverage": 0.3063973063973064,
+    "joint_wrong_and_decided": 0.010101010101010102,
+    "selective_risk": 0.03296703296703297,
+    "selective_risk_ci95": [
+     0.0,
+     0.07608695652173914
+    ],
+    "mean_threshold_meV": 22.397733285925387
+   },
+   "T-aware_alpha0.02": {
+    "coverage": 0.1447811447811448,
+    "joint_wrong_and_decided": 0.006734006734006734,
+    "selective_risk": 0.046511627906976744,
+    "selective_risk_ci95": [
+     0.0,
+     0.11904761904761904
+    ],
+    "mean_threshold_meV": 34.19837688507734
+   },
+   "pooled_alpha0.1": {
+    "coverage": 0.6296296296296297,
+    "joint_wrong_and_decided": 0.026936026936026935,
+    "selective_risk": 0.0427807486631016,
+    "selective_risk_ci95": [
+     0.016391215253029223,
+     0.07526881720430108
+    ],
+    "mean_threshold_meV": 8.6652609293744
+   },
+   "pooled_alpha0.05": {
+    "coverage": 0.4713804713804714,
+    "joint_wrong_and_decided": 0.016835016835016835,
+    "selective_risk": 0.03571428571428571,
+    "selective_risk_ci95": [
+     0.0071929599177800625,
+     0.0703125
+    ],
+    "mean_threshold_meV": 13.80753757627304
+   },
+   "pooled_alpha0.02": {
+    "coverage": 0.31313131313131315,
+    "joint_wrong_and_decided": 0.010101010101010102,
+    "selective_risk": 0.03225806451612903,
+    "selective_risk_ci95": [
+     0.0,
+     0.07318356867779197
+    ],
+    "mean_threshold_meV": 22.13137118832161
+   },
+   "AURC": 0.044482938602987805,
+   "AURC_oracle_true_gap_order": 0.04211607737903552,
+   "risk_at_coverage": {
+    "0.5": 0.033783783783783786,
+    "0.7": 0.043478260869565216,
+    "0.9": 0.07116104868913857,
+    "1.0": 0.09764309764309764
+   }
+  }
+ }
+}

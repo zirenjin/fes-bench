@@ -22,5 +22,16 @@
     "distinct_XML": 303,
     "force_constant_datasets": 31,
     "carbon_paired_QHA_points": 16
-  }
+  },
+  "thermodynamic_diagnosis_revision": "20261101-error-structure-f1-frequency-relaxation",
+  "thermodynamic_diagnosis_status": {
+    "fixed_geometry_audit": "completed",
+    "F1": "failed endpoint; stopped",
+    "frequency_counterfactual": "completed exploratory",
+    "relaxed_harmonic_pipeline": "completed",
+    "F1b": "pending; no result in snapshot",
+    "F1c": "not started",
+    "F2_F3": "not run"
+  },
+  "thermodynamic_diagnosis_page": "updates-20261101/"
 }

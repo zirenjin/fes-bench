@@ -1,0 +1,176 @@
+{
+ "set": "train",
+ "n_formulas": 119,
+ "n_pairs": 166,
+ "n_entries": 253,
+ "missing_F1": [],
+ "T300": {
+  "F0": {
+   "pair_dFth_rms": 1.2207924530613283,
+   "pair_total_rms": 4.779440018153956,
+   "pair_dE0_rms": 5.154476263032107,
+   "single_dFth_rms": 3.1964096741485926,
+   "wrong_ordering": 0.17424242424242425,
+   "abstain_a0.05_coverage": 0.42424242424242425,
+   "abstain_a0.05_selective_risk": 0.017857142857142856
+  },
+  "F1": {
+   "pair_dFth_rms": 1.828932560542675,
+   "pair_total_rms": 9.664631196556737,
+   "pair_dE0_rms": 9.665350168547604,
+   "single_dFth_rms": 20.311234877162402,
+   "wrong_ordering": 0.20454545454545456,
+   "abstain_a0.05_coverage": 0.030303030303030304,
+   "abstain_a0.05_selective_risk": 0.0
+  },
+  "ratio_pair_dFth": {
+   "ratio": 1.4981519225125777,
+   "ci95": [
+    1.1877292623773072,
+    1.8761122556807486
+   ]
+  },
+  "ratio_pair_total": {
+   "ratio": 2.022126265806694,
+   "ci95": [
+    1.6596288173477762,
+    2.425278597362841
+   ]
+  },
+  "ratio_pair_dE0": {
+   "ratio": 1.8751371963563934,
+   "ci95": [
+    1.5254382087688891,
+    2.249842426746236
+   ]
+  }
+ },
+ "T600": {
+  "F0": {
+   "pair_dFth_rms": 2.9010342907507507,
+   "pair_total_rms": 5.06356283667531,
+   "pair_dE0_rms": 5.154476263032107,
+   "single_dFth_rms": 7.809537214900689,
+   "wrong_ordering": 0.1484375,
+   "abstain_a0.05_coverage": 0.4375,
+   "abstain_a0.05_selective_risk": 0.0
+  },
+  "F1": {
+   "pair_dFth_rms": 4.630927875851202,
+   "pair_total_rms": 10.454280061539611,
+   "pair_dE0_rms": 9.665350168547604,
+   "single_dFth_rms": 51.00034416269541,
+   "wrong_ordering": 0.171875,
+   "abstain_a0.05_coverage": 0.0703125,
+   "abstain_a0.05_selective_risk": 0.1111111111111111
+  },
+  "ratio_pair_dFth": {
+   "ratio": 1.596302356926907,
+   "ci95": [
+    1.194752856445082,
+    2.171740149538984
+   ]
+  },
+  "ratio_pair_total": {
+   "ratio": 2.0646095247045064,
+   "ci95": [
+    1.6898847628641784,
+    2.5305134674007332
+   ]
+  },
+  "ratio_pair_dE0": {
+   "ratio": 1.8751371963563934,
+   "ci95": [
+    1.5225428071423441,
+    2.2687402927730465
+   ]
+  }
+ },
+ "T1000": {
+  "F0": {
+   "pair_dFth_rms": 5.401989311125701,
+   "pair_total_rms": 6.372086833925989,
+   "pair_dE0_rms": 5.154476263032107,
+   "single_dFth_rms": 14.181075690707093,
+   "wrong_ordering": 0.09923664122137404,
+   "abstain_a0.05_coverage": 0.3816793893129771,
+   "abstain_a0.05_selective_risk": 0.02
+  },
+  "F1": {
+   "pair_dFth_rms": 8.934365258237333,
+   "pair_total_rms": 12.799278813690172,
+   "pair_dE0_rms": 9.665350168547604,
+   "single_dFth_rms": 93.89797426162951,
+   "wrong_ordering": 0.1984732824427481,
+   "abstain_a0.05_coverage": 0.08396946564885496,
+   "abstain_a0.05_selective_risk": 0.18181818181818182
+  },
+  "ratio_pair_dFth": {
+   "ratio": 1.6539028020356326,
+   "ci95": [
+    1.1852141703540917,
+    2.333910114264828
+   ]
+  },
+  "ratio_pair_total": {
+   "ratio": 2.008647896250378,
+   "ci95": [
+    1.5652858349188303,
+    2.5767306786112485
+   ]
+  },
+  "ratio_pair_dE0": {
+   "ratio": 1.8751371963563934,
+   "ci95": [
+    1.5197131786877502,
+    2.230253698473067
+   ]
+  }
+ },
+ "T1500": {
+  "F0": {
+   "pair_dFth_rms": 8.809869611396548,
+   "pair_total_rms": 9.03159404801318,
+   "pair_dE0_rms": 5.154476263032107,
+   "single_dFth_rms": 22.236140783152536,
+   "wrong_ordering": 0.10071942446043165,
+   "abstain_a0.05_coverage": 0.2733812949640288,
+   "abstain_a0.05_selective_risk": 0.0
+  },
+  "F1": {
+   "pair_dFth_rms": 14.860360243111483,
+   "pair_total_rms": 17.307606464879466,
+   "pair_dE0_rms": 9.665350168547604,
+   "single_dFth_rms": 148.29907217677265,
+   "wrong_ordering": 0.2158273381294964,
+   "abstain_a0.05_coverage": 0.1223021582733813,
+   "abstain_a0.05_selective_risk": 0.11764705882352941
+  },
+  "ratio_pair_dFth": {
+   "ratio": 1.6867854915682239,
+   "ci95": [
+    1.1632720382654729,
+    2.3519020439793428
+   ]
+  },
+  "ratio_pair_total": {
+   "ratio": 1.916340169063167,
+   "ci95": [
+    1.3945426659801732,
+    2.555663984481435
+   ]
+  },
+  "ratio_pair_dE0": {
+   "ratio": 1.8751371963563934,
+   "ci95": [
+    1.5264761423045234,
+    2.2662986787460637
+   ]
+  }
+ },
+ "imaginary_entries_fmin_lt_-0.05THz": {
+  "F0": 27,
+  "F1": 26
+ },
+ "PRIMARY_ENDPOINT": "n/a (in-sample sanity set)"
+}

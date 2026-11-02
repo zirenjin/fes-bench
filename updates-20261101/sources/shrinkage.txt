@@ -1,0 +1,10 @@
+MP_traj_v024_alldata_mixu
+ 300K single-phase slope MLIP~DFT 1.041 | pair: MLIP~DFT 0.998  DFT~MLIP 0.693  r 0.832  rms D 2.66 M 3.19 err 1.77
+ 600K single-phase slope MLIP~DFT 1.030 | pair: MLIP~DFT 0.985  DFT~MLIP 0.704  r 0.833  rms D 6.12 M 7.23 err 4.00
+ 1000K single-phase slope MLIP~DFT 1.024 | pair: MLIP~DFT 0.977  DFT~MLIP 0.701  r 0.828  rms D 10.78 M 12.72 err 7.15
+ 1500K single-phase slope MLIP~DFT 1.021 | pair: MLIP~DFT 0.971  DFT~MLIP 0.693  r 0.820  rms D 16.62 M 19.66 err 11.25
+Omat24
+ 300K single-phase slope MLIP~DFT 1.012 | pair: MLIP~DFT 1.033  DFT~MLIP 0.766  r 0.890  rms D 2.66 M 3.09 err 1.41
+ 600K single-phase slope MLIP~DFT 1.008 | pair: MLIP~DFT 1.014  DFT~MLIP 0.777  r 0.888  rms D 6.12 M 6.98 err 3.22
+ 1000K single-phase slope MLIP~DFT 1.006 | pair: MLIP~DFT 1.004  DFT~MLIP 0.771  r 0.880  rms D 10.78 M 12.30 err 5.85
+ 1500K single-phase slope MLIP~DFT 1.005 | pair: MLIP~DFT 0.997  DFT~MLIP 0.759  r 0.870  rms D 16.62 M 19.04 err 9.39
