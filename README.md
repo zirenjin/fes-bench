@@ -10,10 +10,13 @@ Run every command from the repository root.
 
 | Test | Paper | Command | Output |
 |---|---|---|---|
-| Database polymorph pairs: metrics, tables, figures | Table 2, Figs. 1–4, Tables 5–6, Fig. 6 | `python database_pairs/make_main.py` | `database_pairs/tables/`, `database_pairs/figures/` |
+| Database polymorph pairs: metrics, tables, figures | main table, budget / profile / workflow / intervention figures, SI tables and route figure | `python database_pairs/make_main.py` | `database_pairs/tables/`, `database_pairs/figures/` |
 | Crossing-budget numerical checks | SI, numerical robustness | `python database_pairs/audit_numerics.py` | `database_pairs/audit/NUMERICS.json` |
-| Finite-temperature reference systems | Table 3, SI per-phase table | `python finite_temperature/scripts/a_layer_score.py finite_temperature/data data/processed finite_temperature/results/A_LAYER.json` | `finite_temperature/results/A_LAYER.json` |
-| Curvature correction summary | Fig. 5 | `python analyses/curvature_correction/scripts/make_fig5.py analyses/curvature_correction/figures` | `analyses/curvature_correction/figures/` |
+| Descriptor baseline (Bartel 2018) | SI descriptor table | `python analyses/descriptor_baseline/bartel_baseline.py` | `analyses/descriptor_baseline/results/BARTEL.json` |
+| Error scales and example curves (run after the descriptor baseline) | error-scale and example-curve figures | `python database_pairs/make_context_figs.py` | `database_pairs/figures/` |
+| Finite-temperature reference systems | finite-temperature table, SI per-phase table | `python finite_temperature/scripts/a_layer_score.py finite_temperature/data data/processed finite_temperature/results/A_LAYER.json` | `finite_temperature/results/A_LAYER.json` |
+| SiO2 reference-level sensitivity | SI functional figure | `python finite_temperature/scripts/sio2_functionals.py` | `finite_temperature/results/`, `finite_temperature/figures/` |
+| Curvature correction summary | curvature figure | `python analyses/curvature_correction/scripts/make_fig5.py analyses/curvature_correction/figures` | `analyses/curvature_correction/figures/` |
 
 ## Recompute from scratch (GPU and source data needed)
 

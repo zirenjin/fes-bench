@@ -1,0 +1,103 @@
+{
+ "LDA": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [],
+  "quartz\u2013tridymite": [],
+  "cristobalite\u2013tridymite": []
+ },
+ "PBE": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [],
+  "quartz\u2013tridymite": [],
+  "cristobalite\u2013tridymite": [
+   1011.3396404375185
+  ]
+ },
+ "r2SCAN": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [],
+  "quartz\u2013tridymite": [],
+  "cristobalite\u2013tridymite": [
+   2300.716518455204
+  ]
+ },
+ "PBE-D3(BJ)": {
+  "T_range": [
+   851.0,
+   2499.0
+  ],
+  "quartz\u2013cristobalite": [
+   1542.7087047758566
+  ],
+  "quartz\u2013tridymite": [
+   1582.321551058249
+  ],
+  "cristobalite\u2013tridymite": []
+ },
+ "DFCX": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [
+   1594.624726270366
+  ],
+  "quartz\u2013tridymite": [
+   1672.8156998344132
+  ],
+  "cristobalite\u2013tridymite": []
+ },
+ "r2SCAN-D4": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [
+   1712.5536205993074
+  ],
+  "quartz\u2013tridymite": [
+   1721.167493910472
+  ],
+  "cristobalite\u2013tridymite": [
+   877.2064442790602,
+   1421.9206130963412
+  ]
+ },
+ "r2SCAN-D3(BJ)": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [
+   1828.6290498289393
+  ],
+  "quartz\u2013tridymite": [
+   1849.4404626851494
+  ],
+  "cristobalite\u2013tridymite": []
+ },
+ "r2SCAN-rVV10": {
+  "T_range": [
+   851.0,
+   2552.0
+  ],
+  "quartz\u2013cristobalite": [
+   2214.146056463265
+  ],
+  "quartz\u2013tridymite": [
+   2223.7070128953596
+  ],
+  "cristobalite\u2013tridymite": [
+   2083.9775712329783
+  ]
+ }
+}
