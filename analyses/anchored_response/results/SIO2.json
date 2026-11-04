@@ -1,0 +1,1666 @@
+{
+ "window_K": [
+  851.0,
+  2499.0
+ ],
+ "models": {
+  "high_all_three__coordinate": {
+   "sources": [
+    "quartz_beta",
+    "tridymite_p63mmc",
+    "tridymite_c2221"
+   ],
+   "scaling": "coordinate",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 0.38132839321569045,
+     "dS_rms_ueV": 0.8101746514337004,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.38132362018816257,
+     "dS_rms_ueV": 0.8114664292161821,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.3813252071118189,
+     "dS_rms_ueV": 0.8144747466142154,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9787750151607034,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1578.0
+      ]
+     ]
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 0.3966123181508969,
+     "dS_rms_ueV": 0.8101746514337004,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 1.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.39660588173780215,
+     "dS_rms_ueV": 0.8114664292161822,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.39660466198395966,
+     "dS_rms_ueV": 0.8144747466142155,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 1.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 0.6177016981824087,
+     "dS_rms_ueV": 0.8101746514337004,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.6176961529059911,
+     "dS_rms_ueV": 0.8114664292161821,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.6176932702645686,
+     "dS_rms_ueV": 0.8144747466142154,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9751364463311097,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1502.0
+      ]
+     ]
+    }
+   }
+  },
+  "high_all_three__equal_block": {
+   "sources": [
+    "quartz_beta",
+    "tridymite_p63mmc",
+    "tridymite_c2221"
+   ],
+   "scaling": "equal_block",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 0.38132839321569095,
+     "dS_rms_ueV": 0.8101746514336993,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.38132362018816235,
+     "dS_rms_ueV": 0.8114664292161815,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.38132520711181983,
+     "dS_rms_ueV": 0.8144747466142184,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9787750151607034,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1578.0
+      ]
+     ]
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 0.39661231815089615,
+     "dS_rms_ueV": 0.8101746514337002,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 1.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.39660588173780315,
+     "dS_rms_ueV": 0.8114664292161817,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.39660466198396443,
+     "dS_rms_ueV": 0.8144747466142186,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 1.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 0.6177016981824082,
+     "dS_rms_ueV": 0.8101746514337,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.6176961529059936,
+     "dS_rms_ueV": 0.8114664292161815,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.6176932702645757,
+     "dS_rms_ueV": 0.8144747466142184,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9751364463311097,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1502.0
+      ]
+     ]
+    }
+   }
+  },
+  "low_quartz_beta+tridymite_c2221__coordinate": {
+   "sources": [
+    "quartz_beta",
+    "tridymite_c2221"
+   ],
+   "scaling": "coordinate",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 13.45834532911577,
+     "dS_rms_ueV": 12.448200207803287,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.80664800792663,
+     "dS_rms_ueV": 2.2272012006367268,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 13.458357834253718,
+     "dS_rms_ueV": 12.454546778581687,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.5833838690115222,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       2230.0
+      ]
+     ]
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 6.22221470018426,
+     "dS_rms_ueV": 12.448200207803284,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 1.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 13.413851169072055,
+     "dS_rms_ueV": 2.2272012006367254,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 6.222217273220981,
+     "dS_rms_ueV": 12.454546778581689,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 1.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 9.015339844090196,
+     "dS_rms_ueV": 12.448200207803286,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 17.795084007333937,
+     "dS_rms_ueV": 2.2272012006367268,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 9.015336634378837,
+     "dS_rms_ueV": 12.45454677858169,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.8386901152213463,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1277.0
+      ]
+     ]
+    }
+   }
+  },
+  "low_quartz_beta+tridymite_c2221__equal_block": {
+   "sources": [
+    "quartz_beta",
+    "tridymite_c2221"
+   ],
+   "scaling": "equal_block",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 13.458345329115767,
+     "dS_rms_ueV": 12.448200207803286,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.8066480079266274,
+     "dS_rms_ueV": 2.227201200636735,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 13.458357834253714,
+     "dS_rms_ueV": 12.454546778581689,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.5833838690115222,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       2230.0
+      ]
+     ]
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 6.222214700184257,
+     "dS_rms_ueV": 12.44820020780328,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 1.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 13.413851169072055,
+     "dS_rms_ueV": 2.227201200636732,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 6.222217273220978,
+     "dS_rms_ueV": 12.454546778581685,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 1.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 9.015339844090192,
+     "dS_rms_ueV": 12.448200207803282,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 17.795084007333934,
+     "dS_rms_ueV": 2.227201200636732,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 9.015336634378832,
+     "dS_rms_ueV": 12.454546778581689,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.8386901152213463,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1277.0
+      ]
+     ]
+    }
+   }
+  },
+  "low_quartz_beta+tridymite_p63mmc__coordinate": {
+   "sources": [
+    "quartz_beta",
+    "tridymite_p63mmc"
+   ],
+   "scaling": "coordinate",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 1.3699489575680606,
+     "dS_rms_ueV": 2.903835085879298,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.3699478917129873,
+     "dS_rms_ueV": 2.9039101867957626,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 9.876437262911677,
+     "dS_rms_ueV": 16.615066956727716,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9757428744693754,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1583.0
+      ]
+     ]
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 1.4518462224556978,
+     "dS_rms_ueV": 2.9038350858792983,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 1.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.4518444887329964,
+     "dS_rms_ueV": 2.9039101867957626,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 9.637824728394376,
+     "dS_rms_ueV": 16.615066956727716,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 1.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 2.5414955044366256,
+     "dS_rms_ueV": 2.9038350858792965,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 2.541492838765543,
+     "dS_rms_ueV": 2.9039101867957626,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 8.80628493563346,
+     "dS_rms_ueV": 16.615066956727716,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9011522134627047,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1380.0
+      ]
+     ]
+    }
+   }
+  },
+  "low_quartz_beta+tridymite_p63mmc__equal_block": {
+   "sources": [
+    "quartz_beta",
+    "tridymite_p63mmc"
+   ],
+   "scaling": "equal_block",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 1.3699489575680608,
+     "dS_rms_ueV": 2.903835085879297,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.369947891712988,
+     "dS_rms_ueV": 2.903910186795763,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 9.876437262911681,
+     "dS_rms_ueV": 16.615066956727716,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9757428744693754,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 1,
+      "missed": 0,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1583.0
+      ]
+     ]
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 1.4518462224556983,
+     "dS_rms_ueV": 2.903835085879298,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 1.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.4518444887329973,
+     "dS_rms_ueV": 2.903910186795763,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 9.63782472839438,
+     "dS_rms_ueV": 16.61506695672772,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 1.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 2.5414955044366256,
+     "dS_rms_ueV": 2.903835085879297,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 2.5414928387655435,
+     "dS_rms_ueV": 2.903910186795763,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 8.806284935633464,
+     "dS_rms_ueV": 16.61506695672772,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.9011522134627047,
+     "events": {
+      "reference": 1,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 1,
+      "false": 1
+     },
+     "predicted": [
+      [
+       "quartz_beta",
+       "cristobalite_beta",
+       1380.0
+      ]
+     ]
+    }
+   }
+  },
+  "low_tridymite_p63mmc+tridymite_c2221__coordinate": {
+   "sources": [
+    "tridymite_p63mmc",
+    "tridymite_c2221"
+   ],
+   "scaling": "coordinate",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 5.552130322609199,
+     "dS_rms_ueV": 8.843693215790402,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.5689424169703282,
+     "dS_rms_ueV": 0.3566287206695911,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.5689459059578964,
+     "dS_rms_ueV": 0.3680262005947611,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.41964827167980595,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": []
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 4.38297934075478,
+     "dS_rms_ueV": 8.843693215790402,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 0.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.8969097032088127,
+     "dS_rms_ueV": 0.35662872066959045,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 1.8969060624600815,
+     "dS_rms_ueV": 0.36802620059476154,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "cristobalite_beta",
+       "quartz_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 8.471681762214581,
+     "dS_rms_ueV": 8.843693215790402,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 4.300660745932746,
+     "dS_rms_ueV": 0.35662872066959134,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 4.300664369129781,
+     "dS_rms_ueV": 0.3680262005947623,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.41964827167980595,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": []
+    }
+   }
+  },
+  "low_tridymite_p63mmc+tridymite_c2221__equal_block": {
+   "sources": [
+    "tridymite_p63mmc",
+    "tridymite_c2221"
+   ],
+   "scaling": "equal_block",
+   "provided_Tc": 1542.7087047758566,
+   "none": {
+    "quartz_beta": {
+     "rms_e": 5.552130322609197,
+     "dS_rms_ueV": 8.843693215790399,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 0.5689424169703274,
+     "dS_rms_ueV": 0.3566287206695912,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 0.5689459059578967,
+     "dS_rms_ueV": 0.3680262005947606,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.41964827167980595,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": []
+    }
+   },
+   "Tc": {
+    "quartz_beta": {
+     "rms_e": 4.382979340754778,
+     "dS_rms_ueV": 8.843693215790397,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     },
+     "side_correct": 0.0
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 1.8969097032088114,
+     "dS_rms_ueV": 0.35662872066959134,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 1.896906062460079,
+     "dS_rms_ueV": 0.3680262005947609,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.0,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": [
+      [
+       "cristobalite_beta",
+       "quartz_beta",
+       1543.0
+      ]
+     ]
+    }
+   },
+   "T0ref": {
+    "quartz_beta": {
+     "rms_e": 8.47168176221458,
+     "dS_rms_ueV": 8.843693215790399,
+     "sign_correct_at": {
+      "1000": true,
+      "1500": true,
+      "2000": false
+     },
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     }
+    },
+    "tridymite_p63mmc": {
+     "rms_e": 4.300660745932746,
+     "dS_rms_ueV": 0.35662872066959095,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": false
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 0,
+      "false": 0
+     }
+    },
+    "tridymite_c2221": {
+     "rms_e": 4.300664369129782,
+     "dS_rms_ueV": 0.36802620059476127,
+     "sign_correct_at": {
+      "1000": false,
+      "1500": false,
+      "2000": true
+     },
+     "events": {
+      "reference": 0,
+      "predicted": 1,
+      "hits": 0,
+      "missed": 0,
+      "false": 1
+     }
+    },
+    "envelope": {
+     "stable_accuracy": 0.41964827167980595,
+     "events": {
+      "reference": 1,
+      "predicted": 0,
+      "hits": 0,
+      "missed": 1,
+      "false": 0
+     },
+     "predicted": []
+    }
+   }
+  }
+ }
+}

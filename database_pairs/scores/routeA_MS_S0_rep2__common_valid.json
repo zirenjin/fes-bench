@@ -1,0 +1,199 @@
+{
+ "name": "routeA_MS_S0_rep2",
+ "info": {
+  "kind": "intervention",
+  "route": "A",
+  "model": "MS",
+  "setting": "S0",
+  "repeat": 2,
+  "source": "fes-correction-routes-20261102 OOF repeat 2"
+ },
+ "subset": "common_valid",
+ "metrics": {
+  "near_Tc_rms_e": {
+   "value": 6.613450325327068,
+   "ci95": [
+    4.37986989890946,
+    8.787483745016194
+   ],
+   "weighting": "formula-weighted RMS over reference-crossing pairs",
+   "unit": "meV/atom"
+  },
+  "near_Tc_within_energy_budget50": {
+   "value": 0.13559322033898305,
+   "ci95": [
+    0.05357142857142857,
+    0.23532085561497312
+   ],
+   "weighting": "formula-weighted fraction with |e(Tx_ref)| <= |dS_ref| x 50 K (energy budget, not a temperature hit)",
+   "unit": ""
+  },
+  "near_Tc_within_energy_budget100": {
+   "value": 0.22598870056497175,
+   "ci95": [
+    0.12279806659505907,
+    0.3333333333333333
+   ],
+   "weighting": "formula-weighted fraction",
+   "unit": ""
+  },
+  "crossing_hit50": {
+   "value": 0.1016949152542373,
+   "ci95": [
+    0.03278688524590164,
+    0.19120475113122154
+   ],
+   "weighting": "formula-weighted fraction with a model crossing within +-50 K of the reference crossing",
+   "unit": ""
+  },
+  "crossing_hit50_envelope_only": {
+   "value": 0.10909090909090909,
+   "ci95": [
+    0.03507259528130671,
+    0.2000847457627114
+   ],
+   "weighting": "as crossing_hit50, lower-envelope crossings only",
+   "unit": ""
+  },
+  "near_Tc_median_e_over_eps50": {
+   "value": 7.677116943628247,
+   "weighting": "pair median",
+   "unit": ""
+  },
+  "events": {
+   "hits": 12,
+   "missed": 59,
+   "false": 61,
+   "n_reference": 71,
+   "median_abs_dTc_K": 334.63232545022726,
+   "weighting": "pair counts, 50-1500 K, +-100 K matching"
+  },
+  "pair_dG_rms_300K": {
+   "value": 7.493882090276144,
+   "ci95": [
+    5.986342801683429,
+    8.931597177125875
+   ],
+   "weighting": "pooled over pairs",
+   "unit": "meV/atom"
+  },
+  "pair_dG_rms_1000K": {
+   "value": 7.891385061424275,
+   "ci95": [
+    6.0915828007298,
+    9.525019143350965
+   ],
+   "weighting": "pooled over pairs",
+   "unit": "meV/atom"
+  },
+  "pair_dG_rms_1000K_fw": {
+   "value": 7.828469828769468,
+   "ci95": [
+    5.814860674460394,
+    9.669924299709868
+   ],
+   "weighting": "formula-weighted RMS",
+   "unit": "meV/atom"
+  },
+  "pair_dS_rms_1000K": {
+   "value": 9.308499808656938,
+   "ci95": [
+    4.7916744144696155,
+    12.899161034961738
+   ],
+   "weighting": "pooled over pairs",
+   "unit": "ueV/(atom K)"
+  },
+  "wrong_ordering_600K": {
+   "value": 0.10268065268065268,
+   "ci95": [
+    0.05954398336605846,
+    0.15331315725116162
+   ],
+   "weighting": "formula-weighted, |dG_ref| >= 1 meV/atom",
+   "unit": ""
+  },
+  "wrong_ordering_1000K": {
+   "value": 0.1437641723356009,
+   "ci95": [
+    0.08935368697172837,
+    0.2034203980099502
+   ],
+   "weighting": "formula-weighted, |dG_ref| >= 1 meV/atom",
+   "unit": ""
+  },
+  "wrong_ordering_1500K": {
+   "value": 0.12179487179487179,
+   "ci95": [
+    0.07407407407407407,
+    0.17285038943729436
+   ],
+   "weighting": "formula-weighted, |dG_ref| >= 1 meV/atom",
+   "unit": ""
+  },
+  "wrong_ordering_mean": {
+   "value": 0.12274656560370846,
+   "ci95": [
+    0.08248410541463527,
+    0.16629432462187219
+   ],
+   "weighting": "mean of the three formula-weighted rates",
+   "unit": ""
+  },
+  "tail_p95_abs_e_1000K": {
+   "value": 15.646117520631648,
+   "weighting": "pair quantile",
+   "unit": "meV/atom"
+  },
+  "tail_n_pairs_max_abs_e_gt20": {
+   "value": 15,
+   "weighting": "pair count (50-1500 K)",
+   "unit": "pairs"
+  },
+  "decided_fraction_lofo_quantile_1000K": {
+   "0.05": {
+    "coverage": 0.36813186813186816,
+    "selective_risk": 0.014925373134328358,
+    "weighting": "pair-weighted over non-degenerate pairs"
+   }
+  },
+  "failure_model_invalid": {
+   "value": 0.20543633762517882,
+   "ci95": [
+    0.15304314674458952,
+    0.25412240120394625
+   ],
+   "weighting": "formula-weighted fraction of reference-valid pairs that are model-invalid",
+   "unit": ""
+  },
+  "ordering_success_mean": {
+   "value": 0.7160658901671096,
+   "ci95": [
+    0.657360393024484,
+    0.7700736852097517
+   ],
+   "weighting": "formula-weighted, over all reference-valid non-degenerate pairs: model-valid AND correctly ordered",
+   "unit": ""
+  },
+  "crossing_success50": {
+   "value": 0.0875,
+   "ci95": [
+    0.028169014084507043,
+    0.15909914361001312
+   ],
+   "weighting": "formula-weighted, over all reference-valid crossing pairs: model-valid AND crossing within +-50 K",
+   "unit": ""
+  },
+  "validity": {
+   "entries_invalid_model": 67,
+   "entries_invalid_reference": 13,
+   "entries": 521,
+   "pairs_in_subset": 219,
+   "pairs_reference_valid": 320,
+   "pairs_model_invalid_among_reference_valid": 75,
+   "crossing_pairs_in_subset": 70,
+   "pairs_common_valid": 219,
+   "note": "invalid = dense-mesh minimum frequency < -0.05 THz at the DFT geometry; phonopy integrates positive modes only"
+  }
+ }
+}

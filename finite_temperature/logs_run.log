@@ -1,0 +1,39 @@
+To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, DP_INTRA_OP_PARALLELISM_THREADS, and DP_INTER_OP_PARALLELISM_THREADS. See https://deepmd.rtfd.io/parallelism/ for more information.
+F0 G1 hf/bcc: sg Im-3m (229) -> Im-3m (229), E0 -9.79429, fmin -3.028 THz, V/at 22.109, 2 steps, 57 s
+F0 G2 hf/bcc: sg Im-3m (229) -> Im-3m (229), E0 -9.79422, fmin -3.030 THz, V/at 22.186, 0 steps, 1 s
+F0 G1 hf/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -9.94327, fmin -0.006 THz, V/at 22.570, 5 steps, 20 s
+F0 G2 hf/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -9.94241, fmin -0.006 THz, V/at 22.628, 0 steps, 1 s
+F0 G1 ti/bcc: sg Im-3m (229) -> Im-3m (229), E0 -7.79502, fmin -4.022 THz, V/at 17.384, 2 steps, 2 s
+F0 G2 ti/bcc: sg Im-3m (229) -> Im-3m (229), E0 -7.79347, fmin -3.987 THz, V/at 17.085, 0 steps, 2 s
+F0 G1 ti/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.87698, fmin 0.002 THz, V/at 17.518, 4 steps, 1 s
+F0 G2 ti/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.87662, fmin -0.004 THz, V/at 17.378, 0 steps, 1 s
+F0 G1 zr/bcc: sg Im-3m (229) -> Im-3m (229), E0 -8.46102, fmin -3.183 THz, V/at 23.136, 2 steps, 1 s
+F0 G2 zr/bcc: sg Im-3m (229) -> Im-3m (229), E0 -8.45835, fmin -3.184 THz, V/at 22.654, 0 steps, 1 s
+F0 G1 zr/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -8.54124, fmin -0.008 THz, V/at 23.614, 6 steps, 1 s
+F0 G2 zr/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -8.54068, fmin -0.008 THz, V/at 23.495, 0 steps, 1 s
+F0 G1 sio2/quartz_beta: sg P6_422 (181) -> P6_422 (181), E0 -7.89898, fmin -1.530 THz, V/at 13.996, 10 steps, 2 s
+F0 G2 sio2/quartz_beta: sg P6_422 (181) -> P6_422 (181), E0 -7.89843, fmin -0.971 THz, V/at 14.076, 0 steps, 1 s
+F0 G1 sio2/cristobalite_beta: sg Fd-3m (227) -> Fd-3m (227), E0 -7.89895, fmin -2.636 THz, V/at 17.313, 3 steps, 1 s
+F0 G2 sio2/cristobalite_beta: sg Fd-3m (227) -> Fd-3m (227), E0 -7.89803, fmin -1.780 THz, V/at 17.502, 0 steps, 1 s
+F0 G1 sio2/tridymite_p63mmc: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.89857, fmin -2.629 THz, V/at 17.308, 9 steps, 2 s
+F0 G2 sio2/tridymite_p63mmc: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.89765, fmin -1.815 THz, V/at 17.494, 0 steps, 1 s
+[32m2026-11-04 20:49:27.521[0m | [1mINFO    [0m | [36mmattersim.forcefield.potential[0m:[36mfrom_checkpoint[0m:[36m893[0m - [1mLoading the model from /root/.local/mattersim/pretrained_models/mattersim-v1.0.0-5M.pth[0m
+MS G1 hf/bcc: sg Im-3m (229) -> Im-3m (229), E0 -9.78026, fmin -1.956 THz, V/at 22.181, 2 steps, 1 s
+MS G2 hf/bcc: sg Im-3m (229) -> Im-3m (229), E0 -9.78026, fmin -1.956 THz, V/at 22.186, 0 steps, 1 s
+MS G1 hf/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -9.89657, fmin -0.002 THz, V/at 22.640, 6 steps, 1 s
+MS G2 hf/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -9.89622, fmin -0.001 THz, V/at 22.628, 0 steps, 1 s
+MS G1 ti/bcc: sg Im-3m (229) -> Im-3m (229), E0 -7.78320, fmin -2.202 THz, V/at 17.189, 2 steps, 2 s
+MS G2 ti/bcc: sg Im-3m (229) -> Im-3m (229), E0 -7.78300, fmin -2.190 THz, V/at 17.085, 0 steps, 2 s
+MS G1 ti/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.83519, fmin -0.437 THz, V/at 17.238, 6 steps, 1 s
+MS G2 ti/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.83436, fmin -0.444 THz, V/at 17.378, 0 steps, 1 s
+MS G1 zr/bcc: sg Im-3m (229) -> Im-3m (229), E0 -8.47018, fmin -2.147 THz, V/at 23.036, 3 steps, 1 s
+MS G2 zr/bcc: sg Im-3m (229) -> Im-3m (229), E0 -8.46872, fmin -2.058 THz, V/at 22.654, 0 steps, 1 s
+MS G1 zr/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -8.51896, fmin -0.003 THz, V/at 23.389, 7 steps, 1 s
+MS G2 zr/hcp: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -8.51856, fmin -0.002 THz, V/at 23.495, 0 steps, 1 s
+MS G1 sio2/quartz_beta: sg P6_422 (181) -> P6_422 (181), E0 -7.90487, fmin -1.135 THz, V/at 14.017, 11 steps, 1 s
+MS G2 sio2/quartz_beta: sg P6_422 (181) -> P6_422 (181), E0 -7.90410, fmin -0.827 THz, V/at 14.076, 0 steps, 1 s
+MS G1 sio2/cristobalite_beta: sg Fd-3m (227) -> Fd-3m (227), E0 -7.89423, fmin -2.913 THz, V/at 17.295, 3 steps, 1 s
+MS G2 sio2/cristobalite_beta: sg Fd-3m (227) -> Fd-3m (227), E0 -7.89314, fmin -2.074 THz, V/at 17.502, 0 steps, 1 s
+MS G1 sio2/tridymite_p63mmc: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.89496, fmin -2.817 THz, V/at 17.295, 10 steps, 1 s
+MS G2 sio2/tridymite_p63mmc: sg P6_3/mmc (194) -> P6_3/mmc (194), E0 -7.89392, fmin -2.050 THz, V/at 17.494, 0 steps, 1 s
+DONE

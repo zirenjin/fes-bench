@@ -1,0 +1,893 @@
+{
+ "mp-22865": {
+  "info": {
+   "space_group_spglib": "Pm-3m (221)",
+   "space_group_yaml": "Pm-3m",
+   "natoms_uc": 2,
+   "vol_per_atom": 37.28515479717897,
+   "supercell_natoms": 128,
+   "supercell_lengths": [
+    16.836376928081098,
+    16.836376928081098,
+    16.836376928081098
+   ],
+   "min_image_distance": 16.836376928081098,
+   "n_displacements": 2,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.32.0",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 13.11077211250414,
+    "75.0": 5.621583872463212,
+    "150.0": -18.152936081371625,
+    "300.0": -91.35349473198093,
+    "600.0": -290.8698291227902
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.01178947979541339,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.004882812499999999,
+    "mean_ln_nu_real": 0.6494429239357058,
+    "Fth1000": -630.1155986712515,
+    "Fth1000_manual_real_modes": -630.1146879108044,
+    "Fth1000_from_modes_below_0p5THz": -5.011099545283717,
+    "Fth1000_mesh200": -630.1551407847722,
+    "Fth1000_symmetrized": -630.1819503642856,
+    "asr_violation_max": 1.6445178552260131e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -91.33515402259074,
+    "F600_meV_atom": -290.83181529632105,
+    "stored_Fth1000": -630.1155986712515
+   },
+   "F0": {
+    "fmin": -0.3312319730986641,
+    "frac_imag": 0.0028573495370370363,
+    "frac_below_0p5THz": 0.03920717592592592,
+    "mean_ln_nu_real": 0.5053451601414124,
+    "Fth1000": -664.2402083022165,
+    "Fth1000_manual_real_modes": -663.6862440254915,
+    "Fth1000_from_modes_below_0p5THz": -37.41497692453405,
+    "Fth1000_mesh200": -664.6040447505577,
+    "Fth1000_symmetrized": -664.1609865259545,
+    "asr_violation_max": 3.142335889522174e-05,
+    "fc_rel_err_vs_dft": 0.20135585894767602,
+    "F300_meV_atom": -102.42433306579338,
+    "F600_meV_atom": -312.5534084604783,
+    "stored_Fth1000": -664.1582735990826,
+    "dFth1000": -34.12460963096498,
+    "dFth1000_high_T_estimate": -37.25215358773151,
+    "dFth1000_from_modes_below_0p5THz": -32.40387737925033
+   },
+   "MS": {
+    "fmin": -0.001401708678664994,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.00415943287037037,
+    "mean_ln_nu_real": 0.7168911245962751,
+    "Fth1000": -613.6387956443756,
+    "Fth1000_manual_real_modes": -613.637905036928,
+    "Fth1000_from_modes_below_0p5THz": -4.294229231962724,
+    "Fth1000_mesh200": -613.6785595548995,
+    "Fth1000_symmetrized": -613.6387913635522,
+    "asr_violation_max": 1.722946763114963e-06,
+    "fc_rel_err_vs_dft": 0.16014633346083645,
+    "F300_meV_atom": -86.03396025278062,
+    "F600_meV_atom": -280.334870170626,
+    "stored_Fth1000": -613.7205032078887,
+    "dFth1000": 16.476803026875928,
+    "dFth1000_high_T_estimate": 17.436708690431235,
+    "dFth1000_from_modes_below_0p5THz": 0.7168703133209924
+   }
+  }
+ },
+ "mp-573697": {
+  "info": {
+   "space_group_spglib": "Fm-3m (225)",
+   "space_group_yaml": "Fm-3m",
+   "natoms_uc": 8,
+   "vol_per_atom": 44.396443542148184,
+   "supercell_natoms": 64,
+   "supercell_lengths": [
+    14.163678227973787,
+    14.163678227973787,
+    14.163678227973787
+   ],
+   "min_image_distance": 14.163678227973787,
+   "n_displacements": 2,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 13.216643164225857,
+    "75.0": 5.729476650100739,
+    "150.0": -17.97370258790679,
+    "300.0": -91.01369174113228,
+    "600.0": -290.2013957068687
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.01026426497143006,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.005847318672839504,
+    "mean_ln_nu_real": 0.6541952146240857,
+    "Fth1000": -628.9910117815084,
+    "Fth1000_manual_real_modes": -628.9901024220627,
+    "Fth1000_from_modes_below_0p5THz": -6.101494244581035,
+    "Fth1000_mesh200": -629.0397829966817,
+    "Fth1000_symmetrized": -629.1797984802336,
+    "asr_violation_max": 8.881784197001252e-16,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -90.9609066193395,
+    "F600_meV_atom": -290.0918655335915,
+    "stored_Fth1000": -628.9910117815083
+   },
+   "F0": {
+    "fmin": 0.005100404666336803,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.008692611882716047,
+    "mean_ln_nu_real": 0.6010951316400382,
+    "Fth1000": -642.1831868172399,
+    "Fth1000_manual_real_modes": -642.1045102757812,
+    "Fth1000_from_modes_below_0p5THz": -9.101349503493493,
+    "Fth1000_mesh200": -642.1642683611115,
+    "Fth1000_symmetrized": -642.2917483803959,
+    "asr_violation_max": 2.4113410007783886e-05,
+    "fc_rel_err_vs_dft": 0.16034622967975118,
+    "F300_meV_atom": -95.13523627360702,
+    "F600_meV_atom": -298.390006174122,
+    "stored_Fth1000": -642.1057132143037,
+    "dFth1000": -13.192175035731452,
+    "dFth1000_high_T_estimate": -13.727433339401768,
+    "dFth1000_from_modes_below_0p5THz": -2.999855258912458
+   },
+   "MS": {
+    "fmin": 0.0022201781426028004,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.12367380401234566,
+    "mean_ln_nu_real": 0.323246822273216,
+    "Fth1000": -712.905354937792,
+    "Fth1000_manual_real_modes": -711.622460250928,
+    "Fth1000_from_modes_below_0p5THz": -137.95611964501597,
+    "Fth1000_mesh200": -712.7848052028527,
+    "Fth1000_symmetrized": -713.0112102026533,
+    "asr_violation_max": 1.7593265511164913e-06,
+    "fc_rel_err_vs_dft": 0.3375500461860877,
+    "F300_meV_atom": -116.97526400853891,
+    "F600_meV_atom": -341.9456180637399,
+    "stored_Fth1000": -712.9047810120888,
+    "dFth1000": -83.91434315628362,
+    "dFth1000_high_T_estimate": -85.55677768231727,
+    "dFth1000_from_modes_below_0p5THz": -131.85462540043494
+   }
+  }
+ },
+ "mp-22906": {
+  "info": {
+   "space_group_spglib": "Pm-3m (221)",
+   "space_group_yaml": "Pm-3m",
+   "natoms_uc": 2,
+   "vol_per_atom": 42.21943963515584,
+   "supercell_natoms": 128,
+   "supercell_lengths": [
+    17.548532787843,
+    17.548532787843,
+    17.548532787843
+   ],
+   "min_image_distance": 17.548532787843,
+   "n_displacements": 2,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 9.894598641027985,
+    "75.0": 0.3189677718933965,
+    "150.0": -27.59475423043961,
+    "300.0": -109.63142658963015,
+    "600.0": -327.12038745630383
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.020803279538183127,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.006534067559792882,
+    "mean_ln_nu_real": 0.41664160118396965,
+    "Fth1000": -687.1393549001314,
+    "Fth1000_manual_real_modes": -687.1383744965431,
+    "Fth1000_from_modes_below_0p5THz": -6.7463106385488825,
+    "Fth1000_mesh200": -687.18746241921,
+    "Fth1000_symmetrized": -687.2750934620077,
+    "asr_violation_max": 1.5300261058115439e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -109.59354090249742,
+    "F600_meV_atom": -327.0416530502692,
+    "stored_Fth1000": -687.1393549001314
+   },
+   "F0": {
+    "fmin": -0.0046979548753938545,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.008999753431412837,
+    "mean_ln_nu_real": 0.3903966023871808,
+    "Fth1000": -693.7070792386736,
+    "Fth1000_manual_real_modes": -693.7060909088201,
+    "Fth1000_from_modes_below_0p5THz": -9.369483005622019,
+    "Fth1000_mesh200": -693.754461794672,
+    "Fth1000_symmetrized": -693.7775703814502,
+    "asr_violation_max": 1.7406632224558488e-05,
+    "fc_rel_err_vs_dft": 0.08175758082682391,
+    "F300_meV_atom": -111.63857200154212,
+    "F600_meV_atom": -331.1172384971557,
+    "stored_Fth1000": -693.7062381119858,
+    "dFth1000": -6.567724338542234,
+    "dFth1000_high_T_estimate": -6.784857032781549,
+    "dFth1000_from_modes_below_0p5THz": -2.6231723670731366
+   },
+   "MS": {
+    "fmin": 0.001856898595400044,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.009821648721952823,
+    "mean_ln_nu_real": 0.4057906450368353,
+    "Fth1000": -690.0525092564316,
+    "Fth1000_manual_real_modes": -689.9524518733065,
+    "Fth1000_from_modes_below_0p5THz": -10.276084865163291,
+    "Fth1000_mesh200": -690.0104956965884,
+    "Fth1000_symmetrized": -690.0383723828207,
+    "asr_violation_max": 8.475035429261063e-06,
+    "fc_rel_err_vs_dft": 0.07320350604971887,
+    "F300_meV_atom": -110.45647809956014,
+    "F600_meV_atom": -328.7786458613985,
+    "stored_Fth1000": -690.0447406712879,
+    "dFth1000": -2.913154356300197,
+    "dFth1000_high_T_estimate": -2.8051891599361203,
+    "dFth1000_from_modes_below_0p5THz": -3.5297742266144088
+   }
+  }
+ },
+ "mp-571222": {
+  "info": {
+   "space_group_spglib": "Fm-3m (225)",
+   "space_group_yaml": "Fm-3m",
+   "natoms_uc": 8,
+   "vol_per_atom": 50.37179869919444,
+   "supercell_natoms": 64,
+   "supercell_lengths": [
+    14.77256164822558,
+    14.77256164822558,
+    14.77256164822558
+   ],
+   "min_image_distance": 14.77256164822558,
+   "n_displacements": 2,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 9.93198954074738,
+    "75.0": 0.208445608977589,
+    "150.0": -27.834777167837416,
+    "300.0": -110.11988720701632,
+    "600.0": -328.09930844568424
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.012231860742935929,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.010205199857538146,
+    "mean_ln_nu_real": 0.4098011262946312,
+    "Fth1000": -688.9440649200782,
+    "Fth1000_manual_real_modes": -688.9430824013554,
+    "Fth1000_from_modes_below_0p5THz": -10.64503885071435,
+    "Fth1000_mesh200": -689.0007382551408,
+    "Fth1000_symmetrized": -688.941494641526,
+    "asr_violation_max": 9.020562075079397e-16,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -110.12074630085034,
+    "F600_meV_atom": -328.101003731705,
+    "stored_Fth1000": -688.9440649200781
+   },
+   "F0": {
+    "fmin": -0.0017869667948893552,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.015602312265417381,
+    "mean_ln_nu_real": 0.20396324063963372,
+    "Fth1000": -740.1735870452818,
+    "Fth1000_manual_real_modes": -740.1725425090374,
+    "Fth1000_from_modes_below_0p5THz": -16.28803748165321,
+    "Fth1000_mesh200": -740.2313130953112,
+    "Fth1000_symmetrized": -740.4065074452949,
+    "asr_violation_max": 1.1311975419285017e-05,
+    "fc_rel_err_vs_dft": 0.4399936998094915,
+    "F300_meV_atom": -126.17184800360043,
+    "F600_meV_atom": -360.0715849882769,
+    "stored_Fth1000": -740.264229749157,
+    "dFth1000": -51.22952212520363,
+    "dFth1000_high_T_estimate": -53.21320975903688,
+    "dFth1000_from_modes_below_0p5THz": -5.642998630938859
+   },
+   "MS": {
+    "fmin": 0.0011430482126112732,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.14726993780992298,
+    "mean_ln_nu_real": 0.08595894588166779,
+    "Fth1000": -772.2960153844946,
+    "Fth1000_manual_real_modes": -769.7319999068675,
+    "Fth1000_from_modes_below_0p5THz": -166.81484232938837,
+    "Fth1000_mesh200": -772.1149002320534,
+    "Fth1000_symmetrized": -772.2647354056281,
+    "asr_violation_max": 7.096105036979454e-07,
+    "fc_rel_err_vs_dft": 0.29035885939019834,
+    "F300_meV_atom": -135.72337702881137,
+    "F600_meV_atom": -379.2186914093404,
+    "stored_Fth1000": -772.2969760735044,
+    "dFth1000": -83.3519504644164,
+    "dFth1000_high_T_estimate": -83.71967978733703,
+    "dFth1000_from_modes_below_0p5THz": -156.16980347867403
+   }
+  }
+ },
+ "mp-22899": {
+  "info": {
+   "space_group_spglib": "Fm-3m (225)",
+   "space_group_yaml": "Fm-3m",
+   "natoms_uc": 8,
+   "vol_per_atom": 27.21282021239645,
+   "supercell_natoms": 64,
+   "supercell_lengths": [
+    12.031446441813332,
+    12.031446441813332,
+    12.031446441813332
+   ],
+   "min_image_distance": 12.031446441813332,
+   "n_displacements": 2,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 20.94558638695232,
+    "75.0": 16.248668357870173,
+    "150.0": -1.0324611433784672,
+    "300.0": -59.427147788762575,
+    "600.0": -228.21522933243534
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.0015642579574681268,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.0022482813290144463,
+    "mean_ln_nu_real": 1.050868925593371,
+    "Fth1000": -533.9440981177817,
+    "Fth1000_manual_real_modes": -533.9433062359899,
+    "Fth1000_from_modes_below_0p5THz": -2.3361043143643507,
+    "Fth1000_mesh200": -533.970641459049,
+    "Fth1000_symmetrized": -534.0553499118565,
+    "asr_violation_max": 1.3530843112619095e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -59.40477067137111,
+    "F600_meV_atom": -228.16904898991478,
+    "stored_Fth1000": -533.9440981177817
+   },
+   "F0": {
+    "fmin": -0.0027482698615698283,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.002412289693441032,
+    "mean_ln_nu_real": 1.0680774220055853,
+    "Fth1000": -530.1515154695533,
+    "Fth1000_manual_real_modes": -530.1507284995853,
+    "Fth1000_from_modes_below_0p5THz": -2.498198486027787,
+    "Fth1000_mesh200": -530.1781433975023,
+    "Fth1000_symmetrized": -530.2246052971221,
+    "asr_violation_max": 5.514934287049501e-06,
+    "fc_rel_err_vs_dft": 0.07952889156125459,
+    "F300_meV_atom": -57.96748890633465,
+    "F600_meV_atom": -225.4479623196114,
+    "stored_Fth1000": -530.1943007379566,
+    "dFth1000": 3.7925826482284037,
+    "dFth1000_high_T_estimate": 4.448740455659467,
+    "dFth1000_from_modes_below_0p5THz": -0.1620941716634361
+   },
+   "MS": {
+    "fmin": 0.0037360554178069785,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.0038883649732803036,
+    "mean_ln_nu_real": 1.0585274701851892,
+    "Fth1000": -532.5988739923785,
+    "Fth1000_manual_real_modes": -532.5523640841507,
+    "Fth1000_from_modes_below_0p5THz": -4.067705159891099,
+    "Fth1000_mesh200": -532.5857644750331,
+    "Fth1000_symmetrized": -532.627603638178,
+    "asr_violation_max": 9.484938345946659e-06,
+    "fc_rel_err_vs_dft": 0.1279080612609027,
+    "F300_meV_atom": -58.717728098344494,
+    "F600_meV_atom": -226.95385573502193,
+    "stored_Fth1000": -532.5976669432113,
+    "dFth1000": 1.345224125403206,
+    "dFth1000_high_T_estimate": 1.9798869314875687,
+    "dFth1000_from_modes_below_0p5THz": -1.731600845526748
+   }
+  }
+ },
+ "mp-568273": {
+  "info": {
+   "space_group_spglib": "P6_3/mmc (194)",
+   "space_group_yaml": "P6_3/mmc",
+   "natoms_uc": 4,
+   "vol_per_atom": 27.11198525132567,
+   "supercell_natoms": 128,
+   "supercell_lengths": [
+    16.94625857102498,
+    16.946258593818367,
+    13.953816249435269
+   ],
+   "min_image_distance": 13.953816249435269,
+   "n_displacements": 4,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 21.995216437190074,
+    "75.0": 17.5873723527964,
+    "150.0": 1.0099725104404513,
+    "300.0": -55.71640182644185,
+    "600.0": -220.99072825087217
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.0029234787962144943,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.002833300672806846,
+    "mean_ln_nu_real": 1.0970362287694995,
+    "Fth1000": -523.0164915667236,
+    "Fth1000_manual_real_modes": -523.0157132830938,
+    "Fth1000_from_modes_below_0p5THz": -2.9615849527580096,
+    "Fth1000_mesh200": -523.0470229660227,
+    "Fth1000_symmetrized": -523.0997452492778,
+    "asr_violation_max": 1.762479051592436e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -55.69216034339228,
+    "F600_meV_atom": -220.94050234826017,
+    "stored_Fth1000": -523.0164915667236
+   },
+   "F0": {
+    "fmin": 0.0007204488812469069,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.0031272454111960293,
+    "mean_ln_nu_real": 1.1058345877770204,
+    "Fth1000": -521.3919436846282,
+    "Fth1000_manual_real_modes": -521.3310808961918,
+    "Fth1000_from_modes_below_0p5THz": -3.2524458831317333,
+    "Fth1000_mesh200": -521.3696261892561,
+    "Fth1000_symmetrized": -521.374618631019,
+    "asr_violation_max": 3.0056537526440552e-05,
+    "fc_rel_err_vs_dft": 0.11048496097871342,
+    "F300_meV_atom": -54.91859485304886,
+    "F600_meV_atom": -219.555790702557,
+    "stored_Fth1000": -521.3823990828467,
+    "dFth1000": 1.624547882095385,
+    "dFth1000_high_T_estimate": 2.2745517517958165,
+    "dFth1000_from_modes_below_0p5THz": -0.29086093037372374
+   },
+   "MS": {
+    "fmin": 0.0030174696415659827,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.0034211901495852116,
+    "mean_ln_nu_real": 1.0598702307576933,
+    "Fth1000": -532.0410267945103,
+    "Fth1000_manual_real_modes": -531.985132224314,
+    "Fth1000_from_modes_below_0p5THz": -3.557052444545297,
+    "Fth1000_mesh200": -532.0229513312298,
+    "Fth1000_symmetrized": -531.985937121995,
+    "asr_violation_max": 5.757192417622098e-06,
+    "fc_rel_err_vs_dft": 0.1228124759132271,
+    "F300_meV_atom": -58.6468932701038,
+    "F600_meV_atom": -226.76558151143553,
+    "stored_Fth1000": -532.0207095190339,
+    "dFth1000": -9.024535227786714,
+    "dFth1000_high_T_estimate": -9.608153726476903,
+    "dFth1000_from_modes_below_0p5THz": -0.5954674917872875
+   }
+  }
+ },
+ "mp-570935": {
+  "info": {
+   "space_group_spglib": "P6_3mc (186)",
+   "space_group_yaml": "P6_3mc",
+   "natoms_uc": 4,
+   "vol_per_atom": 33.34140484571689,
+   "supercell_natoms": 128,
+   "supercell_lengths": [
+    18.254051460891834,
+    18.2540514976249,
+    14.789200291170062
+   ],
+   "min_image_distance": 14.789200291170062,
+   "n_displacements": 6,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 29.034747291813925,
+    "75.0": 23.67843237949976,
+    "150.0": 7.357708761973407,
+    "300.0": -46.62672865077061,
+    "600.0": -204.73843903380748
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.011631888883896234,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.006257142857142857,
+    "mean_ln_nu_real": 1.1976356308521285,
+    "Fth1000": -503.65329522620385,
+    "Fth1000_manual_real_modes": -503.65254406489623,
+    "Fth1000_from_modes_below_0p5THz": -6.544899788277623,
+    "Fth1000_mesh200": -503.6897229807025,
+    "Fth1000_symmetrized": -503.7013902159207,
+    "asr_violation_max": 2.0261570199409107e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -46.59913360335139,
+    "F600_meV_atom": -204.68110829600647,
+    "stored_Fth1000": -503.65329522620385
+   },
+   "F0": {
+    "fmin": -0.0021477460895507243,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.00755238095238095,
+    "mean_ln_nu_real": 1.1626855093855533,
+    "Fth1000": -512.4617792854169,
+    "Fth1000_manual_real_modes": -512.4414383499059,
+    "Fth1000_from_modes_below_0p5THz": -7.938558424545838,
+    "Fth1000_mesh200": -512.4813157187153,
+    "Fth1000_symmetrized": -512.494766586026,
+    "asr_violation_max": 1.747030182825543e-05,
+    "fc_rel_err_vs_dft": 0.07110035515015534,
+    "F300_meV_atom": -49.31859385705816,
+    "F600_meV_atom": -210.11515042292868,
+    "stored_Fth1000": -512.4649059859477,
+    "dFth1000": -8.808484059213072,
+    "dFth1000_high_T_estimate": -9.035305326745782,
+    "dFth1000_from_modes_below_0p5THz": -1.3936586362682153
+   },
+   "MS": {
+    "fmin": -0.004209621079050344,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.021076190476190474,
+    "mean_ln_nu_real": 1.0213078063189416,
+    "Fth1000": -546.767643308795,
+    "Fth1000_manual_real_modes": -546.6547762733165,
+    "Fth1000_from_modes_below_0p5THz": -22.07779302040374,
+    "Fth1000_mesh200": -546.7821245777993,
+    "Fth1000_symmetrized": -546.8418058185458,
+    "asr_violation_max": 5.303581950943936e-06,
+    "fc_rel_err_vs_dft": 0.14242740831997058,
+    "F300_meV_atom": -60.6760999939123,
+    "F600_meV_atom": -232.27214853099932,
+    "stored_Fth1000": -546.7692611568003,
+    "dFth1000": -43.11434808259111,
+    "dFth1000_high_T_estimate": -45.58426882097795,
+    "dFth1000_from_modes_below_0p5THz": -15.532893232126117
+   }
+  }
+ },
+ "mp-22894": {
+  "info": {
+   "space_group_spglib": "P6_3mc (186)",
+   "space_group_yaml": "P6_3mc",
+   "natoms_uc": 4,
+   "vol_per_atom": 35.92228793636726,
+   "supercell_natoms": 128,
+   "supercell_lengths": [
+    18.65712570650759,
+    18.65712572650343,
+    15.252950162440149
+   ],
+   "min_image_distance": 15.252950162440149,
+   "n_displacements": 6,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 13.513365501751984,
+    "75.0": 4.789481979027508,
+    "150.0": -20.13447905730183,
+    "300.0": -95.48302201893767,
+    "600.0": -299.21415718279474
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.0031866191705743957,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.014697435897435898,
+    "mean_ln_nu_real": 0.595637533763022,
+    "Fth1000": -644.4143925098352,
+    "Fth1000_manual_real_modes": -644.4134650494843,
+    "Fth1000_from_modes_below_0p5THz": -15.313693363550081,
+    "Fth1000_mesh200": -644.4528819146908,
+    "Fth1000_symmetrized": -644.4678425568347,
+    "asr_violation_max": 3.1242369802342296e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -95.45253434022996,
+    "F600_meV_atom": -299.15097742563455,
+    "stored_Fth1000": -644.4143925098351
+   },
+   "F0": {
+    "fmin": -0.0008101861957933713,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.020605128205128203,
+    "mean_ln_nu_real": 0.5529053335580267,
+    "Fth1000": -655.0295276547356,
+    "Fth1000_manual_real_modes": -655.0285873317271,
+    "Fth1000_from_modes_below_0p5THz": -21.489486757868054,
+    "Fth1000_mesh200": -655.0685103256491,
+    "Fth1000_symmetrized": -655.0821389836035,
+    "asr_violation_max": 2.5713234225307677e-06,
+    "fc_rel_err_vs_dft": 0.06783018088819402,
+    "F300_meV_atom": -98.79418745624227,
+    "F600_meV_atom": -305.7929009694972,
+    "stored_Fth1000": -655.0820949872831,
+    "dFth1000": -10.615135144900364,
+    "dFth1000_high_T_estimate": -11.04712830554846,
+    "dFth1000_from_modes_below_0p5THz": -6.175793394317973
+   },
+   "MS": {
+    "fmin": -0.003873448777407613,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.04099487179487179,
+    "mean_ln_nu_real": 0.5099727987954743,
+    "Fth1000": -665.784077090764,
+    "Fth1000_manual_real_modes": -665.6296529602114,
+    "Fth1000_from_modes_below_0p5THz": -42.68583588751063,
+    "Fth1000_mesh200": -665.7552905833503,
+    "Fth1000_symmetrized": -665.8465381371844,
+    "asr_violation_max": 1.78996743574987e-05,
+    "fc_rel_err_vs_dft": 0.1424167868249062,
+    "F300_meV_atom": -102.18808885254708,
+    "F600_meV_atom": -312.53456376538554,
+    "stored_Fth1000": -665.8057453476123,
+    "dFth1000": -21.36968458092872,
+    "dFth1000_high_T_estimate": -22.14604710048789,
+    "dFth1000_from_modes_below_0p5THz": -27.372142523960548
+   }
+  }
+ },
+ "mp-22925": {
+  "info": {
+   "space_group_spglib": "F-43m (216)",
+   "space_group_yaml": "F-43m",
+   "natoms_uc": 8,
+   "vol_per_atom": 35.89992651774767,
+   "supercell_natoms": 64,
+   "supercell_lengths": [
+    13.195459291313268,
+    13.195459291313268,
+    13.195459291313268
+   ],
+   "min_image_distance": 13.195459291313268,
+   "n_displacements": 2,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 13.511991156237883,
+    "75.0": 4.814121153490021,
+    "150.0": -20.086036431762068,
+    "300.0": -95.38706625204337,
+    "600.0": -299.023551169978
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.0021478515392152403,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.008961083295402824,
+    "mean_ln_nu_real": 0.5970122719349827,
+    "Fth1000": -644.0589951118819,
+    "Fth1000_manual_real_modes": -644.0580680713015,
+    "Fth1000_from_modes_below_0p5THz": -9.31291476988656,
+    "Fth1000_mesh200": -644.097864090399,
+    "Fth1000_symmetrized": -644.1583165817821,
+    "asr_violation_max": 2.55351295663786e-15,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -95.34600690980677,
+    "F600_meV_atom": -298.93837200329205,
+    "stored_Fth1000": -644.0589951118819
+   },
+   "F0": {
+    "fmin": 0.002230005369897746,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.012829995448338643,
+    "mean_ln_nu_real": 0.5614329062091299,
+    "Fth1000": -652.922599446492,
+    "Fth1000_manual_real_modes": -652.8544243955062,
+    "Fth1000_from_modes_below_0p5THz": -13.246192311344124,
+    "Fth1000_mesh200": -652.9025631929169,
+    "Fth1000_symmetrized": -652.8551859254612,
+    "asr_violation_max": 4.481269400245791e-06,
+    "fc_rel_err_vs_dft": 0.07074870793966424,
+    "F300_meV_atom": -98.15006896826546,
+    "F600_meV_atom": -304.50874798737544,
+    "stored_Fth1000": -652.9238686385532,
+    "dFth1000": -8.863604334610045,
+    "dFth1000_high_T_estimate": -9.197977551307636,
+    "dFth1000_from_modes_below_0p5THz": -3.9332775414575636
+   },
+   "MS": {
+    "fmin": 0.004349056626741074,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.021857457138522232,
+    "mean_ln_nu_real": 0.5107141705593298,
+    "Fth1000": -665.532279956555,
+    "Fth1000_manual_real_modes": -665.4690016351742,
+    "Fth1000_from_modes_below_0p5THz": -22.469211212865993,
+    "Fth1000_mesh200": -665.5173058518417,
+    "Fth1000_symmetrized": -665.5197439309015,
+    "asr_violation_max": 2.2735912352966916e-05,
+    "fc_rel_err_vs_dft": 0.14641712991014508,
+    "F300_meV_atom": -102.11494650102951,
+    "F600_meV_atom": -312.38917336355524,
+    "stored_Fth1000": -665.4680264033468,
+    "dFth1000": -21.473284844673117,
+    "dFth1000_high_T_estimate": -22.30978498295587,
+    "dFth1000_from_modes_below_0p5THz": -13.156296442979432
+   }
+  }
+ },
+ "mp-567809": {
+  "info": {
+   "space_group_spglib": "P4/nmm (129)",
+   "space_group_yaml": "P4/nmm",
+   "natoms_uc": 4,
+   "vol_per_atom": 33.508879544909085,
+   "supercell_natoms": 108,
+   "supercell_lengths": [
+    13.529842501808988,
+    13.529842501808988,
+    19.76961353569464
+   ],
+   "min_image_distance": 13.529842501808988,
+   "n_displacements": 5,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 12.003196677651617,
+    "75.0": 1.2318591763560909,
+    "150.0": -26.807092552151218,
+    "300.0": -108.5996267256889,
+    "600.0": -325.33113909510723
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.0039050967439748863,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.08288567493112949,
+    "mean_ln_nu_real": 0.42748218925205134,
+    "Fth1000": -686.4364124937064,
+    "Fth1000_manual_real_modes": -686.3630443202753,
+    "Fth1000_from_modes_below_0p5THz": -86.47159883595475,
+    "Fth1000_mesh200": -686.4833830960158,
+    "Fth1000_symmetrized": -686.5570373523525,
+    "asr_violation_max": 2.8167572441173405e-13,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -108.58224159260757,
+    "F600_meV_atom": -325.29513552671244,
+    "stored_Fth1000": -686.4364124937064
+   },
+   "F0": {
+    "fmin": -0.002686571728711883,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.11123737373737376,
+    "mean_ln_nu_real": 0.4018942520935237,
+    "Fth1000": -692.9454487679798,
+    "Fth1000_manual_real_modes": -692.8169182797923,
+    "Fth1000_from_modes_below_0p5THz": -115.40495163006679,
+    "Fth1000_mesh200": -692.9423092872136,
+    "Fth1000_symmetrized": -693.0086505359329,
+    "asr_violation_max": 5.955897619536188e-06,
+    "fc_rel_err_vs_dft": 0.05648535511115114,
+    "F300_meV_atom": -110.59066594869982,
+    "F600_meV_atom": -329.29994849672124,
+    "stored_Fth1000": -692.9415439748777,
+    "dFth1000": -6.509036274273399,
+    "dFth1000_high_T_estimate": -6.6149934594643796,
+    "dFth1000_from_modes_below_0p5THz": -28.93335279411204
+   },
+   "MS": {
+    "fmin": -0.0020340347492057696,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.06502525252525254,
+    "mean_ln_nu_real": 0.4525442725948231,
+    "Fth1000": -680.1738108545203,
+    "Fth1000_manual_real_modes": -680.1063831196811,
+    "Fth1000_from_modes_below_0p5THz": -68.41952982400356,
+    "Fth1000_mesh200": -680.1656053891993,
+    "Fth1000_symmetrized": -680.1679027319084,
+    "asr_violation_max": 1.4211400412023067e-05,
+    "fc_rel_err_vs_dft": 0.12667391766928254,
+    "F300_meV_atom": -106.63544999510692,
+    "F600_meV_atom": -321.4167821565544,
+    "stored_Fth1000": -680.1852895383832,
+    "dFth1000": 6.262601639186073,
+    "dFth1000_high_T_estimate": 6.479049732140499,
+    "dFth1000_from_modes_below_0p5THz": 18.05206901195119
+   }
+  }
+ },
+ "mp-580941": {
+  "info": {
+   "space_group_spglib": "P6_3mc (186)",
+   "space_group_yaml": "P6_3mc",
+   "natoms_uc": 8,
+   "vol_per_atom": 33.913827697409715,
+   "supercell_natoms": 144,
+   "supercell_lengths": [
+    13.634429099601828,
+    13.634429119407859,
+    30.334354173486858
+   ],
+   "min_image_distance": 13.634429099601828,
+   "n_displacements": 12,
+   "nac_in_yaml": false,
+   "phonopy_version_ref": "2.29.1",
+   "alexandria_free_e_meV_atom": {
+    "0.0": 12.704914350439047,
+    "75.0": 3.562285444520751,
+    "150.0": -22.288506310133066,
+    "300.0": -99.62912671497736,
+    "600.0": -307.41099122256276
+   }
+  },
+  "sides": {
+   "DFT": {
+    "fmin": -0.04190662856119917,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.031019047619047613,
+    "mean_ln_nu_real": 0.5425905646575386,
+    "Fth1000": -657.2255563842459,
+    "Fth1000_manual_real_modes": -657.2246132514458,
+    "Fth1000_from_modes_below_0p5THz": -32.427114391988724,
+    "Fth1000_mesh200": -657.4286309169986,
+    "Fth1000_symmetrized": -657.3265438757771,
+    "asr_violation_max": 6.40885131422686e-13,
+    "fc_rel_err_vs_dft": 0.0,
+    "F300_meV_atom": -99.60096778195953,
+    "F600_meV_atom": -307.3526259536843,
+    "stored_Fth1000": -657.2255563842459
+   },
+   "F0": {
+    "fmin": -0.0021090728458100327,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.02873333333333333,
+    "mean_ln_nu_real": 0.5136423426511464,
+    "Fth1000": -664.6141290477451,
+    "Fth1000_manual_real_modes": -664.5681325781147,
+    "Fth1000_from_modes_below_0p5THz": -30.226514297303257,
+    "Fth1000_mesh200": -664.6127056396884,
+    "Fth1000_symmetrized": -664.6184898963453,
+    "asr_violation_max": 1.2418214444466892e-05,
+    "fc_rel_err_vs_dft": 0.060372425572748536,
+    "F300_meV_atom": -101.88893745402484,
+    "F600_meV_atom": -311.9280103480748,
+    "stored_Fth1000": -664.5695246815543,
+    "dFth1000": -7.38857266349919,
+    "dFth1000_high_T_estimate": -7.483694291143327,
+    "dFth1000_from_modes_below_0p5THz": 2.2006000946854662
+   },
+   "MS": {
+    "fmin": -0.0036292628022555626,
+    "frac_imag": 0.0,
+    "frac_below_0p5THz": 0.033419047619047605,
+    "mean_ln_nu_real": 0.5339402942896321,
+    "Fth1000": -659.5689310224088,
+    "Fth1000_manual_real_modes": -659.5235553008628,
+    "Fth1000_from_modes_below_0p5THz": -35.26233099021066,
+    "Fth1000_mesh200": -659.5703019369682,
+    "Fth1000_symmetrized": -659.5242976472603,
+    "asr_violation_max": 2.3189932110367906e-05,
+    "fc_rel_err_vs_dft": 0.12361982037822954,
+    "F300_meV_atom": -100.30159334081333,
+    "F600_meV_atom": -308.7727613552294,
+    "stored_Fth1000": -659.5969689936893,
+    "dFth1000": -2.3433746381629135,
+    "dFth1000_high_T_estimate": -2.236267876999624,
+    "dFth1000_from_modes_below_0p5THz": -2.8352165982219333
+   }
+  }
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "F0": {
+  "n_new_invalid": 17,
+  "fmin_quantiles": [
+   -0.955,
+   -0.403,
+   -0.086
+  ],
+  "near_gamma": 3,
+  "also_invalid_under_R3": 6,
+  "median_npar_new": 99.0,
+  "median_npar_kept": 195.0,
+  "median_labels_per_param_new": 37.77049180327869,
+  "median_labels_per_param_kept": 21.945437441204138,
+  "median_rc_new": 6.0,
+  "median_rc_kept": 5.290793956893219,
+  "formulas": [
+   "AgI",
+   "AlKO4Si",
+   "Au7IP10",
+   "Ba2I6Sr",
+   "BeLi2O4Si",
+   "CdCl3Cs",
+   "GaSe",
+   "K2P3",
+   "N3WY",
+   "N4Zr3",
+   "Na2S",
+   "O2Pt",
+   "O2Si",
+   "S2W"
+  ]
+ },
+ "MS": {
+  "n_new_invalid": 21,
+  "fmin_quantiles": [
+   -0.474,
+   -0.15,
+   -0.058
+  ],
+  "near_gamma": 7,
+  "also_invalid_under_R3": 3,
+  "median_npar_new": 93.0,
+  "median_npar_kept": 167.0,
+  "median_labels_per_param_new": 32.97709923664122,
+  "median_labels_per_param_kept": 22.005730659025787,
+  "median_rc_new": 6.0,
+  "median_rc_kept": 5.2872713643802935,
+  "formulas": [
+   "AgI",
+   "AgO2Sc",
+   "Al2BaTe4",
+   "Al2O3",
+   "B3O6Tb",
+   "BaBe2O7Si2",
+   "CaI6Sr2",
+   "CdI2",
+   "Cs2F6Pt",
+   "GaSe",
+   "HfO4Zr",
+   "In2S4Zn",
+   "LiO2Rh",
+   "N3Rb",
+   "N4Zr3",
+   "O2Pt",
+   "O3Te",
+   "S2W",
+   "SeZn"
+  ]
+ }
+}

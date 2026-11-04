@@ -1,0 +1,187 @@
+{
+ "protocol_sha256": "fd4bdec427f7d86faed6b0e4272bd825592122c17668cf69259ddfeac5734a95",
+ "n_entries_applicable": 501,
+ "n_entries_npar_gt2000_or_none": 20,
+ "F0": {
+  "preregistered": {
+   "n_pairs": 0,
+   "n_formulas": 0,
+   "verdict": "not evaluable (n = 0)"
+  },
+  "unit_counts": {
+   "reference_valid": 320,
+   "A1_applicable_both": 294,
+   "plus_M1_M2_valid": 2,
+   "plus_D3_valid": 0
+  },
+  "post_hoc_capped": {
+   "n_pairs": 294,
+   "n_formulas": 223,
+   "rho_G_P1": 0.11730486704622795,
+   "rho_G_P2": -0.1115634976852019,
+   "diff": 0.22886836473142985,
+   "diff_ci95": [
+    0.06919749106792299,
+    0.3759865232108801
+   ],
+   "verdict": "mechanism prediction supported",
+   "G_median": 16.418490727448216,
+   "G_frac_positive": 0.8095238095238095,
+   "note": "post hoc, descriptive: invalid fits and invalid D3 spectra enter at the 20 meV/atom cap; not the pre-registered test"
+  },
+  "descriptive": {
+   "D3": {
+    "zero_0.1": {
+     "median_abs_single_meV": 5.905146742491638,
+     "n_valid": 19,
+     "n_invalid": 482
+    },
+    "F0_0.1": {
+     "median_abs_single_meV": 6.026411664712839,
+     "n_valid": 236,
+     "n_invalid": 265
+    },
+    "rank_frac_0.1": {
+     "median": 0.33974358974358976,
+     "p10": 0.18772563176895307
+    },
+    "zero_0.25": {
+     "median_abs_single_meV": 5.946810636717316,
+     "n_valid": 20,
+     "n_invalid": 481
+    },
+    "F0_0.25": {
+     "median_abs_single_meV": 5.349022401075274,
+     "n_valid": 221,
+     "n_invalid": 280
+    },
+    "rank_frac_0.25": {
+     "median": 0.6437246963562753,
+     "p10": 0.41134751773049644
+    },
+    "zero_0.5": {
+     "median_abs_single_meV": 2.4537529228908,
+     "n_valid": 44,
+     "n_invalid": 457
+    },
+    "F0_0.5": {
+     "median_abs_single_meV": 2.65869960371424,
+     "n_valid": 253,
+     "n_invalid": 248
+    },
+    "rank_frac_0.5": {
+     "median": 0.8913043478260869,
+     "p10": 0.7
+    },
+    "zero_1.0": {
+     "median_abs_single_meV": 0.013350853282204866,
+     "n_valid": 348,
+     "n_invalid": 153
+    },
+    "F0_1.0": {
+     "median_abs_single_meV": 0.009294307931085655,
+     "n_valid": 348,
+     "n_invalid": 153
+    },
+    "rank_frac_1.0": {
+     "median": 1.0,
+     "p10": 1.0
+    }
+   },
+   "representation_bias_single_abs_meV_median": 1.318591301390967,
+   "representation_bias_invalid": 153,
+   "theta_err_norm_median": 0.07807401479144065
+  }
+ },
+ "MS": {
+  "preregistered": {
+   "n_pairs": 0,
+   "n_formulas": 0,
+   "verdict": "not evaluable (n = 0)"
+  },
+  "unit_counts": {
+   "reference_valid": 320,
+   "A1_applicable_both": 294,
+   "plus_M1_M2_valid": 3,
+   "plus_D3_valid": 0
+  },
+  "post_hoc_capped": {
+   "n_pairs": 294,
+   "n_formulas": 223,
+   "rho_G_P1": 0.33188267090355605,
+   "rho_G_P2": -0.018908356582816182,
+   "diff": 0.35079102748637225,
+   "diff_ci95": [
+    0.16402794507512294,
+    0.5331003331959667
+   ],
+   "verdict": "mechanism prediction supported",
+   "G_median": 17.636078314603083,
+   "G_frac_positive": 0.7482993197278912,
+   "note": "post hoc, descriptive: invalid fits and invalid D3 spectra enter at the 20 meV/atom cap; not the pre-registered test"
+  },
+  "descriptive": {
+   "D3": {
+    "zero_0.1": {
+     "median_abs_single_meV": 5.905146742491638,
+     "n_valid": 19,
+     "n_invalid": 482
+    },
+    "MS_0.1": {
+     "median_abs_single_meV": 2.286910009877772,
+     "n_valid": 273,
+     "n_invalid": 228
+    },
+    "rank_frac_0.1": {
+     "median": 0.33974358974358976,
+     "p10": 0.18772563176895307
+    },
+    "zero_0.25": {
+     "median_abs_single_meV": 5.946810636717316,
+     "n_valid": 20,
+     "n_invalid": 481
+    },
+    "MS_0.25": {
+     "median_abs_single_meV": 1.9887396385328202,
+     "n_valid": 280,
+     "n_invalid": 221
+    },
+    "rank_frac_0.25": {
+     "median": 0.6437246963562753,
+     "p10": 0.41134751773049644
+    },
+    "zero_0.5": {
+     "median_abs_single_meV": 2.4537529228908,
+     "n_valid": 44,
+     "n_invalid": 457
+    },
+    "MS_0.5": {
+     "median_abs_single_meV": 1.49142896980959,
+     "n_valid": 304,
+     "n_invalid": 197
+    },
+    "rank_frac_0.5": {
+     "median": 0.8913043478260869,
+     "p10": 0.7
+    },
+    "zero_1.0": {
+     "median_abs_single_meV": 0.013350853282204866,
+     "n_valid": 348,
+     "n_invalid": 153
+    },
+    "MS_1.0": {
+     "median_abs_single_meV": 0.012355273341782436,
+     "n_valid": 348,
+     "n_invalid": 153
+    },
+    "rank_frac_1.0": {
+     "median": 1.0,
+     "p10": 1.0
+    }
+   },
+   "representation_bias_single_abs_meV_median": 1.318591301390967,
+   "representation_bias_invalid": 153,
+   "theta_err_norm_median": 0.0485644524395717
+  }
+ }
+}

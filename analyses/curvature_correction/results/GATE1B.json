@@ -1,0 +1,409 @@
+{
+ "protocol_sha256": "83dd84aac05cefeac4c2308990eb2f3e1d3ded6788812a82c045ab9924577df4",
+ "F0": {
+  "self_check": {
+   "assembly_reldiff": {
+    "median": 2.7851746952709125e-16,
+    "p90": 4.723468200938047e-16,
+    "max": 6.064575278695161e-15
+   },
+   "asr_base": {
+    "median": 6.459155705774354e-06,
+    "p90": 1.5844048818136687e-05,
+    "max": 4.6107344467215464e-05
+   },
+   "asr_R3": {
+    "median": 6.044549060285022e-06,
+    "p90": 1.4719022696139412e-05,
+    "max": 4.408948597299973e-05
+   },
+   "perm_base": {
+    "median": 0.00011482962557710823,
+    "p90": 0.0003790660723887866,
+    "max": 0.0027490088771994314
+   },
+   "perm_R3": {
+    "median": 0.0017738707680428375,
+    "p90": 0.0092764850410205,
+    "max": 0.04696277085969402
+   },
+   "sg_base": {
+    "median": 5.97806699195083e-16,
+    "p90": 2.072635179357956e-09,
+    "max": 1.9162394914806005e-08
+   },
+   "sg_R3": {
+    "median": 0.00032386702452780436,
+    "p90": 0.0048913177763423524,
+    "max": 0.03013388311143075
+   },
+   "asr_dK": {
+    "median": 4.027787736749014e-17,
+    "p90": 1.4375649400690661e-16,
+    "max": 4.1605756936803884e-16
+   },
+   "perm_dK": {
+    "median": 0.0018403285875693617,
+    "p90": 0.010877876122231922,
+    "max": 0.04726818955913412
+   }
+  },
+  "entries_invalid_base": 56,
+  "invalid_near_gamma_base": 8,
+  "invalid_fmin_quantiles_base": [
+   -1.7483915216139165,
+   -0.39456606007687345,
+   -0.07265367821152807
+  ],
+  "entries_invalid_R3": 114,
+  "invalid_near_gamma_R3": 87,
+  "invalid_fmin_quantiles_R3": [
+   -0.4736536429783718,
+   -0.08156253240985561,
+   -0.053275373759630484
+  ],
+  "entries_invalid_base_proj": 55,
+  "invalid_near_gamma_base_proj": 7,
+  "invalid_fmin_quantiles_base_proj": [
+   -1.752762020773913,
+   -0.4077407857453256,
+   -0.07406393366117778
+  ],
+  "entries_invalid_R3_proj": 37,
+  "invalid_near_gamma_R3_proj": 10,
+  "invalid_fmin_quantiles_R3_proj": [
+   -1.7996865030565135,
+   -0.30991220259979474,
+   -0.0999653751507894
+  ],
+  "R3_vs_base": {
+   "n_base_pairs": 267,
+   "n_compared": 183,
+   "new_failures": 84,
+   "newly_valid": 24,
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 6.93681026127907,
+    "pair_dS_rms_1000K": 7.473976922751328,
+    "near_Tc_rms_e": 5.423185199279794,
+    "wrong_ordering_mean": 0.06359580869384791,
+    "crossing_hit50": 0.11025641025641025
+   },
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 1.0195893632321942,
+    "pair_dS_rms_1000K": 1.0878746653520095,
+    "near_Tc_rms_e": 0.8146608761417277,
+    "wrong_ordering_mean": 0.005797101449275362,
+    "crossing_hit50": 0.4025641025641026
+   },
+   "d_pair_dFth": {
+    "value": -5.9172208980468755,
+    "ci95": [
+     -8.185440172598637,
+     -3.5070054310474137
+    ]
+   },
+   "d_pair_dS": {
+    "value": -6.386102257399319,
+    "ci95": [
+     -8.670586248415454,
+     -3.9159284601979043
+    ]
+   },
+   "d_near_Tc": {
+    "value": -4.608524323138066,
+    "ci95": [
+     -6.001947166394012,
+     -2.993600342362743
+    ]
+   },
+   "d_wrong_points": {
+    "value": -5.779870724457255,
+    "ci95": [
+     -8.915727146046704,
+     -2.876001341162825
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "crossing_success50_variant": 0.27416666666666667,
+   "crossing_success50_ci": [
+    0.17894736842105263,
+    0.37601558441558436
+   ],
+   "crossing_success50_base": 0.10500000000000001,
+   "failure_variant": 0.3240343347639485,
+   "failure_base": 0.18125894134477827,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "R3_proj_vs_base_proj": {
+   "n_base_pairs": 268,
+   "n_compared": 245,
+   "new_failures": 23,
+   "newly_valid": 30,
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 6.433394943266782,
+    "pair_dS_rms_1000K": 6.994856637704822,
+    "near_Tc_rms_e": 5.183992021825955,
+    "wrong_ordering_mean": 0.0707185011838772,
+    "crossing_hit50": 0.12083333333333335
+   },
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 1.5662319763941885,
+    "pair_dS_rms_1000K": 1.65610015080631,
+    "near_Tc_rms_e": 0.7849608846794248,
+    "wrong_ordering_mean": 0.012871707724244225,
+    "crossing_hit50": 0.42864583333333334
+   },
+   "d_pair_dFth": {
+    "value": -4.867162966872593,
+    "ci95": [
+     -6.946713791257164,
+     -2.86562706264182
+    ]
+   },
+   "d_pair_dS": {
+    "value": -5.338756486898512,
+    "ci95": [
+     -7.416200084862762,
+     -3.288366893150256
+    ]
+   },
+   "d_near_Tc": {
+    "value": -4.3990311371465305,
+    "ci95": [
+     -5.696922695557027,
+     -2.9378415395475472
+    ]
+   },
+   "d_wrong_points": {
+    "value": -5.784679345963297,
+    "ci95": [
+     -8.948428126785116,
+     -2.8418848061033253
+    ]
+   },
+   "n_worsened_gt10": 1,
+   "crossing_success50_variant": 0.3804166666666667,
+   "crossing_success50_ci": [
+    0.2761813186813186,
+    0.49559356473513083
+   ],
+   "crossing_success50_base": 0.10500000000000001,
+   "failure_variant": 0.11473533619456366,
+   "failure_base": 0.17696709585121603,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  }
+ },
+ "MS": {
+  "self_check": {
+   "assembly_reldiff": {
+    "median": 3.1527377356294043e-16,
+    "p90": 5.582177186184526e-16,
+    "max": 1.2629134838139196e-14
+   },
+   "asr_base": {
+    "median": 4.945793265317768e-06,
+    "p90": 1.1456148146148638e-05,
+    "max": 5.2056815112911335e-05
+   },
+   "asr_R3": {
+    "median": 4.848676174548231e-06,
+    "p90": 1.159590901301524e-05,
+    "max": 4.961035665524617e-05
+   },
+   "perm_base": {
+    "median": 7.840218489714841e-05,
+    "p90": 0.00020286411032469827,
+    "max": 0.0006404068808749834
+   },
+   "perm_R3": {
+    "median": 0.0014137380168735897,
+    "p90": 0.009538332688846006,
+    "max": 0.03179895801642562
+   },
+   "sg_base": {
+    "median": 2.230768832214799e-16,
+    "p90": 2.0762720684555213e-09,
+    "max": 1.9162328865399724e-08
+   },
+   "sg_R3": {
+    "median": 0.0002948931450719022,
+    "p90": 0.0035254372449784028,
+    "max": 0.024035261796703282
+   },
+   "asr_dK": {
+    "median": 1.8896721033855734e-17,
+    "p90": 6.175050122542931e-17,
+    "max": 2.7166496670444946e-16
+   },
+   "perm_dK": {
+    "median": 0.0014464129333513,
+    "p90": 0.009992832386663545,
+    "max": 0.03583586516914097
+   }
+  },
+  "entries_invalid_base": 69,
+  "invalid_near_gamma_base": 7,
+  "invalid_fmin_quantiles_base": [
+   -0.7604023060460097,
+   -0.2654682740771172,
+   -0.08722321020636346
+  ],
+  "entries_invalid_R3": 97,
+  "invalid_near_gamma_R3": 64,
+  "invalid_fmin_quantiles_R3": [
+   -0.4411689385616999,
+   -0.08593940871855582,
+   -0.05317748743645469
+  ],
+  "entries_invalid_base_proj": 66,
+  "invalid_near_gamma_base_proj": 4,
+  "invalid_fmin_quantiles_base_proj": [
+   -0.7670281839007107,
+   -0.2927792532722432,
+   -0.10377261525902881
+  ],
+  "entries_invalid_R3_proj": 40,
+  "invalid_near_gamma_R3_proj": 7,
+  "invalid_fmin_quantiles_R3_proj": [
+   -0.9348336176367514,
+   -0.23308382876422912,
+   -0.06532454286862882
+  ],
+  "R3_vs_base": {
+   "n_base_pairs": 243,
+   "n_compared": 204,
+   "new_failures": 39,
+   "newly_valid": 25,
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 11.648430647503451,
+    "pair_dS_rms_1000K": 12.092655369992784,
+    "near_Tc_rms_e": 8.598755407922123,
+    "wrong_ordering_mean": 0.04633743985203994,
+    "crossing_hit50": 0.16
+   },
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 2.080203926648152,
+    "pair_dS_rms_1000K": 2.2024862024097556,
+    "near_Tc_rms_e": 2.2617779577385493,
+    "wrong_ordering_mean": 0.010922046676384384,
+    "crossing_hit50": 0.4833333333333333
+   },
+   "d_pair_dFth": {
+    "value": -9.5682267208553,
+    "ci95": [
+     -14.457331069926287,
+     -3.8907988840153376
+    ]
+   },
+   "d_pair_dS": {
+    "value": -9.890169167583029,
+    "ci95": [
+     -14.87930891277028,
+     -4.132542123680087
+    ]
+   },
+   "d_near_Tc": {
+    "value": -6.336977450183574,
+    "ci95": [
+     -11.844107227293428,
+     -1.3654816385944766
+    ]
+   },
+   "d_wrong_points": {
+    "value": -3.5415393175655554,
+    "ci95": [
+     -6.146507653038006,
+     -1.33451125380128
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "crossing_success50_variant": 0.3145833333333333,
+   "crossing_success50_ci": [
+    0.22164686530885927,
+    0.4126984126984127
+   ],
+   "crossing_success50_base": 0.1125,
+   "failure_variant": 0.2479256080114449,
+   "failure_base": 0.2140200286123033,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "R3_proj_vs_base_proj": {
+   "n_base_pairs": 246,
+   "n_compared": 239,
+   "new_failures": 7,
+   "newly_valid": 30,
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 10.79040565312306,
+    "pair_dS_rms_1000K": 11.209423677211863,
+    "near_Tc_rms_e": 7.952803549002737,
+    "wrong_ordering_mean": 0.04504973176010848,
+    "crossing_hit50": 0.2033898305084746
+   },
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 1.9846833541145241,
+    "pair_dS_rms_1000K": 2.0993427122205355,
+    "near_Tc_rms_e": 2.2140442090587595,
+    "wrong_ordering_mean": 0.01150768287842445,
+    "crossing_hit50": 0.4604519774011299
+   },
+   "d_pair_dFth": {
+    "value": -8.805722299008535,
+    "ci95": [
+     -13.24898890759555,
+     -3.581967884020311
+    ]
+   },
+   "d_pair_dS": {
+    "value": -9.110080964991328,
+    "ci95": [
+     -13.666603199105811,
+     -3.799590246115718
+    ]
+   },
+   "d_near_Tc": {
+    "value": -5.738759339943977,
+    "ci95": [
+     -10.75013240494906,
+     -1.1462824671852572
+    ]
+   },
+   "d_wrong_points": {
+    "value": -3.354204888168403,
+    "ci95": [
+     -5.642479541893947,
+     -1.3821712758975555
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "crossing_success50_variant": 0.3520833333333333,
+   "crossing_success50_ci": [
+    0.2565507058484586,
+    0.4543695887445887
+   ],
+   "crossing_success50_base": 0.15,
+   "failure_variant": 0.12589413447782546,
+   "failure_base": 0.2011444921316166,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  }
+ }
+}

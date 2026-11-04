@@ -1,0 +1,979 @@
+{
+ "protocol_sha256": "caac70fbdb2709425b99c3b5101612f0543c2f9b56bb3a29f1fc875b789c163b",
+ "F0": {
+  "entries_invalid_base_proj": 55,
+  "entries_invalid_R3_proj": 37,
+  "entries_invalid_A1_proj": 37,
+  "entries_invalid_A1": 39,
+  "entries_invalid_oracle6_proj": 36,
+  "A1_inapplicable_entries": 8,
+  "npar": {
+   "A1_median": 189.0,
+   "A1_p90": 841.0,
+   "A1_max": 7165,
+   "R3_median": 24.0,
+   "ratio_median": 8.45
+  },
+  "A1_r2_median": 0.874323927625621,
+  "A1_proj_vs_base_proj": {
+   "n_base": 268,
+   "n_compared": 236,
+   "new_failures": 32,
+   "newly_valid": 39,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.984577305844665,
+    "pair_dS_rms_1000K": 1.0515628286007372,
+    "near_Tc_rms_e": 0.5533941898375319,
+    "wrong_ordering_mean": 0.00480051842188286,
+    "crossing_hit50": 0.7123655913978494
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 6.5528446188874865,
+    "pair_dS_rms_1000K": 7.121391334027891,
+    "near_Tc_rms_e": 5.281709037226572,
+    "wrong_ordering_mean": 0.0740755804534486,
+    "crossing_hit50": 0.14784946236559138
+   },
+   "d_pair_dFth": {
+    "value": -5.5682673130428215,
+    "ci95": [
+     -7.4934576216261295,
+     -3.6528055648040807
+    ]
+   },
+   "d_pair_dS": {
+    "value": -6.069828505427154,
+    "ci95": [
+     -8.046845894371648,
+     -4.149233527336144
+    ]
+   },
+   "d_near_Tc": {
+    "value": -4.72831484738904,
+    "ci95": [
+     -6.130506177097542,
+     -3.2330261855998175
+    ]
+   },
+   "d_wrong_points": {
+    "value": -6.9275062031565735,
+    "ci95": [
+     -9.905570654636596,
+     -4.281403321805402
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.5945833333333332,
+   "success_base": 0.11749999999999998,
+   "d_success": {
+    "value": 0.47708333333333325,
+    "ci95": [
+     0.3662106259968102,
+     0.585665578982597
+    ]
+   },
+   "ordering_success_var": 0.9065117654869345,
+   "failure_var": 0.0982832618025751,
+   "criteria": {
+    "c1": true,
+    "c2": true,
+    "c3": true,
+    "verdict": "pass"
+   }
+  },
+  "R3_proj_vs_base_proj": {
+   "n_base": 268,
+   "n_compared": 245,
+   "new_failures": 23,
+   "newly_valid": 30,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 1.5643095545063725,
+    "pair_dS_rms_1000K": 1.6539220021579712,
+    "near_Tc_rms_e": 0.7825718799185485,
+    "wrong_ordering_mean": 0.011983701326185705,
+    "crossing_hit50": 0.42864583333333334
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 6.4398842189841785,
+    "pair_dS_rms_1000K": 7.001646671988998,
+    "near_Tc_rms_e": 5.1792769368979785,
+    "wrong_ordering_mean": 0.07137209595511904,
+    "crossing_hit50": 0.13645833333333335
+   },
+   "d_pair_dFth": {
+    "value": -4.875574664477806,
+    "ci95": [
+     -6.968896401215908,
+     -2.8868243280515524
+    ]
+   },
+   "d_pair_dS": {
+    "value": -5.347724669831027,
+    "ci95": [
+     -7.425108369452867,
+     -3.2970350093316703
+    ]
+   },
+   "d_near_Tc": {
+    "value": -4.39670505697943,
+    "ci95": [
+     -5.700606575738107,
+     -2.9324847354496453
+    ]
+   },
+   "d_wrong_points": {
+    "value": -5.938839462893333,
+    "ci95": [
+     -9.119479233046336,
+     -2.942065029292955
+    ]
+   },
+   "n_worsened_gt10": 1,
+   "success_var": 0.3804166666666667,
+   "success_base": 0.11749999999999998,
+   "d_success": {
+    "value": 0.2629166666666667,
+    "ci95": [
+     0.15066780821917808,
+     0.37805702043506917
+    ]
+   },
+   "ordering_success_var": 0.8921148122422052,
+   "failure_var": 0.11473533619456366,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "A1_proj_vs_R3_proj": {
+   "n_base": 275,
+   "n_compared": 250,
+   "new_failures": 25,
+   "newly_valid": 25,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 1.0648387420568866,
+    "pair_dS_rms_1000K": 1.1259209014416365,
+    "near_Tc_rms_e": 0.3783019874872037,
+    "wrong_ordering_mean": 0.004101501161987312,
+    "crossing_hit50": 0.7045454545454546
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 1.3211709286679598,
+    "pair_dS_rms_1000K": 1.4051972405792594,
+    "near_Tc_rms_e": 0.8315059063522684,
+    "wrong_ordering_mean": 0.007878452555571564,
+    "crossing_hit50": 0.4318181818181818
+   },
+   "d_pair_dFth": {
+    "value": -0.25633218661107326,
+    "ci95": [
+     -0.6848945720898215,
+     0.1400352922498172
+    ]
+   },
+   "d_pair_dS": {
+    "value": -0.27927633913762295,
+    "ci95": [
+     -0.7381151456258684,
+     0.12864226024941866
+    ]
+   },
+   "d_near_Tc": {
+    "value": -0.4532039188650647,
+    "ci95": [
+     -0.6145775140662915,
+     -0.28448068106677
+    ]
+   },
+   "d_wrong_points": {
+    "value": -0.3776951393584252,
+    "ci95": [
+     -1.237500517303471,
+     0.363260381097916
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.5945833333333332,
+   "success_base": 0.3804166666666667,
+   "d_success": {
+    "value": 0.21416666666666656,
+    "ci95": [
+     0.08992189335212589,
+     0.33486680189317103
+    ]
+   },
+   "ordering_success_var": 0.9065117654869345,
+   "failure_var": 0.0982832618025751,
+   "criteria": {
+    "c1": false,
+    "c2": true,
+    "c3": true,
+    "verdict": "fail"
+   }
+  },
+  "oracle6_proj_vs_base_proj": {
+   "n_base": 268,
+   "n_compared": 255,
+   "new_failures": 13,
+   "newly_valid": 32,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 38.93936462197175,
+    "pair_dS_rms_1000K": 67.22240411976101,
+    "near_Tc_rms_e": 2.083410181126528,
+    "wrong_ordering_mean": 0.05196581206964579,
+    "crossing_hit50": 0.2743169398907104
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 6.272886085913633,
+    "pair_dS_rms_1000K": 6.82161614968946,
+    "near_Tc_rms_e": 5.045178423368738,
+    "wrong_ordering_mean": 0.0716621332299896,
+    "crossing_hit50": 0.14316939890710384
+   },
+   "d_pair_dFth": {
+    "value": 32.666478536058115,
+    "ci95": [
+     -4.534681779977882,
+     64.10728361904516
+    ]
+   },
+   "d_pair_dS": {
+    "value": 60.40078797007155,
+    "ci95": [
+     -4.69905539517781,
+     114.72671398531978
+    ]
+   },
+   "d_near_Tc": {
+    "value": -2.96176824224221,
+    "ci95": [
+     -4.13173250592069,
+     -1.6880340130875948
+    ]
+   },
+   "d_wrong_points": {
+    "value": -1.969632116034381,
+    "ci95": [
+     -5.091783868148102,
+     1.4483352276803894
+    ]
+   },
+   "n_worsened_gt10": 10,
+   "success_var": 0.21333333333333332,
+   "success_base": 0.11749999999999998,
+   "d_success": {
+    "value": 0.09583333333333334,
+    "ci95": [
+     0.008769081795397586,
+     0.18651190476190474
+    ]
+   },
+   "ordering_success_var": 0.8517111433697805,
+   "failure_var": 0.11373390557939914,
+   "criteria": {
+    "c1": false,
+    "c2": false,
+    "c3": false,
+    "verdict": "fail"
+   }
+  },
+  "rc_distribution": {
+   "p10": 3.9686539637806275,
+   "median": 5.300396977170046,
+   "n_rc_lt6": 380
+  },
+  "n_pairs_dimg_ge12": 57,
+  "d12_A1_proj_vs_R3_proj": {
+   "n_base": 46,
+   "n_compared": 41,
+   "new_failures": 5,
+   "newly_valid": 3,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.6046959219400376,
+    "pair_dS_rms_1000K": 0.6161595663335923,
+    "near_Tc_rms_e": 0.5264709162352129,
+    "wrong_ordering_mean": 0.006410256410256411,
+    "crossing_hit50": 0.42857142857142855
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 1.1241713710866859,
+    "pair_dS_rms_1000K": 1.177873898929304,
+    "near_Tc_rms_e": 0.8256012696097894,
+    "wrong_ordering_mean": 0.034895104895104896,
+    "crossing_hit50": 0.2857142857142857
+   },
+   "d_pair_dFth": {
+    "value": -0.5194754491466482,
+    "ci95": [
+     -0.73777362687394,
+     -0.26806241143674364
+    ]
+   },
+   "d_pair_dS": {
+    "value": -0.5617143325957118,
+    "ci95": [
+     -0.7894660074873605,
+     -0.3045454074033266
+    ]
+   },
+   "d_near_Tc": {
+    "value": -0.2991303533745765,
+    "ci95": [
+     -0.6670740267687738,
+     0.12541185072725494
+    ]
+   },
+   "d_wrong_points": {
+    "value": -2.8484848484848486,
+    "ci95": [
+     -7.67561612364244,
+     0.0
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.5945833333333332,
+   "success_base": 0.3804166666666667,
+   "d_success": {
+    "value": 0.21416666666666656,
+    "ci95": [
+     0.08992189335212589,
+     0.33486680189317103
+    ]
+   },
+   "ordering_success_var": 0.9065117654869345,
+   "failure_var": 0.0982832618025751,
+   "criteria": {
+    "c1": false,
+    "c2": true,
+    "c3": true,
+    "verdict": "fail"
+   }
+  },
+  "d12_A1_proj_vs_base_proj": {
+   "n_base": 41,
+   "n_compared": 32,
+   "new_failures": 9,
+   "newly_valid": 12,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.5451748078738847,
+    "pair_dS_rms_1000K": 0.5567954421412592,
+    "near_Tc_rms_e": 0.5214577524374369,
+    "wrong_ordering_mean": 0.015151515151515152,
+    "crossing_hit50": 0.46153846153846156
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 12.822632111748963,
+    "pair_dS_rms_1000K": 13.399407622004075,
+    "near_Tc_rms_e": 6.612703383362324,
+    "wrong_ordering_mean": 0.14808612440191385,
+    "crossing_hit50": 0.038461538461538464
+   },
+   "d_pair_dFth": {
+    "value": -12.277457303875078,
+    "ci95": [
+     -18.21152718187807,
+     -4.703367281027745
+    ]
+   },
+   "d_pair_dS": {
+    "value": -12.842612179862815,
+    "ci95": [
+     -18.982623524823577,
+     -4.99342485085688
+    ]
+   },
+   "d_near_Tc": {
+    "value": -6.091245630924887,
+    "ci95": [
+     -9.0671930530093,
+     -2.396216390902954
+    ]
+   },
+   "d_wrong_points": {
+    "value": -13.293460925039868,
+    "ci95": [
+     -25.146198830409354,
+     -3.0303030303030303
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.5945833333333332,
+   "success_base": 0.11749999999999998,
+   "d_success": {
+    "value": 0.47708333333333325,
+    "ci95": [
+     0.3662106259968102,
+     0.585665578982597
+    ]
+   },
+   "ordering_success_var": 0.9065117654869345,
+   "failure_var": 0.0982832618025751,
+   "criteria": {
+    "c1": true,
+    "c2": true,
+    "c3": true,
+    "verdict": "pass"
+   }
+  },
+  "A1_unproj_vs_base_proj": {
+   "n_base": 268,
+   "n_compared": 234,
+   "new_failures": 34,
+   "newly_valid": 39,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.9841387201537867,
+    "pair_dS_rms_1000K": 1.0516065702201385,
+    "near_Tc_rms_e": 0.5507293313235115,
+    "wrong_ordering_mean": 0.004183057959611855,
+    "crossing_hit50": 0.7553763440860214
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 6.578216210470033,
+    "pair_dS_rms_1000K": 7.148754939692577,
+    "near_Tc_rms_e": 5.281709037226572,
+    "wrong_ordering_mean": 0.0729786957473201,
+    "crossing_hit50": 0.14784946236559138
+   },
+   "d_pair_dFth": {
+    "value": -5.594077490316246,
+    "ci95": [
+     -7.510121640230568,
+     -3.671505150068861
+    ]
+   },
+   "d_pair_dS": {
+    "value": -6.097148369472439,
+    "ci95": [
+     -8.08809474748968,
+     -4.164889909329657
+    ]
+   },
+   "d_near_Tc": {
+    "value": -4.730979705903061,
+    "ci95": [
+     -6.140924719134013,
+     -3.232614501619804
+    ]
+   },
+   "d_wrong_points": {
+    "value": -6.879563778770825,
+    "ci95": [
+     -9.842229435399735,
+     -4.248925130879624
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.6279166666666667,
+   "success_base": 0.11749999999999998,
+   "d_success": {
+    "value": 0.5104166666666667,
+    "ci95": [
+     0.3999999999999999,
+     0.6221078273040481
+    ]
+   },
+   "ordering_success_var": 0.8965327605941747,
+   "failure_var": 0.10686695278969957,
+   "criteria": {
+    "c1": true,
+    "c2": true,
+    "c3": true,
+    "verdict": "pass"
+   }
+  }
+ },
+ "MS": {
+  "entries_invalid_base_proj": 66,
+  "entries_invalid_R3_proj": 40,
+  "entries_invalid_A1_proj": 64,
+  "entries_invalid_A1": 66,
+  "entries_invalid_oracle6_proj": 76,
+  "A1_inapplicable_entries": 8,
+  "npar": {
+   "A1_median": 189.0,
+   "A1_p90": 841.0,
+   "A1_max": 7165,
+   "R3_median": 24.0,
+   "ratio_median": 8.45
+  },
+  "A1_r2_median": 0.6761272897038386,
+  "A1_proj_vs_base_proj": {
+   "n_base": 246,
+   "n_compared": 210,
+   "new_failures": 36,
+   "newly_valid": 25,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.8283081810226349,
+    "pair_dS_rms_1000K": 0.8878920722124777,
+    "near_Tc_rms_e": 0.3797681970229263,
+    "wrong_ordering_mean": 0.003594812596373317,
+    "crossing_hit50": 0.6759259259259259
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 10.85454872075803,
+    "pair_dS_rms_1000K": 11.258462442692414,
+    "near_Tc_rms_e": 7.298077740085087,
+    "wrong_ordering_mean": 0.03535767939120281,
+    "crossing_hit50": 0.14814814814814814
+   },
+   "d_pair_dFth": {
+    "value": -10.026240539735396,
+    "ci95": [
+     -14.885730971946339,
+     -3.797800234045883
+    ]
+   },
+   "d_pair_dS": {
+    "value": -10.370570370479935,
+    "ci95": [
+     -15.426973256264406,
+     -3.9094136118939407
+    ]
+   },
+   "d_near_Tc": {
+    "value": -6.91830954306216,
+    "ci95": [
+     -12.169896017362076,
+     -1.5346892026101964
+    ]
+   },
+   "d_wrong_points": {
+    "value": -3.1762866794829496,
+    "ci95": [
+     -5.488805929014031,
+     -1.2312492426105914
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.4604166666666667,
+   "success_base": 0.15,
+   "d_success": {
+    "value": 0.3104166666666667,
+    "ci95": [
+     0.1896533764367816,
+     0.4298316355404641
+    ]
+   },
+   "ordering_success_var": 0.8159303024012066,
+   "failure_var": 0.1907010014306152,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "R3_proj_vs_base_proj": {
+   "n_base": 246,
+   "n_compared": 239,
+   "new_failures": 7,
+   "newly_valid": 30,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 1.9827654161202917,
+    "pair_dS_rms_1000K": 2.0974855839491826,
+    "near_Tc_rms_e": 2.2107734181083734,
+    "wrong_ordering_mean": 0.01150768287842445,
+    "crossing_hit50": 0.4774011299435028
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 10.791706392442054,
+    "pair_dS_rms_1000K": 11.21065010371745,
+    "near_Tc_rms_e": 7.93612167607552,
+    "wrong_ordering_mean": 0.04504973176010848,
+    "crossing_hit50": 0.2033898305084746
+   },
+   "d_pair_dFth": {
+    "value": -8.808940976321761,
+    "ci95": [
+     -13.26291900011036,
+     -3.5771272030630863
+    ]
+   },
+   "d_pair_dS": {
+    "value": -9.113164519768267,
+    "ci95": [
+     -13.659876189141455,
+     -3.8010630594873906
+    ]
+   },
+   "d_near_Tc": {
+    "value": -5.725348257967147,
+    "ci95": [
+     -10.70979439709275,
+     -1.1368992528051012
+    ]
+   },
+   "d_wrong_points": {
+    "value": -3.354204888168403,
+    "ci95": [
+     -5.642479541893947,
+     -1.3821712758975555
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.3645833333333333,
+   "success_base": 0.15,
+   "d_success": {
+    "value": 0.21458333333333332,
+    "ci95": [
+     0.11485782657657657,
+     0.3170828493999225
+    ]
+   },
+   "ordering_success_var": 0.8698912942179985,
+   "failure_var": 0.12589413447782546,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "A1_proj_vs_R3_proj": {
+   "n_base": 269,
+   "n_compared": 223,
+   "new_failures": 46,
+   "newly_valid": 12,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.8327161361041844,
+    "pair_dS_rms_1000K": 0.8882294839154894,
+    "near_Tc_rms_e": 0.38955469216136723,
+    "wrong_ordering_mean": 0.003405656167647529,
+    "crossing_hit50": 0.6517857142857143
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 1.467744498625529,
+    "pair_dS_rms_1000K": 1.5524907374517056,
+    "near_Tc_rms_e": 1.6418386194839303,
+    "wrong_ordering_mean": 0.008277002480230488,
+    "crossing_hit50": 0.4375
+   },
+   "d_pair_dFth": {
+    "value": -0.6350283625213446,
+    "ci95": [
+     -0.9377207078074697,
+     -0.3290184289115723
+    ]
+   },
+   "d_pair_dS": {
+    "value": -0.6642612535362162,
+    "ci95": [
+     -1.0079116218506148,
+     -0.32183137608430346
+    ]
+   },
+   "d_near_Tc": {
+    "value": -1.252283927322563,
+    "ci95": [
+     -1.855200569250545,
+     -0.6116628375611302
+    ]
+   },
+   "d_wrong_points": {
+    "value": -0.4871346312582958,
+    "ci95": [
+     -1.5082241143238195,
+     0.5459384248396838
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.4604166666666667,
+   "success_base": 0.3645833333333333,
+   "d_success": {
+    "value": 0.09583333333333338,
+    "ci95": [
+     -0.022237442922374513,
+     0.2166898148148147
+    ]
+   },
+   "ordering_success_var": 0.8159303024012066,
+   "failure_var": 0.1907010014306152,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "oracle6_proj_vs_base_proj": {
+   "n_base": 246,
+   "n_compared": 209,
+   "new_failures": 37,
+   "newly_valid": 23,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 5.631947206483781,
+    "pair_dS_rms_1000K": 6.148247554380221,
+    "near_Tc_rms_e": 3.0906131565128283,
+    "wrong_ordering_mean": 0.0693378769774781,
+    "crossing_hit50": 0.2358490566037736
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 10.880784371920791,
+    "pair_dS_rms_1000K": 11.286513820685242,
+    "near_Tc_rms_e": 7.367183551801475,
+    "wrong_ordering_mean": 0.03827578746531903,
+    "crossing_hit50": 0.1572327044025157
+   },
+   "d_pair_dFth": {
+    "value": -5.24883716543701,
+    "ci95": [
+     -10.045819929662011,
+     0.8824332352300468
+    ]
+   },
+   "d_pair_dS": {
+    "value": -5.1382662663050205,
+    "ci95": [
+     -10.149496331127049,
+     1.1737446270560707
+    ]
+   },
+   "d_near_Tc": {
+    "value": -4.276570395288648,
+    "ci95": [
+     -9.282628581887744,
+     1.0432899250339345
+    ]
+   },
+   "d_wrong_points": {
+    "value": 3.1062089512159075,
+    "ci95": [
+     0.1715850385081265,
+     6.158134833549812
+    ]
+   },
+   "n_worsened_gt10": 14,
+   "success_var": 0.15625,
+   "success_base": 0.15,
+   "d_success": {
+    "value": 0.0062500000000000056,
+    "ci95": [
+     -0.08450265333826977,
+     0.10243560448691302
+    ]
+   },
+   "ordering_success_var": 0.7340755828419315,
+   "failure_var": 0.22746781115879827,
+   "criteria": {
+    "c1": false,
+    "c2": false,
+    "c3": false,
+    "verdict": "fail"
+   }
+  },
+  "rc_distribution": {
+   "p10": 3.9686539637806275,
+   "median": 5.300396977170046,
+   "n_rc_lt6": 380
+  },
+  "n_pairs_dimg_ge12": 57,
+  "d12_A1_proj_vs_R3_proj": {
+   "n_base": 50,
+   "n_compared": 39,
+   "new_failures": 11,
+   "newly_valid": 1,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.9838460705768017,
+    "pair_dS_rms_1000K": 1.0064136310639646,
+    "near_Tc_rms_e": 0.7231637112067382,
+    "wrong_ordering_mean": 0.0,
+    "crossing_hit50": 0.35714285714285715
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 2.3613448839637523,
+    "pair_dS_rms_1000K": 2.426837101696925,
+    "near_Tc_rms_e": 2.772935255243997,
+    "wrong_ordering_mean": 0.028381642512077292,
+    "crossing_hit50": 0.07142857142857142
+   },
+   "d_pair_dFth": {
+    "value": -1.3774988133869506,
+    "ci95": [
+     -2.053713257461541,
+     -0.7998490767315385
+    ]
+   },
+   "d_pair_dS": {
+    "value": -1.4204234706329604,
+    "ci95": [
+     -2.114602745551444,
+     -0.8259706469988546
+    ]
+   },
+   "d_near_Tc": {
+    "value": -2.0497715440372586,
+    "ci95": [
+     -3.3381418323933163,
+     -0.368588187228372
+    ]
+   },
+   "d_wrong_points": {
+    "value": -2.838164251207729,
+    "ci95": [
+     -8.004596828609987,
+     0.0
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.4604166666666667,
+   "success_base": 0.3645833333333333,
+   "d_success": {
+    "value": 0.09583333333333338,
+    "ci95": [
+     -0.022237442922374513,
+     0.2166898148148147
+    ]
+   },
+   "ordering_success_var": 0.8159303024012066,
+   "failure_var": 0.1907010014306152,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "d12_A1_proj_vs_base_proj": {
+   "n_base": 40,
+   "n_compared": 31,
+   "new_failures": 9,
+   "newly_valid": 9,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.9845391152347673,
+    "pair_dS_rms_1000K": 1.0081246500649066,
+    "near_Tc_rms_e": 0.7625608172106146,
+    "wrong_ordering_mean": 0.0,
+    "crossing_hit50": 0.4
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 26.13438522217698,
+    "pair_dS_rms_1000K": 26.938660031233987,
+    "near_Tc_rms_e": 17.183211488555802,
+    "wrong_ordering_mean": 0.07808737530099759,
+    "crossing_hit50": 0.0
+   },
+   "d_pair_dFth": {
+    "value": -25.149846106942213,
+    "ci95": [
+     -37.77609956273889,
+     -7.016855853570986
+    ]
+   },
+   "d_pair_dS": {
+    "value": -25.93053538116908,
+    "ci95": [
+     -38.91568247574682,
+     -7.452097574389816
+    ]
+   },
+   "d_near_Tc": {
+    "value": -16.420650671345186,
+    "ci95": [
+     -29.717062531994532,
+     -1.3776794965212562
+    ]
+   },
+   "d_wrong_points": {
+    "value": -7.808737530099759,
+    "ci95": [
+     -22.22294372294372,
+     0.0
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.4604166666666667,
+   "success_base": 0.15,
+   "d_success": {
+    "value": 0.3104166666666667,
+    "ci95": [
+     0.1896533764367816,
+     0.4298316355404641
+    ]
+   },
+   "ordering_success_var": 0.8159303024012066,
+   "failure_var": 0.1907010014306152,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  },
+  "A1_unproj_vs_base_proj": {
+   "n_base": 246,
+   "n_compared": 208,
+   "new_failures": 38,
+   "newly_valid": 25,
+   "var_metrics": {
+    "pair_dFth_rms_1000K": 0.8317324762562559,
+    "pair_dS_rms_1000K": 0.8915874189894405,
+    "near_Tc_rms_e": 0.38360182008387245,
+    "wrong_ordering_mean": 0.003641961944624859,
+    "crossing_hit50": 0.6759259259259259
+   },
+   "base_metrics": {
+    "pair_dFth_rms_1000K": 10.906105705319776,
+    "pair_dS_rms_1000K": 11.311842662825208,
+    "near_Tc_rms_e": 7.298077740085087,
+    "wrong_ordering_mean": 0.03582826168883757,
+    "crossing_hit50": 0.14814814814814814
+   },
+   "d_pair_dFth": {
+    "value": -10.07437322906352,
+    "ci95": [
+     -14.916286547875087,
+     -3.810794485095073
+    ]
+   },
+   "d_pair_dS": {
+    "value": -10.420255243835769,
+    "ci95": [
+     -15.430205737596582,
+     -3.9185607930481745
+    ]
+   },
+   "d_near_Tc": {
+    "value": -6.914475920001214,
+    "ci95": [
+     -12.1660657223312,
+     -1.5325251222155822
+    ]
+   },
+   "d_wrong_points": {
+    "value": -3.218629974421271,
+    "ci95": [
+     -5.5412131205126585,
+     -1.2615009747255586
+    ]
+   },
+   "n_worsened_gt10": 0,
+   "success_var": 0.4604166666666667,
+   "success_base": 0.15,
+   "d_success": {
+    "value": 0.3104166666666667,
+    "ci95": [
+     0.187213899292551,
+     0.4298384410393071
+    ]
+   },
+   "ordering_success_var": 0.8057740868049201,
+   "failure_var": 0.19928469241773963,
+   "criteria": {
+    "c1": true,
+    "c2": false,
+    "c3": true,
+    "verdict": "improves, insufficient for the crossing target"
+   }
+  }
+ },
+ "decision": {
+  "A1_pass_both": false,
+  "success_gain_over_R3": {
+   "F0": 0.21416666666666656,
+   "MS": 0.09583333333333338
+  },
+  "outcome": "tensor freedom contributes but is insufficient"
+ }
+}

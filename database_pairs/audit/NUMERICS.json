@@ -1,0 +1,57 @@
+{
+ "budget_derivative": {
+  "n_pairs": 93,
+  "tc_linear_vs_spline_K": {
+   "median": 0.006079545593138391,
+   "p90": 0.2637135474157559,
+   "max": 5.751420982379273
+  },
+  "abs_dS_rel_diff_spline_vs_gradient": {
+   "median": 8.078953473836253e-05,
+   "p90": 0.01972315151686758,
+   "max": 0.33234627674379075
+  },
+  "abs_dS_rel_diff_secant_vs_gradient": {
+   "median": 0.0003371674915471199,
+   "p90": 0.018400438466499663
+  },
+  "eps50_median_meV": {
+   "gradient": 0.3766598847908886,
+   "spline": 0.38052968144380367,
+   "secant": 0.37675345787511105
+  },
+  "n_sign_disagreement_spline": 0,
+  "n_edge_pairs": 4
+ },
+ "within_eps50_pair_weighted_by_rule": {
+  "F0_DPA-3.1-3M_S0": {
+   "gradient": 0.11827956989247312,
+   "spline": 0.11827956989247312,
+   "secant": 0.11827956989247312
+  },
+  "MatterSim-v1.0.0-5M_S0": {
+   "gradient": 0.06451612903225806,
+   "spline": 0.06451612903225806,
+   "secant": 0.06451612903225806
+  },
+  "AVG_F0+MatterSim_S0": {
+   "gradient": 0.0967741935483871,
+   "spline": 0.0967741935483871,
+   "secant": 0.0967741935483871
+  }
+ },
+ "transition_pairs_with_invalid_entry": {
+  "DFT": 8,
+  "F0": 15,
+  "MS": 19,
+  "any": 31,
+  "of": 101
+ },
+ "all_pairs_with_invalid_entry": {
+  "DFT": 31,
+  "F0": 60,
+  "MS": 77,
+  "any": 132,
+  "of": 351
+ }
+}

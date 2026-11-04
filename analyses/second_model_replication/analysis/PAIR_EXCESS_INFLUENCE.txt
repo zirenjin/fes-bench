@@ -1,0 +1,48 @@
+T = 300 K: pooled pair sum of squares F0 1099, MS 2433, excess 1335
+  1 ClCs       pairs  1  pair RMS F0   5.89  MS  27.86  cumulative share of excess 0.56  min fmin (DFT/F0/MS) -0.33 THz
+  2 BrCs       pairs  1  pair RMS F0  12.24  MS  22.92  cumulative share of excess 0.84  min fmin (DFT/F0/MS) -0.02 THz
+  3 ILi        pairs  3  pair RMS F0   2.42  MS   8.57  cumulative share of excess 0.99  min fmin (DFT/F0/MS) -0.01 THz
+  4 AgI        pairs  6  pair RMS F0   0.67  MS   5.39  cumulative share of excess 1.12  min fmin (DFT/F0/MS) -0.04 THz
+  5 Ba2I6Sr    pairs  1  pair RMS F0   3.44  MS  11.45  cumulative share of excess 1.21  min fmin (DFT/F0/MS) -0.44 THz
+  6 IRb        pairs  1  pair RMS F0  12.49  MS  15.11  cumulative share of excess 1.26  min fmin (DFT/F0/MS) -0.00 THz
+  7 ClCu       pairs  1  pair RMS F0   1.61  MS   6.25  cumulative share of excess 1.29  min fmin (DFT/F0/MS) -0.04 THz
+  8 N3Rb       pairs  1  pair RMS F0   0.92  MS   4.70  cumulative share of excess 1.30  min fmin (DFT/F0/MS) -0.03 THz
+  pair RMS ratio MS/F0 after dropping the top-k by excess: k=0: 1.488, k=1: 1.248, k=2: 1.113, k=3: 1.008, k=5: 0.829, k=10: 0.624
+  after dropping the k largest-error formulas (either model): k=1: 1.248, k=3: 1.092, k=5: 0.830, k=10: 0.714
+  per-formula pair RMS ratio MS/F0: median 0.679; MS worse in 0.34 of 239 formulas
+T = 600 K: pooled pair sum of squares F0 5622, MS 10980, excess 5358
+  1 ClCs       pairs  1  pair RMS F0  12.39  MS  58.87  cumulative share of excess 0.62  min fmin (DFT/F0/MS) -0.33 THz
+  2 BrCs       pairs  1  pair RMS F0  26.16  MS  47.56  cumulative share of excess 0.91  min fmin (DFT/F0/MS) -0.02 THz
+  3 ILi        pairs  3  pair RMS F0   5.44  MS  18.93  cumulative share of excess 1.10  min fmin (DFT/F0/MS) -0.01 THz
+  4 AgI        pairs  6  pair RMS F0   1.49  MS  11.51  cumulative share of excess 1.24  min fmin (DFT/F0/MS) -0.04 THz
+  5 Ba2I6Sr    pairs  1  pair RMS F0   7.11  MS  21.80  cumulative share of excess 1.32  min fmin (DFT/F0/MS) -0.44 THz
+  6 IRb        pairs  1  pair RMS F0  26.45  MS  31.26  cumulative share of excess 1.37  min fmin (DFT/F0/MS) -0.00 THz
+  7 ClCu       pairs  1  pair RMS F0   3.53  MS  12.92  cumulative share of excess 1.40  min fmin (DFT/F0/MS) -0.04 THz
+  8 N3Rb       pairs  1  pair RMS F0   1.92  MS  10.68  cumulative share of excess 1.42  min fmin (DFT/F0/MS) -0.03 THz
+  pair RMS ratio MS/F0 after dropping the top-k by excess: k=0: 1.397, k=1: 1.172, k=2: 1.048, k=3: 0.943, k=5: 0.792, k=10: 0.619
+  after dropping the k largest-error formulas (either model): k=1: 1.172, k=3: 0.943, k=5: 0.777, k=10: 0.712
+  per-formula pair RMS ratio MS/F0: median 0.677; MS worse in 0.36 of 239 formulas
+T = 1000 K: pooled pair sum of squares F0 17925, MS 32789, excess 14864
+  1 ClCs       pairs  1  pair RMS F0  20.93  MS 100.31  cumulative share of excess 0.65  min fmin (DFT/F0/MS) -0.33 THz
+  2 BrCs       pairs  1  pair RMS F0  44.75  MS  80.45  cumulative share of excess 0.95  min fmin (DFT/F0/MS) -0.02 THz
+  3 ILi        pairs  3  pair RMS F0   9.51  MS  32.90  cumulative share of excess 1.15  min fmin (DFT/F0/MS) -0.01 THz
+  4 AgI        pairs  6  pair RMS F0   2.59  MS  19.70  cumulative share of excess 1.30  min fmin (DFT/F0/MS) -0.04 THz
+  5 Ba2I6Sr    pairs  1  pair RMS F0  12.00  MS  34.59  cumulative share of excess 1.37  min fmin (DFT/F0/MS) -0.44 THz
+  6 IRb        pairs  1  pair RMS F0  45.09  MS  52.82  cumulative share of excess 1.42  min fmin (DFT/F0/MS) -0.00 THz
+  7 ClCu       pairs  1  pair RMS F0   6.08  MS  21.78  cumulative share of excess 1.45  min fmin (DFT/F0/MS) -0.04 THz
+  8 N3Rb       pairs  1  pair RMS F0   3.27  MS  18.77  cumulative share of excess 1.48  min fmin (DFT/F0/MS) -0.03 THz
+  pair RMS ratio MS/F0 after dropping the top-k by excess: k=0: 1.352, k=1: 1.140, k=2: 1.025, k=3: 0.925, k=5: 0.794, k=10: 0.649
+  after dropping the k largest-error formulas (either model): k=1: 1.140, k=3: 0.925, k=5: 0.775, k=10: 0.756
+  per-formula pair RMS ratio MS/F0: median 0.700; MS worse in 0.37 of 239 formulas
+T = 1500 K: pooled pair sum of squares F0 44438, MS 78022, excess 33584
+  1 ClCs       pairs  1  pair RMS F0  31.44  MS 152.13  cumulative share of excess 0.66  min fmin (DFT/F0/MS) -0.33 THz
+  2 BrCs       pairs  1  pair RMS F0  68.01  MS 121.57  cumulative share of excess 0.96  min fmin (DFT/F0/MS) -0.02 THz
+  3 ILi        pairs  3  pair RMS F0  14.61  MS  50.42  cumulative share of excess 1.17  min fmin (DFT/F0/MS) -0.01 THz
+  4 AgI        pairs  6  pair RMS F0   3.96  MS  29.93  cumulative share of excess 1.33  min fmin (DFT/F0/MS) -0.04 THz
+  5 Ba2I6Sr    pairs  1  pair RMS F0  18.13  MS  49.63  cumulative share of excess 1.39  min fmin (DFT/F0/MS) -0.44 THz
+  6 IRb        pairs  1  pair RMS F0  68.40  MS  79.76  cumulative share of excess 1.44  min fmin (DFT/F0/MS) -0.00 THz
+  7 ClCu       pairs  1  pair RMS F0   9.26  MS  32.86  cumulative share of excess 1.47  min fmin (DFT/F0/MS) -0.04 THz
+  8 N3Rb       pairs  1  pair RMS F0   4.97  MS  28.94  cumulative share of excess 1.49  min fmin (DFT/F0/MS) -0.03 THz
+  pair RMS ratio MS/F0 after dropping the top-k by excess: k=0: 1.325, k=1: 1.124, k=2: 1.016, k=3: 0.922, k=5: 0.808, k=10: 0.684
+  after dropping the k largest-error formulas (either model): k=1: 1.124, k=3: 0.922, k=5: 0.872, k=10: 0.741
+  per-formula pair RMS ratio MS/F0: median 0.681; MS worse in 0.37 of 239 formulas
