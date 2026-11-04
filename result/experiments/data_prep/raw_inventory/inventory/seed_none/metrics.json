@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "git_commit": "294d1ec12c53855f1df999a27e1d2968900f3f9a",
+    "git_commit": "e828e173d41e4d720610c319be085abca0cbbdfb",
     "split": "_inventory",
     "split_sha256": null,
     "predictor_config": null,
@@ -8,7 +8,7 @@
     "checkpoint_path": null,
     "checkpoint_sha256": null,
     "evaluator_version": "fes-bench historical result normalizer v1",
-    "timestamp_utc": "2026-09-30T21:05:42.459360+00:00",
+    "timestamp_utc": "2026-10-03T00:18:48.816910+00:00",
     "input_metrics": "configs/raw_runs.json",
     "input_metrics_sha256": "c63c885f50e465a64436f8434eaf03ef05cfc3b50a950e56c4c0fe3f64f1212c",
     "missing": []

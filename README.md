@@ -103,11 +103,22 @@ for the other splits. The T3 SiO2 seed-11 diagnostic was corrected for the
 type map and FES label scale and reached 1.861 meV/atom in the training region.
 The v2 temp-extrapolation T3 rows are now canonical for three seeds: polynomial
 has ΔG-MAE 86.409 meV/atom (skill −18.114), and tlog has 31.557 meV/atom
-(skill −5.981), both on the test region. Corrected T2 uses
-`F_QH + r_theta`; its former `E_DPA + F_QH` declaration was invalid. The
+(skill −5.981), both on the test region. T2 was documented as using
+`F_QH + r_theta`, with its former `E_DPA + F_QH` declaration marked invalid.
+A fresh component-level audit below finds the actual served checkpoint still
+returns `E_DPA + F_QH + r_theta`. The
 rerun is complete for three seeds: ΔG-MAE 31.239 meV/atom (skill −5.910), sign
-accuracy 0.5581, ranking accuracy 0.1045, and mean T_c error 102.36 K;
-all five crossing pairs have missed predicted crossings in this test region.
+accuracy 0.5581, ranking accuracy 0.1045, and 3/15 reference-root events are
+matched (all three are quartz/cristobalite; the other 12 are missed). The
+102.36 K value is conditional on those three matched events, not five-pair
+coverage. A fresh component-level audit also finds that the served T2 output is
+`E_DPA + F_QH + r_theta`; because canonical `F_QH` already contains the static
+energy, this checkpoint path still double-counts `E_DPA`. The archived metrics
+are preserved as historical outputs; a static-once inference counterfactual is
+reported separately and is not a retrained corrected T2 model. The current
+training entry point now fits `G - F_QH` residual labels with the supported
+`baseline_mode=none` and restores `F_QH` during validation/scoring, avoiding a
+runtime source patch; this corrected path still needs a full training run.
 
 The no-training predictor is expected to have identical metrics on phase_lopo and system_loso: both test-point unions cover the full relative-free-energy grid with the same weighting proportions.
 

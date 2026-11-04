@@ -111,3 +111,73 @@ def test_precomputed_checkpoint_curve_uses_temperature_keys(tmp_path: Path) -> N
     pair = metrics["pairs"]["toy:alpha_minus_beta"]
     assert metrics["G_MAE_eV_per_atom"] == 0.0
     assert pair["Tc_error_K"] == [0.0]
+
+
+def test_multi_pressure_grid_pairs_only_matching_states(tmp_path: Path) -> None:
+    system = tmp_path / "toy"
+    phases = ("alpha", "beta")
+    system.mkdir()
+    (system / "system.json").write_text(
+        json.dumps({
+            "phases": list(phases), "type_map": ["X"],
+            "reference_grid": {"T_K": [300, 400, 500], "P_GPa": [0, 5]},
+            "truth_level": "multi-pressure-fixture",
+        }), encoding="utf-8",
+    )
+    split: dict[str, object] = {"test": []}
+    curves: dict[str, object] = {"predictions": {}}
+    for phase in phases:
+        phase_dir = system / phase
+        phase_dir.mkdir()
+        (phase_dir / "structure.extxyz").write_text(
+            "1\nProperties=species:S:1:pos:R:3\nX 0 0 0\n", encoding="utf-8"
+        )
+        (phase_dir / "meta.json").write_text(json.dumps({
+            "functional": "test", "dispersion": "none", "supercell": "1",
+            "kpoints": "gamma", "convergence": "test", "size_error_eV_per_atom": 0.0,
+            "method": "test", "doi": "test", "notes": "multi-pressure fixture",
+        }), encoding="utf-8")
+        rows: list[list[object]] = []
+        pred_t: list[float] = []
+        pred_p: list[float] = []
+        pred_g: list[float] = []
+        for pressure in (0.0, 5.0):
+            for temperature in (300.0, 400.0, 500.0):
+                value = 0.0 if phase == "alpha" else 0.001 * (temperature - (400.0 if pressure == 0.0 else 500.0))
+                rows.append([temperature, pressure, value, "test", "fixture"])
+                pred_t.append(temperature)
+                pred_p.append(pressure)
+                pred_g.append(value)
+                split["test"].append({"system": "toy", "phase": phase, "T_index": len(rows) - 1})
+        with (phase_dir / "reference_G.csv").open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.writer(handle)
+            writer.writerow(["T_K", "P_GPa", "G_eV_per_atom", "level", "source"])
+            writer.writerows(rows)
+        curves["predictions"][f"toy:{phase}"] = {
+            "T_K": pred_t, "P_GPa": pred_p, "G_eV_per_atom": pred_g,
+        }
+
+    metrics = evaluate("reference", split, tmp_path, [11, 23])
+    assert metrics["G_MAE_eV_per_atom"] == 0.0
+    assert set(metrics["pairs"]) == {
+        "toy:alpha_minus_beta@P=0GPa", "toy:alpha_minus_beta@P=5GPa",
+    }
+    assert metrics["pairs"]["toy:alpha_minus_beta@P=0GPa"]["reference_Tc_K"] == [400.0]
+    assert metrics["pairs"]["toy:alpha_minus_beta@P=5GPa"]["reference_Tc_K"] == [500.0]
+
+    curves_path = tmp_path / "multi_pressure_curves.json"
+    curves_path.write_text(json.dumps(curves), encoding="utf-8")
+    precomputed = evaluate(f"precomputed:{curves_path}", split, tmp_path, [11, 23])
+    assert precomputed["G_MAE_eV_per_atom"] == 0.0
+    assert precomputed["pairs"]["toy:alpha_minus_beta@P=0GPa"]["delta_G_MAE_eV_per_atom"] == 0.0
+    assert precomputed["pairs"]["toy:alpha_minus_beta@P=5GPa"]["delta_G_MAE_eV_per_atom"] == 0.0
+
+    temperature_only = {"predictions": {}}
+    for key, curve in curves["predictions"].items():
+        temperature_only["predictions"][key] = {
+            "T_K": curve["T_K"], "G_eV_per_atom": curve["G_eV_per_atom"],
+        }
+    ambiguous_path = tmp_path / "ambiguous_temperature_only_curves.json"
+    ambiguous_path.write_text(json.dumps(temperature_only), encoding="utf-8")
+    with pytest.raises(ValueError, match="duplicate state"):
+        evaluate(f"precomputed:{ambiguous_path}", split, tmp_path, [11, 23])

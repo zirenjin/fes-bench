@@ -9,7 +9,8 @@
   "doi": "10.18419/DARUS-3582",
   "notes": "The source table does not separately report a finite-size error bound; numeric zero is a schema placeholder and not a convergence claim. Pressure is normalized from 0.1 MPa to 0.0001 GPa.",
   "interpolated": true,
-  "raw_table": "../../data/raw/hf/table-thermodynamic-Hf-hcp-PBE.tab",
+  "raw_table": "../../../raw/metals/darus3582/table-thermodynamic-Hf-hcp-PBE.tsv",
+  "raw_table_publisher_md5": "3f646a4f184382b5085b6990444685cd",
   "unit_conversion": {
     "energy_to_eV_per_atom": 0.001,
     "pressure_to_GPa": 1.0

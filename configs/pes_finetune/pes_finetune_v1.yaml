@@ -1,0 +1,20 @@
+schema: fes_bench.pes_finetune.v1
+status: plan_only_until_remote_archive_staging
+source: DFT energies, forces, and virials only
+forbidden_inputs:
+  - reference_G.csv
+  - fqh.csv
+  - thermodynamic tables
+functional:
+  sio2: PBE-D3(BJ)
+  hf: PBE
+  ti: PBE
+  zr: PBE
+heads:
+  sio2: Domains_SSE_PBE
+  hf: Domains_Alloy
+  ti: Domains_Alloy
+  zr: Domains_Alloy
+split: trajectory-level 80/10/10 (train/validation/test)
+dataloader_num_workers: 0
+loss: energy + forces + virials

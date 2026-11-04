@@ -28,6 +28,7 @@ from typing import Any
 import numpy as np
 
 from fes_bench.eval.run import _root
+from fes_bench.eval.crossings import match_root_events
 
 
 SYSTEM_PHASES = {
@@ -74,7 +75,7 @@ def parse_config(path: Path) -> dict[str, Any]:
 
 def parse_rows(path: Path) -> dict[str, list[dict[str, Any]]]:
     split = json.loads(path.read_text(encoding="utf-8"))
-    return {key: list(split[key]) for key in ("train", "test")}
+    return {key: list(split[key]) for key in ("train", "validation", "test") if key in split}
 
 
 def audit_row(root: Path, basis: str, seed: int) -> dict[str, str]:
@@ -150,10 +151,36 @@ def scale_energy_labels_to_cell(target: Path) -> None:
     np.save(energy_path, np.load(energy_path) * float(natoms))
 
 
+def convert_qh_target_to_residual(target: Path) -> None:
+    """Replace cell G labels with cell (G - F_QH) labels in a fresh data view."""
+    set_path = target / "set.000"
+    type_path = target / "type.raw"
+    natoms = sum(1 for line in type_path.read_text(encoding="utf-8").splitlines() if line.strip())
+    fparam = np.load(set_path / "fparam.npy")
+    if fparam.ndim != 2 or fparam.shape[1] < 3:
+        raise ValueError(f"T2 residual data needs T, P, and F_QH columns: {target}")
+    energy_path = set_path / "free_energy.npy"
+    energy = np.load(energy_path)
+    if len(energy) != len(fparam):
+        raise ValueError(f"F_QH and energy frame counts differ: {target}")
+    np.save(energy_path, energy - fparam[:, 2:3] * float(natoms))
+
+
+def restore_qh_baseline(detail: np.ndarray, dataset: Path) -> np.ndarray:
+    """Restore F_QH to per-atom residual labels/predictions before scoring."""
+    fparam = np.load(dataset / "set.000" / "fparam.npy")
+    if fparam.ndim != 2 or fparam.shape[1] < 3 or len(detail) != len(fparam):
+        raise ValueError(f"cannot restore aligned F_QH values for {dataset}")
+    restored = np.asarray(detail, dtype=float).copy()
+    restored[:, :2] += fparam[:, 2:3]
+    return restored
+
+
 def append_qh_fparam(root: Path, target: Path, system: str, phase: str) -> None:
     """Append canonical F_QH(T) as fparam column 2 for the T2 residual head."""
     processed = root / "data/processed" / system / phase
-    rows = list(csv.DictReader((processed / "fqh.csv").open(encoding="utf-8", newline="")))
+    with (processed / "fqh.csv").open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
     by_temperature = {round(float(row["T_K"]), 8): float(row["F_QH_eV_per_atom"]) for row in rows}
     path = target / "set.000" / "fparam.npy"
     values = np.load(path)
@@ -182,11 +209,12 @@ def materialize_dataset(root: Path, dataset_root: Path, out: Path, system: str, 
 
 
 def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list[dict[str, Any]], *, qh_residual: bool = False) -> dict[str, list[int]]:
-    """Create an evaluation-only DeepMD view from canonical static representatives."""
+    """Create a split-specific DeepMD view from canonical static representatives."""
     selected = index_map(rows, system)
     for phase, indexes in sorted(selected.items()):
         processed = root / "data/processed" / system / phase
-        source_rows = list(csv.DictReader((processed / "reference_G.csv").open(encoding="utf-8", newline="")))
+        with (processed / "reference_G.csv").open(encoding="utf-8", newline="") as handle:
+            source_rows = list(csv.DictReader(handle))
         lines = (processed / "structure.extxyz").read_text(encoding="utf-8").splitlines()
         natoms = int(lines[0]); lattice = re.search(r'Lattice="([^"]+)"', lines[1])
         if lattice is None: raise ValueError(f"missing lattice in {processed / 'structure.extxyz'}")
@@ -212,31 +240,58 @@ def materialize_canonical_dataset(root: Path, out: Path, system: str, rows: list
     return selected
 
 
-def configure(template: dict[str, Any], train_dirs: list[Path], *, seed: int, out: Path) -> dict[str, Any]:
+def configure(
+    template: dict[str, Any],
+    train_dirs: list[Path],
+    *,
+    seed: int,
+    out: Path,
+    loss_overrides: dict[str, Any] | None = None,
+    validation_dirs: list[Path] | None = None,
+) -> dict[str, Any]:
     config = copy.deepcopy(template)
     out = out.resolve()
     train_dirs = [p.resolve() for p in train_dirs]
     config["training"]["seed"] = seed
-    config["model"]["fitting_net"]["seed"] = template["model"]["fitting_net"].get("seed", 17)
+    config["model"]["fitting_net"]["seed"] = seed
     config["training"]["training_data"] = {"systems": [str(p) for p in train_dirs], "pair_systems": [str(p) for p in train_dirs], "batch_size": template["training"]["training_data"].get("batch_size", 2)}
     config["training"]["validation_data"] = {"systems": [str(p) for p in train_dirs], "pair_systems": [str(p) for p in train_dirs], "batch_size": template["training"].get("validation_data", {}).get("batch_size", 2), "numb_btch": len(train_dirs)}
+    if validation_dirs:
+        validation_dirs = [p.resolve() for p in validation_dirs]
+        if set(train_dirs) & set(validation_dirs):
+            raise ValueError("validation directories must be distinct from training directories")
+        config["training"]["validation_data"]["systems"] = [str(p) for p in validation_dirs]
+        config["training"]["validation_data"]["pair_systems"] = [str(p) for p in validation_dirs]
+        config["training"]["validation_data"]["numb_btch"] = len(validation_dirs)
     config["training"]["stat_file"] = str(out / "fes_stats.hdf5")
     config["training"]["disp_file"] = str(out / "train.out")
     config["training"]["save_ckpt"] = str(out / "model.ckpt")
+    if loss_overrides:
+        config["loss"] = {**config.get("loss", {}), **loss_overrides}
     return config
 
 
-def run_train(dp: str, repo: Path, config_path: Path, out: Path, init_model: Path, model_branch: str) -> Path:
+def run_train(dp: str, repo: Path, config_path: Path, out: Path, init_model: Path, model_branch: str, validation_dirs: list[Path] | None = None, qh_residual: bool = False) -> Path:
     env = os.environ.copy()
-    env["PYTHONPATH"] = str(repo / "src/lib")
+    # DeepMD launches PyTorch DataLoader workers internally.  Put a
+    # sitecustomize module on the child interpreter's PYTHONPATH so the
+    # sharing strategy is changed inside the actual `dp` process, not only in
+    # this parent orchestration process.
+    (out / "sitecustomize.py").write_text(
+        "import torch\n"
+        "torch.multiprocessing.set_sharing_strategy('file_system')\n",
+        encoding="utf-8",
+    )
+    env["PYTHONPATH"] = os.pathsep.join([str(out), str(repo / "src/lib")])
     env["TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"] = "1"
     log = out / "console.log"
     with log.open("w", encoding="utf-8") as handle:
-        # Fine-tuning applies the selected pretrained branch (rather than
-        # treating the multi-head checkpoint as a single-task init model).
-        # This preserves the Domains_Alloy representation and reinitializes
-        # the FES fitting head described by the E1 config.
-        command = [dp, "--pt", "train", "config.json", "--finetune", str(init_model), "--model-branch", model_branch]
+        # Multi-task checkpoints need an explicit source branch. Single-task
+        # checkpoints expose only DeepMD's implicit Default branch, so omit
+        # --model-branch for that case.
+        command = [dp, "--pt", "train", "config.json", "--finetune", str(init_model)]
+        if model_branch != "Default":
+            command.extend(["--model-branch", model_branch])
         result = subprocess.run(command, cwd=out, env=env, stdout=handle, stderr=subprocess.STDOUT, check=False)
     (out / "exit_code.txt").write_text(f"{result.returncode}\n", encoding="utf-8")
     if result.returncode:
@@ -247,7 +302,27 @@ def run_train(dp: str, repo: Path, config_path: Path, out: Path, init_model: Pat
     )
     if not checkpoints:
         raise FileNotFoundError(f"no checkpoint produced in {out}")
+    if validation_dirs:
+        return select_validation_checkpoint(dp, checkpoints, validation_dirs, out, qh_residual=qh_residual)
     return checkpoints[-1]
+
+
+def select_validation_checkpoint(dp: str, checkpoints: list[Path], validation_dirs: list[Path], out: Path, *, qh_residual: bool = False) -> Path:
+    """Choose only by held-out validation pair MAE; never inspect test curves."""
+    if len(validation_dirs) < 2 or not checkpoints:
+        raise ValueError("checkpoint selection needs at least two validation phases and one checkpoint")
+    scored = []
+    for ckpt in sorted(checkpoints, key=lambda p: int(p.stem.rsplit("-", 1)[-1])):
+        details = [run_test(dp, ckpt, data, out / "validation_selection" / ckpt.stem / data.name) for data in validation_dirs]
+        if qh_residual:
+            details = [restore_qh_baseline(detail, data) for detail, data in zip(details, validation_dirs)]
+        if len({len(d) for d in details}) != 1 or any(not np.isfinite(d).all() for d in details):
+            raise ValueError("invalid or unaligned validation predictions")
+        errors = [float(np.mean(np.abs((a[:, 1] - b[:, 1]) - (a[:, 0] - b[:, 0])))) for a, b in combinations(details, 2)]
+        scored.append({"checkpoint": str(ckpt), "validation_pair_MAE_eV_per_atom": float(np.mean(errors))})
+    best = min(scored, key=lambda r: r["validation_pair_MAE_eV_per_atom"])
+    (out / "checkpoint_selection.json").write_text(json.dumps({"rule": "minimum held-out validation pair MAE, earliest step on ties", "candidates": scored, "selected": best["checkpoint"]}, indent=2) + "\n", encoding="utf-8")
+    return Path(best["checkpoint"])
 
 
 def run_test(dp: str, checkpoint: Path, dataset: Path, out_prefix: Path) -> np.ndarray:
@@ -284,7 +359,11 @@ def pair_metrics(ref: np.ndarray, pred: np.ndarray, temperatures: np.ndarray) ->
     roots_ref = _root(ref, temperatures)
     roots_pred = _root(pred, temperatures)
     degenerate = bool(np.all(np.abs(pred) <= 1e-12))
-    missed = (not degenerate) and len(roots_pred) < len(roots_ref)
+    matching = match_root_events(roots_ref, [] if degenerate else roots_pred)
+    errors: list[Any] = ["n/a:degenerate_prediction" if degenerate else "n/a:missed_crossing"] * len(roots_ref)
+    if not degenerate:
+        for item in matching["matches"]:
+            errors[item["reference_index"]] = item["Tc_error_K"]
     return {
         "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(pred - ref))),
         "zero_floor_delta_G_MAE_eV_per_atom": float(np.mean(np.abs(ref))),
@@ -292,7 +371,10 @@ def pair_metrics(ref: np.ndarray, pred: np.ndarray, temperatures: np.ndarray) ->
         "sign_accuracy": float(np.mean(np.sign(pred) == np.sign(ref))),
         "reference_Tc_K": roots_ref,
         "predicted_Tc_K": ["n/a:degenerate_prediction"] if degenerate else roots_pred,
-        "Tc_error_K": ["n/a:missed_crossing"] * len(roots_ref) if missed else (["n/a:degenerate_prediction"] * len(roots_ref) if degenerate else [float(a - b) for a, b in zip(roots_pred, roots_ref)]),
+        "Tc_error_K": errors,
+        "n_reference_events": matching["n_reference_events"],
+        "n_matched_events": matching["n_matched_events"],
+        "root_coverage": matching["n_matched_events"] / len(roots_ref) if roots_ref else None,
         "false_crossings": "n/a:degenerate_prediction" if degenerate else max(0, len(roots_pred) - len(roots_ref)),
         "missed_crossings": "n/a:degenerate_prediction" if degenerate else max(0, len(roots_ref) - len(roots_pred)),
         "n_evaluation_points": int(len(ref)),
@@ -355,12 +437,15 @@ def main() -> int:
     ap.add_argument("--output-root", type=Path, default=Path("result/experiments/t3_temp_extrap"))
     ap.add_argument("--seeds", nargs="+", type=int)
     ap.add_argument("--systems", nargs="+", choices=sorted(SYSTEM_PHASES))
-    ap.add_argument("--model-branch", choices=["Domains_Alloy", "Domains_SSE_PBE"],
+    ap.add_argument("--model-branch", choices=["Default", "Domains_Alloy", "Domains_SSE_PBE"],
                     help="head selected for the run; required when one invocation mixes domains")
     ap.add_argument("--training-data-root", type=Path,
                     help="builder output fold, e.g. .../temp_extrap/all")
     ap.add_argument("--template-config", type=Path,
                     help="audited E1 runtime template when external config archive is available")
+    ap.add_argument("--canonical-training-data", action="store_true", help="materialize canonical representatives for training as well as validation/test")
+    ap.add_argument("--max-steps", type=int,
+                    help="override training.numb_steps for a smoke test")
     args = ap.parse_args(); root = args.repo_root.resolve(); config_path = args.config if args.config.is_absolute() else root / args.config; cfg = parse_config(config_path); split_path = root / cfg["split"]; split_rows = parse_rows(split_path)
     qh_residual = cfg.get("predictor_kind") == "qh_residual"
     seeds = args.seeds or [int(seed) for seed in cfg["seeds"]]
@@ -369,6 +454,9 @@ def main() -> int:
     overlap = train_keys & test_keys
     if overlap:
         raise AssertionError(f"frozen train/test overlap: {sorted(overlap)[:5]}")
+    validation_keys = {(r["system"], r["phase"], int(r["T_index"])) for r in split_rows.get("validation", [])}
+    if validation_keys & (train_keys | test_keys):
+        raise AssertionError("validation rows overlap train or test rows")
     split_hash = sha256(split_path); cfg_hash = sha256(config_path); args.output_root.mkdir(parents=True, exist_ok=True)
     all_system_metrics: dict[str, dict[str, Any]] = {}
     for seed in seeds:
@@ -381,7 +469,12 @@ def main() -> int:
         for system in systems:
             run = args.output_root / "runs" / cfg["basis"] / system / f"seed_{seed}"; run.mkdir(parents=True, exist_ok=True)
             train_data = run / "data" / "train"; test_data = run / "data" / "test"
-            if args.training_data_root:
+            validation_data = run / "data" / "validation"
+            validation_selected = materialize_canonical_dataset(root, validation_data, system, split_rows["validation"], qh_residual=qh_residual) if validation_keys else {}
+            if args.canonical_training_data:
+                train_selected = materialize_canonical_dataset(root, train_data, system, split_rows["train"], qh_residual=qh_residual)
+                test_selected = materialize_canonical_dataset(root, test_data, system, split_rows["test"], qh_residual=qh_residual)
+            elif args.training_data_root:
                 generated = args.training_data_root if args.training_data_root.is_absolute() else root / args.training_data_root
                 # The builder emits only training frames.  Test materialization
                 # remains an explicit post-training evaluation view from the
@@ -411,26 +504,58 @@ def main() -> int:
                 if not set(indexes) <= {k[2] for k in train_keys if k[0] == system and k[1] == phase}:
                     raise AssertionError(f"train materialization mismatch for {system}/{phase}")
             active_phases = sorted(train_selected)
-            model_cfg = configure(template, [train_data / p for p in active_phases], seed=int(seed), out=run)
-            model_cfg["model"]["type_map"] = list(DPA3_TYPE_MAP)
             if qh_residual:
-                fitting = model_cfg["model"]["fitting_net"]
+                # Fit only G-F_QH using the stock baseline_mode=none. Keep
+                # F_QH in fparam and add it back before validation/test scoring.
+                for dataset_root in (train_data, validation_data, test_data):
+                    for phase in active_phases:
+                        phase_dir = dataset_root / phase
+                        if (phase_dir / "set.000" / "fparam.npy").is_file():
+                            convert_qh_target_to_residual(phase_dir)
+            model_cfg = configure(
+                template,
+                [train_data / p for p in active_phases],
+                seed=int(seed),
+                out=run,
+                loss_overrides=cfg.get("loss_overrides"),
+                validation_dirs=[validation_data / p for p in active_phases] if validation_selected else None,
+            )
+            if args.max_steps is not None:
+                if args.max_steps < 1:
+                    raise ValueError("--max-steps must be positive")
+                model_cfg["training"]["numb_steps"] = args.max_steps
+            model_cfg["model"]["type_map"] = list(DPA3_TYPE_MAP)
+            fitting = model_cfg["model"]["fitting_net"]
+            if cfg.get("temperature_basis"):
+                # Permit direct and QH-residual runs to share one explicit
+                # temperature basis in matched-frame comparisons.
+                fitting["temperature_basis"] = cfg["temperature_basis"]
+            if qh_residual:
                 fitting["temperature_basis"] = "continuous_tlog_polynomial"
                 fitting["numb_state_fparam"] = 3
                 fitting["physics_baseline_column"] = 2
+                # The fitting target is G-F_QH, restored externally at scoring.
+                # This stock mode avoids adding the separate frozen PES baseline.
+                fitting["baseline_mode"] = "none"
             (run / "config.json").write_text(json.dumps(model_cfg, indent=2) + "\n", encoding="utf-8")
-            provenance = {"basis": cfg["basis"], "predictor_kind": cfg.get("predictor_kind", "repr_regression"), "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "source_label_unit": "eV/atom", "deepmd_fes_label_unit": "eV/cell (N * source G)", "deepmd_fes_label_conversion": "free_energy.npy multiplied by natoms before train/test; evaluator divides predictions and labels by natoms", "qh_baseline": "fparam column 2 = canonical F_QH_eV_per_atom" if qh_residual else None, "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
+            provenance = {"basis": cfg["basis"], "predictor_kind": cfg.get("predictor_kind", "repr_regression"), "seed": seed, "system": system, "split": "temp_extrap", "split_sha256": split_hash, "predictor_config": str(config_path.relative_to(root)), "predictor_config_sha256": cfg_hash, "e1_config_path": audit["config_path"], "e1_config_sha256": audit["config_sha256"], "e1_template_runtime_path": str(template_path), "train_frame_count": sum(len(v) for v in train_selected.values()), "test_frame_count": sum(len(v) for v in test_selected.values()), "train_test_overlap": len(overlap), "source_label_unit": "eV/atom", "deepmd_fes_label_unit": "eV/cell (N * target)", "deepmd_fes_label_conversion": "free_energy.npy multiplied by natoms before train/test; for T2 target=G-F_QH, with F_QH restored before validation/calibration/scoring; evaluator divides labels and predictions by natoms", "qh_baseline": "fparam column 2 = canonical F_QH_eV_per_atom" if qh_residual else None, "loss_weights": model_cfg.get("loss", {}), "loss_variant": cfg.get("loss_variant", "baseline"), "max_steps_override": args.max_steps, "torch_sharing_strategy": "file_system", "checkpoint_path": None, "checkpoint_sha256": None, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
             if args.training_data_root:
                 generated_provenance = (args.training_data_root if args.training_data_root.is_absolute() else root / args.training_data_root) / "provenance.json"
                 if generated_provenance.exists():
-                    provenance["training_data_provenance"] = str(generated_provenance.relative_to(root))
+                    provenance["training_data_provenance"] = (
+                        str(generated_provenance.relative_to(root))
+                        if generated_provenance.is_relative_to(root)
+                        else str(generated_provenance)
+                    )
                     provenance["training_data_provenance_sha256"] = sha256(generated_provenance)
                     generated = json.loads(generated_provenance.read_text(encoding="utf-8"))
                     provenance["structure_sha256"] = {item["phase"]: item["structure_sha256"] for item in generated.get("phases", []) if item.get("system") == system}
             (run / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n", encoding="utf-8")
             model_branch = args.model_branch or ("Domains_SSE_PBE" if system == "sio2" else "Domains_Alloy")
             provenance["head"] = model_branch
-            checkpoint = run_train(args.dp, root, run / "config.json", run, args.init_model, model_branch)
+            provenance["model_selection"] = "minimum held-out validation pair MAE" if validation_selected else "legacy fixed last checkpoint; no held-out validation"
+            provenance["fitting_seed"] = int(seed)
+            checkpoint = run_train(args.dp, root, run / "config.json", run, args.init_model, model_branch, validation_dirs=[validation_data / p for p in active_phases] if validation_selected else None, qh_residual=qh_residual)
             checkpoint = checkpoint.resolve()
             provenance["checkpoint_path"] = str(checkpoint)
             provenance["checkpoint_sha256"] = sha256(checkpoint)
@@ -439,6 +564,8 @@ def main() -> int:
             for region, data_dir, selected in (("train", train_data, train_selected), ("test", test_data, test_selected)):
                 for phase in active_phases:
                     detail = run_test(args.dp, checkpoint, data_dir / phase, run / f"{region}_{phase}")
+                    if qh_residual:
+                        detail = restore_qh_baseline(detail, data_dir / phase)
                     temperatures = np.load(data_dir / phase / "set.000" / "fparam.npy")[:, 0]
                     pred_by_region[region][system][phase] = {"T": temperatures, "Y": detail[:, 0], "P": detail[:, 1]}
             # Fit one scalar calibration per system from train rows only and
@@ -458,7 +585,7 @@ def main() -> int:
         test_eval = evaluate_region(root, {system: data["pred"]["test"][system] for system, data in systems_data.items()})
         seed_row = {"basis": cfg["basis"], "seed": int(seed), "train": train_eval, "test": test_eval}
         all_seed_rows.append(seed_row)
-        method_name = "qh_residual" if qh_residual else f"repr_regression_{cfg['basis']}"
+        method_name = cfg.get("output_method", "qh_residual" if qh_residual else f"repr_regression_{cfg['basis']}")
         raw_dir = args.output_root / "raw_runs" / method_name / f"seed_{seed}"
         raw_dir.mkdir(parents=True, exist_ok=True)
         try:

@@ -50,8 +50,8 @@ def _parser() -> argparse.ArgumentParser:
 def _root(delta: np.ndarray, temperatures: np.ndarray, merge_within_K: float = 0.0) -> list[float]:
     roots: list[float] = []
     index = 0
-    while index < len(delta) - 1:
-        left, right = delta[index], delta[index + 1]
+    while index < len(delta):
+        left = delta[index]
         if left == 0:
             end = index
             while end + 1 < len(delta) and delta[end + 1] == 0:
@@ -59,7 +59,8 @@ def _root(delta: np.ndarray, temperatures: np.ndarray, merge_within_K: float = 0
             roots.append(float((temperatures[index] + temperatures[end]) / 2.0))
             index = end + 1
             continue
-        if left * right < 0:
+        if index + 1 < len(delta) and left * delta[index + 1] < 0:
+            right = delta[index + 1]
             fraction = abs(left) / (abs(left) + abs(right))
             roots.append(float(temperatures[index] + fraction * (temperatures[index + 1] - temperatures[index])))
         index += 1
@@ -175,6 +176,251 @@ def _table_cache(data_root: Path, rows: list[dict[str, object]]) -> dict[tuple[s
     return {key: load(key[0], key[1], data_root).G_table for key in keys}
 
 
+def _state_key(point: ReferencePoint) -> tuple[float, float]:
+    """Return a stable (T, P) key for exact reference-state pairing."""
+    return round(point.T_K, 8), round(point.P_GPa, 8)
+
+
+def _load_precomputed_pt(spec: str) -> dict[str, dict[tuple[float, float | None], float]] | None:
+    """Read prediction curves keyed by both temperature and pressure.
+
+    Multi-pressure data require an explicit ``P_GPa`` list. Legacy
+    temperature-only curves remain valid only when the input has a unique
+    pressure for every temperature; that check is performed during lookup.
+    """
+    prefix = "precomputed:"
+    if not spec.startswith(prefix):
+        return None
+    path = Path(spec[len(prefix):]).expanduser()
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        raw_predictions = payload["predictions"]
+    except (OSError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        raise ValueError(f"invalid precomputed predictor {path}: {exc}") from exc
+    if not isinstance(raw_predictions, dict):
+        raise ValueError("precomputed predictor requires an object named predictions")
+    curves: dict[str, dict[tuple[float, float | None], float]] = {}
+    for key, raw_curve in raw_predictions.items():
+        if not isinstance(key, str) or not isinstance(raw_curve, dict):
+            raise ValueError("precomputed predictor entries must be keyed curve objects")
+        temperatures = raw_curve.get("T_K")
+        values = raw_curve.get("G_eV_per_atom")
+        pressures = raw_curve.get("P_GPa")
+        if not isinstance(temperatures, list) or not isinstance(values, list) or len(temperatures) != len(values):
+            raise ValueError(f"precomputed curve {key!r} requires equally sized T_K/G_eV_per_atom lists")
+        if pressures is not None and (not isinstance(pressures, list) or len(pressures) != len(temperatures)):
+            raise ValueError(f"precomputed curve {key!r} P_GPa must match T_K length")
+        curve: dict[tuple[float, float | None], float] = {}
+        for index, (temperature, value) in enumerate(zip(temperatures, values)):
+            try:
+                t, g = float(temperature), float(value)
+                p = float(pressures[index]) if pressures is not None else math.nan
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"precomputed curve {key!r} has a non-numeric value") from exc
+            if not math.isfinite(t) or not math.isfinite(g) or (pressures is not None and not math.isfinite(p)):
+                raise ValueError(f"precomputed curve {key!r} has a non-finite state or value")
+            state = (round(t, 8), round(p, 8)) if pressures is not None else (round(t, 8), None)
+            if state in curve:
+                raise ValueError(f"precomputed curve {key!r} has a duplicate state {state!r}")
+            curve[state] = g
+        curves[key] = curve
+    return curves
+
+
+def _evaluate_pressure_grid(
+    spec: str,
+    test: list[dict[str, object]],
+    train: list[dict[str, object]],
+    cache: dict[tuple[str, str], tuple[ReferencePoint, ...]],
+    seeds: list[int],
+) -> dict[str, object]:
+    """Evaluate a multi-pressure table without pairing unlike P states."""
+    precomputed = _load_precomputed_pt(spec)
+    pair_rows = test + train
+    by_phase: dict[tuple[str, str], set[int]] = defaultdict(set)
+    test_by_phase: dict[tuple[str, str], set[int]] = defaultdict(set)
+    for row in pair_rows:
+        by_phase[(str(row["system"]), str(row["phase"]))].add(int(row["T_index"]))
+    for row in test:
+        test_by_phase[(str(row["system"]), str(row["phase"]))].add(int(row["T_index"]))
+
+    point_errors: list[float] = []
+    coverage_values: list[bool] = []
+    ranking_values: list[bool] = []
+    pair_metrics: dict[str, dict[str, object]] = {}
+    systems = sorted({system for system, _ in test_by_phase})
+    for system in systems:
+        phases = sorted(phase for item_system, phase in by_phase if item_system == system)
+        predictions: dict[str, tuple[list[tuple[float, float]], np.ndarray, np.ndarray]] = {}
+        references: dict[str, dict[tuple[float, float], float]] = {}
+        for phase in phases:
+            table = cache[(system, phase)]
+            indexes = sorted(by_phase[(system, phase)])
+            states = [_state_key(table[index]) for index in indexes]
+            if len(set(states)) != len(states):
+                raise ValueError(f"duplicate (T_K, P_GPa) reference states for {system}:{phase}")
+            reference = np.asarray([table[index].G_eV_per_atom for index in indexes], dtype=float)
+            references[phase] = dict(zip(states, reference.tolist()))
+            if precomputed is not None:
+                curve_key = f"{system}:{phase}"
+                if curve_key not in precomputed:
+                    raise ValueError(f"precomputed predictor has no curve for {curve_key!r}")
+                curve = precomputed[curve_key]
+                missing = []
+                values = []
+                for t, p in states:
+                    key = (t, p)
+                    if key not in curve and (t, None) in curve:
+                        matches = [g for (curve_t, _), g in curve.items() if curve_t == t]
+                        if len(matches) == 1:
+                            values.append(matches[0])
+                            continue
+                        missing.append((t, p))
+                        continue
+                    if key not in curve:
+                        missing.append((t, p))
+                    else:
+                        values.append(curve[key])
+                if missing:
+                    raise ValueError(f"precomputed curve {curve_key!r} misses or ambiguously keys states {missing[:3]!r}")
+                mean = np.asarray(values, dtype=float)
+                seed_predictions = np.stack([mean.copy() for _ in seeds])
+            elif spec == "reference":
+                mean = reference.copy()
+                seed_predictions = np.stack([mean.copy() for _ in seeds])
+            else:
+                seed_predictions = np.stack(
+                    [_predictor(spec, seed, f"{system}:{phase}", reference) for seed in seeds]
+                )
+                mean = seed_predictions.mean(axis=0)
+            predictions[phase] = (states, mean, seed_predictions)
+            test_indexes = sorted(test_by_phase.get((system, phase), set()))
+            if test_indexes:
+                test_states = [_state_key(table[index]) for index in test_indexes]
+                prediction_map = dict(zip(states, mean.tolist()))
+                test_reference = np.asarray([table[index].G_eV_per_atom for index in test_indexes], dtype=float)
+                test_mean = np.asarray([prediction_map[state] for state in test_states], dtype=float)
+                point_errors.extend(np.abs(test_mean - test_reference).tolist())
+                std_map = dict(zip(states, seed_predictions.std(axis=0).tolist()))
+                coverage_values.extend(
+                    np.abs(test_mean - test_reference) <= 2.0 * np.asarray([std_map[state] for state in test_states]) + 1.0e-14
+                )
+
+        # Ranking is scored independently at each shared (T, P) state.
+        evaluation_states = sorted({
+            _state_key(cache[(system, phase)][index])
+            for (item_system, phase), indexes in test_by_phase.items() if item_system == system
+            for index in indexes
+        })
+        for state in evaluation_states:
+            pairs = [(left, right) for i, left in enumerate(phases) for right in phases[i + 1:]
+                     if state in references[left] and state in references[right]]
+            if not pairs:
+                continue
+            correct = True
+            for left, right in pairs:
+                left_states, left_mean, _ = predictions[left]
+                right_states, right_mean, _ = predictions[right]
+                left_value = dict(zip(left_states, left_mean.tolist()))[state]
+                right_value = dict(zip(right_states, right_mean.tolist()))[state]
+                if np.sign(left_value - right_value) != np.sign(references[left][state] - references[right][state]):
+                    correct = False
+                    break
+            ranking_values.append(correct)
+
+        for left_index, left in enumerate(phases):
+            for right in phases[left_index + 1:]:
+                if (system, left) not in test_by_phase and (system, right) not in test_by_phase:
+                    continue
+                common_states = set(references[left]) & set(references[right])
+                test_shared = {
+                    _state_key(cache[(system, left)][index])
+                    for index in test_by_phase.get((system, left), set())
+                } & {
+                    _state_key(cache[(system, right)][index])
+                    for index in test_by_phase.get((system, right), set())
+                }
+                if test_shared:
+                    common_states &= test_shared
+                pressures = sorted({p for _, p in common_states})
+                left_states, left_g, left_seed_g = predictions[left]
+                right_states, right_g, right_seed_g = predictions[right]
+                left_map = dict(zip(left_states, left_g.tolist()))
+                right_map = dict(zip(right_states, right_g.tolist()))
+                left_seed_maps = [dict(zip(left_states, row.tolist())) for row in left_seed_g]
+                right_seed_maps = [dict(zip(right_states, row.tolist())) for row in right_seed_g]
+                for pressure in pressures:
+                    temperatures = np.asarray(sorted(t for t, p in common_states if p == pressure), dtype=float)
+                    states = [(float(t), pressure) for t in temperatures]
+                    if not states:
+                        continue
+                    observed = np.asarray([left_map[state] - right_map[state] for state in states])
+                    reference = np.asarray([references[left][state] - references[right][state] for state in states])
+                    roots_reference = _root(reference, temperatures)
+                    merge_within = 3.0 if np.any(reference == 0) else 0.0
+                    roots_predicted = _root(observed, temperatures, merge_within_K=merge_within)
+                    seed_roots = [
+                        _root(np.asarray([lm[state] - rm[state] for state in states]), temperatures,
+                              merge_within_K=merge_within)
+                        for lm, rm in zip(left_seed_maps, right_seed_maps)
+                    ]
+                    crossing_mae: list[float] = []
+                    slopes: list[float] = []
+                    for root in roots_reference:
+                        crossing_mae.append(abs(float(np.interp(root, temperatures, observed - reference))))
+                        nearest = int(np.argmin(np.abs(temperatures - root)))
+                        if reference[nearest] == 0:
+                            lower, upper = nearest, nearest
+                            while lower > 0 and reference[lower] == 0:
+                                lower -= 1
+                            while upper < len(reference) - 1 and reference[upper] == 0:
+                                upper += 1
+                            slope = ((reference[upper] - reference[lower]) / (temperatures[upper] - temperatures[lower])
+                                     if upper != lower else math.nan)
+                        elif nearest == 0:
+                            slope = (reference[1] - reference[0]) / (temperatures[1] - temperatures[0])
+                        elif nearest == len(temperatures) - 1:
+                            slope = (reference[-1] - reference[-2]) / (temperatures[-1] - temperatures[-2])
+                        else:
+                            slope = (reference[nearest + 1] - reference[nearest - 1]) / (temperatures[nearest + 1] - temperatures[nearest - 1])
+                        slopes.append(float(abs(slope)))
+                    degenerate = bool(np.all(np.abs(observed) <= 1.0e-12))
+                    missed = (not degenerate) and len(roots_predicted) < len(roots_reference)
+                    key = f"{system}:{left}_minus_{right}"
+                    if len(pressures) > 1:
+                        key += f"@P={pressure:g}GPa"
+                    pair_metrics[key] = {
+                        "pressure_GPa": pressure,
+                        "pair_support": "test_and_train_partner" if train else "test_only",
+                        "status": "degenerate_prediction" if degenerate else "ok",
+                        "delta_G_MAE_eV_per_atom": float(np.mean(np.abs(observed - reference))),
+                        "delta_G_RMSE_eV_per_atom": float(np.sqrt(np.mean((observed - reference) ** 2))),
+                        "delta_G_MAE_at_crossing_eV_per_atom": crossing_mae if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                        "sign_accuracy": float(np.mean(np.sign(observed) == np.sign(reference))),
+                        "balanced_sign_accuracy": _balanced_sign_accuracy(observed, reference),
+                        "reference_Tc_K": roots_reference,
+                        "predicted_Tc_K": roots_predicted if not degenerate else ["n/a:degenerate_prediction"],
+                        "predicted_Tc_by_seed_K": seed_roots if not degenerate else [["n/a:degenerate_prediction"] for _ in seeds],
+                        "Tc_scatter_K": [float(np.nanstd([r[i] for r in seed_roots if len(r) > i])) if any(len(r) > i for r in seed_roots) else math.nan for i in range(len(roots_reference))] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                        "Tc_error_K": ["n/a:missed_crossing"] * len(roots_reference) if missed else ([pred - ref for pred, ref in zip(roots_predicted, roots_reference)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference)),
+                        "crossing_slope_eV_per_atom_per_K": slopes if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference),
+                        "Tc_err_from_dG_K": ["n/a:missed_crossing"] * len(roots_reference) if missed else ([error / slope if slope else math.nan for error, slope in zip(crossing_mae, slopes)] if not degenerate else ["n/a:degenerate_prediction"] * len(roots_reference)),
+                        "false_crossings": max(0, len(roots_predicted) - len(roots_reference)) if not degenerate else "n/a:degenerate_prediction",
+                        "missed_crossings": max(0, len(roots_reference) - len(roots_predicted)) if not degenerate else "n/a:degenerate_prediction",
+                    }
+    pair_values = [pair for pair in pair_metrics.values() if isinstance(pair.get("delta_G_MAE_eV_per_atom"), (int, float))]
+    return {
+        "predictor": spec,
+        "n_test_frames": len(test),
+        "seeds": seeds,
+        "G_MAE_eV_per_atom": float(np.mean(point_errors)) if point_errors else math.nan,
+        "ranking_accuracy": float(np.mean(ranking_values)) if ranking_values else math.nan,
+        "balanced_sign_accuracy": float(np.mean([float(pair["balanced_sign_accuracy"]) for pair in pair_values])) if pair_values else math.nan,
+        "coverage_2sigma": float(np.mean(coverage_values)) if coverage_values else math.nan,
+        "pairs": pair_metrics,
+    }
+
+
 def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[int]) -> dict[str, object]:
     if "folds" in split:
         raw_folds = split["folds"]
@@ -206,7 +452,6 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
             "coverage_2sigma": weighted_coverage,
             "folds": folds,
         }
-    precomputed = _load_precomputed(spec)
     test = split.get("test")
     if not isinstance(test, list):
         raise ValueError("split must provide a test list")
@@ -219,6 +464,16 @@ def evaluate(spec: str, split: dict[str, object], data_root: Path, seeds: list[i
     # test metrics, but are explicitly included in pairwise curve metrics.
     pair_rows = test + train
     cache = _table_cache(data_root, pair_rows)
+    # The frozen v1 evaluator is temperature-only. Keep its exact behavior for
+    # existing single-pressure datasets, but route multi-pressure references
+    # through a state-keyed path so equal temperatures at different pressures
+    # are never merged or paired.
+    pressures_by_system: dict[str, set[float]] = defaultdict(set)
+    for (system, _), table in cache.items():
+        pressures_by_system[system].update(point.P_GPa for point in table)
+    if any(len(pressures) > 1 for pressures in pressures_by_system.values()):
+        return _evaluate_pressure_grid(spec, test, train, cache, seeds)
+    precomputed = _load_precomputed(spec)
     by_system_phase: dict[tuple[str, str], list[int]] = defaultdict(list)
     test_by_system_phase: dict[tuple[str, str], list[int]] = defaultdict(list)
     for row in pair_rows:

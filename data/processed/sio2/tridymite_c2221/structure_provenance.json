@@ -1,0 +1,16 @@
+{
+  "structure_file": "structure.source.extxyz",
+  "source_poscar": "cod_8104538_experimental/POSCAR",
+  "source_poscar_sha256": "ff23513011f89eddebc38da1bf9747cb9cd689fb0f1e5b1dc902d08d35289e35",
+  "structure_sha256": "76f808172068fc290e904573151d5343c917c9f7856aa891f2c86d9f8c1539e0",
+  "source_geometry": "COD 8104538 experimental C2221 structure expanded to 24-atom conventional cell",
+  "cell_atom_count": 24,
+  "formula_cell": {
+    "O": 16,
+    "Si": 8
+  },
+  "transformation": "VASP Direct fractional coordinates converted to Cartesian extxyz; no relaxation",
+  "source_cif_sha256": "dc48762ffe169a296ea6059a0c3ee08c728ca70552d858d046b043ffa20440bd",
+  "cod_id": "8104538",
+  "structure_reference_temperature_K": 693
+}

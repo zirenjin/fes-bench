@@ -1,0 +1,87 @@
+{
+  "version": "sio2_source_v2_four_phase",
+  "created": "2026-10-24",
+  "source_dataset": "DaRUS-4999",
+  "source_dataset_doi": "10.18419/DARUS-4999",
+  "source_archive": "fes-bench/data/raw/sio2/direct_upsampling_data_rungs_1-3.zip",
+  "source_archive_md5": "7e59af71b1ede5331ff71bd0fd950b62",
+  "source_archive_sha256": "d6767aa491589e6c76d9b929f6d228fc3315e2000fb933f17b554282003bcd79",
+  "common_grid_rows_per_phase": 1649,
+  "phase_count": 4,
+  "pair_candidate_rows": 9894,
+  "source_tables": {
+    "quartz_beta": {
+      "source_file": "quartz_beta_pbe_d3bj.csv",
+      "source_sha256": "4c7d06ed09c1cd6fcdd0fe22a8c9345d490754830f6f31399466ae442cb6c6bd",
+      "source_rows_full": 1649,
+      "source_rows_common_grid": 1649,
+      "source_T_range_full_K": [
+        851.0,
+        2499.0
+      ],
+      "P_reconstructed_GPa_range": [
+        0.00010000000991151747,
+        0.00010000000991151751
+      ],
+      "source_rows_not_interpolated": true
+    },
+    "cristobalite_beta": {
+      "source_file": "cristobalite_beta_pbe_d3bj.csv",
+      "source_sha256": "8668b1d37c05f0a1b63fa0b7f60238dbd7a97362a889f1dc3a37f55b937b4913",
+      "source_rows_full": 1702,
+      "source_rows_common_grid": 1649,
+      "source_T_range_full_K": [
+        851.0,
+        2552.0
+      ],
+      "P_reconstructed_GPa_range": [
+        0.00010000000991151747,
+        0.00010000000991151751
+      ],
+      "source_rows_not_interpolated": true
+    },
+    "tridymite_p63mmc": {
+      "source_file": "tridymite_beta_pbe_d3bj.csv",
+      "source_sha256": "81aa4baf4f5c8546b7a6b76b327e8f42a48d4592da639bfef2981b0e9ea178ad",
+      "source_rows_full": 1702,
+      "source_rows_common_grid": 1649,
+      "source_T_range_full_K": [
+        851.0,
+        2552.0
+      ],
+      "P_reconstructed_GPa_range": [
+        0.00010000000991151747,
+        0.00010000000991151751
+      ],
+      "source_rows_not_interpolated": true
+    },
+    "tridymite_c2221": {
+      "source_file": "tridymite_ortho_pbe_d3bj.csv",
+      "source_sha256": "589da53fb73b8a85d2edc978fcd2c59f78dd2d400d8cf58ea842f590555bd2d3",
+      "source_rows_full": 1702,
+      "source_rows_common_grid": 1649,
+      "source_T_range_full_K": [
+        851.0,
+        2552.0
+      ],
+      "P_reconstructed_GPa_range": [
+        0.00010000000991151747,
+        0.00010000000991151751
+      ],
+      "source_rows_not_interpolated": true
+    }
+  },
+  "legacy_three_phase_system_json_sha256": "c824fcca9c01d690a64c0178d7a5255f675b082f36fcb22ea64a9de2d1161b0f",
+  "legacy_three_phase_lopo_sha256": "ddce0b06a8653aca50dec71278671ab5215e7fe65b984fdef9a0923216e7ea78",
+  "legacy_files_modified": false,
+  "label_admission": "ADMITTED_FOR_SOURCE_LEVEL_THERMODYNAMIC_EVALUATION_WITH_UNQUANTIFIED_UNCERTAINTY; separate from canonical manifest promotion and structure-migration admission",
+  "limitation": "Numeric rowwise uncertainty, pair covariance, exact common energy-zero/nuclear-statistics protocol, and per-row geometry mapping remain unresolved.",
+  "new_four_phase_split": "splits/phase_lopo_v3.json",
+  "new_four_phase_split_sha256": "a266230befd80c1bb6409c580ebd71376756b5b48196dad04f2d835df127be3f",
+  "uncertainty_status": "rowwise numeric/statistical uncertainty and pair covariance unknown; not zero",
+  "structure_admission": "rowwise source geometry mapping pending; does not block source thermodynamic G/DeltaG evaluation",
+  "energy_zero_admission": "common source Hamiltonian/protocol and same SiO2 stoichiometry support source-table phase differences; no independent elemental zero required for same-composition DeltaG",
+  "nuclear_statistics_admission": "published finite-temperature direct-upsampled MTP/Langevin-NVT protocol established; quantum nuclear corrections are not separately reported",
+  "Te_K": "not separately exposed; unknown",
+  "scope_limit": "Source-level evaluation only at the exact common T grid and 0.0001 GPa. Unknown uncertainty prevents uncertainty-qualified transition/error claims. No rowwise structure migration, independent F(V,T) reconstruction, or new DFT claim."
+}

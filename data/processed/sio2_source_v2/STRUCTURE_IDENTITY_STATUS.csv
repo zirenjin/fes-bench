@@ -1,0 +1,5 @@
+phase,table_hamiltonian,effective_harmonic_fcp,fcp_hamiltonian,candidate_structure,candidate_sha256,source_row_geometry_status
+quartz_beta,PBE-D3(BJ),quartz_beta_lda.fcp,LDA,structure.source.extxyz,2ec3dead1bb3b1d14cfb50a1b5823bc67a536fac7cf088e50f54441703cc8c3f,not mapped to PBE-D3(BJ) table rows
+cristobalite_beta,PBE-D3(BJ),cristobalite_beta_lda.fcp,LDA,structure.source.extxyz,cb98dfd25181ae9c58a2d777f7be6af5e4da567f060a97307c20f182db6d8274,not mapped to PBE-D3(BJ) table rows
+tridymite_p63mmc,PBE-D3(BJ),tridymite_p63mmc_lda.fcp,LDA,structure.source.extxyz,9d5bc0d1d337fd18e0a1e4b8e72e3e67380780da35344c3553784829b0ae65d8,not mapped to PBE-D3(BJ) table rows
+tridymite_c2221,PBE-D3(BJ),tridymite_c2221_pbe_d3bj.fcp,PBE-D3(BJ),source FCP primitive in DaRUS-4999 archive; no rowwise thermodynamic geometry map,,matching phase/Hamiltonian FCP exists; exact table association and rowwise structures remain pending

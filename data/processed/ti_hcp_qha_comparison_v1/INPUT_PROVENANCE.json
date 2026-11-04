@@ -1,0 +1,287 @@
+{
+  "input_files": [
+    {
+      "volume_id": "m4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m4/perfect/OUTCAR",
+      "sha256": "5fffd4976953852b982db2097baeeb619871cea243b759b28f8eb92048d1ca07"
+    },
+    {
+      "volume_id": "m4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m4/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "m4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m4/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "m4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m4/perfect/POSCAR",
+      "sha256": "63deed65e2618f97275068762f1e2afe7591cb93a5633769ea0ea313b147edcb"
+    },
+    {
+      "volume_id": "m4",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m4/mesh.yaml",
+      "sha256": "6baef62908bf06d1eac56e6a9b3e10031b442d625353649521eaefb60cefb203"
+    },
+    {
+      "volume_id": "m4",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/m4/mesh12.yaml",
+      "sha256": "47b74d8f79016b1603acb606195f9222fabbe23b4a279b5b6afdd94be036b3ac"
+    },
+    {
+      "volume_id": "m4",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/m4/mesh15.yaml",
+      "sha256": "11b44bf3f0401c2e5065a09514ec20b2e9550dfa5f5332ebda29c87846652212"
+    },
+    {
+      "volume_id": "m2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m2/perfect/OUTCAR",
+      "sha256": "e61c71932c50ab5c2730b82dfa0b33aeddedfec057788827e559a19d4b913ec4"
+    },
+    {
+      "volume_id": "m2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m2/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "m2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m2/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "m2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m2/perfect/POSCAR",
+      "sha256": "4abf43d22535b768fe0d4436eddc45b56ca72a3f07bd9cf58ab102f536ed5b46"
+    },
+    {
+      "volume_id": "m2",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/m2/mesh.yaml",
+      "sha256": "953990a87067bfd2fab7a3c39fe47335292dbd6ebe6bc6565f19898910876d93"
+    },
+    {
+      "volume_id": "m2",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/m2/mesh12.yaml",
+      "sha256": "0b8e1dfc9429fb3465be9ce0ad9b1ec7fdca29c0e4ce9a86ca8e197b28b779cf"
+    },
+    {
+      "volume_id": "m2",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/m2/mesh15.yaml",
+      "sha256": "d1f77ac251bde55ec448210f178788781c25d9f3d0dfb23dc788a269fd7cd634"
+    },
+    {
+      "volume_id": "center",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w8-ti-hcp-phonon-pilot-20261020/remote_archive/retry-32c-2h/perfect/OUTCAR",
+      "sha256": "e62d699bcd693cca9a679e6ba0ae6e363654fc559a4ca8982de1950ab23135f9"
+    },
+    {
+      "volume_id": "center",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w8-ti-hcp-phonon-pilot-20261020/remote_archive/retry-32c-2h/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "center",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w8-ti-hcp-phonon-pilot-20261020/remote_archive/retry-32c-2h/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "center",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w8-ti-hcp-phonon-pilot-20261020/remote_archive/retry-32c-2h/perfect/POSCAR",
+      "sha256": "10e6cd9059f3a2be701021934833b5b85a464236912921af20f5870ee9375db6"
+    },
+    {
+      "volume_id": "center",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w8-ti-hcp-phonon-pilot-20261020/remote_archive/force_constant_analysis_20261021/mesh.yaml",
+      "sha256": "d9c9b6ab0c66f99e0dd761b65574c77610289c7e3c85e4b16ec7e7538a2adb69"
+    },
+    {
+      "volume_id": "center",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/center/mesh12.yaml",
+      "sha256": "86d118007fd1dbaf388918acc5b459da58ad5f72a988db1d9e0f56a335d107c6"
+    },
+    {
+      "volume_id": "center",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/center/mesh15.yaml",
+      "sha256": "f9b2492b35baca39a14f28bc894f8a519dea60a053747fbe75c8961d8a0eb7d2"
+    },
+    {
+      "volume_id": "p2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p2/perfect/OUTCAR",
+      "sha256": "724348a0c6048e6d67a6df89e890c1cebb897f10f93a508195e352441a1e70b9"
+    },
+    {
+      "volume_id": "p2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p2/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "p2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p2/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "p2",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p2/perfect/POSCAR",
+      "sha256": "76c17260ed1cd5706ca0aacd10798bd041a6617e61f9e34e83fc3843b5ba349d"
+    },
+    {
+      "volume_id": "p2",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p2/mesh.yaml",
+      "sha256": "7f13bdbdf49ab4f984cc51d917691410e5fddec3017a4bc6629a90e54ef7ba0e"
+    },
+    {
+      "volume_id": "p2",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p2/mesh12.yaml",
+      "sha256": "da73d9314c85cb74cafefedfd07c7e77b373c2a7e4e2b32a00598fe8bf04e479"
+    },
+    {
+      "volume_id": "p2",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p2/mesh15.yaml",
+      "sha256": "b81b4aff41c4f2c87c4c9ab65d887ed49fbe6f3c87f2496cc22de3e791b7567f"
+    },
+    {
+      "volume_id": "p4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p4/perfect/OUTCAR",
+      "sha256": "71849f7db6b9e9fcaf5288ffd1179ae4f2a5770210163dd37d72e655d908677b"
+    },
+    {
+      "volume_id": "p4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p4/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "p4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p4/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "p4",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p4/perfect/POSCAR",
+      "sha256": "958af86b929208bdedc6b8f9452888db344754bd2bfd52eb21b6437df86a6ac3"
+    },
+    {
+      "volume_id": "p4",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p4/mesh.yaml",
+      "sha256": "961306a464f0207f8c0a60e8bac11ad08c84158d5c333912358ca8ed2c700aaf"
+    },
+    {
+      "volume_id": "p4",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p4/mesh12.yaml",
+      "sha256": "3fa34329a8e9690f91a7223d933f56d3647e03fbec7ee7c153947efb840208dd"
+    },
+    {
+      "volume_id": "p4",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p4/mesh15.yaml",
+      "sha256": "8ca5f06fda480fca6ab0d140e5d149cf0e5e1c4f9e8c6fd15faf697c1b670f8c"
+    },
+    {
+      "volume_id": "p6",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p6/perfect/OUTCAR",
+      "sha256": "03cbf4b222d551f4e998a4e46ac18251b97b44e3df8d18e66141153e97a09143"
+    },
+    {
+      "volume_id": "p6",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p6/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "p6",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p6/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "p6",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p6/perfect/POSCAR",
+      "sha256": "ad26db61aa3bb7da85bde38c5223cc2a7e8fefa070f8f3c309ae8270fc34c4e0"
+    },
+    {
+      "volume_id": "p6",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p6/mesh.yaml",
+      "sha256": "f349bf52b681cdd47944997d50153fd6777cd5e137399a3367bd7f078ad71e87"
+    },
+    {
+      "volume_id": "p6",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p6/mesh12.yaml",
+      "sha256": "5a5e89e22c6973e3b92ebe5771de7c038d93e43cc8d8a9d3d70113f365b45a93"
+    },
+    {
+      "volume_id": "p6",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p6/mesh15.yaml",
+      "sha256": "ea863844cff925953c82122e5fc44ca90d7b73f5cb5bc222d0f1c57c2f49b142"
+    },
+    {
+      "volume_id": "p8",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p8/perfect/OUTCAR",
+      "sha256": "efd3b9405d4ba5e6e8bf9b86a09684a3a3e0d467b8ac416904d7cbf5390b0206"
+    },
+    {
+      "volume_id": "p8",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p8/perfect/INCAR",
+      "sha256": "f1b414310da893c2dcb8c5eb62b5093d43cdd93c4d70631635fb3c61c41e7995"
+    },
+    {
+      "volume_id": "p8",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p8/perfect/KPOINTS",
+      "sha256": "d154fa7d5a8f6dec5665716e3918c81a5ec67e097df488f23438e43914821e26"
+    },
+    {
+      "volume_id": "p8",
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p8/perfect/POSCAR",
+      "sha256": "f503a0830307db463a588fa3328ff717bdc5800e541a6b44aa60cf4b0482c899"
+    },
+    {
+      "volume_id": "p8",
+      "mesh": 9,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_archive/p8/mesh.yaml",
+      "sha256": "eb1c9acfc9400b30052e1cc1b05f53fe302b23957aceb6889572552b09a8181b"
+    },
+    {
+      "volume_id": "p8",
+      "mesh": 12,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p8/mesh12.yaml",
+      "sha256": "e10f4e1d920025ead586aefade472c55d2dddd6b7fbef2922aac499ba9512938"
+    },
+    {
+      "volume_id": "p8",
+      "mesh": 15,
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/p8/mesh15.yaml",
+      "sha256": "826b502be0f2be82601d682a3749d10a8420c50a473ae2c8f3e01aed969a3ec8"
+    },
+    {
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/TI_HCP_FVT_QHA_CANDIDATE.csv",
+      "sha256": "7a7917b5abdf1dd2e9508d8066685f204ac3864ed950ceb238ab1013f19c2ed8"
+    },
+    {
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/TI_HCP_QHA_ALL_STATES.csv",
+      "sha256": "43d0ba0ea605b69f920e7d095c655827be8955a589523af2f3ee5ef4b1e9f9c0"
+    },
+    {
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/remote_qmesh_convergence/QHA_INDEPENDENT_AUDIT.json",
+      "sha256": "8ec7b7833fc5ba007bfda5d6694c19887c2d5f1b800e10d8beb7e9fa0569b48e"
+    },
+    {
+      "path": "/mnt/e/research/aisi-duo/01_code/dpa-adapt/outputs/fes-bench-reference-v2/w9-ti-hcp-qha-volume-pilot-20261021/build_ti_hcp_qha_comparison.py",
+      "sha256": "0f3cb0fa17b870d95d0ba8dc8b8b6882f6e22cfcb8d5fd395fa9e4c86e46e59c"
+    }
+  ],
+  "aggregate_input_sha256": "57a2b34235d1ce1e49bcd6d6a285f98747f38c349af607877c07153386479b97"
+}

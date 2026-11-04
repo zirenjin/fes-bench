@@ -9,7 +9,8 @@
   "doi": "10.18419/DARUS-3582",
   "notes": "Finite-size error is not separately reported; numeric zero is a schema placeholder. Pressure is normalized from 0.1 MPa to 0.0001 GPa.",
   "interpolated": true,
-  "raw_table": "../../data/raw/zr/Zr_bcc.tab",
+  "raw_table": "../../../raw/metals/darus3582/table-thermodynamic-Zr-bcc-PBE.tsv",
+  "raw_table_publisher_md5": "77a624147b0d4e6ba913186df7ee57fc",
   "unit_conversion": {
     "energy_to_eV_per_atom": 0.001,
     "pressure_to_GPa": 1.0

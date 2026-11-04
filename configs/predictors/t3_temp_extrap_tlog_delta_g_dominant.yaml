@@ -1,0 +1,27 @@
+{
+  "experiment": "T3_temp_extrap_delta_g_dominant",
+  "predictor": "representation_regression_delta_g_dominant",
+  "basis": "tlog_polynomial",
+  "split": "data/processed/splits_v2/temp_extrap.json",
+  "seeds": [11, 23, 37],
+  "systems": ["sio2", "hf", "ti", "zr"],
+  "audit_basis": "tlog_polynomial",
+  "e1_config_audit": "result/experiments/crossing_reevaluation/training_config_audit.csv",
+  "runtime_e1_config_fallback": "/GenSIvePFS/users/zirenj/fes_experiment_pbe_d3bj/results/continuous_sio2/tlog_polynomial/seed{seed}/config.json",
+  "temperature_basis": "continuous_tlog_polynomial",
+  "head_policy": "configs/models/head_policy.yaml",
+  "calibration": "one constant per system, fitted on frozen train rows only",
+  "loss_variant": "delta_g_dominant_absolute_weight_1e-2",
+  "loss_overrides": {
+    "delta_g_pref": 1.0,
+    "absolute_g_pref": 0.01,
+    "phase_mean_g_pref": 0.0
+  },
+  "baseline_loss_weights": {
+    "delta_g_pref": 1.0,
+    "absolute_g_pref": 1.0,
+    "phase_mean_g_pref": 0.0
+  },
+  "output_method": "repr_regression_tlog_delta_g_dominant",
+  "numb_steps": 3000
+}

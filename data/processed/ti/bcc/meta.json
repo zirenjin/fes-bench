@@ -9,7 +9,8 @@
   "doi": "10.18419/DARUS-3582",
   "notes": "Finite-size error is not separately reported; numeric zero is a schema placeholder. Pressure is normalized from 0.1 MPa to 0.0001 GPa.",
   "interpolated": true,
-  "raw_table": "../../data/raw/ti/Ti_bcc.tab",
+  "raw_table": "../../../raw/metals/darus3582/table-thermodynamic-Ti-bcc-PBE.tsv",
+  "raw_table_publisher_md5": "1545245562dc1377415e16932be1deb4",
   "unit_conversion": {
     "energy_to_eV_per_atom": 0.001,
     "pressure_to_GPa": 1.0
