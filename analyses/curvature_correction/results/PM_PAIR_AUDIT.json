@@ -1,0 +1,36 @@
+{
+ "n_entries": 521,
+ "n_displacements": 11175,
+ "n_pm_pairs_in_archive": 4511,
+ "fraction_of_archive_in_pm_pairs": 0.807337807606264,
+ "budgets": {
+  "0.1": {
+   "conf": 2416,
+   "conf_with_partner_in_archive": 1872,
+   "conf_with_partner_selected": 150,
+   "fraction_with_partner_selected": 0.062086092715231786,
+   "fraction_of_partnered_with_partner_selected": 0.08012820512820513
+  },
+  "0.25": {
+   "conf": 5658,
+   "conf_with_partner_in_archive": 4529,
+   "conf_with_partner_selected": 1030,
+   "fraction_with_partner_selected": 0.1820431247790739,
+   "fraction_of_partnered_with_partner_selected": 0.2274232722455288
+  },
+  "0.5": {
+   "conf": 11210,
+   "conf_with_partner_in_archive": 9018,
+   "conf_with_partner_selected": 4326,
+   "fraction_with_partner_selected": 0.38590544157002676,
+   "fraction_of_partnered_with_partner_selected": 0.479707252162342
+  },
+  "1.0": {
+   "conf": 22350,
+   "conf_with_partner_in_archive": 18044,
+   "conf_with_partner_selected": 18044,
+   "fraction_with_partner_selected": 0.807337807606264,
+   "fraction_of_partnered_with_partner_selected": 1.0
+  }
+ }
+}
