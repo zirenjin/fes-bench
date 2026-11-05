@@ -16,7 +16,7 @@ Run every command from the repository root.
 | Descriptor vs DPA-3.1 on common pairs (run after the descriptor baseline) | SI descriptor paragraph | `python analyses/descriptor_baseline/common_subset.py` | `analyses/descriptor_baseline/results/BARTEL_COMMON_SUBSET.json` |
 | Error scales and example curves (run after the descriptor baseline) | error-scale and example-curve figures | `python database_pairs/make_context_figs.py` | `database_pairs/figures/` |
 | Finite-temperature reference systems | finite-temperature table, SI per-phase table | `python finite_temperature/scripts/a_layer_score.py finite_temperature/data data/processed finite_temperature/results/A_LAYER.json` | `finite_temperature/results/A_LAYER.json` |
-| SiO2 reference-level sensitivity | SI functional figure | `python finite_temperature/scripts/sio2_functionals.py` | `finite_temperature/results/`, `finite_temperature/figures/` |
+| SiO2 reference-level sensitivity | introduction silica figure | `python finite_temperature/scripts/sio2_functionals.py` | `finite_temperature/results/`, `finite_temperature/figures/` |
 | Curvature correction summary | curvature figure | `python analyses/curvature_correction/scripts/make_fig5.py analyses/curvature_correction/figures` | `analyses/curvature_correction/figures/` |
 
 ## Recompute from scratch (GPU and source data needed)
